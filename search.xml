@@ -13,10 +13,16 @@
       
       <categories>
           
-          <category> 力扣hot100 </category>
+          <category> LeetCode 热题 HOT 100 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 哈希表 </tag>
+            
+        </tags>
       
     </entry>
     
