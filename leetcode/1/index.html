@@ -4,13 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「力扣」第 2 题：两数相加（中等）, iiifox">
-    <meta name="description" content="「力扣」第 2 题：两数相加
+    <meta name="keywords" content="「力扣」第 1 题：两数之和（简单）, iiifox">
+    <meta name="description" content="「力扣」第 1 题：两数之和
 链接
 
-给你两个&amp;nbsp;非空 的链表，表示两个非负的整数。它们每位数字都是按照&amp;nbsp;逆序&amp;nbsp;的方式存储的，并且每个节点只能存储&amp;nbsp;一位&amp;nbsp;数字。
+给定一个整数数组 nums&amp;nbsp;和一个整数目标值 target，请你在该数组中找出 和为目标值 target&amp;nbsp; 的那&amp;nbsp;两个&amp;nbsp;整数，并返回它们的数组下标。
 
-请你将两个数相加，并以相同形">
+你可以假设">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +24,7 @@
 
     
 
-    <title>「力扣」第 2 题：两数相加（中等） | iiifox</title>
+    <title>「力扣」第 1 题：两数之和（简单） | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -317,12 +317,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「力扣」第 2 题：两数相加（中等）</h1>
+                    <h1 class="description center-align post-title">「力扣」第 1 题：两数之和（简单）</h1>
                 </div>
             </div>
         </div>
@@ -438,8 +438,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                                <span class="chip bg-color">链表</span>
+                            <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                                <span class="chip bg-color">哈希表</span>
                             </a>
                         
                     </div>
@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-12
+                    2022-07-11
                 </div>
                 
 
@@ -477,7 +477,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    376
+                    312
                 </div>
                 
 
@@ -504,93 +504,69 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="「力扣」第-2-题：两数相加"><a href="#「力扣」第-2-题：两数相加" class="headerlink" title="「力扣」第 2 题：两数相加"></a>「力扣」第 2 题：两数相加</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/add-two-numbers/">链接</a></li>
+                <h3 id="「力扣」第-1-题：两数之和"><a href="#「力扣」第-1-题：两数之和" class="headerlink" title="「力扣」第 1 题：两数之和"></a>「力扣」第 1 题：两数之和</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/two-sum/">链接</a></li>
 </ul>
-<p>给你两个&nbsp;<strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照&nbsp;<strong>逆序</strong>&nbsp;的方式存储的，并且每个节点只能存储&nbsp;<strong>一位</strong>&nbsp;数字。</p>
+<p>给定一个整数数组 <code>nums</code>&nbsp;和一个整数目标值 <code>target</code>，请你在该数组中找出 <strong>和为目标值 </strong><em><code>target</code></em>&nbsp; 的那&nbsp;<strong>两个</strong>&nbsp;整数，并返回它们的数组下标。</p>
 
-<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
 
-<p>你可以假设除了数字 0 之外，这两个数都不会以 0&nbsp;开头。</p>
+<p>你可以按任意顺序返回答案。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<img alt src="/../img/addtwonumber1.jpg" style="width: 483px; height: 342px;">
-
-<pre><strong>输入：</strong>l1 = [2,4,3], l2 = [5,6,4]
-<strong>输出：</strong>[7,0,8]
-<strong>解释：</strong>342 + 465 = 807.
+<pre><strong>输入：</strong>nums = [2,7,11,15], target = 9
+<strong>输出：</strong>[0,1]
+<strong>解释：</strong>因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
 </pre>
-
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>l1 = [0], l2 = [0]
-<strong>输出：</strong>[0]
+<pre><strong>输入：</strong>nums = [3,2,4], target = 6
+<strong>输出：</strong>[1,2]
 </pre>
-
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
-<strong>输出：</strong>[8,9,9,9,0,0,0,1]
+<pre><strong>输入：</strong>nums = [3,3], target = 6
+<strong>输出：</strong>[0,1]
 </pre>
-
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-    <li>每个链表中的节点数在范围 <code>[1, 100]</code> 内</li>
-    <li><code>0 &lt;= Node.val &lt;= 9</code></li>
-    <li>题目数据保证列表表示的数字不含前导零</li>
+    <li><code>2 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+    <li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+    <li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
+    <li><strong>只会存在一个有效答案</strong></li>
 </ul>
+<p><strong>进阶：</strong>你可以想出一个时间复杂度小于 <code>O(n<sup>2</sup>)</code> 的算法吗？</p>
 
 
 
-<h4 id="链表：穿针引线"><a href="#链表：穿针引线" class="headerlink" title="链表：穿针引线"></a>链表：穿针引线</h4><blockquote>
-<p>时间复杂度：O(max(m,n))</p>
-<p>空间复杂度：O(1)</p>
+
+
+
+
+<h4 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h4><blockquote>
+<p>时间复杂度：O(n)</p>
+<p>空间复杂度：O(n)</p>
 </blockquote>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> ListNode <span class="token function">addTwoNumbers</span><span class="token punctuation">(</span>ListNode l1<span class="token punctuation">,</span> ListNode l2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 设置虚拟头结点（常用技巧）</span>
-        ListNode dummy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ListNode cur <span class="token operator">=</span> dummy<span class="token punctuation">;</span>
-        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-      
-        <span class="token comment" spellcheck="true">// 两个链表有一个非空，求和就不会终止</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>l1 <span class="token operator">!=</span> null <span class="token operator">||</span> l2 <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>l1 <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                sum <span class="token operator">+=</span> l1<span class="token punctuation">.</span>val<span class="token punctuation">;</span>
-                l1 <span class="token operator">=</span> l1<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 键存储数组中的值，值存储数组元素索引</span>
+        Map<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> Integer<span class="token operator">></span> hashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>hashMap<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span>hashMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> i<span class="token punctuation">}</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>l2 <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                sum <span class="token operator">+=</span> l2<span class="token punctuation">.</span>val<span class="token punctuation">;</span>
-                l2 <span class="token operator">=</span> l2<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            cur<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span>sum <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            sum <span class="token operator">/=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-            cur <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            hashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token comment" spellcheck="true">// 最后可能会进位，注意判断</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>sum <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            cur<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> dummy<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">"No two sum solution"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -620,7 +596,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://iiifox.github.io/2022/07/12/0b525a510692/">https://iiifox.github.io/2022/07/12/0b525a510692/</a>
+                    <a href="https://iiifox.github.io/leetcode/1/">https://iiifox.github.io/leetcode/1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -658,8 +634,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                                    <span class="chip bg-color">链表</span>
+                                <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                                    <span class="chip bg-color">哈希表</span>
                                 </a>
                             
                         </div>
@@ -833,12 +809,11 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/07/12/0b525a510692/">
+                <a href="/leetcode/2/">
                     <div class="card-image">
                         
                         
@@ -854,9 +829,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-12
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -869,7 +844,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -885,10 +859,10 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2022/07/11/d44afb5d333b/">
+                <a href="/leetcode/1/">
                     <div class="card-image">
                         
                         
@@ -919,6 +893,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
