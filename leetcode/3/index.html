@@ -4,13 +4,19 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「力扣」第 1 题：两数之和（简单）, iiifox">
-    <meta name="description" content="「力扣」第 1 题：两数之和
+    <meta name="keywords" content="「力扣」第 3 题：无重复字符的最长子串（中等）, iiifox">
+    <meta name="description" content="「力扣」第 3 题：无重复字符的最长子串
 链接
 
-给定一个整数数组 nums&amp;nbsp;和一个整数目标值 target，请你在该数组中找出 和为目标值 target&amp;nbsp; 的那&amp;nbsp;两个&amp;nbsp;整数，并返回它们的数组下标。
+给定一个字符串 s ，请你找出其中不含有重复字符的&amp;nbsp;最长子串&amp;nbsp;的长度。
 
-你可以假设">
+&amp;nbsp;
+
+示例&amp;nbsp;1:
+
+输入: s = &#34;abcabcbb&#34;
+输出: 3 
+解释">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +30,7 @@
 
     
 
-    <title>「力扣」第 1 题：两数之和（简单） | iiifox</title>
+    <title>「力扣」第 3 题：无重复字符的最长子串（中等） | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -322,7 +328,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「力扣」第 1 题：两数之和（简单）</h1>
+                    <h1 class="description center-align post-title">「力扣」第 3 题：无重复字符的最长子串（中等）</h1>
                 </div>
             </div>
         </div>
@@ -438,8 +444,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                                <span class="chip bg-color">哈希表</span>
+                            <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+                                <span class="chip bg-color">滑动窗口</span>
                             </a>
                         
                     </div>
@@ -463,28 +469,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-11
+                    2022-07-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-12
+                    2022-07-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    312
+                    621
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -504,69 +510,122 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="「力扣」第-1-题：两数之和"><a href="#「力扣」第-1-题：两数之和" class="headerlink" title="「力扣」第 1 题：两数之和"></a>「力扣」第 1 题：两数之和</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/two-sum/">链接</a></li>
+                <h3 id="「力扣」第-3-题：无重复字符的最长子串"><a href="#「力扣」第-3-题：无重复字符的最长子串" class="headerlink" title="「力扣」第 3 题：无重复字符的最长子串"></a>「力扣」第 3 题：无重复字符的最长子串</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/">链接</a></li>
 </ul>
-<p>给定一个整数数组 <code>nums</code>&nbsp;和一个整数目标值 <code>target</code>，请你在该数组中找出 <strong>和为目标值 </strong><em><code>target</code></em>&nbsp; 的那&nbsp;<strong>两个</strong>&nbsp;整数，并返回它们的数组下标。</p>
-
-<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
-
-<p>你可以按任意顺序返回答案。</p>
+<p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的&nbsp;<strong>最长子串&nbsp;</strong>的长度。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong>示例&nbsp;1:</strong></p>
 
-<pre><strong>输入：</strong>nums = [2,7,11,15], target = 9
-<strong>输出：</strong>[0,1]
-<strong>解释：</strong>因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
+<pre><strong>输入: </strong>s = "abcabcbb"
+<strong>输出: </strong>3 
+<strong>解释:</strong> 因为无重复字符的最长子串是 <code>"abc"</code>，所以其长度为 3。
 </pre>
 
-<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [3,2,4], target = 6
-<strong>输出：</strong>[1,2]
+
+
+<p><strong>示例 2:</strong></p>
+
+<pre><strong>输入: </strong>s = "bbbbb"
+<strong>输出: </strong>1
+<strong>解释: </strong>因为无重复字符的最长子串是 <code>"b"</code>，所以其长度为 1。
 </pre>
 
-<p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>nums = [3,3], target = 6
-<strong>输出：</strong>[0,1]
+
+<p><strong>示例 3:</strong></p>
+
+<pre><strong>输入: </strong>s = "pwwkew"
+<strong>输出: </strong>3
+<strong>解释: </strong>因为无重复字符的最长子串是&nbsp;<code>"wke"</code>，所以其长度为 3。
+&nbsp;    请注意，你的答案必须是 <strong>子串 </strong>的长度，<code>"pwke"</code>&nbsp;是一个<em>子序列，</em>不是子串。
 </pre>
+
+
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-    <li><code>2 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
-    <li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
-    <li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
-    <li><strong>只会存在一个有效答案</strong></li>
+    <li><code>0 &lt;= s.length &lt;= 5 * 10<sup>4</sup></code></li>
+    <li><code>s</code>&nbsp;由英文字母、数字、符号和空格组成</li>
 </ul>
-<p><strong>进阶：</strong>你可以想出一个时间复杂度小于 <code>O(n<sup>2</sup>)</code> 的算法吗？</p>
 
 
 
 
+<h4 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h4><p><strong>方法一：</strong></p>
+<p>这个方法并没有击败 <code>100%</code>，写这里是方便理解，方法二利用空间换了一些时间提高了运行效率才击败 <code>100%</code></p>
+<blockquote>
+<p>时间复杂度：O(n)</p>
+<p>空间复杂度：O(1)</p>
+</blockquote>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span>String s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> len <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> len<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
+        <span class="token comment" spellcheck="true">// key：字符，value：最新的下标</span>
+        Map<span class="token operator">&lt;</span>Character<span class="token punctuation">,</span> Integer<span class="token operator">></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-
-<h4 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h4><blockquote>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// [left, right] 中无重复的元素</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> right <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> right<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            Character c <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 如果当前字符在 map 中出现过，看存储的下标是否大于 left</span>
+                left <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            res <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> right <span class="token operator">-</span> left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>方法二：</strong></p>
+<blockquote>
 <p>时间复杂度：O(n)</p>
 <p>空间复杂度：O(n)</p>
 </blockquote>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 键存储数组中的值，值存储数组元素索引</span>
-        Map<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> Integer<span class="token operator">></span> hashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>hashMap<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span>hashMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> i<span class="token punctuation">}</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            hashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span>String s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> len <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> len<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">"No two sum solution"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 由于 s.charAt(i) 操作会去检查下标是否越界，因此</span>
+        <span class="token comment" spellcheck="true">// 在 Java 里，将字符串转换成字符数组是常见的操作</span>
+        <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chars <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 窗口数组，用来代替 HashMap，提高运行效率</span>
+        <span class="token comment" spellcheck="true">// windows[i] 存储的是 chars 中字符值为 i 的最新索引</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> window <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">128</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            window<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// chars 在 [left, right] 中没有重复元素</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> right <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> right<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 字符值为 chars[right] 在前面出现过了，</span>
+            <span class="token comment" spellcheck="true">// 前一次出现的索引是否在 [left, right] 中决定是否进行窗口滑动</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">[</span>chars<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                left <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> window<span class="token punctuation">[</span>chars<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">// 更新一下字符值为 chars[right] 的最新索引</span>
+            window<span class="token punctuation">[</span>chars<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> right<span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 计算 [left, right] 区间长度，决定是否更新 res</span>
+            res <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> right <span class="token operator">-</span> left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -596,7 +655,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://iiifox.github.io/leetcode/1/">https://iiifox.github.io/leetcode/1/</a>
+                    <a href="https://iiifox.github.io/leetcode/3/">https://iiifox.github.io/leetcode/3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -634,8 +693,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                                    <span class="chip bg-color">哈希表</span>
+                                <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+                                    <span class="chip bg-color">滑动窗口</span>
                                 </a>
                             
                         </div>
@@ -809,66 +868,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/leetcode/2/">
+                <a href="/leetcode/3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="「力扣」第 2 题：两数相加（中等）">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="「力扣」第 3 题：无重复字符的最长子串（中等）">
                         
-                        <span class="card-title">「力扣」第 2 题：两数相加（中等）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-12
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/LeetCode-%E7%83%AD%E9%A2%98-HOT-100/" class="post-category">
-                                    LeetCode 热题 HOT 100
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                        <span class="chip bg-color">链表</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/leetcode/1/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="「力扣」第 1 题：两数之和（简单）">
-                        
-                        <span class="card-title">「力扣」第 1 题：两数之和（简单）</span>
+                        <span class="card-title">「力扣」第 3 题：无重复字符的最长子串（中等）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -879,7 +890,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
                             </span>
                         <span class="publish-author">
                             
@@ -897,8 +908,57 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                        <span class="chip bg-color">哈希表</span>
+                    <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+                        <span class="chip bg-color">滑动窗口</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/leetcode/2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="「力扣」第 2 题：两数相加（中等）">
+                        
+                        <span class="card-title">「力扣」第 2 题：两数相加（中等）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/LeetCode-%E7%83%AD%E9%A2%98-HOT-100/" class="post-category">
+                                    LeetCode 热题 HOT 100
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                        <span class="chip bg-color">链表</span>
                     </a>
                     
                 </div>
