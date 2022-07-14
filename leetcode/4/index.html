@@ -433,7 +433,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    714
+                    713
                 </div>
                 
 
@@ -533,7 +533,7 @@
         <span class="token comment">// size(左)，可通过该数求得 j = totalLeft - i;</span>
         <span class="token keyword">int</span> totalLeft <span class="token operator">=</span> <span class="token punctuation">(</span>m <span class="token operator">+</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// 因为 i 的寻找区间为 [0, m]，故而需要向下取整</span>
+            <span class="token comment">// 下面的 if 中左指针右移，故而需要向下取整</span>
             <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
             <span class="token keyword">int</span> j <span class="token operator">=</span> totalLeft <span class="token operator">-</span> i<span class="token punctuation">;</span>
             <span class="token comment">// nums2 左边的最大值比 nums1 右边的最小值要大，说明 i 需要扩大</span>
