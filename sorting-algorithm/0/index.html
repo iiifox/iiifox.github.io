@@ -5,12 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="十大排序算法, iiifox">
-    <meta name="description" content="十大排序算法
+    <meta name="description" content="十大排序算法前言
 关于时间复杂度，默认指的是最差时间复杂度。
 由于本文代码在不改变其他性质的前提下对十大排序算法都有一些优化，故其时间复杂度可能会优于网上给出的时间复杂度。+
 
 
-希尔排序的时间复杂度跟选取的增量序列有关，本文给出的是 Knut">
+希尔排序的时间复杂度跟选取的增量序列有关，本文给出的是 Kn">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -433,7 +433,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.4k
+                    7.5k
                 </div>
                 
 
@@ -453,16 +453,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="十大排序算法"><a href="#十大排序算法" class="headerlink" title="十大排序算法"></a>十大排序算法</h1><blockquote>
+                <h1 id="十大排序算法"><a href="#十大排序算法" class="headerlink" title="十大排序算法"></a>十大排序算法</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>关于时间复杂度，默认指的是最差时间复杂度。</p>
 <p>由于本文代码在不改变其他性质的前提下对十大排序算法都有一些优化，故其时间复杂度可能会优于网上给出的时间复杂度。+</p>
 </blockquote>
 <ul>
 <li>希尔排序的时间复杂度跟选取的增量序列有关，本文给出的是 <code>Knuth</code> 增量序列，其最坏时间复杂度是 $O(N^{\frac{3}{2}})$；</li>
 <li>计数数组中复杂度的表达式中 n 表示数组长度，k 表示计数数组的长度 <code>max-min+1</code>，为了维持其稳定性，除了计数数组外，还需要额外开辟一个与原数组等长的数组；</li>
-<li>基数排序中计数数组长度为 10，即 <code>k = 10</code>；</li>
+<li>基数排序中计数数组长度为 10，即 <code>k = 10</code>；（k = 10 是代码中给出的是基于十进制的）</li>
+<li>跟希尔排序一样，桶排序的时间复杂度与桶的个数以及分布情况有关，这里不给出。</li>
 </ul>
-<p>在本文实现中基数排序较计数排序的优势是减少了部分的空间复杂度，值得一提的是，网上不少基数排序的代码实现使用的是二维数组，其空间复杂度为 O(n*k)，在与计数排序比较中时间复杂度不占优的情况下（具体看代码实现就知道了），其空间复杂度也不占优，图啥呢？而且网上不少计数排序使用的是空间复杂度为 O(k) 的算法，该算法不能够实现其稳定性。</p>
+<p>在本文实现中基数排序较计数排序的优势是减少了部分的空间复杂度，值得一提的是，网上不少基数排序的代码实现使用的是二维数组，其空间复杂度为 $O(n \timesk)$，在与计数排序比较中时间复杂度不占优的情况下（具体看代码实现就知道了），其空间复杂度也不占优，图啥呢？而且网上不少计数排序使用的是空间复杂度为 O(k) 的算法，该算法不能够实现其稳定性。</p>
 <table>
 <thead>
 <tr>
@@ -538,9 +539,9 @@
 </tr>
 <tr>
 <td align="center">桶排序</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">——</td>
+<td align="center">——</td>
+<td align="center">——</td>
 <td align="center">稳定</td>
 </tr>
 </tbody></table>
@@ -1873,7 +1874,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">10k</span>
+                        class="white-color">10.1k</span>
             
             
             
