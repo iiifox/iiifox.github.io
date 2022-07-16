@@ -6,7 +6,7 @@
   <link href="https://iiifox.github.io/atom.xml" rel="self"/>
   
   <link href="https://iiifox.github.io/"/>
-  <updated>2022-07-16T03:43:55.157Z</updated>
+  <updated>2022-07-16T04:33:33.051Z</updated>
   <id>https://iiifox.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java笔记</title>
+    <link href="https://iiifox.github.io/javase/0/"/>
+    <id>https://iiifox.github.io/javase/0/</id>
+    <published>2022-07-16T04:18:07.000Z</published>
+    <updated>2022-07-16T04:33:33.051Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Java核心技术&quot;&gt;&lt;a href=&quot;#Java核心技术&quot; class=&quot;headerlink&quot; title=&quot;Java核心技术&quot;&gt;&lt;/a&gt;Java核心技术&lt;/h1&gt;&lt;h2 id=&quot;一、Java基本语法&quot;&gt;&lt;a href=&quot;#一、Java基本语法&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="JavaSE" scheme="https://iiifox.github.io/categories/JavaSE/"/>
+    
+    
+    <category term="JavaSE" scheme="https://iiifox.github.io/tags/JavaSE/"/>
+    
+  </entry>
   
   <entry>
     <title>「力扣」第 10 题：正则表达式匹配（中等）</title>
