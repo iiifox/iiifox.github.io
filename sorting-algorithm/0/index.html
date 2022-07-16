@@ -7,10 +7,10 @@
     <meta name="keywords" content="十大排序算法, iiifox">
     <meta name="description" content="十大排序算法前言
 关于时间复杂度，默认指的是最差时间复杂度。
-由于本文代码在不改变其他性质的前提下对十大排序算法都有一些优化，故其时间复杂度可能会优于网上给出的时间复杂度。+
+由于本文代码在不改变其他性质的前提下对十大排序算法都有一些优化，故其时间复杂度可能会优于网上给出的时间复杂度。
 
 
-希尔排序的时间复杂度跟选取的增量序列有关，本文给出的是 Kn">
+希尔排序的时间复杂度跟选取的增量序列有关，本文给出的是 Knu">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -455,7 +455,7 @@
             <div id="articleContent">
                 <h1 id="十大排序算法"><a href="#十大排序算法" class="headerlink" title="十大排序算法"></a>十大排序算法</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>关于时间复杂度，默认指的是最差时间复杂度。</p>
-<p>由于本文代码在不改变其他性质的前提下对十大排序算法都有一些优化，故其时间复杂度可能会优于网上给出的时间复杂度。+</p>
+<p>由于本文代码在不改变其他性质的前提下对十大排序算法都有一些优化，故其时间复杂度可能会优于网上给出的时间复杂度。</p>
 </blockquote>
 <ul>
 <li>希尔排序的时间复杂度跟选取的增量序列有关，本文给出的是 <code>Knuth</code> 增量序列，其最坏时间复杂度是 $O(N^{\frac{3}{2}})$；</li>
@@ -463,7 +463,7 @@
 <li>基数排序中计数数组长度为 10，即 <code>k = 10</code>；（k = 10 是代码中给出的是基于十进制的）</li>
 <li>跟希尔排序一样，桶排序的时间复杂度与桶的个数以及分布情况有关，这里不给出。</li>
 </ul>
-<p>在本文实现中基数排序较计数排序的优势是减少了部分的空间复杂度，值得一提的是，网上不少基数排序的代码实现使用的是二维数组，其空间复杂度为 $O(n \timesk)$，在与计数排序比较中时间复杂度不占优的情况下（具体看代码实现就知道了），其空间复杂度也不占优，图啥呢？而且网上不少计数排序使用的是空间复杂度为 O(k) 的算法，该算法不能够实现其稳定性。</p>
+<p>在本文实现中基数排序较计数排序的优势是减少了部分的空间复杂度，值得一提的是，网上不少基数排序的代码实现使用的是二维数组，其空间复杂度为 $O(n \times k)$，在与计数排序比较中时间复杂度不占优的情况下（具体看代码实现就知道了），其空间复杂度也不占优，图啥呢？而且网上不少计数排序使用的是空间复杂度为 O(k) 的算法，该算法不能够实现其稳定性。</p>
 <table>
 <thead>
 <tr>
@@ -1580,18 +1580,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/sorting-algorithm/0/">
+                <a href="/leetcode/10/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="十大排序算法">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="「力扣」第 10 题：正则表达式匹配（中等）">
                         
-                        <span class="card-title">十大排序算法</span>
+                        <span class="card-title">「力扣」第 10 题：正则表达式匹配（中等）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1601,27 +1600,26 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-16
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/sorting-algorithm/" class="post-category">
-                                    排序算法
+                            <a href="/categories/leetcode/" class="post-category">
+                                    LeetCode 热题 HOT 100
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">排序算法</span>
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">动态规划</span>
                     </a>
                     
                 </div>
@@ -1874,7 +1872,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">10.1k</span>
+                        class="white-color">10.8k</span>
             
             
             
