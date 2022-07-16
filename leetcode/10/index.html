@@ -8,10 +8,10 @@
     <meta name="description" content="「力扣」第 10 题：正则表达式匹配
 链接
 
-给你一个字符串&amp;nbsp;s&amp;nbsp;和一个字符规律&amp;nbsp;p，请你来实现一个支持 &#39;.&#39;&amp;nbsp;和&amp;nbsp;&#39;*&#39;&amp;nbsp;的正则表达式匹配。
+题目描述给你一个字符串&amp;nbsp;s&amp;nbsp;和一个字符规律&amp;nbsp;p，请你来实现一个支持 &#39;.&#39;&amp;nbsp;和&amp;nbsp;&#39;*&#39;&amp;nbsp;的正则表达式匹配。
 
 
-    &#39;.&#39; 匹配任意单个字">
+    &#39;.&#39; 匹配任">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -434,7 +434,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    706
+                    708
                 </div>
                 
 
@@ -454,48 +454,42 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="「力扣」第-10-题：正则表达式匹配"><a href="#「力扣」第-10-题：正则表达式匹配" class="headerlink" title="「力扣」第 10 题：正则表达式匹配"></a>「力扣」第 10 题：正则表达式匹配</h3><ul>
+                <h2 id="「力扣」第-10-题：正则表达式匹配"><a href="#「力扣」第-10-题：正则表达式匹配" class="headerlink" title="「力扣」第 10 题：正则表达式匹配"></a>「力扣」第 10 题：正则表达式匹配</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/regular-expression-matching/">链接</a></li>
 </ul>
-<p>给你一个字符串&nbsp;<code>s</code>&nbsp;和一个字符规律&nbsp;<code>p</code>，请你来实现一个支持 <code>'.'</code>&nbsp;和&nbsp;<code>'*'</code>&nbsp;的正则表达式匹配。</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个字符串&nbsp;<code>s</code>&nbsp;和一个字符规律&nbsp;<code>p</code>，请你来实现一个支持 <code>'.'</code>&nbsp;和&nbsp;<code>'*'</code>&nbsp;的正则表达式匹配。</p>
 
 <ul>
     <li><code>'.'</code> 匹配任意单个字符</li>
     <li><code>'*'</code> 匹配零个或多个前面的那一个元素</li>
 </ul>
 
-
 <p>所谓匹配，是要涵盖&nbsp;<strong>整个&nbsp;</strong>字符串&nbsp;<code>s</code>的，而不是部分字符串。</p>
 
-<p>&amp;nbsp;</p>
-<p><strong>示例 1：</strong></p>
+<p>&nbsp;</p>
 
-<pre><strong>输入：</strong>s = "aa", p = "a"
+<pre><strong>示例 1：</strong>
+<strong>输入：</strong>s = "aa", p = "a"
 <strong>输出：</strong>false
 <strong>解释：</strong>"a" 无法匹配 "aa" 整个字符串。
 </pre>
 
-
-<p><strong>示例 2:</strong></p>
-
-<pre><strong>输入：</strong>s = "aa", p = "a*"
+<pre><strong>示例 2:</strong>
+<strong>输入：</strong>s = "aa", p = "a*"
 <strong>输出：</strong>true
-<strong>解释：</strong>因为 '*' 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 'a'。因此，字符串 "aa" 可被视为 'a' 重复了一次。
+<strong>解释：</strong>因为 '*' 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 'a'。
+    因此，字符串 "aa" 可被视为 'a' 重复了一次。
 </pre>
 
-
-<p><strong>示例&nbsp;3：</strong></p>
-
-<pre><strong>输入：</strong>s = "ab", p = ".*"
+<pre><strong>示例&nbsp;3：</strong>
+<strong>输入：</strong>s = "ab", p = ".*"
 <strong>输出：</strong>true
 <strong>解释：</strong>".*" 表示可匹配零个或多个（'*'）任意字符（'.'）。
 </pre>
 
-
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
-
 <ul>
     <li><code>1 &lt;= s.length&nbsp;&lt;= 20</code></li>
     <li><code>1 &lt;= p.length&nbsp;&lt;= 30</code></li>
@@ -508,7 +502,7 @@
 
 <p>&nbsp;</p>
 
-<h4 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h4><blockquote>
+<h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><blockquote>
 <p>时间复杂度：O(mn)</p>
 <p>空间复杂度：O(mn)</p>
 </blockquote>
@@ -526,7 +520,7 @@
                     <span class="token comment">// 1、匹配字符 s 的第 i 个字符</span>
                     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">matches</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> p<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                         <span class="token comment">// 注意：即使能够匹配，也有可能匹配零次，比如 s="aaa" p="ab*a*c*a"</span>
-                        <span class="token comment">// 故需要将该字符扔掉而后继续进行匹配 or 将该组合扔掉而后不再进行匹配</span>
+                        <span class="token comment">// 需要将该字符扔掉而后继续进行匹配 or 将该组合扔掉而后不再进行匹配</span>
                         dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">||</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
                     <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
                         <span class="token comment">// 2、不匹配字符 s 的第 i 个字符，将该组合扔掉，不再进行匹配</span>
