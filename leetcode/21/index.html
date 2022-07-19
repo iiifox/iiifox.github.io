@@ -4,13 +4,17 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「力扣」第 1 题：两数之和（简单）, iiifox">
-    <meta name="description" content="「力扣」第 1 题：两数之和
+    <meta name="keywords" content="「力扣」第 21 题：合并两个有序链表（简单）, iiifox">
+    <meta name="description" content="「力扣」第 21 题：合并两个有序链表
 链接
 
-题目描述给定一个整数数组 nums&amp;nbsp;和一个整数目标值 target，请你在该数组中找出 和为目标值 target&amp;nbsp; 的那&amp;nbsp;两个&amp;nbsp;整数，并返回它们的数组下标。
+题目描述将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。&amp;nbsp;
 
-你">
+&amp;nbsp;
+
+示例 1：
+
+输入：l1 = [1,2,4], l2 =">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +28,7 @@
 
     
 
-    <title>「力扣」第 1 题：两数之和（简单） | iiifox</title>
+    <title>「力扣」第 21 题：合并两个有序链表（简单） | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -273,12 +277,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「力扣」第 1 题：两数之和（简单）</h1>
+                    <h1 class="description center-align post-title">「力扣」第 21 题：合并两个有序链表（简单）</h1>
                 </div>
             </div>
         </div>
@@ -394,8 +398,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                                <span class="chip bg-color">哈希表</span>
+                            <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                <span class="chip bg-color">链表</span>
                             </a>
                         
                     </div>
@@ -419,7 +423,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-11
+                    2022-07-19
                 </div>
                 
 
@@ -433,7 +437,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    324
+                    417
                 </div>
                 
 
@@ -453,66 +457,123 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-1-题：两数之和"><a href="#「力扣」第-1-题：两数之和" class="headerlink" title="「力扣」第 1 题：两数之和"></a>「力扣」第 1 题：两数之和</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/two-sum/">链接</a></li>
+                <h2 id="「力扣」第-21-题：合并两个有序链表"><a href="#「力扣」第-21-题：合并两个有序链表" class="headerlink" title="「力扣」第 21 题：合并两个有序链表"></a>「力扣」第 21 题：合并两个有序链表</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-two-sorted-lists/">链接</a></li>
 </ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数数组 <code>nums</code>&nbsp;和一个整数目标值 <code>target</code>，请你在该数组中找出 <strong>和为目标值 </strong><em><code>target</code></em>&nbsp; 的那&nbsp;<strong>两个</strong>&nbsp;整数，并返回它们的数组下标。</p>
-
-<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
-
-<p>你可以按任意顺序返回答案。</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>将两个升序链表合并为一个新的 <strong>升序</strong> 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。&nbsp;</p>
 
 <p>&nbsp;</p>
 
 <pre><strong>示例 1：</strong>
-<strong>输入：</strong>nums = [2,7,11,15], target = 9
-<strong>输出：</strong>[0,1]
-<strong>解释：</strong>因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
+<img alt src="/images/merge_ex1.jpg" style="width: 662px; height: 302px;">
+<strong>输入：</strong>l1 = [1,2,4], l2 = [1,3,4]
+<strong>输出：</strong>[1,1,2,3,4,4]
 </pre>
 
 <pre><strong>示例 2：</strong>
-<strong>输入：</strong>nums = [3,2,4], target = 6
-<strong>输出：</strong>[1,2]
+<strong>输入：</strong>l1 = [], l2 = []
+<strong>输出：</strong>[]
 </pre>
 
 <pre><strong>示例 3：</strong>
-<strong>输入：</strong>nums = [3,3], target = 6
-<strong>输出：</strong>[0,1]
+<strong>输入：</strong>l1 = [], l2 = [0]
+<strong>输出：</strong>[0]
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong>
 </p><ul>
-    <li><code>2 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
-    <li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
-    <li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
-    <li><strong>只会存在一个有效答案</strong></li>
+    <li>两个链表的节点数目范围是 <code>[0, 50]</code></li>
+    <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+    <li><code>l1</code> 和 <code>l2</code> 均按 <strong>非递减顺序</strong> 排列</li>
 </ul><p></p>
 
-<p><strong>进阶：</strong>你可以想出一个时间复杂度小于 <code>O(n<sup>2</sup>)</code> 的算法吗？</p>
-
 <p>&nbsp;</p>
 
 <p>&nbsp;</p>
 
-<h3 id="参考代码：哈希表"><a href="#参考代码：哈希表" class="headerlink" title="参考代码：哈希表"></a>参考代码：哈希表</h3><blockquote>
-<p>时间复杂度：$O(n)$</p>
-<p>空间复杂度：$O(n)$</p>
+<h3 id="参考代码：链表"><a href="#参考代码：链表" class="headerlink" title="参考代码：链表"></a>参考代码：链表</h3><p><strong>方法一：递归</strong></p>
+<blockquote>
+<p>时间复杂度：$O(m+n)$</p>
+<p>空间复杂度：$O(m+n)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// 键存储数组中的值，值存储数组元素索引</span>
-        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> hashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>hashMap<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span>hashMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> i<span class="token punctuation">}</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            hashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> list1<span class="token punctuation">,</span> <span class="token class-name">ListNode</span> list2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>list1 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> list2<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token string">"No two sum solution"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>list2 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> list1<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>list1<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> list2<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            list1<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>list1<span class="token punctuation">.</span>next<span class="token punctuation">,</span> list2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> list1<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            list2<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>list1<span class="token punctuation">,</span> list2<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> list2<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><strong>方法二：非递归</strong></p>
+<blockquote>
+<p>时间复杂度：$O(m+n)$</p>
+<p>空间复杂度：$O(1)$</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> list1<span class="token punctuation">,</span> <span class="token class-name">ListNode</span> list2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">ListNode</span> dummy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">ListNode</span> cur <span class="token operator">=</span> dummy<span class="token punctuation">;</span>
+
+        <span class="token comment">// 两者都不为空的时候，才有必要进行比较</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>list1 <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> list2 <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>list1<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> list2<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 指针修改发生在这里</span>
+                cur<span class="token punctuation">.</span>next <span class="token operator">=</span> list1<span class="token punctuation">;</span>
+                list1 <span class="token operator">=</span> list1<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 指针修改发生在这里</span>
+                cur<span class="token punctuation">.</span>next <span class="token operator">=</span> list2<span class="token punctuation">;</span>
+                list2 <span class="token operator">=</span> list2<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            cur <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 跳出循环是因为 list1 == null 或者 list2 == null</span>
+        <span class="token comment">// 因为可能都为空，故不能用 if-else</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>list1 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            cur<span class="token punctuation">.</span>next <span class="token operator">=</span> list2<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>list2 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            cur<span class="token punctuation">.</span>next <span class="token operator">=</span> list1<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> dummy<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -540,7 +601,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://iiifox.github.io/leetcode/1/">https://iiifox.github.io/leetcode/1/</a>
+                    <a href="https://iiifox.github.io/leetcode/21/">https://iiifox.github.io/leetcode/21/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -578,8 +639,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                                    <span class="chip bg-color">哈希表</span>
+                                <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                    <span class="chip bg-color">链表</span>
                                 </a>
                             
                         </div>
@@ -753,66 +814,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/leetcode/2/">
+                <a href="/leetcode/21/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="「力扣」第 2 题：两数相加（中等）">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="「力扣」第 21 题：合并两个有序链表（简单）">
                         
-                        <span class="card-title">「力扣」第 2 题：两数相加（中等）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-12
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/leetcode/" class="post-category">
-                                    LeetCode 热题 HOT 100
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                        <span class="chip bg-color">链表</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/leetcode/1/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="「力扣」第 1 题：两数之和（简单）">
-                        
-                        <span class="card-title">「力扣」第 1 题：两数之和（简单）</span>
+                        <span class="card-title">「力扣」第 21 题：合并两个有序链表（简单）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -823,7 +836,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-19
                             </span>
                         <span class="publish-author">
                             
@@ -841,8 +854,57 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                        <span class="chip bg-color">哈希表</span>
+                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                        <span class="chip bg-color">链表</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/leetcode/20/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="「力扣」第 20 题：有效的括号（简单）">
+                        
+                        <span class="card-title">「力扣」第 20 题：有效的括号（简单）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/leetcode/" class="post-category">
+                                    LeetCode 热题 HOT 100
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%A0%88/">
+                        <span class="chip bg-color">栈</span>
                     </a>
                     
                 </div>
