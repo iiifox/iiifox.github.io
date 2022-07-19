@@ -4,13 +4,18 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「力扣」第 17 题：两数之和（中等）, iiifox">
-    <meta name="description" content="「力扣」第 17 题：两数之和（中等）
+    <meta name="keywords" content="「力扣」第 23 题：合并K个升序链表（困难）, iiifox">
+    <meta name="description" content="「力扣」第 23 题：合并K个升序链表
 链接
 
-题目描述给定一个仅包含数字&amp;nbsp;2-9&amp;nbsp;的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
+题目描述给你一个链表数组，每个链表都已经按升序排列。
 
-给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字">
+请你将所有链表合并到一个升序链表中，返回合并后的链表。
+
+&amp;nbsp;
+
+示例 1：
+输入：lists = [[1,4,5],[1,3,">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +29,7 @@
 
     
 
-    <title>「力扣」第 17 题：两数之和（中等） | iiifox</title>
+    <title>「力扣」第 23 题：合并K个升序链表（困难） | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -273,12 +278,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「力扣」第 17 题：两数之和（中等）</h1>
+                    <h1 class="description center-align post-title">「力扣」第 23 题：合并K个升序链表（困难）</h1>
                 </div>
             </div>
         </div>
@@ -394,8 +399,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%9B%9E%E6%BA%AF/">
-                                <span class="chip bg-color">回溯</span>
+                            <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                <span class="chip bg-color">链表</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%88%86%E6%B2%BB/">
+                                <span class="chip bg-color">分治</span>
                             </a>
                         
                     </div>
@@ -419,7 +428,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-19
+                    2022-07-20
                 </div>
                 
 
@@ -433,7 +442,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    322
+                    501
                 </div>
                 
 
@@ -453,84 +462,118 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-17-题：两数之和（中等）"><a href="#「力扣」第-17-题：两数之和（中等）" class="headerlink" title="「力扣」第 17 题：两数之和（中等）"></a>「力扣」第 17 题：两数之和（中等）</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/letter-combinations-of-a-phone-number/">链接</a></li>
+                <h2 id="「力扣」第-23-题：合并K个升序链表"><a href="#「力扣」第-23-题：合并K个升序链表" class="headerlink" title="「力扣」第 23 题：合并K个升序链表"></a>「力扣」第 23 题：合并K个升序链表</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-k-sorted-lists/">链接</a></li>
 </ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个仅包含数字&nbsp;<code>2-9</code>&nbsp;的字符串，返回所有它能表示的字母组合。答案可以按 <strong>任意顺序</strong> 返回。</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个链表数组，每个链表都已经按升序排列。</p>
 
-<p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
-
-<p><img src="/images/200px-telephone-keypad2svg.png" style="width: 200px;"></p>
+<p>请你将所有链表合并到一个升序链表中，返回合并后的链表。</p>
 
 <p>&nbsp;</p>
 
 <pre><strong>示例 1：</strong>
-<strong>输入：</strong>digits = "23"
-<strong>输出：</strong>["ad","ae","af","bd","be","bf","cd","ce","cf"]
+<strong>输入：</strong>lists = [[1,4,5],[1,3,4],[2,6]]
+<strong>输出：</strong>[1,1,2,3,4,4,5,6]
+<strong>解释：</strong>链表数组如下：
+[
+  1-&gt;4-&gt;5,
+  1-&gt;3-&gt;4,
+  2-&gt;6
+]
+将它们合并到一个有序链表中得到。
+1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6
 </pre>
 
 <pre><strong>示例 2：</strong>
-<strong>输入：</strong>digits = ""
+<strong>输入：</strong>lists = []
 <strong>输出：</strong>[]
 </pre>
 
 <pre><strong>示例 3：</strong>
-<strong>输入：</strong>digits = "2"
-<strong>输出：</strong>["a","b","c"]
+<strong>输入：</strong>lists = [[]]
+<strong>输出：</strong>[]
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong>
 </p><ul>
-    <li><code>0 &lt;= digits.length &lt;= 4</code></li>
-    <li><code>digits[i]</code> 是范围 <code>['2', '9']</code> 的一个数字。</li>
+    <li><code>k == lists.length</code></li>
+    <li><code>0 &lt;= k &lt;= 10<sup>4</sup></code></li>
+    <li><code>0 &lt;= lists[i].length &lt;= 500</code></li>
+    <li><code>-10<sup>4</sup> &lt;= lists[i][j] &lt;= 10<sup>4</sup></code></li>
+    <li><code>lists[i]</code> 按 <strong>升序</strong> 排列</li>
+    <li><code>lists[i].length</code> 的总和不超过 <code>10<sup>4</sup></code></li>
 </ul><p></p>
 
-<p>&nbsp;</p>
 
 <p>&nbsp;</p>
 
-<h3 id="参考代码：回溯"><a href="#参考代码：回溯" class="headerlink" title="参考代码：回溯"></a>参考代码：回溯</h3><blockquote>
-<p>时间复杂度：$O(3^m \times 4^n)$</p>
-<p>空间复杂度：$O(m+n)$</p>
+<p>&nbsp;</p>
+
+<h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><blockquote>
+<p>时间复杂度：$O(kn \times logk)$</p>
+<p>空间复杂度：$O(logk)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token function">letterCombinations</span><span class="token punctuation">(</span><span class="token class-name">String</span> digits<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>digits<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">mergeKLists</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span><span class="token punctuation">[</span><span class="token punctuation">]</span> lists<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>lists<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-
-        <span class="token comment">// 在匿名内部类的代码块里将数据初始化</span>
-        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> photoMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
-            <span class="token function">put</span><span class="token punctuation">(</span><span class="token char">'2'</span><span class="token punctuation">,</span> <span class="token string">"abc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">put</span><span class="token punctuation">(</span><span class="token char">'3'</span><span class="token punctuation">,</span> <span class="token string">"def"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">put</span><span class="token punctuation">(</span><span class="token char">'4'</span><span class="token punctuation">,</span> <span class="token string">"ghi"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">put</span><span class="token punctuation">(</span><span class="token char">'5'</span><span class="token punctuation">,</span> <span class="token string">"jkl"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">put</span><span class="token punctuation">(</span><span class="token char">'6'</span><span class="token punctuation">,</span> <span class="token string">"mno"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">put</span><span class="token punctuation">(</span><span class="token char">'7'</span><span class="token punctuation">,</span> <span class="token string">"pqrs"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">put</span><span class="token punctuation">(</span><span class="token char">'8'</span><span class="token punctuation">,</span> <span class="token string">"tuv"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">put</span><span class="token punctuation">(</span><span class="token char">'9'</span><span class="token punctuation">,</span> <span class="token string">"wxyz"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-        <span class="token function">backtrack</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> photoMap<span class="token punctuation">,</span> digits<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">mergeKLists</span><span class="token punctuation">(</span>lists<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> lists<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">backtrack</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> res<span class="token punctuation">,</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> photoMap<span class="token punctuation">,</span>
-                           <span class="token class-name">String</span> digits<span class="token punctuation">,</span> <span class="token keyword">int</span> index<span class="token punctuation">,</span> <span class="token class-name">StringBuilder</span> combination<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">==</span> digits<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            res<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>combination<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token class-name">String</span> letters <span class="token operator">=</span> photoMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>digits<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> letters<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                combination<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>letters<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token function">backtrack</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> photoMap<span class="token punctuation">,</span> digits<span class="token punctuation">,</span> index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> combination<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                combination<span class="token punctuation">.</span><span class="token function">deleteCharAt</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">ListNode</span> <span class="token function">mergeKLists</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span><span class="token punctuation">[</span><span class="token punctuation">]</span> lists<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 只有一个有序链表，直接返回</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>left <span class="token operator">==</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> lists<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token class-name">ListNode</span> l1 <span class="token operator">=</span> <span class="token function">mergeKLists</span><span class="token punctuation">(</span>lists<span class="token punctuation">,</span> left<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">ListNode</span> l2 <span class="token operator">=</span> <span class="token function">mergeKLists</span><span class="token punctuation">(</span>lists<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>l1<span class="token punctuation">,</span> l2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 「力扣」第 21 题：合并两个有序链表</span>
+    <span class="token keyword">private</span> <span class="token class-name">ListNode</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> list1<span class="token punctuation">,</span> <span class="token class-name">ListNode</span> list2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">ListNode</span> dummy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">ListNode</span> cur <span class="token operator">=</span> dummy<span class="token punctuation">;</span>
+        <span class="token comment">// 两者都不为空的时候，才有必要进行比较</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>list1 <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> list2 <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>list1<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> list2<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 指针修改发生在这里</span>
+                cur<span class="token punctuation">.</span>next <span class="token operator">=</span> list1<span class="token punctuation">;</span>
+                list1 <span class="token operator">=</span> list1<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 指针修改发生在这里</span>
+                cur<span class="token punctuation">.</span>next <span class="token operator">=</span> list2<span class="token punctuation">;</span>
+                list2 <span class="token operator">=</span> list2<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
+            cur <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
+        <span class="token comment">// 进入循环是因为 list1 != null &amp;&amp; list2 != null</span>
+        <span class="token comment">// 从而跳出循环 list1 == null || list2 == null；</span>
+        <span class="token comment">// 而每一轮循环只有一条链表的长度会减一，</span>
+        <span class="token comment">// 故跳出循环时 list1 与 list2 不同时为空。</span>
+        <span class="token comment">// 从而跳出循环时 list1 与 list2 有且仅有一条为空</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>list1 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            cur<span class="token punctuation">.</span>next <span class="token operator">=</span> list2<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            cur<span class="token punctuation">.</span>next <span class="token operator">=</span> list1<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> dummy<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -558,7 +601,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://iiifox.github.io/leetcode/17/">https://iiifox.github.io/leetcode/17/</a>
+                    <a href="https://iiifox.github.io/leetcode/23/">https://iiifox.github.io/leetcode/23/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -596,8 +639,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%9B%9E%E6%BA%AF/">
-                                    <span class="chip bg-color">回溯</span>
+                                <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                    <span class="chip bg-color">链表</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%88%86%E6%B2%BB/">
+                                    <span class="chip bg-color">分治</span>
                                 </a>
                             
                         </div>
@@ -771,17 +818,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/leetcode/19/">
+                <a href="/leetcode/23/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="「力扣」第 19 题：删除链表的倒数第 N 个结点（中等）">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="「力扣」第 23 题：合并K个升序链表（困难）">
                         
-                        <span class="card-title">「力扣」第 19 题：删除链表的倒数第 N 个结点（中等）</span>
+                        <span class="card-title">「力扣」第 23 题：合并K个升序链表（困难）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -791,9 +839,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -806,11 +854,16 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                        <span class="chip bg-color">双指针</span>
+                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                        <span class="chip bg-color">链表</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%86%E6%B2%BB/">
+                        <span class="chip bg-color">分治</span>
                     </a>
                     
                 </div>
@@ -824,13 +877,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/leetcode/15/">
+                <a href="/leetcode/22/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="「力扣」第 15 题：三数之和（中等）">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="「力扣」第 22 题：括号生成（中等）">
                         
-                        <span class="card-title">「力扣」第 15 题：三数之和（中等）</span>
+                        <span class="card-title">「力扣」第 22 题：括号生成（中等）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -841,7 +894,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-20
                             </span>
                         <span class="publish-author">
                             
@@ -858,8 +911,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                        <span class="chip bg-color">双指针</span>
+                    <a href="/tags/%E5%9B%9E%E6%BA%AF/">
+                        <span class="chip bg-color">回溯</span>
                     </a>
                     
                 </div>
