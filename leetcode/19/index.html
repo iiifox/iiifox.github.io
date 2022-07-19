@@ -437,7 +437,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    340
+                    373
                 </div>
                 
 
@@ -465,7 +465,7 @@
 <p>&nbsp;</p>
 
 <pre><strong>示例 1：</strong>
-<img alt src="/images/remove_ex1.jpg" style="width: 542px; height: 222px;">
+<img alt="" src="/images/remove_ex1.jpg" style="width: 542px; height: 222px;">
 <strong>输入：</strong>head = [1,2,3,4,5], n = 2
 <strong>输出：</strong>[1,2,3,5]
 </pre>
@@ -520,7 +520,8 @@
 
         <span class="token class-name">ListNode</span> left <span class="token operator">=</span> dummy<span class="token punctuation">;</span>
         <span class="token class-name">ListNode</span> right <span class="token operator">=</span> dummy<span class="token punctuation">;</span>
-        <span class="token comment">// right 指针先走 n + 1 步，后面一起移动的时候，left 指针最终指向待删除结点的上一个节点</span>
+        <span class="token comment">// right 指针先走 n + 1 步，后面一起移动的时候：</span>
+        <span class="token comment">// 右指针指向链表末尾 null，左指针指向待删除结点的上一个节点</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span>n <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             right <span class="token operator">=</span> right<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
             n<span class="token operator">--</span><span class="token punctuation">;</span>
@@ -535,9 +536,10 @@
         left<span class="token punctuation">.</span>next <span class="token operator">=</span> del<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
         <span class="token comment">// 断开待删除结点对其他结点的引用，该节点会被自动垃圾回收</span>
         del<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token comment">// 上面三行代码可以简化为 left.next = left.next.next; 不建议这样（存在垃圾）</span>
         <span class="token keyword">return</span> dummy<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
