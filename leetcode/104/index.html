@@ -634,14 +634,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-28
+                    2022-07-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    194
+                    200
                 </div>
                 
 
@@ -682,12 +682,7 @@
 
 <p>&nbsp;</p>
 
-<p>&nbsp;</p>
-
-<h3 id="参考代码：DFS"><a href="#参考代码：DFS" class="headerlink" title="参考代码：DFS"></a>参考代码：DFS</h3><blockquote>
-<p>时间复杂度：$O(n)$</p>
-<p>空间复杂度：$O(height)$</p>
-</blockquote>
+<p><strong>二叉树定义</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -702,8 +697,17 @@
  *         this.right = right;
  *     }
  * }
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+ */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<h3 id="参考代码：DFS"><a href="#参考代码：DFS" class="headerlink" title="参考代码：DFS"></a>参考代码：DFS</h3><blockquote>
+<p>时间复杂度：$O(n)$</p>
+<p>空间复杂度：$O(height)$</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -712,7 +716,7 @@
         <span class="token keyword">int</span> rightHeight <span class="token operator">=</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>leftHeight<span class="token punctuation">,</span> rightHeight<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1052,12 +1056,12 @@
                         <span class="chip bg-color">二叉树</span>
                     </a>
                     
-                    <a href="/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">
-                        <span class="chip bg-color">广度优先搜索</span>
-                    </a>
-                    
                     <a href="/tags/%E9%98%9F%E5%88%97/">
                         <span class="chip bg-color">队列</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">
+                        <span class="chip bg-color">广度优先搜索</span>
                     </a>
                     
                 </div>
@@ -1207,7 +1211,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">19k</span>
+                        class="white-color">19.7k</span>
             
             
             
