@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>「力扣」第 124 题：二叉树中的最大路径和（困难）</title>
+      <link href="/leetcode/124/"/>
+      <url>/leetcode/124/</url>
+      
+        <content type="html"><![CDATA[<h2 id="「力扣」第-124-题：二叉树中的最大路径和"><a href="#「力扣」第-124-题：二叉树中的最大路径和" class="headerlink" title="「力扣」第 124 题：二叉树中的最大路径和"></a>「力扣」第 124 题：二叉树中的最大路径和</h2><ul><li><a href="https://leetcode.cn/problems/binary-tree-maximum-path-sum/">链接</a></li></ul><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><strong>路径</strong> 被定义为一条从树中任意节点出发，沿父节点-子节点连接，达到任意节点的序列。同一个节点在一条路径序列中 <strong>至多出现一次</strong> 。该路径<strong> 至少包含一个 </strong>节点，且不一定经过根节点。</p><p><strong>路径和</strong> 是路径中各节点值的总和。</p><p>给你一个二叉树的根节点 <code>root</code> ，返回其 <strong>最大路径和</strong> 。</p><p>&nbsp;</p><pre><strong>示例 1：</strong><img alt="" src="../../images/leetcode/124/exx1.jpg" style="width: 322px; height: 182px;"> <strong>输入：</strong>root = [1,2,3]<strong>输出：</strong>6<strong>解释：</strong>最优路径是 2 -&gt; 1 -&gt; 3 ，路径和为 2 + 1 + 3 = 6</pre><pre><strong>示例 2：</strong><img alt="" src="../../images/leetcode/124/exx2.jpg"> <strong>输入：</strong>root = [-10,9,20,null,null,15,7]<strong>输出：</strong>42<strong>解释：</strong>最优路径是 15 -&gt; 20 -&gt; 7 ，路径和为 15 + 20 + 7 = 42</pre><p>&nbsp;</p><p><strong>提示：</strong></p><ul>  <li>树中节点数目范围是 <code>[1, 3 * 10<sup>4</sup>]</code></li>  <li><code>-1000 &lt;= Node.val &lt;= 1000</code></li> </ul><p></p><p>&nbsp;</p><p><strong>二叉树定义</strong></p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode() {} *     TreeNode(int val) { this.val = val; } *     TreeNode(int val, TreeNode left, TreeNode right) { *         this.val = val; *         this.left = left; *         this.right = right; *     } * } */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>&nbsp;</p><p>&nbsp;</p><h3 id="参考代码：DFS"><a href="#参考代码：DFS" class="headerlink" title="参考代码：DFS"></a>参考代码：DFS</h3><blockquote><p>时间复杂度：$O(n)$</p><p>空间复杂度：$O(n)$</p></blockquote><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">int</span> maxSum <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span>MIN_VALUE<span class="token punctuation">;</span>    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxPathSum</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token function">maxGain</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">return</span> maxSum<span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">maxGain</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token comment">// 递归计算左右子结点的最大贡献值</span>        <span class="token comment">// 只有在最大贡献值大于零时，才会选取对应子节点</span>        <span class="token keyword">int</span> leftGain <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">maxGain</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> rightGain <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">maxGain</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// 结点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值</span>        <span class="token keyword">int</span> priceNewPath <span class="token operator">=</span> leftGain <span class="token operator">+</span> root<span class="token punctuation">.</span>val <span class="token operator">+</span> rightGain<span class="token punctuation">;</span>        <span class="token comment">// 更新答案</span>        maxSum <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>maxSum<span class="token punctuation">,</span> priceNewPath<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// 返回结点的最大贡献值</span>        <span class="token keyword">return</span> root<span class="token punctuation">.</span>val <span class="token operator">+</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>leftGain<span class="token punctuation">,</span> rightGain<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode 热题 HOT 100 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二叉树 </tag>
+            
+            <tag> 深度优先搜索 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>「力扣」第 121 题：买卖股票的最佳时机（简单）</title>
       <link href="/leetcode/121/"/>
       <url>/leetcode/121/</url>
@@ -128,9 +155,9 @@
             
             <tag> 二叉树 </tag>
             
-            <tag> 队列 </tag>
-            
             <tag> 广度优先搜索 </tag>
+            
+            <tag> 队列 </tag>
             
         </tags>
       
@@ -157,9 +184,9 @@
             
             <tag> 二叉树 </tag>
             
-            <tag> 深度优先搜索 </tag>
-            
             <tag> 队列 </tag>
+            
+            <tag> 深度优先搜索 </tag>
             
         </tags>
       
