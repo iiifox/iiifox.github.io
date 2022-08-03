@@ -649,7 +649,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    809
+                    828
                 </div>
                 
 
@@ -800,7 +800,7 @@
 
         <span class="token comment">// 虚拟头结点</span>
         <span class="token class-name">ListNode</span> dummy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// 自底向上的归并排序</span>
+        <span class="token comment">// 自底向上的归并排序：每连续两段长为 subLength 的有序链表进行合并排序</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> subLength <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> subLength <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> subLength <span class="token operator">&lt;&lt;=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token class-name">ListNode</span> pre <span class="token operator">=</span> dummy<span class="token punctuation">;</span>
             <span class="token class-name">ListNode</span> cur <span class="token operator">=</span> dummy<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
