@@ -789,8 +789,8 @@ lRUCache.get(4);    // 返回 4
     <span class="token punctuation">}</span>
 
     <span class="token comment">// 双向链表的虚拟头结点与虚拟尾结点</span>
-    <span class="token keyword">private</span> <span class="token class-name">LRUCacheNode</span> head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LRUCacheNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">LRUCacheNode</span> tail <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LRUCacheNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">LRUCacheNode</span> dummyHead <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LRUCacheNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">LRUCacheNode</span> dummyTail <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LRUCacheNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">// 哈希表：通过缓存数据的键映射到其在双向链表中的位置</span>
     <span class="token keyword">private</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">LRUCacheNode</span><span class="token punctuation">&gt;</span></span> cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -798,8 +798,8 @@ lRUCache.get(4);    // 返回 4
     <span class="token keyword">private</span> <span class="token keyword">int</span> capacity<span class="token punctuation">;</span>
 
     <span class="token punctuation">{</span>
-        head<span class="token punctuation">.</span>next <span class="token operator">=</span> tail<span class="token punctuation">;</span>
-        tail<span class="token punctuation">.</span>pre <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        dummyHead<span class="token punctuation">.</span>next <span class="token operator">=</span> dummyTail<span class="token punctuation">;</span>
+        dummyTail<span class="token punctuation">.</span>pre <span class="token operator">=</span> dummyHead<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
     <span class="token keyword">public</span> <span class="token class-name">LRUCache</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -850,17 +850,17 @@ lRUCache.get(4);    // 返回 4
 
     <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">addToHead</span><span class="token punctuation">(</span><span class="token class-name">LRUCacheNode</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">// 先处理好 node 结点的指针指向</span>
-        node<span class="token punctuation">.</span>pre <span class="token operator">=</span> head<span class="token punctuation">;</span>
-        node<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        <span class="token comment">// 再处理 node 结点的 next 域结点的 pre 指针指向</span>
+        node<span class="token punctuation">.</span>pre <span class="token operator">=</span> dummyHead<span class="token punctuation">;</span>
+        node<span class="token punctuation">.</span>next <span class="token operator">=</span> dummyHead<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token comment">// 处理 node 结点的 next 域结点的 pre 指针指向</span>
         node<span class="token punctuation">.</span>next<span class="token punctuation">.</span>pre <span class="token operator">=</span> node<span class="token punctuation">;</span>
-        <span class="token comment">// 最后处理 node 结点的 pre 域结点（虚拟头结点）的 next 指针指向</span>
+        <span class="token comment">// 处理 node 结点的 pre 域结点（虚拟头结点）的 next 指针指向</span>
         <span class="token comment">// node.pre.next = node;</span>
-        head<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">;</span>
+        dummyHead<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
     <span class="token keyword">private</span> <span class="token class-name">LRUCacheNode</span> <span class="token function">removeTail</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">LRUCacheNode</span> res <span class="token operator">=</span> tail<span class="token punctuation">.</span>pre<span class="token punctuation">;</span>
+        <span class="token class-name">LRUCacheNode</span> res <span class="token operator">=</span> dummyTail<span class="token punctuation">.</span>pre<span class="token punctuation">;</span>
         <span class="token function">removeNode</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
