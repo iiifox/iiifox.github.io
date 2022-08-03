@@ -4,6 +4,81 @@
   
     
     <entry>
+      <title>「力扣」第 169 题：多数元素（简单）</title>
+      <link href="/leetcode/169/"/>
+      <url>/leetcode/169/</url>
+      
+        <content type="html"><![CDATA[<h2 id="「力扣」第-169-题：多数元素"><a href="#「力扣」第-169-题：多数元素" class="headerlink" title="「力扣」第 169 题：多数元素"></a>「力扣」第 169 题：多数元素</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个大小为 <code>n</code><em> </em>的数组&nbsp;<code>nums</code> ，返回其中的多数元素。多数元素是指在数组中出现次数 <strong>大于</strong>&nbsp;<code>⌊ n/2 ⌋</code>&nbsp;的元素。</p><p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p><p>&nbsp;</p><pre><strong>示例&nbsp;1：</strong><strong>输入：</strong>nums = [3,2,3]<strong>输出：</strong>3</pre><pre><strong>示例&nbsp;2：</strong><strong>输入：</strong>nums = [2,2,1,1,1,2,2]<strong>输出：</strong>2</pre><p>&nbsp;</p><p><strong>提示：</strong></p><ul>    <li><code>n == nums.length</code></li>    <li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>    <li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li></ul><p></p><p>&nbsp;</p><p><strong>进阶：</strong>尝试设计时间复杂度为 O(n)、空间复杂度为 O(1) 的算法解决此问题。</p><p>&nbsp;</p><p>&nbsp;</p><h3 id="参考代码：Boyer-Moore-投票算法"><a href="#参考代码：Boyer-Moore-投票算法" class="headerlink" title="参考代码：Boyer-Moore 投票算法"></a>参考代码：Boyer-Moore 投票算法</h3><blockquote><p>时间复杂度：$O(n)$</p><p>空间复杂度：$O(1)$</p></blockquote><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">majorityElement</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token comment">// 初始化为一个 nums 中不存在的数</span>        <span class="token comment">// 或者定义为 Integer 并初始化为 null（==比较时自动拆箱和自动装箱降低运行速度）</span>        <span class="token keyword">int</span> candidate <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">;</span>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token comment">// 候选人下台，下一个候选人上</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span>count <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                candidate <span class="token operator">=</span> num<span class="token punctuation">;</span>            <span class="token punctuation">}</span>            count <span class="token operator">+=</span> <span class="token punctuation">(</span>num <span class="token operator">==</span> candidate<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> candidate<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode 热题 HOT 100 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Boyer-Moore 投票算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>「力扣」第 160 题：相交链表（简单）</title>
+      <link href="/leetcode/160/"/>
+      <url>/leetcode/160/</url>
+      
+        <content type="html"><![CDATA[<h2 id="「力扣」第-160-题：相交链表"><a href="#「力扣」第-160-题：相交链表" class="headerlink" title="「力扣」第 160 题：相交链表"></a>「力扣」第 160 题：相交链表</h2><ul><li><a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">链接</a></li></ul><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你两个单链表的头节点&nbsp;<code>headA</code> 和 <code>headB</code> ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 <code>null</code> 。</p><p>图示两个链表在节点 <code>c1</code> 开始相交<strong>：</strong></p><p><a href="../../images/leetcode/160/160_statement.png" target="_blank"><img alt="" src="../../images/leetcode/160/160_statement.png" style="height: 130px; width: 400px;"></a></p><p>题目数据 <strong>保证</strong> 整个链式结构中不存在环。</p><p><strong>注意</strong>，函数返回结果后，链表必须 <strong>保持其原始结构</strong> 。</p><p><strong>自定义评测：</strong></p><p><strong>评测系统</strong> 的输入如下（你设计的程序 <strong>不适用</strong> 此输入）：</p><ul>    <li><code>intersectVal</code> - 相交的起始节点的值。如果不存在相交节点，这一值为 <code>0</code></li>    <li><code>listA</code> - 第一个链表</li>    <li><code>listB</code> - 第二个链表</li>    <li><code>skipA</code> - 在 <code>listA</code> 中（从头节点开始）跳到交叉节点的节点数</li>    <li><code>skipB</code> - 在 <code>listB</code> 中（从头节点开始）跳到交叉节点的节点数</li></ul><p>评测系统将根据这些输入创建链式数据结构，并将两个头节点 <code>headA</code> 和 <code>headB</code> 传递给你的程序。如果程序能够正确返回相交节点，那么你的解决方案将被 <strong>视作正确答案</strong> 。</p><p>&nbsp;</p><pre><strong>示例 1：</strong><a href="../../images/leetcode/160/160_example_1.png" target="_blank"><img alt="" src="../../images/leetcode/160/160_example_1_1.png" style="height: 130px; width: 400px;"></a><strong>输入：</strong>intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3<strong>输出：</strong>Intersected at '8'<strong>解释：</strong>相交节点的值为 8 （注意，如果两个链表相交则不能为 0）。从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,6,1,8,4,5]。在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。</pre><pre><strong>示例&nbsp;2：</strong><a href="../../images/leetcode/160/160_example_2.png" target="_blank"><img alt="" src="../../images/leetcode/160/160_example_2.png" style="height: 136px; width: 350px;"></a><strong>输入：</strong>intersectVal&nbsp;= 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1<strong>输出：</strong>Intersected at '2'<strong>解释：</strong>相交节点的值为 2 （注意，如果两个链表相交则不能为 0）。从各自的表头开始算起，链表 A 为 [1,9,1,2,4]，链表 B 为 [3,2,4]。在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。</pre><pre><strong>示例&nbsp;3：</strong><a href="../../images/leetcode/160/160_example_3.png" target="_blank"><img alt="" src="../../images/leetcode/160/160_example_3.png" style="height: 126px; width: 200px;"></a><strong>输入：</strong>intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2<strong>输出：</strong>null<strong>解释：</strong>从各自的表头开始算起，链表 A 为 [2,6,4]，链表 B 为 [1,5]。由于这两个链表不相交，所以 intersectVal 必须为 0，而 skipA 和 skipB 可以是任意值。这两个链表不相交，因此返回 null 。</pre><p>&nbsp;</p><p><strong>提示：</strong></p><ul>    <li><code>listA</code> 中节点数目为 <code>m</code></li>    <li><code>listB</code> 中节点数目为 <code>n</code></li>    <li><code>1 &lt;= m, n &lt;= 3 * 10<sup>4</sup></code></li>    <li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>    <li><code>0 &lt;= skipA &lt;= m</code></li>    <li><code>0 &lt;= skipB &lt;= n</code></li>    <li>如果 <code>listA</code> 和 <code>listB</code> 没有交点，<code>intersectVal</code> 为 <code>0</code></li>    <li>如果 <code>listA</code> 和 <code>listB</code> 有交点，<code>intersectVal == listA[skipA] == listB[skipB]</code></li></ul><p></p><p>&nbsp;</p><p><strong>进阶：</strong>你能否设计一个时间复杂度 <code>O(m + n)</code> 、仅用 <code>O(1)</code> 内存的解决方案？</p><p>&nbsp;</p><p>&nbsp;</p><h3 id="参考代码：链表"><a href="#参考代码：链表" class="headerlink" title="参考代码：链表"></a>参考代码：链表</h3><blockquote><p>时间复杂度：$O(m+n)$</p><p>空间复杂度：$O(1)$</p></blockquote><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">getIntersectionNode</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> headA<span class="token punctuation">,</span> <span class="token class-name">ListNode</span> headB<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token comment">// 指针 ptr1 先指向 headA 的头结点，直到最后一个结点后转而指向 headB 的头结点</span>        <span class="token class-name">ListNode</span> ptr1 <span class="token operator">=</span> headA<span class="token punctuation">;</span>        <span class="token comment">// 指针 ptr2 先指向 headB 的头结点，直到最后一个结点后转而指向 headA 的头结点</span>        <span class="token class-name">ListNode</span> ptr2 <span class="token operator">=</span> headB<span class="token punctuation">;</span>        <span class="token keyword">while</span> <span class="token punctuation">(</span>ptr1 <span class="token operator">!=</span> ptr2<span class="token punctuation">)</span> <span class="token punctuation">{</span>            ptr1 <span class="token operator">=</span> <span class="token punctuation">(</span>ptr1 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> headB <span class="token operator">:</span> ptr1<span class="token punctuation">.</span>next<span class="token punctuation">;</span>            ptr2 <span class="token operator">=</span> <span class="token punctuation">(</span>ptr2 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> headA <span class="token operator">:</span> ptr2<span class="token punctuation">.</span>next<span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> ptr1<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode 热题 HOT 100 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>「力扣」第 155 题：最小栈（中等）</title>
+      <link href="/leetcode/155/"/>
+      <url>/leetcode/155/</url>
+      
+        <content type="html"><![CDATA[<h2 id="「力扣」第-155-题：最小栈"><a href="#「力扣」第-155-题：最小栈" class="headerlink" title="「力扣」第 155 题：最小栈"></a>「力扣」第 155 题：最小栈</h2><ul><li><a href="https://leetcode.cn/problems/min-stack/">链接</a></li><li><a href="https://iiifox.github.io/leetcode/239/">「力扣」第 239 题：滑动窗口最大值</a></li></ul><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>设计一个支持 <code>push</code> ，<code>pop</code> ，<code>top</code> 操作，并能在常数时间内检索到最小元素的栈。</p><p>实现 <code>MinStack</code> 类:</p><ul>  <li><code>MinStack()</code> 初始化堆栈对象。</li>  <li><code>void push(int val)</code> 将元素val推入堆栈。</li>  <li><code>void pop()</code> 删除堆栈顶部的元素。</li>  <li><code>int top()</code> 获取堆栈顶部的元素。</li>  <li><code>int getMin()</code> 获取堆栈中的最小元素。</li> </ul><p>&nbsp;</p><pre><strong>示例 1:</strong><strong>输入：</strong>["MinStack","push","push","push","getMin","pop","top","getMin"][[],[-2],[0],[-3],[],[],[],[]]<strong>输出：</strong>[null,null,null,null,-3,null,0,-2]<strong>解释：</strong>MinStack minStack = new MinStack();minStack.push(-2);minStack.push(0);minStack.push(-3);minStack.getMin();   --&gt; 返回 -3.minStack.pop();minStack.top();      --&gt; 返回 0.minStack.getMin();   --&gt; 返回 -2.</pre><p>&nbsp;</p><p><strong>提示：</strong></p><ul>  <li><code>-2<sup>31</sup>&nbsp;&lt;= val &lt;= 2<sup>31</sup>&nbsp;- 1</code></li>  <li><code>pop</code>、<code>top</code> 和 <code>getMin</code> 操作总是在 <strong>非空栈</strong> 上调用</li>  <li><code>push</code>,&nbsp;<code>pop</code>,&nbsp;<code>top</code>, and&nbsp;<code>getMin</code>最多被调用&nbsp;<code>3 * 10<sup>4</sup></code>&nbsp;次</li> </ul><p></p><p>&nbsp;</p><p>&nbsp;</p><h3 id="参考代码：算法设计"><a href="#参考代码：算法设计" class="headerlink" title="参考代码：算法设计"></a>参考代码：算法设计</h3><p>使用一个辅助栈，与元素栈同步插入与删除，用于存储与每个元素对应的最小值。</p><ul><li><p>当一个元素要入栈时，我们取当前辅助栈的栈顶存储的最小值，与当前元素比较得出最小值，将这个最小值插入辅助栈中；</p></li><li><p>当一个元素要出栈时，我们把辅助栈的栈顶元素也一并弹出；</p></li><li><p>在任意一个时刻，栈内元素的最小值就存储在辅助栈的栈顶元素中。</p></li></ul><blockquote><p>时间复杂度：对于题目中的所有操作，时间复杂度均为 $O(1)$ 。</p><p>空间复杂度：$O(n)$</p></blockquote><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MinStack</span> <span class="token punctuation">{</span>    <span class="token keyword">private</span> <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> minStack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 辅助栈，是一个非严格的单调栈</span>    <span class="token keyword">private</span> <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> helpStack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">public</span> <span class="token class-name">MinStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        helpStack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>        minStack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// 辅助栈每次入栈的元素是栈顶元素与当前元素的最小值</span>        helpStack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>helpStack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        minStack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        helpStack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">return</span> minStack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">return</span> helpStack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode 热题 HOT 100 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法设计 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>「力扣」第 152 题：乘积最大子数组（中等）</title>
       <link href="/leetcode/152/"/>
       <url>/leetcode/152/</url>
@@ -45,9 +120,9 @@
       
         <tags>
             
-            <tag> 分治 </tag>
-            
             <tag> 双指针 </tag>
+            
+            <tag> 分治 </tag>
             
             <tag> 链表 </tag>
             
@@ -483,7 +558,7 @@
             
             <tag> 栈 </tag>
             
-            <tag> Morris遍历 </tag>
+            <tag> Morris 遍历 </tag>
             
         </tags>
       
@@ -1293,7 +1368,7 @@
       
         <tags>
             
-            <tag> Manacher算法 </tag>
+            <tag> Manacher 算法 </tag>
             
         </tags>
       
