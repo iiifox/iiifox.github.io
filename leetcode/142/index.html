@@ -762,8 +762,8 @@
         <span class="token comment">// 显然快指针在环中再移动 n 圈后两指针会在原来相遇点处再次相遇，</span>
         <span class="token comment">// 此时快慢指针速度一样，因此第二次相遇的起始点处就是入环的第一个结点</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span>slow <span class="token operator">!=</span> fast<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
             slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> slow<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
