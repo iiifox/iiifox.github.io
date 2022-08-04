@@ -633,7 +633,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-03
+                    2022-08-05
                 </div>
                 
 
@@ -714,7 +714,7 @@
 <h3 id="参考代码：动态规划（推荐）"><a href="#参考代码：动态规划（推荐）" class="headerlink" title="参考代码：动态规划（推荐）"></a>参考代码：动态规划（推荐）</h3><p><code>dp[i]</code> 表示以 <code>nums[i]</code> 结尾的「连续子数组的最大和」</p>
 <p>动态规划转移方程：</p>
 <ul>
-<li><code>dp[i] = max{dp[i−1] + nums[i], nums[i]}</code></li>
+<li><code>dp[i] = max{dp[i−1]+nums[i], nums[i]}</code></li>
 </ul>
 <p>考虑到 <code>dp[i]</code> 只和 <code>dp[i-1]</code> 相关，于是我们可以只用一个变量 <code>pre</code> 来维护对于当前 <code>dp[i]</code> 的 <code>dp[i-1]</code> 的值是多少，从而让空间复杂度降低到 $O(1)$ ，这有点类似「滚动数组」的思想。</p>
 <blockquote>
@@ -1260,7 +1260,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">26k</span>
+                        class="white-color">26.5k</span>
             
             
             
