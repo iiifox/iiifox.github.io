@@ -709,7 +709,7 @@
         <span class="token comment">// 1 &lt;= wordDict.length &lt;= 1000</span>
         <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> set <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>wordDict<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">// 1 &lt;= s.length &lt;= 300</span>
-        <span class="token comment">//  dp[i] 表示字符串 s 前 i 个字符组成的字符串满足题意</span>
+        <span class="token comment">// dp[i] 表示字符串 s 前 i 个字符组成的字符串满足题意</span>
         <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 
