@@ -178,9 +178,9 @@
       
         <tags>
             
-            <tag> 队列 </tag>
-            
             <tag> 广度优先搜索 </tag>
+            
+            <tag> 队列 </tag>
             
             <tag> 拓扑排序 </tag>
             
@@ -232,7 +232,7 @@
       
         <tags>
             
-            <tag> 深度优先遍历 </tag>
+            <tag> 深度优先搜索 </tag>
             
         </tags>
       
@@ -708,9 +708,9 @@
             
             <tag> 二叉树 </tag>
             
-            <tag> 队列 </tag>
-            
             <tag> 广度优先搜索 </tag>
+            
+            <tag> 队列 </tag>
             
         </tags>
       
@@ -737,9 +737,9 @@
             
             <tag> 二叉树 </tag>
             
-            <tag> 深度优先搜索 </tag>
-            
             <tag> 队列 </tag>
+            
+            <tag> 深度优先搜索 </tag>
             
         </tags>
       
