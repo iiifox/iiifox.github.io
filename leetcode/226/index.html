@@ -731,9 +731,9 @@
         <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token class-name">TreeNode</span> leftChildren <span class="token operator">=</span> <span class="token function">invertTree</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">TreeNode</span> rightChildren <span class="token operator">=</span> <span class="token function">invertTree</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        root<span class="token punctuation">.</span>left <span class="token operator">=</span> rightChildren<span class="token punctuation">;</span>
+        <span class="token class-name">TreeNode</span> leftChild <span class="token operator">=</span> <span class="token function">invertTree</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">TreeNode</span> rightChild <span class="token operator">=</span> <span class="token function">invertTree</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        root<span class="token punctuation">.</span>left <span class="token operator">=</span> rightChild<span class="token punctuation">;</span>
         root<span class="token punctuation">.</span>right <span class="token operator">=</span> leftChildren<span class="token punctuation">;</span>
         <span class="token keyword">return</span> root<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -1224,7 +1224,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">29.8k</span>
+                        class="white-color">30.2k</span>
             
             
             
