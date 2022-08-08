@@ -731,9 +731,9 @@
             
             <tag> 二叉树 </tag>
             
-            <tag> 深度优先搜索 </tag>
-            
             <tag> 广度优先搜索 </tag>
+            
+            <tag> 深度优先搜索 </tag>
             
         </tags>
       
@@ -1224,8 +1224,6 @@
             
             <tag> 回溯 </tag>
             
-            <tag> 排列 </tag>
-            
         </tags>
       
     </entry>
@@ -1374,7 +1372,7 @@
       
         <tags>
             
-            <tag> 排列 </tag>
+            <tag> 双指针 </tag>
             
         </tags>
       
