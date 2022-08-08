@@ -1078,7 +1078,7 @@
       
         <tags>
             
-            <tag> 组合数学 </tag>
+            <tag> 数学 </tag>
             
         </tags>
       
@@ -1205,7 +1205,7 @@
       
         <tags>
             
-            <tag> 矩阵 </tag>
+            <tag> 数学 </tag>
             
         </tags>
       
@@ -1410,6 +1410,8 @@
             <tag> 分治 </tag>
             
             <tag> 链表 </tag>
+            
+            <tag> 归并排序 </tag>
             
         </tags>
       
