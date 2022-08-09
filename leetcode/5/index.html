@@ -632,7 +632,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-04
+                    2022-08-09
                 </div>
                 
 
@@ -695,7 +695,11 @@
 
 <p>&nbsp;</p>
 
-<h3 id="参考代码：Manacher算法"><a href="#参考代码：Manacher算法" class="headerlink" title="参考代码：Manacher算法"></a>参考代码：Manacher算法</h3><blockquote>
+<h3 id="参考代码：Manacher算法"><a href="#参考代码：Manacher算法" class="headerlink" title="参考代码：Manacher算法"></a>参考代码：Manacher算法</h3><ul>
+<li><strong>回文直径：</strong>回文串的长度。</li>
+<li><strong>回文半径：</strong>回文串长度的一半（向上取整）。</li>
+</ul>
+<blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
@@ -708,7 +712,6 @@
             res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>i <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token char">'#'</span> <span class="token operator">:</span> chars<span class="token punctuation">[</span>i <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
 
-        <span class="token comment">// 回文直径：回文串的长度。回文半径：回文串长度的一半(向上取整)。</span>
         <span class="token comment">// p[i] 表示以 res[i] 为中心最长回文串的回文半径</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>res<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
@@ -769,7 +772,7 @@
         <span class="token comment">// 因此回文半径 = (right - left) &gt;&gt; 1</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
