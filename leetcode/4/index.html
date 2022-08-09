@@ -626,14 +626,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-24
+                    2022-08-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    718
+                    697
                 </div>
                 
 
@@ -695,7 +695,7 @@
 
 <p>&nbsp;</p>
 
-<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><p>将两个有序数组左端对齐，在中间画一条红线，这条红线满足如下条件：</p>
+<h3 id="参考代码：二分查找"><a href="#参考代码：二分查找" class="headerlink" title="参考代码：二分查找"></a>参考代码：二分查找</h3><p>将两个有序数组左端对齐，在中间画一条红线，这条红线满足如下条件：</p>
 <ul>
 <li>条件①：红线左边所有的数都小于等于红线右边所有的数；</li>
 <li>条件②：size(左) = size(右) 或 size(左) = size(右) + 1</li>
@@ -712,9 +712,7 @@
 </ul>
 <p>此时恒有 <code>size(左) = i + j = (m + n + 1) &gt;&gt;&gt; 1</code></p>
 <p>此时问题转化为在区间 [0, m] 中寻找索引 i，使得条件①和②成立</p>
-<p>&nbsp;</p>
-
-<h3 id="参考代码：二分查找"><a href="#参考代码：二分查找" class="headerlink" title="参考代码：二分查找"></a>参考代码：二分查找</h3><blockquote>
+<blockquote>
 <p>时间复杂度：$O(log(min(m,n)))$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
@@ -734,10 +732,9 @@
         <span class="token comment">// 使用二分查找在区间 [left, right] 中寻找索引 i，使得条件①和②成立</span>
         <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> right <span class="token operator">=</span> m<span class="token punctuation">;</span>
-        <span class="token comment">// size(左)，可通过该数求得 j = totalLeft - i;</span>
+        <span class="token comment">// size(左)。可通过该数求得 j = totalLeft - i;</span>
         <span class="token keyword">int</span> totalLeft <span class="token operator">=</span> <span class="token punctuation">(</span>m <span class="token operator">+</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// 下面的 if 中左指针右移，故而需要向下取整</span>
             <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
             <span class="token keyword">int</span> j <span class="token operator">=</span> totalLeft <span class="token operator">-</span> i<span class="token punctuation">;</span>
             <span class="token comment">// nums2 左边的最大值比 nums1 右边的最小值要大，说明 i 需要扩大</span>
@@ -759,12 +756,11 @@
         <span class="token keyword">int</span> nums2LeftMax <span class="token operator">=</span> <span class="token punctuation">(</span>j <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span>MIN_VALUE <span class="token operator">:</span> nums2<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> nums2RightMin <span class="token operator">=</span> <span class="token punctuation">(</span>j <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span>MAX_VALUE <span class="token operator">:</span> nums2<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>m <span class="token operator">+</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">?</span>
-                <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>nums1LeftMax<span class="token punctuation">,</span> nums2LeftMax<span class="token punctuation">)</span> <span class="token operator">:</span>
-                <span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>nums1LeftMax<span class="token punctuation">,</span> nums2LeftMax<span class="token punctuation">)</span> <span class="token operator">+</span>
-        <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>nums1RightMin<span class="token punctuation">,</span> nums2RightMin<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>m <span class="token operator">+</span> n<span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>nums1LeftMax<span class="token punctuation">,</span> nums2LeftMax<span class="token punctuation">)</span>
+                <span class="token operator">:</span> <span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>nums1LeftMax<span class="token punctuation">,</span> nums2LeftMax<span class="token punctuation">)</span>
+                <span class="token operator">+</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>nums1RightMin<span class="token punctuation">,</span> nums2RightMin<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1247,7 +1243,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">31.3k</span>
+                        class="white-color">31.2k</span>
             
             
             
