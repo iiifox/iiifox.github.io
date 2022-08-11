@@ -707,7 +707,7 @@
 <li><p>我们目前不持有任何股票，并且不处于冷冻期中，对应的「累计最大收益」记为 <code>dp[i][2]</code>。</p>
 </li>
 </ul>
-<p>动态规划转移方程：</p>
+<p><strong>动态规划转移方程：</strong></p>
 <ul>
 <li><code>dp[i][0] = max(dp[i-1][0], dp[i-1][2]-prices[i])</code></li>
 <li><code>dp[i][1] = dp[i-1][0] - prices[i]</code></li>

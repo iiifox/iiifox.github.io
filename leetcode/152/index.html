@@ -627,7 +627,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-05
+                    2022-08-11
                 </div>
                 
 
@@ -700,7 +700,7 @@
 
 <h3 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h3><p><code>maxDp[i]</code> 表示以 <code>nums[i]</code> 结尾的乘积最大子数组的乘积，</p>
 <p><code>minDp[i]</code> 表示以 <code>nums[i]</code> 结尾的乘积最小子数组的乘积，</p>
-<p>动态规划转移方程：</p>
+<p><strong>动态规划转移方程：</strong></p>
 <ul>
 <li><code>maxDp[i] = max{maxDp[i-1]*nums[i], minDp[i-1]*nums[i], nums[i]}</code></li>
 <li><code>minDp[i] = min{maxDp[i-1]*nums[i], minDp[i-1]*nums[i], nums[i]}</code></li>
