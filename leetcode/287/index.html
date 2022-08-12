@@ -630,14 +630,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-10
+                    2022-08-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    472
+                    479
                 </div>
                 
 
@@ -708,7 +708,7 @@
 <p>&nbsp;</p>
 
 <h3 id="参考代码：快慢指针"><a href="#参考代码：快慢指针" class="headerlink" title="参考代码：快慢指针"></a>参考代码：快慢指针</h3><p><code>n+1</code> 个位置放最多 <code>n</code> 个不同的数字，由抽屉原理知，至少存在一个数 <code>target</code> 会在数组中出现不低于两次。</p>
-<p>我们对 <code>nums</code> 数组建图，每个位置 <code>i</code> 连一条 <code>i→nums[i]</code> 的边。由于存在的重复的数字 <code>target</code>，因此 <code>target</code> 这个位置至少有两条指向它的边，因此整张图一定存在环，且我们要找到的 <code>target</code> 就是这个环的入口。注意到 <code>nums</code> 中没有 <code>0</code> ，即不存在指向 <code>0</code> 的边，因此从 <code>0</code> 开始走，一定可以进入该环。从而采用 <strong>Floyd 判圈算法</strong> 即可。</p>
+<p>我们对 <code>nums</code> 数组建图，每个位置 <code>i</code> 连一条到位置 <code>i→nums[i]</code> 的有向边。由于存在的重复的数字 <code>target</code>，因此 <code>target</code> 这个位置至少有两条指向它的边，因此整张图一定存在环，且我们要找到的 <code>target</code> 就是这个环的入口。注意到 <code>nums</code> 中没有 <code>0</code> ，即不存在指向位置 <code>0</code> 的边，因此从 <code>0</code> 开始走，一定可以进入该环。从而采用 <strong>Floyd 判圈算法</strong> 即可。</p>
 <blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
