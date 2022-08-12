@@ -633,7 +633,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    319
+                    341
                 </div>
                 
 
@@ -706,9 +706,11 @@
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">coinChange</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> coins<span class="token punctuation">,</span> <span class="token keyword">int</span> amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 0 &lt;= amount &lt;= 10^4</span>
         <span class="token comment">// dp[i] 为组成金额 i 所需最少的硬币数量</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>amount <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token comment">// 不能使用 Integeter.MAX_VALUE 填充，+1 会导致返回 Integer.MIN_VALUE</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> amount<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> amount <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
@@ -722,7 +724,7 @@
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>dp<span class="token punctuation">[</span>amount<span class="token punctuation">]</span> <span class="token operator">==</span> amount <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">:</span> dp<span class="token punctuation">[</span>amount<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -963,18 +965,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/leetcode/322/">
+                <a href="/leetcode/337/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="「力扣」第 322 题：零钱兑换（中等）">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="「力扣」第 337 题：打家劫舍 III（中等）">
                         
-                        <span class="card-title">「力扣」第 322 题：零钱兑换（中等）</span>
+                        <span class="card-title">「力扣」第 337 题：打家劫舍 III（中等）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -984,9 +985,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-12
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -999,9 +1000,16 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                        <span class="chip bg-color">二叉树</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">
+                        <span class="chip bg-color">深度优先搜索</span>
+                    </a>
                     
                     <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
                         <span class="chip bg-color">动态规划</span>
@@ -1203,7 +1211,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">35.7k</span>
+                        class="white-color">36.8k</span>
             
             
             
