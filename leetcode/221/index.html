@@ -631,7 +631,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-08
+                    2022-08-12
                 </div>
                 
 
@@ -702,12 +702,12 @@
 
 <p>&nbsp;</p>
 
-<h3 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h3><p><code>dp[i][j]</code> 表示以 <code>(i,j)</code> 为右下角，且只包含 1 的正方形的边长最大值</p>
-<p>动态规划转移方程：</p>
+<h3 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h3><p><code>dp[i][j]</code> 表示以 <code>(i,j)</code> 为右下角，且只包含 <code>1</code> 的正方形的边长最大值</p>
+<p><strong>动态规划转移方程：</strong></p>
 <ul>
-<li><p>如果该位置的值是 0，则 <code>dp[i][j] = 0</code> ;</p>
+<li><p>如果该位置的值是 <code>0</code>，则 <code>dp[i][j] = 0</code> ;</p>
 </li>
-<li><p>如果该位置的值是 1，则 <code>dp[i][j] = min(dp[i−1][j-1], dp[i−1][j], dp[i][j−1]) + 1</code></p>
+<li><p>如果该位置的值是 <code>1</code>，则 <code>dp[i][j] = min(dp[i−1][j-1], dp[i−1][j], dp[i][j−1]) + 1</code></p>
 </li>
 </ul>
 <blockquote>
