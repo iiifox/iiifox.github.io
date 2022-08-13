@@ -4,20 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「力扣」第 70 题：爬楼梯（简单）, iiifox">
-    <meta name="description" content="「力扣」第 70 题：爬楼梯
+    <meta name="keywords" content="「力扣」第 394 题：字符串解码（中等）, iiifox">
+    <meta name="description" content="「力扣」第 394 题：字符串解码
 链接
 
-题目描述假设你正在爬楼梯。需要 n&amp;nbsp;阶你才能到达楼顶。
+题目描述给定一个经过编码的字符串，返回它解码后的字符串。
 
-每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
-
-&amp;nbsp;
-
-示例 1：
-输入：n = 2
-输出：2
-解释">
+编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。注意 k 保证为">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -31,7 +24,7 @@
 
     
 
-    <title>「力扣」第 70 题：爬楼梯（简单） | iiifox</title>
+    <title>「力扣」第 394 题：字符串解码（中等） | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -480,12 +473,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「力扣」第 70 题：爬楼梯（简单）</h1>
+                    <h1 class="description center-align post-title">「力扣」第 394 题：字符串解码（中等）</h1>
                 </div>
             </div>
         </div>
@@ -601,8 +594,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                                <span class="chip bg-color">数学</span>
+                            <a href="/tags/%E6%A0%88/">
+                                <span class="chip bg-color">栈</span>
                             </a>
                         
                     </div>
@@ -626,21 +619,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-23
+                    2022-08-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-23
+                    2022-08-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    201
+                    527
                 </div>
                 
 
@@ -665,50 +658,97 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-70-题：爬楼梯"><a href="#「力扣」第-70-题：爬楼梯" class="headerlink" title="「力扣」第 70 题：爬楼梯"></a>「力扣」第 70 题：爬楼梯</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/climbing-stairs/">链接</a></li>
+                <h2 id="「力扣」第-394-题：字符串解码"><a href="#「力扣」第-394-题：字符串解码" class="headerlink" title="「力扣」第 394 题：字符串解码"></a>「力扣」第 394 题：字符串解码</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/decode-string/">链接</a></li>
 </ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>假设你正在爬楼梯。需要 <code>n</code>&nbsp;阶你才能到达楼顶。</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个经过编码的字符串，返回它解码后的字符串。</p>
 
-<p>每次你可以爬 <code>1</code> 或 <code>2</code> 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
+<p>编码规则为: <code>k[encoded_string]</code>，表示其中方括号内部的 <code>encoded_string</code> 正好重复 <code>k</code> 次。注意 <code>k</code> 保证为正整数。</p>
+
+<p>你可以认为输入字符串总是有效的；输入字符串中没有额外的空格，且输入的方括号总是符合格式要求的。</p>
+
+<p>此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 <code>k</code> ，例如不会出现像&nbsp;<code>3a</code>&nbsp;或&nbsp;<code>2[4]</code>&nbsp;的输入。</p>
 
 <p>&nbsp;</p>
 
 <pre><strong>示例 1：</strong>
-<strong>输入：</strong>n = 2
-<strong>输出：</strong>2
-<strong>解释：</strong>有两种方法可以爬到楼顶。
-1. 1 阶 + 1 阶
-2. 2 阶</pre>
+<strong>输入：</strong>s = "3[a]2[bc]"
+<strong>输出：</strong>"aaabcbc"
+</pre>
 
 <pre><strong>示例 2：</strong>
-<strong>输入：</strong>n = 3
-<strong>输出：</strong>3
-<strong>解释：</strong>有三种方法可以爬到楼顶。
-1. 1 阶 + 1 阶 + 1 阶
-2. 1 阶 + 2 阶
-3. 2 阶 + 1 阶
+<strong>输入：</strong>s = "3[a2[c]]"
+<strong>输出：</strong>"accaccacc"
+</pre>
+
+<pre><strong>示例 3：</strong>
+<strong>输入：</strong>s = "2[abc]3[cd]ef"
+<strong>输出：</strong>"abcabccdcdcdef"
+</pre>
+
+<pre><strong>示例 4：</strong>
+<strong>输入：</strong>s = "abc3[cd]xyz"
+<strong>输出：</strong>"abccdcdcdxyz"
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong>
-</p><ul>
-    <li><code>1 &lt;= n &lt;= 45</code></li>
+</p><ul> 
+ <li><code>1 &lt;= s.length &lt;= 30</code></li> 
+ <li>
+  <meta charset="UTF-8"><code>s</code>&nbsp;由小写英文字母、数字和方括号
+  <meta charset="UTF-8">&nbsp;<code>'[]'</code> 组成</li> 
+ <li><code>s</code>&nbsp;保证是一个&nbsp;<strong>有效</strong>&nbsp;的输入。</li> 
+ <li><code>s</code>&nbsp;中所有整数的取值范围为
+  <meta charset="UTF-8">&nbsp;<code>[1, 300]</code>&nbsp;</li> 
 </ul><p></p>
 
 <p>&nbsp;</p>
 
 <p>&nbsp;</p>
 
-<h3 id="参考代码：数学"><a href="#参考代码：数学" class="headerlink" title="参考代码：数学"></a>参考代码：数学</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">double</span> sqrt5 <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// 用浮点数计算来实现，可能会产生精度误差。</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> sqrt5<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span>
-                <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> sqrt5<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> sqrt5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="参考代码：栈"><a href="#参考代码：栈" class="headerlink" title="参考代码：栈"></a>参考代码：栈</h3><blockquote>
+<p>时间复杂度：$O(n)$</p>
+<p>空间复杂度：$O(n)$</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">decodeString</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 数字栈</span>
+        <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> digitStack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 字符串栈</span>
+        <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">StringBuilder</span><span class="token punctuation">&gt;</span></span> strStack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">int</span> number <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token class-name">StringBuilder</span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Character</span><span class="token punctuation">.</span><span class="token function">isDigit</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 数字，注意可能不止一位。</span>
+                number <span class="token operator">=</span> number <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token punctuation">(</span>c <span class="token operator">-</span> <span class="token char">'0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token char">'['</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 左中括号前面一定是数字，将其压入数字栈，并置零</span>
+                digitStack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                number <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token comment">// 将数字与上一个左中括号之间的字符压入字符串栈中</span>
+                strStack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token char">']'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 右中括号。与其对应的左中括号之间的字符即 res，出现的次数即数字栈栈顶元素</span>
+                <span class="token comment">// 字符串栈弹出栈顶字符串，并在其后将 res 拼接出现的次数</span>
+                <span class="token class-name">StringBuilder</span> temp <span class="token operator">=</span> strStack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> count <span class="token operator">=</span> digitStack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    temp<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                res <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 字符属于左中括号与数字之间，直接拼接在字符串 res 中</span>
+                res<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -736,7 +776,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://iiifox.github.io/leetcode/70/">https://iiifox.github.io/leetcode/70/</a>
+                    <a href="https://iiifox.github.io/leetcode/394/">https://iiifox.github.io/leetcode/394/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -774,8 +814,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                                    <span class="chip bg-color">数学</span>
+                                <a href="/tags/%E6%A0%88/">
+                                    <span class="chip bg-color">栈</span>
                                 </a>
                             
                         </div>
@@ -949,17 +989,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/leetcode/72/">
+                <a href="/leetcode/394/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="「力扣」第 72 题：编辑距离（困难）">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="「力扣」第 394 题：字符串解码（中等）">
                         
-                        <span class="card-title">「力扣」第 72 题：编辑距离（困难）</span>
+                        <span class="card-title">「力扣」第 394 题：字符串解码（中等）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -969,9 +1010,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -984,11 +1025,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
+                    <a href="/tags/%E6%A0%88/">
+                        <span class="chip bg-color">栈</span>
                     </a>
                     
                 </div>
@@ -1002,13 +1044,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/leetcode/64/">
+                <a href="/leetcode/347/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="「力扣」第 64 题：最小路径和（中等）">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="「力扣」第 347 题：前 K 个高频元素（中等）">
                         
-                        <span class="card-title">「力扣」第 64 题：最小路径和（中等）</span>
+                        <span class="card-title">「力扣」第 347 题：前 K 个高频元素（中等）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1019,7 +1061,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-13
                             </span>
                         <span class="publish-author">
                             
@@ -1036,8 +1078,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
+                    <a href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">
+                        <span class="chip bg-color">优先队列</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9/">
+                        <span class="chip bg-color">快速选择</span>
                     </a>
                     
                 </div>
