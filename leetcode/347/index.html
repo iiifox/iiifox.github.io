@@ -783,7 +783,7 @@
         <span class="token punctuation">}</span>
         <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">swap</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> index<span class="token punctuation">,</span> start<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token comment">// index 左侧元素都是小于 pivot 的，这等价于大于等于 pivot 的数多于 k 个</span>
+        <span class="token comment">// index 左侧元素都是大于 pivot 的，这等价于大于等于 pivot 的数多于 k 个</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">-</span> start <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">&gt;</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token function">qsort</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> start<span class="token punctuation">,</span> index <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> res<span class="token punctuation">,</span> resIndex<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span><span class="token punctuation">;</span>
