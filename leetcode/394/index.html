@@ -626,14 +626,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-13
+                    2022-08-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    523
+                    525
                 </div>
                 
 
@@ -729,11 +729,11 @@
                 <span class="token comment">// 左方括号前面一定是数字，将其压入数字栈，并置零</span>
                 digitStack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
                 number <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-                <span class="token comment">// 将数字与上一个左方括号之间的字符压入字符串栈中</span>
+                <span class="token comment">// 将数字与上一个左方括号之间的字符串压入字符串栈中</span>
                 strStack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
                 res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token char">']'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token comment">// 与其对应的左方括号之间的字符即 res，出现的次数即数字栈栈顶元素</span>
+                <span class="token comment">// 与其对应的左方括号之间的字符串即 res，出现的次数即数字栈栈顶元素</span>
                 <span class="token comment">// 字符串栈弹出栈顶字符串，并在其后将 res 拼接出现的次数</span>
                 <span class="token class-name">StringBuilder</span> temp <span class="token operator">=</span> strStack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token keyword">int</span> count <span class="token operator">=</span> digitStack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
