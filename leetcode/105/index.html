@@ -628,7 +628,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-11
+                    2022-08-15
                 </div>
                 
 
@@ -740,13 +740,10 @@
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
 
-        <span class="token comment">// 前序遍历中的第一个结点就是根节点</span>
-        <span class="token keyword">int</span> preRoot <span class="token operator">=</span> preLeft<span class="token punctuation">;</span>
-        <span class="token comment">// 在中序遍历中定位根节点</span>
-        <span class="token keyword">int</span> inRoot <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>preorder<span class="token punctuation">[</span>preRoot<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment">// 先把根节点建立出来</span>
-        <span class="token class-name">TreeNode</span> root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeNode</span><span class="token punctuation">(</span>preorder<span class="token punctuation">[</span>preRoot<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 前序遍历中的第一个结点就是根节点。先把根节点建立出来</span>
+        <span class="token class-name">TreeNode</span> root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeNode</span><span class="token punctuation">(</span>preorder<span class="token punctuation">[</span>preLeft<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 在中序遍历中定位根节点（获取索引）</span>
+        <span class="token keyword">int</span> inRoot <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">// 得到左子树中的结点数目</span>
         <span class="token keyword">int</span> leftSize <span class="token operator">=</span> inRoot <span class="token operator">-</span> inLeft<span class="token punctuation">;</span>
 
@@ -762,7 +759,7 @@
                 inorder<span class="token punctuation">,</span> inRoot <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> inRight<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> root<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
