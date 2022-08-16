@@ -630,7 +630,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-14
+                    2022-08-17
                 </div>
                 
 
@@ -708,10 +708,15 @@ trie.search("app");     // 返回 True
 <p>&nbsp;</p>
 
 <h3 id="参考代码：字典树"><a href="#参考代码：字典树" class="headerlink" title="参考代码：字典树"></a>参考代码：字典树</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Trie</span> <span class="token punctuation">{</span>
-
-    <span class="token comment">// word 和 prefix 仅由小写英文字母组成</span>
+    
+    <span class="token comment">/**
+     * word 和 prefix 仅由小写英文字母组成
+     */</span>
     <span class="token keyword">private</span> <span class="token class-name">Trie</span><span class="token punctuation">[</span><span class="token punctuation">]</span> children <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Trie</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token comment">// 表示该节点是否为字符串的结尾</span>
+    
+    <span class="token comment">/**
+     * 表示该节点是否为字符串的结尾
+     */</span>
     <span class="token keyword">private</span> <span class="token keyword">boolean</span> isEnd <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 
     <span class="token keyword">public</span> <span class="token class-name">Trie</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -755,7 +760,7 @@ trie.search("app");     // 返回 True
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> node<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
