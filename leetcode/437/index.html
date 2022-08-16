@@ -4,16 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「力扣」第 337 题：打家劫舍 III（中等）, iiifox">
-    <meta name="description" content="「力扣」第 337 题：打家劫舍 III
+    <meta name="keywords" content="「力扣」第 437 题：路径总和 III（中等）, iiifox">
+    <meta name="description" content="「力扣」第 437 题：路径总和 III
 链接
-「力扣」第 198 题：打家劫舍
 
-题目描述小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为
- &amp;nbsp;root&amp;nbsp;。
+题目描述给定一个二叉树的根节点 root&amp;nbsp;，和一个整数 targetSum ，求该二叉树里节点值之和等于 targetSum 的 路径 的数目。
 
-除了
- &amp;nbsp;root&amp;nbsp;">
+路径 不需要从根节点开始，也不需">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -27,7 +24,7 @@
 
     
 
-    <title>「力扣」第 337 题：打家劫舍 III（中等） | iiifox</title>
+    <title>「力扣」第 437 题：路径总和 III（中等） | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -476,12 +473,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「力扣」第 337 题：打家劫舍 III（中等）</h1>
+                    <h1 class="description center-align post-title">「力扣」第 437 题：路径总和 III（中等）</h1>
                 </div>
             </div>
         </div>
@@ -597,16 +594,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                                <span class="chip bg-color">动态规划</span>
-                            </a>
-                        
                             <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
                                 <span class="chip bg-color">二叉树</span>
                             </a>
                         
-                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">
-                                <span class="chip bg-color">深度优先搜索</span>
+                            <a href="/tags/%E5%9B%9E%E6%BA%AF/">
+                                <span class="chip bg-color">回溯</span>
                             </a>
                         
                     </div>
@@ -630,21 +623,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-12
+                    2022-08-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-12
+                    2022-08-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    637
+                    405
                 </div>
                 
 
@@ -669,84 +662,74 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-337-题：打家劫舍-III"><a href="#「力扣」第-337-题：打家劫舍-III" class="headerlink" title="「力扣」第 337 题：打家劫舍 III"></a>「力扣」第 337 题：打家劫舍 III</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/house-robber-iii/">链接</a></li>
-<li><a href="https://iiifox.github.io/leetcode/198/">「力扣」第 198 题：打家劫舍</a></li>
+                <h2 id="「力扣」第-437-题：路径总和-III"><a href="#「力扣」第-437-题：路径总和-III" class="headerlink" title="「力扣」第 437 题：路径总和 III"></a>「力扣」第 437 题：路径总和 III</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/path-sum-iii/">链接</a></li>
 </ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为
- <meta charset="UTF-8">&nbsp;<code>root</code>&nbsp;。</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树的根节点 <code>root</code>&nbsp;，和一个整数 <code>targetSum</code> ，求该二叉树里节点值之和等于 <code>targetSum</code> 的 <strong>路径</strong> 的数目。</p>
 
-<p>除了
- <meta charset="UTF-8">&nbsp;<code>root</code>&nbsp;之外，每栋房子有且只有一个“父“房子与之相连。一番侦察之后，聪明的小偷意识到“这个地方的所有房屋的排列类似于一棵二叉树”。 如果 <strong>两个直接相连的房子在同一天晚上被打劫</strong> ，房屋将自动报警。</p>
-<p>给定二叉树的&nbsp;<code>root</code>&nbsp;。返回&nbsp;<strong>在不触动警报的情况下</strong>&nbsp;，小偷能够盗取的最高金额&nbsp;。</p>
+<p><strong>路径</strong> 不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。</p>
 
 <p>&nbsp;</p>
 
-<pre><strong>示例 1:</strong>
-<img alt="" src="../../images/leetcode/337/rob1-tree.jpg">
-<strong>输入: </strong>root = [3,2,3,null,3,null,1]
-<strong>输出:</strong> 7 
-<strong>解释:</strong>&nbsp;小偷一晚能够盗取的最高金额 3 + 3 + 1 = 7
+<pre><strong>示例 1：</strong>
+<img src="../../images/leetcode/437/pathsum3-1-tree.jpg" style="width: 452px; ">
+<strong>输入：</strong>root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8
+<strong>输出：</strong>3
+<strong>解释：</strong>和等于 8 的路径有 3 条，如图所示。
 </pre>
 
-<pre><strong>示例 2:</strong>
-<img alt="" src="../../images/leetcode/337/rob2-tree.jpg">
-<strong>输入: </strong>root = [3,4,5,1,3,null,1]
-<strong>输出:</strong> 9
-<strong>解释:</strong>&nbsp;小偷一晚能够盗取的最高金额 4 + 5 = 9
+<pre><strong>示例 2：</strong>
+<strong>输入：</strong>root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
+<strong>输出：</strong>3
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>提示：</strong>
+<p><strong>提示:</strong>
 </p><ul> 
- <li>树的节点数在&nbsp;<code>[1, 10<sup>4</sup>]</code> 范围内</li> 
- <li><code>0 &lt;= Node.val &lt;= 10<sup>4</sup></code></li> 
+ <li>二叉树的节点个数的范围是 <code>[0,1000]</code></li> 
+ <li>
+  <meta charset="UTF-8"><code>-10<sup>9</sup>&nbsp;&lt;= Node.val &lt;= 10<sup>9</sup></code>&nbsp;</li> 
+ <li><code>-1000&nbsp;&lt;= targetSum&nbsp;&lt;= 1000</code>&nbsp;</li> 
 </ul><p></p>
 
 <p>&nbsp;</p>
 
 <p>&nbsp;</p>
 
-<h3 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h3><p><strong>简化一下这个问题：</strong>一棵二叉树，树上的每个点都有对应的权值，每个点有两种状态（选中和不选中），问在不能同时选中有父子关系的点的情况下，能选中的点的最大权值和是多少。</p>
-<p>我们可以用 <code>f(o)</code> 表示选择 <code>o</code> 节点的情况下，<code>o</code> 节点的子树上被选择的节点的最大权值和；<code>g(o)</code> 表示不选择 <code>o</code> 节点的情况下，<code>o</code> 节点的子树上被选择的节点的最大权值和；<code>l</code> 和 <code>r</code> 代表 <code>o</code> 的左右孩子。</p>
-<p><strong>动态规划转移方程：</strong></p>
-<ul>
-<li><code>f(o) = o.val + g(l) + g(r)</code></li>
-<li><code>g(o) = max(f(l), g(l)) + max(f(r), g(r))</code></li>
-</ul>
-<blockquote>
+<h3 id="参考代码：回溯"><a href="#参考代码：回溯" class="headerlink" title="参考代码：回溯"></a>参考代码：回溯</h3><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">rob</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> rootStatus <span class="token operator">=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>rootStatus<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> rootStatus<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">pathSum</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">,</span> <span class="token keyword">int</span> targetSum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 前缀和表。以前缀和为键，值是键所对应的前缀和所出现的次数</span>
+        <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Long</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 前缀和首部标兵 0</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token number">0L</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">backtrack</span><span class="token punctuation">(</span>map<span class="token punctuation">,</span> root<span class="token punctuation">,</span> <span class="token number">0L</span><span class="token punctuation">,</span> targetSum<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
 
-    <span class="token comment">/**
-     * @return 长度为 2 的 int 数组
-     * 第一个元素表示选择 root 结点能盗取的最高金额
-     * 第二个元素表示不选择 root 结点能盗取的最高金额
-     */</span>
-    <span class="token keyword">private</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">backtrack</span><span class="token punctuation">(</span><span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Long</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> map<span class="token punctuation">,</span> <span class="token class-name">TreeNode</span> root<span class="token punctuation">,</span>
+                          <span class="token class-name">Long</span> currSum<span class="token punctuation">,</span> <span class="token keyword">int</span> targetSum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
 
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> leftStatus <span class="token operator">=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> rightStatus <span class="token operator">=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span>
-                <span class="token comment">// 选择了 root 结点，那么左右孩子结点均不能选择</span>
-                root<span class="token punctuation">.</span>val <span class="token operator">+</span> leftStatus<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> rightStatus<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                <span class="token comment">// 没选择 root 结点，那么左右孩子选择与否由能盗取的最高金额决定</span>
-                <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>leftStatus<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> leftStatus<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-                        <span class="token operator">+</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>rightStatus<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> rightStatus<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        currSum <span class="token operator">+=</span> root<span class="token punctuation">.</span>val<span class="token punctuation">;</span>
+        <span class="token comment">// 以当前节点为目标路径的终点向上进行搜索，路径和为 targetSum 的路径数目</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">getOrDefault</span><span class="token punctuation">(</span>currSum <span class="token operator">-</span> targetSum<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 在前缀和表中更新当前结点对应的节点和</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>currSum<span class="token punctuation">,</span> map<span class="token punctuation">.</span><span class="token function">getOrDefault</span><span class="token punctuation">(</span>currSum<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 路径的下一个结点选择</span>
+        res <span class="token operator">+=</span> <span class="token function">backtrack</span><span class="token punctuation">(</span>map<span class="token punctuation">,</span> root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> currSum<span class="token punctuation">,</span> targetSum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res <span class="token operator">+=</span> <span class="token function">backtrack</span><span class="token punctuation">(</span>map<span class="token punctuation">,</span> root<span class="token punctuation">.</span>right<span class="token punctuation">,</span> currSum<span class="token punctuation">,</span> targetSum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 回溯。状态重置</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>currSum<span class="token punctuation">,</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>currSum<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -774,7 +757,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://iiifox.github.io/leetcode/337/">https://iiifox.github.io/leetcode/337/</a>
+                    <a href="https://iiifox.github.io/leetcode/437/">https://iiifox.github.io/leetcode/437/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -812,16 +795,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                                    <span class="chip bg-color">动态规划</span>
-                                </a>
-                            
                                 <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
                                     <span class="chip bg-color">二叉树</span>
                                 </a>
                             
-                                <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">
-                                    <span class="chip bg-color">深度优先搜索</span>
+                                <a href="/tags/%E5%9B%9E%E6%BA%AF/">
+                                    <span class="chip bg-color">回溯</span>
                                 </a>
                             
                         </div>
@@ -995,17 +974,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/leetcode/338/">
+                <a href="/leetcode/437/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="「力扣」第 338 题：比特位计数（简单）">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="「力扣」第 437 题：路径总和 III（中等）">
                         
-                        <span class="card-title">「力扣」第 338 题：比特位计数（简单）</span>
+                        <span class="card-title">「力扣」第 437 题：路径总和 III（中等）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1015,9 +995,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1030,15 +1010,16 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
+                    <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                        <span class="chip bg-color">二叉树</span>
                     </a>
                     
-                    <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
-                        <span class="chip bg-color">位运算</span>
+                    <a href="/tags/%E5%9B%9E%E6%BA%AF/">
+                        <span class="chip bg-color">回溯</span>
                     </a>
                     
                 </div>
@@ -1052,13 +1033,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/leetcode/322/">
+                <a href="/leetcode/416/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="「力扣」第 322 题：零钱兑换（中等）">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="「力扣」第 416 题：分割等和子集（中等）">
                         
-                        <span class="card-title">「力扣」第 322 题：零钱兑换（中等）</span>
+                        <span class="card-title">「力扣」第 416 题：分割等和子集（中等）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1069,7 +1050,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-16
                             </span>
                         <span class="publish-author">
                             
