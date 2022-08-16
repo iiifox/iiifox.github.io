@@ -634,14 +634,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-15
+                    2022-08-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    338
+                    335
                 </div>
                 
 
@@ -697,16 +697,14 @@
 
 <p>&nbsp;</p>
 
-<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>题目要求是计算不同二叉搜索树的个数。为此，我们可以定义两个函数：</p>
+<h3 id="参考代码：卡塔兰数"><a href="#参考代码：卡塔兰数" class="headerlink" title="参考代码：卡塔兰数"></a>参考代码：卡塔兰数</h3><p>题目要求是计算不同二叉搜索树的个数。为此，我们可以定义两个函数：</p>
 <ul>
-<li><code>C(n)</code>: 长度为 <code>n</code> 的序列能构成的不同二叉搜索树的个数。</li>
-<li><code>F(i,n)</code>: 以 <code>i</code> 为根、序列长度为 <code>n</code> 的不同二叉搜索树个数 (<code>1≤i≤n</code>)。</li>
+<li><code>C(n)</code>： 长度为 <code>n</code> 的序列能构成的不同二叉搜索树的个数。</li>
+<li><code>F(i,n)</code>： 以 <code>i</code> 为根、序列长度为 <code>n</code> 的不同二叉搜索树个数 (<code>1≤i≤n</code>)。</li>
 </ul>
 <p><strong>卡塔兰数（一定要最后除以 <code>n+1</code> 以防止精度溢出）：</strong></p>
 <p>$C(n) = \sum\limits_{i=1}^{n}F(i,n) = \sum\limits_{i=1}^{n}C(i-1) \cdot C(n-i) = \frac{C_{2n}^{n}}{n+1} = \frac{n+1}{1} \times\frac{n+2}{2} \times \cdots \times \frac{n+n}{n} \times \frac{1}{n+1}$</p>
-<p>&nbsp;</p>
-
-<h3 id="参考代码：卡塔兰数"><a href="#参考代码：卡塔兰数" class="headerlink" title="参考代码：卡塔兰数"></a>参考代码：卡塔兰数</h3><blockquote>
+<blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
