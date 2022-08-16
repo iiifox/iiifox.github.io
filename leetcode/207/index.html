@@ -630,14 +630,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-14
+                    2022-08-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    512
+                    532
                 </div>
                 
 
@@ -709,7 +709,7 @@
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">canFinish</span><span class="token punctuation">(</span><span class="token keyword">int</span> numCourses<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> prerequisites<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// 入度表</span>
+        <span class="token comment">// 入度表。inDegree[i] = val 表示学习课程 i 需要先修的课程有 val 门</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> inDegree <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>numCourses<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token comment">// 边。第 i 个元素表示修完课程 i 后才能学习的课程列表</span>
         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> edges <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>numCourses<span class="token punctuation">)</span><span class="token punctuation">;</span>
