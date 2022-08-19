@@ -639,7 +639,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1k
                 </div>
                 
 
@@ -736,27 +736,29 @@
         <span class="token comment">// right 所属回文子串中心下标</span>
         <span class="token keyword">int</span> center <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
 
-        <span class="token comment">// 已经遍历过的最长回文子串中心下标。1 &lt;= s.length &lt;= 1000</span>
+        <span class="token comment">// 已经遍历过的最长回文子串中心下标</span>
         <span class="token keyword">int</span> resCenter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> wrap<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> temp <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token comment">// 子串 [left, right] 中 i 关于其中心的对称位置</span>
                 <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token punctuation">(</span>center <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> i<span class="token punctuation">;</span>
-                <span class="token comment">// 定义一个临时变量，避免多次计算其值</span>
-                <span class="token keyword">int</span> temp <span class="token operator">=</span> right <span class="token operator">-</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                temp <span class="token operator">=</span> right <span class="token operator">-</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
                 <span class="token comment">// j 为中心的最长回文串左边界不等于 left，可以直接确定 p[i]</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> temp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token keyword">continue</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                    <span class="token comment">// j 为中心的最长回文串左边界刚好是 left</span>
-                    p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">expand</span><span class="token punctuation">(</span>wrap<span class="token punctuation">,</span> i <span class="token operator">-</span> temp<span class="token punctuation">,</span> i <span class="token operator">+</span> temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                <span class="token comment">// i &gt;= right</span>
-                p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">expand</span><span class="token punctuation">(</span>wrap<span class="token punctuation">,</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
+            <span class="token comment">// temp = 1               (i &gt;= right)</span>
+            <span class="token comment">// temp = right - i - 1   (i &lt; right &amp;&amp; p[j] != temp)</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> temp <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> i <span class="token operator">+</span> temp <span class="token operator">&lt;</span> wrap<span class="token punctuation">.</span>length 
+                   <span class="token operator">&amp;&amp;</span> wrap<span class="token punctuation">[</span>i <span class="token operator">-</span> temp<span class="token punctuation">]</span> <span class="token operator">==</span> wrap<span class="token punctuation">[</span>i <span class="token operator">+</span> temp<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                temp<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+                
             <span class="token comment">// 执行到此，i 为中心的最长回文串右边界必然不会小于 right。更新最右边界。</span>
             right <span class="token operator">=</span> i <span class="token operator">+</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
             center <span class="token operator">=</span> i<span class="token punctuation">;</span>
@@ -771,17 +773,7 @@
         <span class="token comment">// 截取最长回文子串</span>
         <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> start <span class="token operator">+</span> p<span class="token punctuation">[</span>resCenter<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-
-
-    <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">expand</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> wrap<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> right <span class="token operator">&lt;</span> wrap<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> wrap<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">==</span> wrap<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            left<span class="token operator">--</span><span class="token punctuation">;</span>
-            right<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token comment">// 回文直径为 (right - left - 2) + 1。因此回文半径 = (right - left) &gt;&gt; 1</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1260,7 +1252,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">46.2k</span>
+                        class="white-color">46.1k</span>
             
             
             
