@@ -641,7 +641,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    416
+                    657
                 </div>
                 
 
@@ -704,20 +704,29 @@
 
 <p>&nbsp;</p>
 
-<h3 id="参考代码：左右指针"><a href="#参考代码：左右指针" class="headerlink" title="参考代码：左右指针"></a>参考代码：左右指针</h3><blockquote>
-<p>时间复杂度：$O(n)$</p>
-<p>空间复杂度：$O(n)$</p>
+<h3 id="参考代码：左右指针"><a href="#参考代码：左右指针" class="headerlink" title="参考代码：左右指针"></a>参考代码：左右指针</h3><p><strong><font color="red">关于复杂度中出现常数的一些说明：</font></strong></p>
+<ul>
+<li>常数表示字符集中字符的个数，故没有将常数省略</li>
+</ul>
+<p><strong><font color="blue">滑动窗口类题目的一些优化技巧：</font></strong></p>
+<ul>
+<li>在滑动窗口一类题中往往会开辟一个窗口数组。对于本题是可以用哈希表来代替窗口数组的，但哈希表的效率是会低于数组检索效率的，故并没有使用哈希表的方式。</li>
+<li>对于字符串中字符的遍历，由于 <code>Java</code> 中字符串的 <code>charAt()</code> 方法每次都会检查下标是否越界，对于长字符串这会降低其性能，故一般会先将字符串转成字符数组，通过数组的检索来提高运行效率。</li>
+</ul>
+<blockquote>
+<p>时间复杂度：$O(n + 128)$  <code>若使用哈希表而不采用窗口数组，则时间复杂度为 O(n)</code></p>
+<p>空间复杂度：$O(n + 128)$  <code>若不使用字符串转字符数组，则空间复杂度为 O(128)</code></p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// s.charAt(i) 操作会去检查下标是否越界，故将字符串转换成字符数组</span>
-        <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chars <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        
         <span class="token comment">// windows[i] 存储的是 chars 中字符值为 i 的最新索引</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> window <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        
+        <span class="token comment">// s.charAt(i) 操作会去检查下标是否越界，故将字符串转换成字符数组</span>
+        <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chars <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">// chars 在 [left, right] 中没有重复元素</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> right <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> right<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment">// 字符值为 chars[right] 在前面出现过了，</span>
@@ -1215,7 +1224,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">46.1k</span>
+                        class="white-color">46.3k</span>
             
             
             
