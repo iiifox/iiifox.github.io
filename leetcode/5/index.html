@@ -632,14 +632,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-10
+                    2022-08-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.1k
                 </div>
                 
 
@@ -738,8 +738,6 @@
 
         <span class="token comment">// 已经遍历过的最长回文子串中心下标</span>
         <span class="token keyword">int</span> resCenter <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token comment">// 已经遍历过的最大回文半径 - 1（即原字符串最长回文子串的长度）</span>
-        <span class="token keyword">int</span> resLen <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> wrap<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -747,33 +745,31 @@
                 <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token punctuation">(</span>center <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> i<span class="token punctuation">;</span>
                 <span class="token comment">// 定义一个临时变量，避免多次计算其值</span>
                 <span class="token keyword">int</span> temp <span class="token operator">=</span> right <span class="token operator">-</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token comment">// j 为中心的最长回文串左边界不等于 left，可以直接确定 p[i]</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> temp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token comment">// 情况一：j 为中心的最长回文串没有超出范围 (left, right)</span>
-                    <span class="token comment">// 情况二：j 为中心的最长回文串已经超出了范围 [left, right]</span>
                     p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>p<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> temp<span class="token punctuation">)</span> <span class="token operator">?</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">:</span> temp<span class="token punctuation">;</span>
                     <span class="token keyword">continue</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                    <span class="token comment">// 情况三：j 为中心的最长回文串左边界刚好是 left</span>
+                    <span class="token comment">// j 为中心的最长回文串左边界刚好是 left</span>
                     p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">expand</span><span class="token punctuation">(</span>wrap<span class="token punctuation">,</span> i <span class="token operator">-</span> temp<span class="token punctuation">,</span> i <span class="token operator">+</span> temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                <span class="token comment">// 情况四：i &gt;= right</span>
+                <span class="token comment">// i &gt;= right</span>
                 p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">expand</span><span class="token punctuation">(</span>wrap<span class="token punctuation">,</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
             <span class="token comment">// 执行到此，i 为中心的最长回文串右边界必然不会小于 right。更新最右边界。</span>
             right <span class="token operator">=</span> i <span class="token operator">+</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
             center <span class="token operator">=</span> i<span class="token punctuation">;</span>
-            <span class="token comment">// 判断是否需要更新最长回文串的半径和中心位置</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">&gt;</span> resLen<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                resLen <span class="token operator">=</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token comment">// 判断是否需要更新最长回文串的中心位置</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> p<span class="token punctuation">[</span>resCenter<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 resCenter <span class="token operator">=</span> i<span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
 
         <span class="token comment">// 计算最长回文串的长度和开始的位置</span>
-        <span class="token keyword">int</span> start <span class="token operator">=</span> <span class="token punctuation">(</span>resCenter <span class="token operator">-</span> resLen<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> start <span class="token operator">=</span> <span class="token punctuation">(</span>resCenter <span class="token operator">-</span> p<span class="token punctuation">[</span>resCenter<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token comment">// 截取最长回文子串</span>
-        <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> start <span class="token operator">+</span> resLen<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> start <span class="token operator">+</span> p<span class="token punctuation">[</span>resCenter<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
 
@@ -782,11 +778,10 @@
             left<span class="token operator">--</span><span class="token punctuation">;</span>
             right<span class="token operator">++</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token comment">// 回文直径为 (right - left - 2) + 1</span>
-        <span class="token comment">// 因此回文半径 = (right - left) &gt;&gt; 1</span>
+        <span class="token comment">// 回文直径为 (right - left - 2) + 1。因此回文半径 = (right - left) &gt;&gt; 1</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1265,7 +1260,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">46.3k</span>
+                        class="white-color">46.2k</span>
             
             
             
