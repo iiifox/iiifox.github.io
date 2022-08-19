@@ -736,8 +736,8 @@
         <span class="token comment">// right 所属回文子串中心下标</span>
         <span class="token keyword">int</span> center <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
 
-        <span class="token comment">// 已经遍历过的最长回文子串中心下标</span>
-        <span class="token keyword">int</span> resCenter <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">// 已经遍历过的最长回文子串中心下标。1 &lt;= s.length &lt;= 1000</span>
+        <span class="token keyword">int</span> resCenter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> wrap<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
