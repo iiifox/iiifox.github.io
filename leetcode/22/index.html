@@ -638,7 +638,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    465
+                    462
                 </div>
                 
 
@@ -692,35 +692,30 @@
 
 <p>&nbsp;</p>
 
-<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><ul>
-<li><p>有效括号的定义如下：</p>
-<ul>
+<h3 id="参考代码：回溯"><a href="#参考代码：回溯" class="headerlink" title="参考代码：回溯"></a>参考代码：回溯</h3><ul>
+<li><strong>有效括号的定义如下：</strong><ul>
 <li><p>任何一个位置处：<code>已使用的左括号数 &gt;= 已使用的右括号数</code> </p>
 </li>
 <li><p>结束位置处：<code>已使用的左括号数 == 已使用的右括号数 == n</code> </p>
 </li>
 </ul>
 </li>
-<li><p>为了减少一个参数 <code>n</code> 的传递，记括号对数为 <code>n</code> ，我们将其定义修改为剩余括号数：</p>
-<ul>
+<li>为了减少一个参数 <code>n</code> 的传递，记括号对数为 <code>n</code> ，我们将其定义修改为剩余括号数：<ul>
 <li>任何一个位置处：<code>剩余左括号数 &lt;= 剩余右括号数</code> </li>
 <li>结束位置处：<code>剩余左括号数 == 剩余右括号数 == 0</code> </li>
 </ul>
 </li>
 </ul>
-<p><strong>因此很容易可以发现：</strong></p>
+<p><strong><font color="red">因此很容易可以发现：</font></strong></p>
 <ul>
 <li><strong>放左括号：</strong>只要还有可以使用的左括号就可以尝试放一个左括号</li>
 <li><strong>放右括号：</strong>只有当剩余左括号数 <code>少于</code> 剩余右括号数，才能放一个右括号</li>
 </ul>
-<p>&nbsp;</p>
-
-<h3 id="参考代码：回溯"><a href="#参考代码：回溯" class="headerlink" title="参考代码：回溯"></a>参考代码：回溯</h3><blockquote>
+<blockquote>
 <p>时间复杂度：$O(\frac {4^n} {\sqrt{n}})$</p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    
     <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token function">generateParenthesis</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">backtrack</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> n<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -749,7 +744,7 @@
             path<span class="token punctuation">.</span><span class="token function">deleteCharAt</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
