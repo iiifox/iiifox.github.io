@@ -634,7 +634,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    461
+                    444
                 </div>
                 
 
@@ -713,10 +713,10 @@
 
 <p>&nbsp;</p>
 
-<h3 id="参考代码：链表"><a href="#参考代码：链表" class="headerlink" title="参考代码：链表"></a>参考代码：链表</h3><p><strong>方法一：递归</strong></p>
+<h3 id="参考代码：链表"><a href="#参考代码：链表" class="headerlink" title="参考代码：链表"></a>参考代码：链表</h3><p><strong><font color="blue">方法一：递归</font></strong></p>
 <blockquote>
 <p>时间复杂度：$O(m+n)$</p>
-<p>空间复杂度：$O(m+n)$</p>
+<p>空间复杂度：$O(m+n)$    <code>递归时栈空间</code></p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> list1<span class="token punctuation">,</span> <span class="token class-name">ListNode</span> list2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -737,24 +737,24 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>方法二：非递归</strong></p>
+<p>&nbsp;</p>
+
+<p><strong><font color="red">方法二：迭代</font></strong></p>
 <blockquote>
 <p>时间复杂度：$O(m+n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> list1<span class="token punctuation">,</span> <span class="token class-name">ListNode</span> list2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">ListNode</span> dummy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">ListNode</span> dummy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">ListNode</span> cur <span class="token operator">=</span> dummy<span class="token punctuation">;</span>
 
         <span class="token comment">// 两者都不为空的时候，才有必要进行比较</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span>list1 <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> list2 <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>list1<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> list2<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token comment">// 指针修改发生在这里</span>
                 cur<span class="token punctuation">.</span>next <span class="token operator">=</span> list1<span class="token punctuation">;</span>
                 list1 <span class="token operator">=</span> list1<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                <span class="token comment">// 指针修改发生在这里</span>
                 cur<span class="token punctuation">.</span>next <span class="token operator">=</span> list2<span class="token punctuation">;</span>
                 list2 <span class="token operator">=</span> list2<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
@@ -766,14 +766,10 @@
         <span class="token comment">// 而每一轮循环只有一条链表的长度会减一，</span>
         <span class="token comment">// 故跳出循环时 list1 与 list2 不同时为空。</span>
         <span class="token comment">// 从而跳出循环时 list1 与 list2 有且仅有一条为空</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>list1 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            cur<span class="token punctuation">.</span>next <span class="token operator">=</span> list2<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            cur<span class="token punctuation">.</span>next <span class="token operator">=</span> list1<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        cur<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token punctuation">(</span>list1 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">?</span> list2 <span class="token operator">:</span> list1<span class="token punctuation">;</span>
         <span class="token keyword">return</span> dummy<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1252,7 +1248,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">46.5k</span>
+                        class="white-color">46.4k</span>
             
             
             
