@@ -633,7 +633,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    478
+                    897
                 </div>
                 
 
@@ -701,7 +701,34 @@
 
 <p>&nbsp;</p>
 
-<h3 id="参考代码：二分查找"><a href="#参考代码：二分查找" class="headerlink" title="参考代码：二分查找"></a>参考代码：二分查找</h3><blockquote>
+<h3 id="参考代码：二分查找"><a href="#参考代码：二分查找" class="headerlink" title="参考代码：二分查找"></a>参考代码：二分查找</h3><p><strong><font color="blue">将升序数组 <code>nums</code> 从任意位置进行旋转，不妨设数组区间为 <code>[left, right]</code> ，旋转位置索引为 <code>k</code> ，记 <code>mid </code> 为数组的中间位置索引。</font></strong></p>
+<ul>
+<li><code>k &lt; mid</code> ：即将有序数组 <strong>左边少于一半的数放入右边</strong> ，从而旋转后 <code>nums</code> 左半部分 <code>[left, mid]</code> 有序；</li>
+<li><code>k &gt; mid</code> ：即将有序数组 <strong>左边多于一半的数放入右边</strong> ，从而旋转后 <code>nums</code> 右半部分 <code>[mid, rigth]</code> 有序；</li>
+<li><code>k == mid</code> ，这里我们按照 <code>mid</code> 的划分（中点位置向下还是向上取整）不同有两种情况：<ul>
+<li>若 <code>mid = (left + right) &gt;&gt; 1</code> ， 则 <code>nums</code> 左半部分 <code>[left, mid]</code> 有序；</li>
+<li>若 <code>mid = (left + right + 1) &gt;&gt; 1</code> ， 则 <code>nums</code> 右半部分 <code>[mid, rigth]</code> 有序。</li>
+</ul>
+</li>
+</ul>
+<p><strong><font color="green">因此，有以下结论：</font></strong></p>
+<ul>
+<li>若旋转位置 <code>k != 0</code> ，则区间 <code>[left, mid]</code> 与 <code>[mid, right]</code> 有且仅有一个有序；</li>
+<li>若旋转位置 <code>k == 0</code> ，则区间 <code>[left, mid]</code> 与 <code>[mid, right]</code> 都有序，即在 <code>[left, right]</code> 上升序。</li>
+</ul>
+<p><strong>怎么确定旋转后的数组 <code>nums</code> 是左边有序还是右边有序呢？</strong>其实对上面的分析过程进一步观察就能知道：</p>
+<ul>
+<li><code>nums</code> 的左半部分区间 <code>[left, mid]</code> 有序，等价于 <code>nums[left] &lt; nums[mid]</code></li>
+<li><code>nums</code> 的右半部分区间 <code>[left, mid]</code> 有序，等价于 <code>nums[mid] &lt; nums[right]</code></li>
+</ul>
+<hr>
+
+<p><strong><font color="red">我们对数组 <code>nums</code> 进行二分查找：</font></strong></p>
+<ul>
+<li>如果 <code>target</code> 的值位于有序的一半区间，则采用二分查找即可。</li>
+<li>如果 <code>target</code> 的值位于无序的一半区间，我们注意到 <strong>此时这个无序的区间也可以看做到有序经过某个位置旋转得到</strong> ，故可继续二分。</li>
+</ul>
+<blockquote>
 <p>时间复杂度：$O(logn)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
@@ -710,21 +737,21 @@
         <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> right <span class="token operator">=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// 根据分值的逻辑将中间数改成向上取整</span>
             <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&lt;</span> nums<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token comment">// 此时 [mid, right] 有序</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> target <span class="token operator">&amp;&amp;</span> target <span class="token operator">&lt;=</span> nums<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token comment">// 如果 target 的值落在区间 [mid, right]</span>
+                    <span class="token comment">// 如果 target 的值落在有序区间 [mid, right]</span>
                     left <span class="token operator">=</span> mid<span class="token punctuation">;</span>
                 <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                    <span class="token comment">// 否则，下一轮搜索区间是 [left, mid - 1]</span>
+                    <span class="token comment">// 否则，下一轮搜索区间是 [left, mid-1]</span>
                     right <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                <span class="token comment">// 此时 [left, mid - 1] 有序</span>
+                <span class="token comment">// 此时 [left, mid-1] 有序。</span>
+                <span class="token comment">// 但是为了和上一个 if 有同样的收缩行为，我们只认为 [left, mid-1] 有序</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> target <span class="token operator">&amp;&amp;</span> target <span class="token operator">&lt;=</span> nums<span class="token punctuation">[</span>mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token comment">// 如果 target 的值落在区间 [left, mid - 1]</span>
+                    <span class="token comment">// 如果 target 的值落在有序区间 [left, mid-1]</span>
                     right <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
                     <span class="token comment">// 否则，下一轮搜索区间是 [mid, right]</span>
@@ -1213,7 +1240,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">46.7k</span>
+                        class="white-color">47.2k</span>
             
             
             
