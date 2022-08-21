@@ -634,7 +634,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    415
+                    360
                 </div>
                 
 
@@ -716,11 +716,15 @@
         <span class="token comment">// nums[0, lt) == 0</span>
         <span class="token comment">// nums[lt, i) == 1</span>
         <span class="token comment">// nums(gt, n-1] == 2</span>
+        label<span class="token operator">:</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> lt<span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> gt<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment">// 如果 nums[i] &gt; 1，则交换至使 i 位置数 &lt;= 1</span>
-            <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> gt <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token function">swap</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> i<span class="token punctuation">,</span> gt<span class="token punctuation">)</span><span class="token punctuation">;</span>
                 gt<span class="token operator">--</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&gt;</span> gt<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">break</span> label<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
             <span class="token punctuation">}</span>
             <span class="token comment">// nums[i] == 0</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -728,20 +732,6 @@
                 lt<span class="token operator">++</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-
-        <span class="token comment">// 上一个 for 代码更美观但是每一轮循环的开始多一次无效的判断</span>
-        <span class="token comment">// for (int i = 0; i &lt;= gt; ) {</span>
-        <span class="token comment">//     if (nums[i] &lt; 1) {</span>
-        <span class="token comment">//         swap(nums, i, lt);</span>
-        <span class="token comment">//         lt++;</span>
-        <span class="token comment">//         i++;</span>
-        <span class="token comment">//     } else if (nums[i] == 1) {</span>
-        <span class="token comment">//         i++;</span>
-        <span class="token comment">//     } else {</span>
-        <span class="token comment">//         swap(nums, i, gt);</span>
-        <span class="token comment">//         gt--;</span>
-        <span class="token comment">//     }</span>
-        <span class="token comment">// }</span>
     <span class="token punctuation">}</span>
 
     
@@ -750,7 +740,7 @@
         nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
         nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1229,7 +1219,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.6k</span>
+                        class="white-color">47.5k</span>
             
             
             

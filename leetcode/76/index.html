@@ -625,14 +625,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-08-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    832
+                    821
                 </div>
                 
 
@@ -723,7 +723,7 @@
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> t<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             pattern<span class="token punctuation">[</span>c <span class="token operator">-</span> <span class="token char">'A'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token comment">// 统计字符串 t 中不同字符数</span>
+        <span class="token comment">// 统计字符串 t 中不同字符数。differ 记录窗口内未完全匹配的字符数</span>
         <span class="token keyword">int</span> differ <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> pattern<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>pattern<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -731,8 +731,6 @@
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
 
-        <span class="token comment">// 窗口内每涵盖一个 t 中某字符出现的全部次数就加一</span>
-        <span class="token keyword">int</span> match <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> start <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> minLen <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
 
@@ -744,11 +742,11 @@
                 window<span class="token punctuation">[</span>curChar <span class="token operator">-</span> <span class="token char">'A'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
                 <span class="token comment">// 窗口内该字符出现的次数等于 t 中该字符的次数了</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">[</span>curChar <span class="token operator">-</span> <span class="token char">'A'</span><span class="token punctuation">]</span> <span class="token operator">==</span> pattern<span class="token punctuation">[</span>curChar <span class="token operator">-</span> <span class="token char">'A'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    match<span class="token operator">++</span><span class="token punctuation">;</span>
+                    differ<span class="token operator">--</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
             <span class="token punctuation">}</span>
             <span class="token comment">// 当前窗口内已经涵盖 t 所有字符，此时左指针可以考虑右移了</span>
-            <span class="token keyword">while</span> <span class="token punctuation">(</span>match <span class="token operator">==</span> differ<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>differ <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token comment">// 判断是否是一个满足条件的更小的子串</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">&lt;</span> minLen<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     start <span class="token operator">=</span> left<span class="token punctuation">;</span>
@@ -761,7 +759,7 @@
                     window<span class="token punctuation">[</span>leftChar <span class="token operator">-</span> <span class="token char">'A'</span><span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span>
                     <span class="token comment">// 窗口内 leftChar 字符数已经少于 t 中的 leftChar 字符数了</span>
                     <span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">[</span>leftChar <span class="token operator">-</span> <span class="token char">'A'</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> pattern<span class="token punctuation">[</span>leftChar <span class="token operator">-</span> <span class="token char">'A'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        match<span class="token operator">--</span><span class="token punctuation">;</span>
+                        differ<span class="token operator">++</span><span class="token punctuation">;</span>
                     <span class="token punctuation">}</span>
                 <span class="token punctuation">}</span>
                 left<span class="token operator">++</span><span class="token punctuation">;</span>
@@ -770,7 +768,7 @@
         <span class="token keyword">return</span> <span class="token punctuation">(</span>minLen <span class="token operator">==</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">""</span> 
                 <span class="token operator">:</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> start <span class="token operator">+</span> minLen<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1249,7 +1247,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.6k</span>
+                        class="white-color">47.5k</span>
             
             
             
