@@ -633,14 +633,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-08-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    543
+                    599
                 </div>
                 
 
@@ -711,7 +711,7 @@
 
 <p>&nbsp;</p>
 
-<h3 id="参考代码：动态规划（推荐）"><a href="#参考代码：动态规划（推荐）" class="headerlink" title="参考代码：动态规划（推荐）"></a>参考代码：动态规划（推荐）</h3><p><code>dp[i]</code> 表示以 <code>nums[i]</code> 结尾的「连续子数组的最大和」</p>
+<h3 id="参考代码：动态规划（推荐）"><a href="#参考代码：动态规划（推荐）" class="headerlink" title="参考代码：动态规划（推荐）"></a>参考代码：动态规划（推荐）</h3><p><code>dp[i]</code> 表示以 <code>nums[i]</code> 结尾的「连续子数组的最大和」<strong><font color="blue">（连续子数组的最后一个位置是 <code>i</code> ）</font></strong></p>
 <p><strong>动态规划转移方程：</strong></p>
 <ul>
 <li><code>dp[i] = max{dp[i−1]+nums[i], nums[i]}</code></li>
@@ -750,9 +750,13 @@
             <span class="token keyword">return</span> nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">maxCrossingSum</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> left<span class="token punctuation">,</span> mid<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">maxSubArraySum</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> left<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                        <span class="token function">maxSubArraySum</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 左半部分最大子数组和</span>
+        <span class="token keyword">int</span> leftSum <span class="token operator">=</span> <span class="token function">maxSubArraySum</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> left<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 横跨左右边界的最大子数组和</span>
+        <span class="token keyword">int</span> crossingSum <span class="token operator">=</span> <span class="token function">maxCrossingSum</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> left<span class="token punctuation">,</span> mid<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 右半部分最大子数组和</span>
+        <span class="token keyword">int</span> rightSum <span class="token operator">=</span> <span class="token function">maxSubArraySum</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> right<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>crossingSum<span class="token punctuation">,</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>leftSum<span class="token punctuation">,</span> rightSum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
     
@@ -777,7 +781,7 @@
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> leftSum <span class="token operator">+</span> rightSum<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
