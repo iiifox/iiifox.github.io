@@ -624,14 +624,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-08-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    486
+                    587
                 </div>
                 
 
@@ -698,7 +698,14 @@
 
 <p>&nbsp;</p>
 
-<h3 id="参考代码：回溯"><a href="#参考代码：回溯" class="headerlink" title="参考代码：回溯"></a>参考代码：回溯</h3><blockquote>
+<h3 id="参考代码：回溯"><a href="#参考代码：回溯" class="headerlink" title="参考代码：回溯"></a>参考代码：回溯</h3><p><strong><font color="purple">什么时候使用 <code>used</code> 数组，什么时候使用 <code>begin</code> 变量？</font></strong></p>
+<ul>
+<li><p><strong>排列问题，讲究顺序</strong>（即 [2, 2, 3] 与 [2, 3, 2] 视为不同列表时），需要记录哪些数字已经使用过，此时用 <code>used</code> 数组；</p>
+</li>
+<li><p><strong>组合问题，不讲究顺序</strong>（即 [2, 2, 3] 与 [2, 3, 2] 视为相同列表时），需要按照某种顺序搜索，此时使用 <code>begin</code> 变量。</p>
+</li>
+</ul>
+<blockquote>
 <p>空间复杂度：$O(target)$</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
@@ -1215,7 +1222,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.5k</span>
+                        class="white-color">47.6k</span>
             
             
             
