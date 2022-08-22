@@ -636,7 +636,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    834
+                    878
                 </div>
                 
 
@@ -712,7 +712,8 @@
 <li>常规单调栈处理的是 <strong>无重复元素</strong> 的数组，对于有重复元素的处理我们需要将栈的泛型设置为一个 <code>List</code> </li>
 </ul>
 <p>对于本题，我们需要的是 <strong>计算矩形的最大面积</strong> ，而不需要准确的知道每一根柱子左右扩散能达到的最远范围。</p>
-<p><strong><font color="purple">注意到这一点，我们能发现：</font></strong> 当我们对当前柱子 <code>i</code> 向右扩展，如果遇到与当前柱子高度一样的柱子 <code>j</code> 。这个时候柱子 <code>j</code> 的左右扩展是不必要的（可以直接扔掉该柱子），因为柱子 <code>j</code> 左右扩展对应的最大矩形面积和柱子 <code>i</code> 其实是一样的。</p>
+<p><strong><font color="purple">注意到这一点，我们能发现：</font></strong> 当我们对当前柱子 <code>i</code> 向右扩展，如果遇到与当前柱子高度一样的柱子 <code>j1、j2、j3...jk</code> 。这个时候柱子 <code>j1、j2、j3...、jk</code> 左右扩展对应的最大矩形面积和柱子 <code>i</code> 其实是一样的。因此，我们只需要这 <code>k + 1</code> 根柱子中有一根扩展的最大矩形面积是真实的（ <strong>其他的可以更小，但是不能更大</strong> ）。</p>
+<p>为此，我们将常规的弹栈条件设置为 <code>heights[stack.peek()] &gt;= heights[i]</code> ，针对于相等的 <code>k + 1</code> 根柱子来说，它们的左边界都真实的确定了，其中最后一根柱子 <code>jk</code> 的右边界也真实的确定了（ <strong>其他的 <code>k</code> 根计算小了</strong> ）。</p>
 <blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(n)$</p>
@@ -727,17 +728,12 @@
         <span class="token comment">// 「哨兵」，无限低的柱子。</span>
         stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// 栈非空并且栈顶元素大于当前元素，说明需要弹出栈顶元素</span>
-            <span class="token keyword">while</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> heights<span class="token punctuation">[</span>stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> heights<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 栈非空并且栈顶元素大于(等于)当前元素，说明需要弹出栈顶元素</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> heights<span class="token punctuation">[</span>stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">&gt;=</span> heights<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token comment">// index 位置右边柱子严格低于该位置柱子的最近位置是 i；</span>
                 <span class="token comment">// 左边柱子严格低于该位置柱子的最近位置是出栈后栈顶元素(注意哨兵-1)</span>
                 <span class="token keyword">int</span> index <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 res <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> heights<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token comment">// 高度相同的柱子：直接扔掉。这个 if 不是必须的，也可以弹栈(循环条件&gt;=)</span>
-            <span class="token comment">// 但是弹出的数据是不准确的(区间计算小了)</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> heights<span class="token punctuation">[</span>stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">==</span> heights<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">continue</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
             stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
@@ -749,7 +745,7 @@
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
