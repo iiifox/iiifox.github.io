@@ -631,7 +631,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-21
+                    2022-08-22
                 </div>
                 
 
@@ -701,7 +701,7 @@
 
 <p>&nbsp;</p>
 
-<h3 id="参考代码：左右指针"><a href="#参考代码：左右指针" class="headerlink" title="参考代码：左右指针"></a>参考代码：左右指针</h3><p>维护两个指针 <code>left</code> 和 <code>right</code>，以及两个变量 <code>leftMax</code> 和 <code>rightMax</code> ，初始时 <code>left = 0</code>、<code>right = n − 1</code> 。<code>leftMax</code> 维护区间 <code>[0, left]</code> 上的最大值，<code>rightMax</code> 维护区间 <code>[right, n-1]</code> 上的最大值。</p>
+<h3 id="参考代码：左右指针"><a href="#参考代码：左右指针" class="headerlink" title="参考代码：左右指针"></a>参考代码：左右指针</h3><p>维护两个指针 <code>left</code> 和 <code>right</code>，以及两个变量 <code>leftMax</code> 和 <code>rightMax</code> ，初始时 <code>left = 0</code>、<code>right = n − 1</code> 。<code>leftMax</code> 维护区间 <code>[0, left)</code> 上的最大值，<code>rightMax</code> 维护区间 <code>(right, n-1]</code> 上的最大值。</p>
 <ul>
 <li>指针 <code>left</code> 只会向右移动，指针 <code>right</code> 只会向左移动：<ul>
 <li><code>height[left] &lt; height[right]</code> ：左指针右移</li>
