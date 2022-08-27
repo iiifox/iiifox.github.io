@@ -755,7 +755,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-26
+                    2022-08-27
                 </div>
                 
 
@@ -814,10 +814,10 @@
 <blockquote>
 <p>备注：如果你对事务隔离级别的概念不是很清晰的话，可以再回顾一下第 3 篇文章<a href="../3">《事务隔离：为什么你改了我还看不见？》</a>中的相关内容。</p>
 </blockquote>
-<p>官方自带的逻辑备份工具是 <code>mysqldump</code>。当 <code>mysqldump</code> 使用参数<code>–single-transaction</code> 的时候，导数据之前就会启动一个事务，来确保拿到一致性视图。而由于 MVCC 的支持，这个过程中数据是可以正常更新的。</p>
+<p>官方自带的逻辑备份工具是 mysqldump。当 <code>mysqldump</code> 使用参数<code>–single-transaction</code> 的时候，导数据之前就会启动一个事务，来确保拿到一致性视图。而由于 MVCC 的支持，这个过程中数据是可以正常更新的。</p>
 <p>你一定在疑惑，有了这个功能，为什么还需要 FTWRL 呢？<strong>一致性读是好，但前提是引擎要支持这个隔离级别。</strong>比如，对于 MyISAM 这种不支持事务的引擎，如果备份过程中有更新，总是只能取到最新的数据，那么就破坏了备份的一致性。这时，我们就需要使用 FTWRL 命令了。</p>
-<p>所以，**<code>single-transaction</code> 方法只适用于所有的表使用事务引擎的库。**如果有的表使用了不支持事务的引擎，那么备份就只能通过 FTWRL 方法。这往往是 DBA 要求业务开发人员使用 InnoDB 替代 MyISAM 的原因之一。</p>
-<p>你也许会问，<strong>既然要全库只读，为什么不使用 <code>set global readonly=true</code> 的方式呢</strong>？确实 readonly 方式也可以让全库进入只读状态，但我还是会建议你用 FTWRL 方式，主要有两个原因：</p>
+<p>所以，<strong>single-transaction 方法只适用于所有的表使用事务引擎的库。</strong>如果有的表使用了不支持事务的引擎，那么备份就只能通过 FTWRL 方法。这往往是 DBA 要求业务开发人员使用 InnoDB 替代 MyISAM 的原因之一。</p>
+<p>你也许会问，<strong>既然要全库只读，为什么不使用 set global readonly=true 的方式呢</strong>？确实 readonly 方式也可以让全库进入只读状态，但我还是会建议你用 FTWRL 方式，主要有两个原因：</p>
 <ul>
 <li>一是，在有些系统中，readonly 的值会被用来做其他逻辑，比如用来判断一个库是主库还是备库。因此，修改 global 变量的方式影响面更大，我不建议你使用。</li>
 <li>二是，在异常处理机制上有差异。如果执行 FTWRL 命令之后由于客户端发生异常断开，那么 MySQL 会自动释放这个全局锁，整个库回到可以正常更新的状态。而将整个库设置为 readonly 之后，如果客户端发生异常，则数据库就会一直保持 readonly 状态，这样会导致整个库长时间处于不可写状态，风险较高。</li>
