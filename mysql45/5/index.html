@@ -757,7 +757,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-26
+                    2022-08-27
                 </div>
                 
 
@@ -795,12 +795,12 @@
 <p>在开始这篇文章之前，我们先来看一下这个问题：</p>
 <p>在下面这个表 T 中，如果我执行 <code>select * from T where k between 3 and 5</code>，需要执行几次树的搜索操作，会扫描多少行？</p>
 <p>下面是这个表的初始化语句。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql&gt; create table T (
-ID int primary key,
-k int NOT NULL DEFAULT 0, 
-s varchar(16) NOT NULL DEFAULT '',
-index k(k))
-engine=InnoDB;
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create table T (
+  ID int primary key,
+  k int NOT NULL DEFAULT 0, 
+  s varchar(16) NOT NULL DEFAULT '',
+  index k(k)
+) engine=InnoDB;
  
 insert into T values(100,1, 'aa'),(200,2,'bb'),(300,3,'cc'),(500,5,'ee'),(600,6,'ff'),(700,7,'gg');<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
