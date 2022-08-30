@@ -807,7 +807,7 @@
 <p>你可以把你觉得可能的原因写在留言区里，我会在下一篇文章的末尾把大家描述的合理的原因都列出来，以后其他同学就不用掉到这样的坑里了。感谢你的收听，也欢迎你把这篇文章分享给更多的朋友一起阅读。</p>
 <h1 id="上期问题时间"><a href="#上期问题时间" class="headerlink" title="上期问题时间"></a>上期问题时间</h1><p>在上期文章最后，我留给你的问题是，如果一个高配的机器，redo log 设置太小，会发生什么情况。</p>
 <p>每次事务提交都要写 redo log，如果设置太小，很快就会被写满，也就是下面这个图的状态，这个“环”将很快被写满，write pos 一直追着 CP。</p>
-<p>![](../../images/mysql45/12/图 2 redo log 状态图.jpg)</p>
+<p><img src="../../images/mysql45/12/%E5%9B%BE%202%20redo%20log%20%E7%8A%B6%E6%80%81%E5%9B%BE.jpg"></p>
 <p>这时候系统不得不停止所有更新，去推进 checkpoint。</p>
 <p>这时，你看到的现象就是<strong>磁盘压力很小，但是数据库出现间歇性的性能下跌。</strong></p>
 <p><img src="../../images/mysql45/%E4%B8%81%E5%A5%87.jpg"></p>
@@ -1260,7 +1260,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">101.4k</span>
+                        class="white-color">102k</span>
             
             
             

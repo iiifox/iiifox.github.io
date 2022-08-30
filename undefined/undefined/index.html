@@ -5,7 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="iiifox">
-    <meta name="description" content="">
+    <meta name="description" content="14 | count(*)这么慢，我该怎么办？2018-12-14 林晓斌
+
+在开发系统的时候，你可能经常需要计算一个表的行数，比如一个交易系统的所有变更记录总数。这时候你可能会想，一条 select count(*) from t 语句不">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -665,7 +667,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    679
                 </div>
                 
 
@@ -690,7 +692,28 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="14-count-这么慢，我该怎么办？"><a href="#14-count-这么慢，我该怎么办？" class="headerlink" title="14 | count(*)这么慢，我该怎么办？"></a>14 | count(*)这么慢，我该怎么办？</h1><p><font color="gray">2018-12-14 林晓斌</font></p>
+<p><img src="../../images/mysql45/14/14.jpg"></p>
+<p>在开发系统的时候，你可能经常需要计算一个表的行数，比如一个交易系统的所有变更记录总数。这时候你可能会想，一条 <code>select count(*) from t</code> 语句不就解决了吗？</p>
+<p>但是，你会发现随着系统中记录数越来越多，这条语句执行得也会越来越慢。然后你可能就想了，MySQL 怎么这么笨啊，记个总数，每次要查的时候直接读出来，不就好了吗。</p>
+<p>那么今天，我们就来聊聊 count(*) 语句到底是怎样实现的，以及 MySQL 为什么会这么实现。然后，我会再和你说说，如果应用中有这种频繁变更并需要统计表行数的需求，业务设计上可以怎么做。</p>
+<h1 id="count-的实现方式"><a href="#count-的实现方式" class="headerlink" title="count(*) 的实现方式"></a>count(*) 的实现方式</h1><p>你首先要明确的是，在不同的 MySQL 引擎中，count(*) 有不同的实现方式。</p>
+<ul>
+<li>MyISAM 引擎把一个表的总行数存在了磁盘上，因此执行 count(*) 的时候会直接返回这个数，效率很高；</li>
+<li>而 InnoDB 引擎就麻烦了，它执行 count(*) 的时候，需要把数据一行一行地从引擎里面读出来，然后累积计数。</li>
+</ul>
+<p>这里需要注意的是，我们在这篇文章里讨论的是没有过滤条件的 count(*)，如果加了 where 条件的话，MyISAM 表也是不能返回得这么快的。</p>
+<p>在前面的文章中，我们一起分析了为什么要使用 InnoDB，因为不论是在事务支持、并发能力还是在数据安全方面，InnoDB 都优于 MyISAM。我猜你的表也一定是用了 InnoDB 引擎。这就是当你的记录数越来越多的时候，计算一个表的总行数会越来越慢的原因。</p>
+<p>那<strong>为什么 InnoDB 不跟 MyISAM 一样，也把数字存起来呢？</strong></p>
+<p>这是因为即使是在同一个时刻的多个查询，由于多版本并发控制（MVCC）的原因，InnoDB 表“应该返回多少行”也是不确定的。这里，我用一个算 count(*) 的例子来为你解释一下。</p>
+<p>假设表 t 中现在有 10000 条记录，我们设计了三个用户并行的会话。</p>
+<ul>
+<li>会话 A 先启动事务并查询一次表的总行数；</li>
+<li>会话 B 启动事务，插入一行后记录后，查询表的总行数；</li>
+<li>会话 C 先启动一个单独的语句，插入一行记录后，查询表的总行数。</li>
+</ul>
+<p>我们假设从上到下是按照时间顺序执行的，同一行语句是在同一时刻执行的。</p>
+
                 
             </div>
             <hr/>
@@ -1138,7 +1161,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">101.4k</span>
+                        class="white-color">102k</span>
             
             
             
