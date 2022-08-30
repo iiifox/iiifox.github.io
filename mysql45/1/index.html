@@ -670,7 +670,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-28
+                    2022-08-31
                 </div>
                 
 
@@ -728,7 +728,7 @@
 <li>如果用户名密码认证通过，连接器会到权限表里面查出你拥有的权限。之后，这个连接里面的权限判断逻辑，都将依赖于此时读到的权限。</li>
 </ul>
 <p>这就意味着，一个用户成功建立连接后，即使你用管理员账号对这个用户的权限做了修改，也不会影响已经存在连接的权限。修改完成后，只有再新建的连接才会使用新的权限设置。</p>
-<p>连接完成后，如果你没有后续的动作，这个连接就处于空闲状态，你可以在 <code>show processlist</code> 命令中看到它。文本中这个图是 <code>show processlist</code> 的结果，其中的 Command 列显示为“Sleep”的这一行，就表示现在系统里面有一个空闲连接。</p>
+<p>连接完成后，如果你没有后续的动作，这个连接就处于空闲状态，你可以在 <code>show processlist</code> 命令中看到它。文本中这个图是 show processlist 的结果，其中的 Command 列显示为“Sleep”的这一行，就表示现在系统里面有一个空闲连接。</p>
 <p><img src="../../images/mysql45/1/processlist.png"></p>
 <p>客户端如果太长时间没动静，连接器就会自动将它断开。这个时间是由参数 <code>wait_timeout</code> 控制的，默认值是 <code>8</code> 小时。</p>
 <p>如果在连接被断开之后，客户端再次发送请求的话，就会收到一个错误提醒： Lost connection to MySQL server during query。这时候如果你要继续，就需要重连，然后再执行请求了。</p>
@@ -785,7 +785,7 @@ ERROR 1142 (42000): SELECT command denied to user 'b'@'localhost' for table 'T'<
 <p>至此，这个语句就执行完成了。</p>
 <p>对于有索引的表，执行的逻辑也差不多。第一次调用的是“取满足条件的第一行”这个接口，之后循环取“满足条件的下一行”这个接口，这些接口都是引擎中已经定义好的。</p>
 <p>你会在数据库的慢查询日志中看到一个 <code>rows_examined</code> 的字段，表示这个语句执行过程中扫描了多少行。这个值就是在执行器每次调用引擎获取数据行的时候累加的。</p>
-<p>在有些场景下，执行器调用一次，在引擎内部则扫描了多行，因此<strong>引擎扫描行数跟 <code>rows_examined</code> 并不是完全相同的。</strong>我们后面会专门有一篇文章来讲存储引擎的内部机制，里面会有详细的说明。</p>
+<p>在有些场景下，执行器调用一次，在引擎内部则扫描了多行，因此<strong>引擎扫描行数跟 rows_examined 并不是完全相同的。</strong>我们后面会专门有一篇文章来讲存储引擎的内部机制，里面会有详细的说明。</p>
 <h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>今天我给你介绍了 MySQL 的逻辑架构，希望你对一个 SQL 语句完整执行流程的各个阶段有了一个初步的印象。由于篇幅的限制，我只是用一个查询的例子将各个环节过了一遍。如果你还对每个环节的展开细节存有疑问，也不用担心，后续在实战章节中我还会再提到它们。</p>
 <p>我给你留一个问题吧，如果表 T 中没有字段 k，而你执行了这个语句 <code>select * from T where k=1</code>, 那肯定是会报“不存在这个列”的错误： “Unknown column ‘k’ in ‘where clause’”。你觉得这个错误是在我们上面提到的哪个阶段报出来的呢？<del><font color="red">分析器</font></del></p>
 <p>感谢你的收听，欢迎你给我留言，也欢迎分享给更多的朋友一起阅读。</p>
