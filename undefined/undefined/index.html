@@ -5,9 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="iiifox">
-    <meta name="description" content="16 | “order by”是怎么工作的？2018-12-19 林晓斌
+    <meta name="description" content="17 | 如何正确地显示随机消息？2018-12-21 林晓斌
 
-在你开发应用的时候，一定会经常碰到需要根据指定的字段排序来显示结果的需求。还是以我们前面举例用过的市民表为例，假设你要查询城市是“杭州”的所有人名字，并且按照姓名排">
+我在上一篇文章，为你讲解完 order by 语句的几种执行模式后，就想到了之前一个做英语学习 App 的朋友碰到过的一个性能问题。今天这篇文章，我就从这个性能问题说起，和你">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -667,7 +667,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    542
                 </div>
                 
 
@@ -692,83 +692,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="16-“order-by”是怎么工作的？"><a href="#16-“order-by”是怎么工作的？" class="headerlink" title="16 | “order by”是怎么工作的？"></a>16 | “order by”是怎么工作的？</h1><p><font color="gray">2018-12-19 林晓斌</font></p>
-<p><img src="../../images/mysql45/16/16.jpg"></p>
-<p>在你开发应用的时候，一定会经常碰到需要根据指定的字段排序来显示结果的需求。还是以我们前面举例用过的市民表为例，假设你要查询城市是“杭州”的所有人名字，并且按照姓名排序返回前 1000 个人的姓名、年龄。</p>
-<p>假设这个表的部分定义是这样的：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `t` (
-  `id` int(11) NOT NULL,
-  `city` varchar(16) NOT NULL,
-  `name` varchar(16) NOT NULL,
-  `age` int(11) NOT NULL,
-  `addr` varchar(128) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `city` (`city`)
-) ENGINE=InnoDB;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这时，你的 SQL 语句可以这么写：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select city,name,age from t where city='杭州' order by name limit 1000  ;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这个语句看上去逻辑很清晰，但是你了解它的执行流程吗？今天，我就和你聊聊这个语句是怎么执行的，以及有什么参数会影响执行的行为。</p>
-<h1 id="全字段排序"><a href="#全字段排序" class="headerlink" title="全字段排序"></a>全字段排序</h1><p>前面我们介绍过索引，所以你现在就很清楚了，为避免全表扫描，我们需要在 city 字段加上索引。</p>
-<p>在 city 字段上创建索引之后，我们用 explain 命令来看看这个语句的执行情况。</p>
-<div style="text-align:center"><img src="../../images/mysql45/16/图%201%20使用%20explain%20命令查看语句的执行情况.png"><p><font color="gray">图 1 使用 explain 命令查看语句的执行情况</font></p></div>
-
-<p>Extra 这个字段中的“Using filesort”表示的就是需要排序，MySQL 会给每个线程分配一块内存用于排序，称为 sort_buffer。</p>
-<p>为了说明这个 SQL 查询语句的执行过程，我们先来看一下 city 这个索引的示意图。</p>
-<div style="text-align:center"><img src="../../images/mysql45/16/图%202%20city%20字段的索引示意图.png"><p><font color="gray">图 2 city 字段的索引示意图</font></p></div>
-
-<p>从图中可以看到，满足 city=’杭州’条件的行，是从 ID_X 到 ID_(X+N) 的这些记录。</p>
-<p>通常情况下，这个语句执行流程如下所示 ：</p>
-<ol>
-<li>初始化 sort_buffer，确定放入 name、city、age 这三个字段；</li>
-<li>从索引 city 找到第一个满足 city=’杭州’条件的主键 id，也就是图中的 ID_X；</li>
-<li>到主键 id 索引取出整行，取 name、city、age 三个字段的值，存入 sort_buffer 中；</li>
-<li>从索引 city 取下一个记录的主键 id；</li>
-<li>重复步骤 3、4 直到 city 的值不满足查询条件为止，对应的主键 id 也就是图中的 ID_Y；</li>
-<li>对 sort_buffer 中的数据按照字段 name 做快速排序；</li>
-<li>按照排序结果取前 1000 行返回给客户端。</li>
-</ol>
-<p>我们暂且把这个排序过程，称为全字段排序，执行流程的示意图如下所示，下一篇文章中我们还会用到这个排序。</p>
-<div style="text-align:center"><img src="../../images/mysql45/16/图%203%20全字段排序.jpg"><p><font color="gray">图 3 全字段排序</font></p></div>
-
-<p>图中“按 name 排序”这个动作，可能在内存中完成，也可能需要使用外部排序，这取决于排序所需的内存和参数 <code>sort_buffer_size</code>。</p>
-<p>sort_buffer_size，就是 MySQL 为排序开辟的内存（sort_buffer）的大小。如果要排序的数据量小于 sort_buffer_size，排序就在内存中完成。但如果排序数据量太大，内存放不下，则不得不利用磁盘临时文件辅助排序。</p>
-<p>你可以用下面介绍的方法，来确定一个排序语句是否使用了临时文件。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">/* 打开 optimizer_trace，只对本线程有效 */
-SET optimizer_trace='enabled=on'; 
+                <h1 id="17-如何正确地显示随机消息？"><a href="#17-如何正确地显示随机消息？" class="headerlink" title="17 | 如何正确地显示随机消息？"></a>17 | 如何正确地显示随机消息？</h1><p><font>2018-12-21 林晓斌</font></p>
+<p><img src="../../images/mysql45/17/17.jpg"></p>
+<p>我在上一篇文章，为你讲解完 order by 语句的几种执行模式后，就想到了之前一个做英语学习 App 的朋友碰到过的一个性能问题。今天这篇文章，我就从这个性能问题说起，和你说说 MySQL 中的另外一种排序需求，希望能够加深你对 MySQL 排序逻辑的理解。</p>
+<p>这个英语学习 App 首页有一个随机显示单词的功能，也就是根据每个用户的级别有一个单词表，然后这个用户每次访问首页的时候，都会随机滚动显示三个单词。他们发现随着单词表变大，选单词这个逻辑变得越来越慢，甚至影响到了首页的打开速度。</p>
+<p>现在，如果让你来设计这个 SQL 语句，你会怎么写呢？</p>
+<p>为了便于理解，我对这个例子进行了简化：去掉每个级别的用户都有一个对应的单词表这个逻辑，直接就是从一个单词表中随机选出三个单词。这个表的建表语句和初始数据的命令如下：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `words` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `word` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
  
-/* @a 保存 Innodb_rows_read 的初始值 */
-select VARIABLE_VALUE into @a from  performance_schema.session_status where variable_name = 'Innodb_rows_read';
+delimiter ;;
+create procedure idata()
+begin
+  declare i int;
+  set i=0;
+  while i&lt;10000 do
+    insert into words(word) values(concat(char(97+(i div 1000)), char(97+(i % 1000 div 100)), char(97+(i % 100 div 10)), char(97+(i % 10))));
+    set i=i+1;
+  end while;
+end;;
+delimiter ;
  
-/* 执行语句 */
-select city, name,age from t where city='杭州' order by name limit 1000; 
- 
-/* 查看 OPTIMIZER_TRACE 输出 */
-SELECT * FROM `information_schema`.`OPTIMIZER_TRACE`\G
- 
-/* @b 保存 Innodb_rows_read 的当前值 */
-select VARIABLE_VALUE into @b from performance_schema.session_status where variable_name = 'Innodb_rows_read';
- 
-/* 计算 Innodb_rows_read 差值 */
-select @b-@a;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+call idata();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>这个方法是通过查看 OPTIMIZER_TRACE 的结果来确认的，你可以从 number_of_tmp_files 中看到是否使用了临时文件。</p>
-<div style="text-align:center"><img src="../../images/mysql45/16/图%204%20全排序的%20OPTIMIZER_TRACE%20部分结果.png"><p><font color="gray">图 4 全排序的 OPTIMIZER_TRACE 部分结果</font></p></div>
+<p>为了便于量化说明，我在这个表里面插入了 10000 行记录。接下来，我们就一起看看要随机选择 3 个单词，有什么方法实现，存在什么问题以及如何改进。</p>
+<h1 id="内存临时表"><a href="#内存临时表" class="headerlink" title="内存临时表"></a>内存临时表</h1><p>首先，你会想到用 order by rand() 来实现这个逻辑。</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql&gt; select word from words order by rand() limit 3;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>number_of_tmp_files 表示的是，排序过程中使用的临时文件数。你一定奇怪，为什么需要 12 个文件？内存放不下时，就需要使用外部排序，外部排序一般使用归并排序算法。可以这么简单理解，<strong>MySQL 将需要排序的数据分成 12 份，每一份单独排序后存在这些临时文件中。然后把这 12 个有序文件再合并成一个有序的大文件。</strong></p>
-<p>如果 sort_buffer_size 超过了需要排序的数据量的大小，number_of_tmp_files 就是 0，表示排序可以直接在内存中完成。</p>
-<p>否则就需要放在临时文件中排序。sort_buffer_size 越小，需要分成的份数越多，number_of_tmp_files 的值就越大。</p>
-<p>接下来，我再和你解释一下图 4 中其他两个值的意思。</p>
-<p>我们的示例表中有 4000 条满足 city=’杭州’的记录，所以你可以看到 examined_rows=4000，表示参与排序的行数是 4000 行。</p>
-<p>sort_mode 里面的 packed_additional_fields 的意思是，排序过程对字符串做了“紧凑”处理。即使 name 字段的定义是 varchar(16)，在排序过程中还是要按照实际长度来分配空间的。</p>
-<p>同时，最后一个查询语句 select @b-@a 的返回结果是 4000，表示整个执行过程只扫描了 4000 行。</p>
-<p>这里需要注意的是，为了避免对结论造成干扰，我把 internal_tmp_disk_storage_engine 设置成 MyISAM。否则，select @b-@a 的结果会显示为 4001。</p>
-<p>这是因为查询 OPTIMIZER_TRACE 这个表时，需要用到临时表，而 internal_tmp_disk_storage_engine 的默认值是 InnoDB。如果使用的是 InnoDB 引擎的话，把数据从临时表取出来的时候，会让 Innodb_rows_read 的值加 1。</p>
-<h1 id="rowid-排序"><a href="#rowid-排序" class="headerlink" title="rowid 排序"></a>rowid 排序</h1><p>在上面这个算法过程里面，只对原表的数据读了一遍，剩下的操作都是在 sort_buffer 和临时文件中执行的。但这个算法有一个问题，就是如果查询要返回的字段很多的话，那么 sort_buffer 里面要放的字段数太多，这样内存里能够同时放下的行数很少，要分成很多个临时文件，排序的性能会很差。</p>
-<p>所以如果单行很大，这个方法效率不够好。</p>
-<p>那么，<strong>如果 MySQL 认为排序的单行长度太大会怎么做呢？</strong></p>
-<p>接下来，我来修改一个参数，让 MySQL 采用另外一种算法。</p>
+<p>这个语句的意思很直白，随机排序取前 3 个。虽然这个 SQL 语句写法很简单，但执行流程却有点复杂的。</p>
+<p>我们先用 explain 命令来看看这个语句的执行情况。</p>
 
                 
             </div>
@@ -1047,13 +1002,13 @@ select @b-@a;<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/mysql45/review/">
+                <a href="/mysql45/16/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="直播回顾 | 林晓斌：我的 MySQL 心路历程">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="16 | “order by”是怎么工作的？">
                         
-                        <span class="card-title">直播回顾 | 林晓斌：我的 MySQL 心路历程</span>
+                        <span class="card-title">16 | “order by”是怎么工作的？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1064,7 +1019,7 @@ select @b-@a;<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-31
                             </span>
                         <span class="publish-author">
                             
@@ -1217,7 +1172,7 @@ select @b-@a;<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">117k</span>
+                        class="white-color">121k</span>
             
             
             
