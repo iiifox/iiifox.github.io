@@ -5,8 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="iiifox">
-    <meta name="description" content="23 | MySQL是怎么保证数据不丢的？2019-01-04 林晓斌
-">
+    <meta name="description" content="24 | MySQL是怎么保证主备一致的？2019-01-07 林晓斌
+
+在前面的文章中，我不止一次地和你提到了 binlog，大家知道 binlog 可以用来归档，也可以用来做主备同步，但它的内容是什么样的呢？为什么备库执行了 binlo">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -666,7 +667,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    18
+                    293
                 </div>
                 
 
@@ -691,7 +692,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="23-MySQL是怎么保证数据不丢的？"><a href="#23-MySQL是怎么保证数据不丢的？" class="headerlink" title="23 | MySQL是怎么保证数据不丢的？"></a>23 | MySQL是怎么保证数据不丢的？</h1><p><font color="gray">2019-01-04 林晓斌</font></p>
+                <h1 id="24-MySQL是怎么保证主备一致的？"><a href="#24-MySQL是怎么保证主备一致的？" class="headerlink" title="24 | MySQL是怎么保证主备一致的？"></a>24 | MySQL是怎么保证主备一致的？</h1><p><font color="gray">2019-01-07 林晓斌</font></p>
+<p><img src="../../images/mysql45/24/24.jpg"></p>
+<p>在前面的文章中，我不止一次地和你提到了 binlog，大家知道 binlog 可以用来归档，也可以用来做主备同步，但它的内容是什么样的呢？为什么备库执行了 binlog 就可以跟主库保持一致了呢？今天我就正式地和你介绍一下它。</p>
+<p>毫不夸张地说，MySQL 能够成为现下最流行的开源数据库，binlog 功不可没。</p>
+<p>在最开始，MySQL 是以容易学习和方便的高可用架构，被开发人员青睐的。而它的几乎所有的高可用架构，都直接依赖于 binlog。虽然这些高可用架构已经呈现出越来越复杂的趋势，但都是从最基本的一主一备演化过来的。</p>
+<p>今天这篇文章我主要为你介绍主备的基本原理。理解了背后的设计原理，你也可以从业务开发的角度，来借鉴这些设计思想。</p>
+<h1 id="MySQL-主备的基本原理"><a href="#MySQL-主备的基本原理" class="headerlink" title="MySQL 主备的基本原理"></a>MySQL 主备的基本原理</h1><p>如图 1 所示就是基本的主备切换流程。</p>
 
                 
             </div>
@@ -970,13 +977,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/mysql45/22/">
+                <a href="/mysql45/23/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="22 | MySQL有哪些“饮鸩止渴”提高性能的方法？">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="23 | MySQL是怎么保证数据不丢的？">
                         
-                        <span class="card-title">22 | MySQL有哪些“饮鸩止渴”提高性能的方法？</span>
+                        <span class="card-title">23 | MySQL是怎么保证数据不丢的？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1140,7 +1147,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">146.5k</span>
+                        class="white-color">151.4k</span>
             
             
             
