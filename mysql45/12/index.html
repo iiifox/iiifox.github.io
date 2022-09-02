@@ -774,7 +774,7 @@
 <div style="text-align:center"><img src="../../images/mysql45/12/图%203%20InnoDB%20刷脏页速度策略.png"><p><font color="gray">图 3 InnoDB 刷脏页速度策略</font></p></div>
 
 <p>现在你知道了，InnoDB 会在后台刷脏页，而刷脏页的过程是要将内存页写入磁盘。所以，无论是你的查询语句在需要内存的时候可能要求淘汰一个脏页，还是由于刷脏页的逻辑会占用 IO 资源并可能影响到了你的更新语句，都可能是造成你从业务端感知到 MySQL“抖”了一下的原因。</p>
-<p>要尽量避免这种情况，你就要合理地设置 <code>innodb_io_capacity</code> 的值，并且**平时要多关注脏页比例，不要让它经常接近 75%**。</p>
+<p>要尽量避免这种情况，你就要合理地设置 <code>innodb_io_capacity</code> 的值，并且<strong>平时要多关注脏页比例，不要让它经常接近 75%。</strong></p>
 <p>其中，脏页比例是通过 <code>Innodb_buffer_pool_pages_dirty/Innodb_buffer_pool_pages_total</code> 得到的，具体的命令参考下面的代码：</p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">use `performance_schema`;
 select VARIABLE_VALUE into @a from global_status where VARIABLE_NAME = 'Innodb_buffer_pool_pages_dirty';
