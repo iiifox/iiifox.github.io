@@ -669,7 +669,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-29
+                    2022-09-03
                 </div>
                 
 
@@ -775,10 +775,11 @@
 
 <p>现在你知道了，InnoDB 会在后台刷脏页，而刷脏页的过程是要将内存页写入磁盘。所以，无论是你的查询语句在需要内存的时候可能要求淘汰一个脏页，还是由于刷脏页的逻辑会占用 IO 资源并可能影响到了你的更新语句，都可能是造成你从业务端感知到 MySQL“抖”了一下的原因。</p>
 <p>要尽量避免这种情况，你就要合理地设置 <code>innodb_io_capacity</code> 的值，并且**平时要多关注脏页比例，不要让它经常接近 75%**。</p>
-<p>其中，脏页比例是通过 <code>Innodb_buffer_pool_pages_dirty/Innodb_buffer_pool_pages_total</code> 得到的，具体的命令参考下面的代码：<del><font color="red">下面的命令没看懂，演示也报错</font></del></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select VARIABLE_VALUE into @a from global_status where VARIABLE_NAME = 'Innodb_buffer_pool_pages_dirty';
+<p>其中，脏页比例是通过 <code>Innodb_buffer_pool_pages_dirty/Innodb_buffer_pool_pages_total</code> 得到的，具体的命令参考下面的代码：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">use `performance_schema`;
+select VARIABLE_VALUE into @a from global_status where VARIABLE_NAME = 'Innodb_buffer_pool_pages_dirty';
 select VARIABLE_VALUE into @b from global_status where VARIABLE_NAME = 'Innodb_buffer_pool_pages_total';
-select @a/@b;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+select @a/@b;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>接下来，我们再看一个有趣的策略。</p>
 <p>一旦一个查询请求需要在执行过程中先 flush 掉一个脏页时，这个查询就可能要比平时慢了。而 MySQL 中的一个机制，可能让你的查询会更慢：在准备刷一个脏页的时候，如果这个数据页旁边的数据页刚好是脏页，就会把这个“邻居”也带着一起刷掉；而且这个把“邻居”拖下水的逻辑还可以继续蔓延，也就是对于每个邻居数据页，如果跟它相邻的数据页也还是脏页的话，也会被放到一起刷。</p>
