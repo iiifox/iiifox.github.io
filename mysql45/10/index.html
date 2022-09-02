@@ -669,7 +669,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-29
+                    2022-09-02
                 </div>
                 
 
@@ -743,7 +743,7 @@ call idata();<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <div style="text-align:center"><img src="../../images/mysql45/10/图%202%20session%20A%20和%20session%20B%20的执行流程.png"><p><font color="gray">图 2 session A 和 session B 的执行流程</font></p></div>
 
 <p>这里，session A 的操作你已经很熟悉了，它就是开启了一个事务。随后，session B 把数据都删除后，又调用了 idata 这个存储过程，插入了 10 万行数据。</p>
-<p>这时候，session B 的查询语句 <code>select * from t where a between 10000 and 20000</code> 就不会再选择索引 a 了<del><font color="red">这里我实验多次，MySQL5.7.37似乎修复了这样一个bug</font></del>。我们可以通过慢查询日志（slow log）来查看一下具体的执行情况。</p>
+<p>这时候，session B 的查询语句 <code>select * from t where a between 10000 and 20000</code> 就不会再选择索引 a 了<del><font color="red">这里我实验多次，MySQL5.7.37版本已经修复了这个bug</font></del>。我们可以通过慢查询日志（slow log）来查看一下具体的执行情况。</p>
 <p>为了说明优化器选择的结果是否正确，我增加了一个对照，即：使用 <code>force index(a)</code> 来让优化器强制使用索引 a（这部分内容，我还会在这篇文章的后半部分中提到）。</p>
 <p>下面的三条 SQL 语句，就是这个实验过程。</p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">set long_query_time=0;
