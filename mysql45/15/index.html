@@ -669,7 +669,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-30
+                    2022-09-03
                 </div>
                 
 
@@ -737,7 +737,7 @@
 <li>row 格式的 binlog，最后会有一个 XID event。</li>
 </ul>
 <p>另外，在 MySQL 5.6.2 版本以后，还引入了 <code>binlog-checksum</code> 参数，用来验证 binlog 内容的正确性。对于 binlog 日志由于磁盘原因，可能会在日志中间出错的情况，MySQL 可以通过校验 checksum 的结果来发现。所以，MySQL 还是有办法验证事务 binlog 的完整性的。</p>
-<h2 id="追问-2：redo-log-和-binlog-是怎么关联起来的"><a href="#追问-2：redo-log-和-binlog-是怎么关联起来的" class="headerlink" title="追问 2：redo log 和 binlog 是怎么关联起来的?"></a>追问 2：redo log 和 binlog 是怎么关联起来的?</h2><p>回答：它们有一个共同的数据字段，叫 XID。崩溃恢复的时候，会按顺序扫描 redo log：</p>
+<h2 id="追问-2：redo-log-和-binlog-是怎么关联起来的"><a href="#追问-2：redo-log-和-binlog-是怎么关联起来的" class="headerlink" title="追问 2：redo log 和 binlog 是怎么关联起来的?"></a>追问 2：redo log 和 binlog 是怎么关联起来的?</h2><p>回答：它们有一个共同的数据字段，叫 <code>XID</code>。崩溃恢复的时候，会按顺序扫描 redo log：</p>
 <ul>
 <li>如果碰到既有 prepare、又有 commit 的 redo log，就直接提交；</li>
 <li>如果碰到只有 parepare、而没有 commit 的 redo log，就拿着 XID 去 binlog 找对应的事务。</li>
