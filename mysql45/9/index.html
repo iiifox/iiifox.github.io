@@ -820,7 +820,7 @@
 <h1 id="change-buffer-和-redo-log"><a href="#change-buffer-和-redo-log" class="headerlink" title="change buffer 和 redo log"></a>change buffer 和 redo log</h1><p>理解了 change buffer 的原理，你可能会联想到我在前面文章中和你介绍过的 redo log 和 WAL。</p>
 <p>在前面文章的评论中，我发现有同学混淆了 redo log 和 change buffer。WAL 提升性能的核心机制，也的确是尽量减少随机读写，这两个概念确实容易混淆。所以，这里我把它们放到了同一个流程里来说明，便于你区分这两个概念。</p>
 <blockquote>
-<p>备注：这里，你可以再回顾下第 2 篇文章<a href="../2">《日志系统：一条 SQL 更新语句是如何执行的？》</a>中的相关内容。</p>
+<p>备注：这里，你可以再回顾下第 2 篇文章<a href="../2/#%E9%87%8D%E8%A6%81%E7%9A%84%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%EF%BC%9Aredo-log">《日志系统：一条 SQL 更新语句是如何执行的？》</a>中的相关内容。</p>
 </blockquote>
 <p>现在，我们要在表上执行这个插入语句：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> t<span class="token punctuation">(</span>id<span class="token punctuation">,</span>k<span class="token punctuation">)</span> <span class="token keyword">values</span><span class="token punctuation">(</span>id1<span class="token punctuation">,</span>k1<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>id2<span class="token punctuation">,</span>k2<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
