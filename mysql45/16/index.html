@@ -730,7 +730,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-31
+                    2022-09-04
                 </div>
                 
 
@@ -805,23 +805,23 @@
 <p>图中“按 name 排序”这个动作，可能在内存中完成，也可能需要使用外部排序，这取决于排序所需的内存和参数 <code>sort_buffer_size</code>。</p>
 <p>sort_buffer_size，就是 MySQL 为排序开辟的内存（sort_buffer）的大小。如果要排序的数据量小于 sort_buffer_size，排序就在内存中完成。但如果排序数据量太大，内存放不下，则不得不利用磁盘临时文件辅助排序。</p>
 <p>你可以用下面介绍的方法，来确定一个排序语句是否使用了临时文件。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">/* 打开 optimizer_trace，只对本线程有效 */
-SET optimizer_trace='enabled=on'; 
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">/* 打开 optimizer_trace，只对本线程有效 */</span>
+<span class="token keyword">SET</span> optimizer_trace<span class="token operator">=</span><span class="token string">'enabled=on'</span><span class="token punctuation">;</span> 
  
-/* @a 保存 Innodb_rows_read 的初始值 */
-select VARIABLE_VALUE into @a from  performance_schema.session_status where variable_name = 'Innodb_rows_read';
+<span class="token comment">/* @a 保存 Innodb_rows_read 的初始值 */</span>
+<span class="token keyword">select</span> VARIABLE_VALUE <span class="token keyword">into</span> <span class="token variable">@a</span> <span class="token keyword">from</span>  performance_schema<span class="token punctuation">.</span>session_status <span class="token keyword">where</span> variable_name <span class="token operator">=</span> <span class="token string">'Innodb_rows_read'</span><span class="token punctuation">;</span>
  
-/* 执行语句 */
-select city, name,age from t where city='杭州' order by name limit 1000; 
+<span class="token comment">/* 执行语句 */</span>
+<span class="token keyword">select</span> city<span class="token punctuation">,</span> name<span class="token punctuation">,</span>age <span class="token keyword">from</span> t <span class="token keyword">where</span> city<span class="token operator">=</span><span class="token string">'杭州'</span> <span class="token keyword">order</span> <span class="token keyword">by</span> name <span class="token keyword">limit</span> <span class="token number">1000</span><span class="token punctuation">;</span> 
  
-/* 查看 OPTIMIZER_TRACE 输出 */
-SELECT * FROM `information_schema`.`OPTIMIZER_TRACE`\G
+<span class="token comment">/* 查看 OPTIMIZER_TRACE 输出 */</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>information_schema<span class="token punctuation">`</span></span><span class="token punctuation">.</span><span class="token identifier"><span class="token punctuation">`</span>OPTIMIZER_TRACE<span class="token punctuation">`</span></span>\G
  
-/* @b 保存 Innodb_rows_read 的当前值 */
-select VARIABLE_VALUE into @b from performance_schema.session_status where variable_name = 'Innodb_rows_read';
+<span class="token comment">/* @b 保存 Innodb_rows_read 的当前值 */</span>
+<span class="token keyword">select</span> VARIABLE_VALUE <span class="token keyword">into</span> <span class="token variable">@b</span> <span class="token keyword">from</span> performance_schema<span class="token punctuation">.</span>session_status <span class="token keyword">where</span> variable_name <span class="token operator">=</span> <span class="token string">'Innodb_rows_read'</span><span class="token punctuation">;</span>
  
-/* 计算 Innodb_rows_read 差值 */
-select @b-@a;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment">/* 计算 Innodb_rows_read 差值 */</span>
+<span class="token keyword">select</span> <span class="token variable">@b</span><span class="token operator">-</span><span class="token variable">@a</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这个方法是通过查看 OPTIMIZER_TRACE 的结果来确认的，你可以从 <code>number_of_tmp_files</code> 中看到是否使用了临时文件。</p>
 <div style="text-align:center"><img src="../../images/mysql45/16/图%204%20全排序的%20OPTIMIZER_TRACE%20部分结果.png"><p><font color="gray">图 4 全排序的 OPTIMIZER_TRACE 部分结果</font></p></div>

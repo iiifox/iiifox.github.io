@@ -731,7 +731,7 @@ MySQL 的行锁是在引擎层由各个引擎自己实现的。但并不是所�
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-27
+                    2022-09-04
                 </div>
                 
 
@@ -821,18 +821,18 @@ MySQL 的行锁是在引擎层由各个引擎自己实现的。但并不是所�
 <p>你可以把你的思考和观点写在留言区里，我会在下一篇文章的末尾和你讨论这个问题。感谢你的收听，也欢迎你把这篇文章分享给更多的朋友一起阅读。</p>
 <h1 id="上期问题时间"><a href="#上期问题时间" class="headerlink" title="上期问题时间"></a>上期问题时间</h1><p>上期我给你留的问题是：当备库用<code>–single-transaction</code> 做逻辑备份的时候，如果从主库的 binlog 传来一个 DDL 语句会怎么样？</p>
 <p>假设这个 DDL 是针对表 t1 的， 这里我把备份过程中几个关键的语句列出来：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">Q1:SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
-Q2:START TRANSACTION  WITH CONSISTENT SNAPSHOT;
-/* other tables */
-Q3:SAVEPOINT sp;
-/* 时刻 1 */
-Q4:show create table `t1`;
-/* 时刻 2 */
-Q5:SELECT * FROM `t1`;
-/* 时刻 3 */
-Q6:ROLLBACK TO SAVEPOINT sp;
-/* 时刻 4 */
-/* other tables */<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">Q1:<span class="token keyword">SET</span> <span class="token keyword">SESSION</span> <span class="token keyword">TRANSACTION</span> <span class="token keyword">ISOLATION</span> <span class="token keyword">LEVEL</span> <span class="token keyword">REPEATABLE</span> <span class="token keyword">READ</span><span class="token punctuation">;</span>
+Q2:<span class="token keyword">START</span> <span class="token keyword">TRANSACTION</span>  <span class="token keyword">WITH</span> <span class="token keyword">CONSISTENT</span> <span class="token keyword">SNAPSHOT</span><span class="token punctuation">;</span>
+<span class="token comment">/* other tables */</span>
+Q3:<span class="token keyword">SAVEPOINT</span> sp<span class="token punctuation">;</span>
+<span class="token comment">/* 时刻 1 */</span>
+Q4:<span class="token keyword">show</span> <span class="token keyword">create</span> <span class="token keyword">table</span> <span class="token identifier"><span class="token punctuation">`</span>t1<span class="token punctuation">`</span></span><span class="token punctuation">;</span>
+<span class="token comment">/* 时刻 2 */</span>
+Q5:<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>t1<span class="token punctuation">`</span></span><span class="token punctuation">;</span>
+<span class="token comment">/* 时刻 3 */</span>
+Q6:<span class="token keyword">ROLLBACK</span> <span class="token keyword">TO</span> <span class="token keyword">SAVEPOINT</span> sp<span class="token punctuation">;</span>
+<span class="token comment">/* 时刻 4 */</span>
+<span class="token comment">/* other tables */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在备份开始的时候，为了确保 RR（可重复读）隔离级别，再设置一次 RR 隔离级别 (Q1);</p>
 <p>启动事务，这里用 <code>WITH CONSISTENT SNAPSHOT</code> 确保这个语句执行完就可以得到一个一致性视图（Q2)；</p>
