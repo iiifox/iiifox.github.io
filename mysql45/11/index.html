@@ -816,7 +816,7 @@ create">
 <p>于是，你就有个问题：当要给字符串创建前缀索引时，有什么方法能够确定我应该使用多长的前缀呢？</p>
 <p>实际上，我们在建立索引时关注的是区分度，区分度越高越好。因为区分度越高，意味着重复的键值越少。因此，我们可以通过统计索引上有多少个不同的值来判断要使用多长的前缀。</p>
 <p>首先，你可以使用下面这个语句，算出这个列上有多少个不同的值：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql&gt; select count(distinct email) as L from SUser;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> email<span class="token punctuation">)</span> <span class="token keyword">as</span> L <span class="token keyword">from</span> SUser<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后，依次选取不同长度的前缀来看这个值，比如我们要看一下 4~7 个字节的前缀索引，可以用这个语句：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 
@@ -846,7 +846,7 @@ create">
 <p>那么，如果我们能够确定业务需求里面只有按照身份证进行等值查询的需求，还有没有别的处理方法呢？这种方法，既可以占用更小的空间，也能达到相同的查询效率。</p>
 <p>答案是，有的。</p>
 <p><strong>第一种方式是使用倒序存储。</strong>如果你存储身份证号的时候把它倒过来存，每次查询的时候，你可以这么写：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql&gt; select field_list from t where id_card = reverse('input_id_card_string');<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> field_list <span class="token keyword">from</span> t <span class="token keyword">where</span> id_card <span class="token operator">=</span> reverse<span class="token punctuation">(</span><span class="token string">'input_id_card_string'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>由于身份证号的最后 6 位没有地址码这样的重复逻辑，所以最后这 6 位很可能就提供了足够的区分度。当然了，实践中你不要忘记使用 count(distinct) 方法去做个验证。</p>
 <p><strong>第二种方式是使用 hash 字段。</strong>你可以在表上再创建一个整数字段，来保存身份证的校验码，同时在这个字段上创建索引。</p>

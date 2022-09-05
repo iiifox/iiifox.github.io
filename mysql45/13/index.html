@@ -731,7 +731,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-30
+                    2022-09-05
                 </div>
                 
 
@@ -831,16 +831,16 @@
 <p>所以，我现在问你，如果你有一个 1TB 的表，现在磁盘间是 1.2TB，能不能做一个 inplace 的 DDL 呢？</p>
 <p>答案是不能。因为，tmp_file 也是要占用临时空间的。</p>
 <p>我们重建表的这个语句 <code>alter table t engine=InnoDB</code>，其实隐含的意思是：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table t engine=innodb,ALGORITHM=inplace;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> t <span class="token keyword">ENGINE</span><span class="token operator">=</span>INNODE<span class="token punctuation">,</span><span class="token keyword">ALGORITHM</span><span class="token operator">=</span>inplace<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>跟 inplace 对应的就是拷贝表的方式了，用法是：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table t engine=innodb,ALGORITHM=copy;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> t <span class="token keyword">ENGINE</span><span class="token operator">=</span>INNODE<span class="token punctuation">,</span><span class="token keyword">ALGORITHM</span><span class="token operator">=</span>copy<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>当你使用 ALGORITHM=copy 的时候，表示的是强制拷贝表，对应的流程就是图 3 的操作过程。</p>
 <p>但我这样说你可能会觉得，inplace 跟 Online 是不是就是一个意思？</p>
 <p>其实不是的，只是在重建表这个逻辑中刚好是这样而已。</p>
 <p>比如，如果我要给 InnoDB 表的一个字段加全文索引，写法是：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table t add FULLTEXT(field_name);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> t <span class="token keyword">ADD</span> FULLTEXT<span class="token punctuation">(</span>field_name<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这个过程是 inplace 的，但会阻塞增删改操作，是非 Online 的。</p>
 <p>如果说这两个逻辑之间的关系是什么的话，可以概括为：</p>

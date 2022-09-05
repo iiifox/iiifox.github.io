@@ -730,7 +730,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-03
+                    2022-09-05
                 </div>
                 
 
@@ -766,7 +766,7 @@
 <p><img src="../../images/mysql45/12/12.jpg"></p>
 <p>平时的工作中，不知道你有没有遇到过这样的场景，一条 SQL 语句，正常执行的时候特别快，但是有时也不知道怎么回事，它就会变得特别慢，并且这样的场景很难复现，它不只随机，而且持续时间还很短。</p>
 <p>看上去，这就像是数据库“抖”了一下。今天，我们就一起来看一看这是什么原因。</p>
-<h1 id="你的-SQL-语句为什么变“慢”了"><a href="#你的-SQL-语句为什么变“慢”了" class="headerlink" title="你的 SQL 语句为什么变“慢”了"></a>你的 SQL 语句为什么变“慢”了</h1><p>在前面第 2 篇文章<a href="../2">《日志系统：一条 SQL 更新语句是如何执行的？》</a>中，我为你介绍了 WAL 机制。现在你知道了，InnoDB 在处理更新语句的时候，只做了写日志这一个磁盘操作。这个日志叫作 redo log（重做日志），也就是《孔乙己》里咸亨酒店掌柜用来记账的粉板，在更新内存写完 redo log 后，就返回给客户端，本次更新成功。</p>
+<h1 id="你的-SQL-语句为什么变“慢”了"><a href="#你的-SQL-语句为什么变“慢”了" class="headerlink" title="你的 SQL 语句为什么变“慢”了"></a>你的 SQL 语句为什么变“慢”了</h1><p>在前面第 2 篇文章<a href="../2/#%E9%87%8D%E8%A6%81%E7%9A%84%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%EF%BC%9Aredo-log">《日志系统：一条 SQL 更新语句是如何执行的？》</a>中，我为你介绍了 WAL 机制。现在你知道了，InnoDB 在处理更新语句的时候，只做了写日志这一个磁盘操作。这个日志叫作 redo log（重做日志），也就是《孔乙己》里咸亨酒店掌柜用来记账的粉板，在更新内存写完 redo log 后，就返回给客户端，本次更新成功。</p>
 <p>做下类比的话，掌柜记账的账本是数据文件，记账用的粉板是日志文件（redo log），掌柜的记忆就是内存。</p>
 <p>掌柜总要找时间把账本更新一下，这对应的就是把内存里的数据写入磁盘的过程，术语就是 flush。在这个 flush 操作执行之前，孔乙己的赊账总额，其实跟掌柜手中账本里面的记录是不一致的。因为孔乙己今天的赊账金额还只在粉板上，而账本里的记录是老的，还没把今天的赊账算进去。</p>
 <p><strong>当内存数据页跟磁盘数据页内容不一致的时候，我们称这个内存页为“脏页”。内存数据写入到磁盘后，内存和磁盘上的数据页的内容就一致了，称为“干净页”</strong>。</p>
@@ -837,10 +837,10 @@
 <p>现在你知道了，InnoDB 会在后台刷脏页，而刷脏页的过程是要将内存页写入磁盘。所以，无论是你的查询语句在需要内存的时候可能要求淘汰一个脏页，还是由于刷脏页的逻辑会占用 IO 资源并可能影响到了你的更新语句，都可能是造成你从业务端感知到 MySQL“抖”了一下的原因。</p>
 <p>要尽量避免这种情况，你就要合理地设置 <code>innodb_io_capacity</code> 的值，并且<strong>平时要多关注脏页比例，不要让它经常接近 75%。</strong></p>
 <p>其中，脏页比例是通过 <code>Innodb_buffer_pool_pages_dirty/Innodb_buffer_pool_pages_total</code> 得到的，具体的命令参考下面的代码：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">use `performance_schema`;
-select VARIABLE_VALUE into @a from global_status where VARIABLE_NAME = 'Innodb_buffer_pool_pages_dirty';
-select VARIABLE_VALUE into @b from global_status where VARIABLE_NAME = 'Innodb_buffer_pool_pages_total';
-select @a/@b;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">USE</span> <span class="token identifier"><span class="token punctuation">`</span>performance_schema<span class="token punctuation">`</span></span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> VARIABLE_VALUE <span class="token keyword">INTO</span> <span class="token variable">@a</span> <span class="token keyword">FROM</span> global_status <span class="token keyword">WHERE</span> VARIABLE_NAME <span class="token operator">=</span> <span class="token string">'Innodb_buffer_pool_pages_dirty'</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> VARIABLE_VALUE <span class="token keyword">INTO</span> <span class="token variable">@b</span> <span class="token keyword">FROM</span> global_status <span class="token keyword">WHERE</span> VARIABLE_NAME <span class="token operator">=</span> <span class="token string">'Innodb_buffer_pool_pages_total'</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token variable">@a</span><span class="token operator">/</span><span class="token variable">@b</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>接下来，我们再看一个有趣的策略。</p>
 <p>一旦一个查询请求需要在执行过程中先 flush 掉一个脏页时，这个查询就可能要比平时慢了。而 MySQL 中的一个机制，可能让你的查询会更慢：在准备刷一个脏页的时候，如果这个数据页旁边的数据页刚好是脏页，就会把这个“邻居”也带着一起刷掉；而且这个把“邻居”拖下水的逻辑还可以继续蔓延，也就是对于每个邻居数据页，如果跟它相邻的数据页也还是脏页的话，也会被放到一起刷。</p>
