@@ -737,7 +737,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.9k
+                    5k
                 </div>
                 
 
@@ -891,8 +891,9 @@ select word from words order by rand<span class="token operator">(</span><span c
 </ol>
 <p>我们把这个算法，暂时称作随机算法 1。这里，我直接给你贴一下执行语句的序列:</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">INTO</span> <span class="token variable">@M</span><span class="token punctuation">,</span><span class="token variable">@N</span> <span class="token keyword">FROM</span> t <span class="token punctuation">;</span>
+<span class="token comment">/* SET @X= CEIL((@M-@N)*RAND() + @N); */</span>
 <span class="token keyword">SET</span> <span class="token variable">@X</span><span class="token operator">=</span> FLOOR<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">@M</span><span class="token operator">-</span><span class="token variable">@N</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span>RAND<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token variable">@N</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> id <span class="token operator">&gt;=</span> <span class="token variable">@X</span> <span class="token keyword">LIMIT</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> id <span class="token operator">&gt;=</span> <span class="token variable">@X</span> <span class="token keyword">LIMIT</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这个方法效率很高，因为取 max(id) 和 min(id) 都是不需要扫描索引的，而第三步的 select 也可以用索引快速定位，可以认为就只扫描了 3 行。但实际上，这个算法本身并不严格满足题目的随机要求，因为 ID 中间可能有空洞，因此选择不同行的概率不一样，不是真正的随机。</p>
 <p>比如你有 4 个 id，分别是 1、2、4、5，如果按照上面的方法，那么取到 id=4 的这一行的概率是取得其他行概率的两倍。</p>
@@ -1417,7 +1418,7 @@ select word from words order by rand<span class="token operator">(</span><span c
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">166.9k</span>
+                        class="white-color">167k</span>
             
             
             
