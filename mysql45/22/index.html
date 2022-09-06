@@ -731,7 +731,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-01
+                    2022-09-07
                 </div>
                 
 
@@ -819,9 +819,10 @@
 <p>比如，我们犯了在第 18 篇文章<a href="../18">《为什么这些 SQL 语句逻辑相同，性能却差异巨大？》</a>中提到的那些错误，导致语句没有使用上索引。</p>
 <p>这时，我们可以通过改写 SQL 语句来处理。MySQL 5.7 提供了 <code>query_rewrite</code> 功能，可以把输入的一种语句改写成另外一种模式。</p>
 <p>比如，语句被错误地写成了 select * from t where id + 1 = 10000，你可以通过下面的方式，增加一个语句改写规则。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">insert into query_rewrite.rewrite_rules(pattern, replacement, pattern_database) values ("select * from t where id + 1 = ?", "select * from t where id = ? - 1", "db1");
- 
-call query_rewrite.flush_rewrite_rules();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> query_rewrite<span class="token punctuation">.</span>rewrite_rules <span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> replacement<span class="token punctuation">,</span> pattern_database<span class="token punctuation">)</span> 
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token string">"select * from t where id + 1 = ?"</span><span class="token punctuation">,</span> <span class="token string">"select * from t where id = ? - 1"</span><span class="token punctuation">,</span> <span class="token string">"db1"</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+
+<span class="token keyword">CALL</span> query_rewrite<span class="token punctuation">.</span>flush_rewrite_rules<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这里，<code>call query_rewrite.flush_rewrite_rules()</code> 这个存储过程，是让插入的新规则生效，也就是我们说的“查询重写”。你可以用图 4 中的方法来确认改写规则是否生效。</p>
 <div style="text-align:center"><img src="../../images/mysql45/22/图%204%20查询重写效果.png"><p><font color="gray">图 4 查询重写效果</font></p></div>
