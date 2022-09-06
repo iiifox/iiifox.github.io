@@ -848,7 +848,7 @@ insert into t values(5,5,'2018-11-09');<span aria-hidden="true" class="line-numb
 <li>Delete_rows event，用于定义删除的行为。</li>
 </ol>
 <p>其实，我们通过图 5 是看不到详细信息的，还需要借助 mysqlbinlog 工具，用下面这个命令解析和查看 binlog 中的内容。因为图 5 中的信息显示，这个事务的 binlog 是从 8900 这个位置开始的，所以可以用 start-position 参数来指定从这个位置的日志开始解析。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysqlbinlog  -vv data/master.000001 --start-position<span class="token operator">=</span><span class="token number">8900</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysqlbinlog  <span class="token parameter variable">-vv</span> data/master.000001 --start-position<span class="token operator">=</span><span class="token number">8900</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <div style="text-align:center"><img src="../../images/mysql45/24/图%206%20row%20格式%20binlog%20示例的详细信息.png"><p><font color="gray">图 6 row 格式 binlog 示例的详细信息</font></p></div>
 
@@ -893,7 +893,7 @@ insert into t values(5,5,'2018-11-09');<span aria-hidden="true" class="line-numb
 <p>我之前看过有人在重放 binlog 数据的时候，是这么做的：用 mysqlbinlog 解析出日志，然后把里面的 statement 语句直接拷贝出来执行。</p>
 <p>你现在知道了，这个方法是有风险的。因为有些语句的执行结果是依赖于上下文命令的，直接执行的结果很可能是错误的。</p>
 <p>所以，用 binlog 来恢复数据的标准做法是，用 mysqlbinlog 工具解析出来，然后把解析结果整个发给 MySQL 执行。类似下面的命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysqlbinlog master.000001  --start-position<span class="token operator">=</span><span class="token number">2738</span> --stop-position<span class="token operator">=</span><span class="token number">2973</span> <span class="token operator">|</span> mysql -h127.0.0.1 -P13000 -u<span class="token variable">$user</span> -p<span class="token variable">$pwd</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysqlbinlog master.000001  --start-position<span class="token operator">=</span><span class="token number">2738</span> --stop-position<span class="token operator">=</span><span class="token number">2973</span> <span class="token operator">|</span> mysql <span class="token parameter variable">-h127.0.0.1</span> <span class="token parameter variable">-P13000</span> -u<span class="token variable">$user</span> -p<span class="token variable">$pwd</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这个命令的意思是，将 master.000001 文件里面从第 2738 字节到第 2973 字节中间这段内容解析出来，放到 MySQL 去执行。</p>
 <h1 id="循环复制问题"><a href="#循环复制问题" class="headerlink" title="循环复制问题"></a>循环复制问题</h1><p>通过上面对 MySQL 中 binlog 基本内容的理解，你现在可以知道，binlog 的特性确保了在备库执行相同的 binlog，可以得到与主库相同的状态。</p>
