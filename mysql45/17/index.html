@@ -886,8 +886,8 @@ select word from words order by rand<span class="token operator">(</span><span c
 <h1 id="随机排序方法"><a href="#随机排序方法" class="headerlink" title="随机排序方法"></a>随机排序方法</h1><p>我们先把问题简化一下，如果只随机选择 1 个 word 值，可以怎么做呢？思路上是这样的：</p>
 <ol>
 <li>取得这个表的主键 id 的最大值 M 和最小值 N;</li>
-<li>用随机函数生成一个最大值到最小值之间的数 X = (M-N+1)*rand() + N;</li>
-<li>取不大于 X 的第一个 ID 的行。</li>
+<li>用随机函数生成一个最大值到最小值之间的数 X = (M-N)*rand() + N;</li>
+<li>取不小于 X 的第一个 ID 的行。</li>
 </ol>
 <p>我们把这个算法，暂时称作随机算法 1。这里，我直接给你贴一下执行语句的序列:</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">INTO</span> <span class="token variable">@M</span><span class="token punctuation">,</span><span class="token variable">@N</span> <span class="token keyword">FROM</span> t <span class="token punctuation">;</span>
