@@ -783,7 +783,7 @@
 
 <p>由于 t_modified 字段上有索引，于是你就很放心地在生产库中执行了这条语句，但却发现执行了特别久，才返回了结果。</p>
 <p>如果你问 DBA 同事为什么会出现这样的情况，他大概会告诉你：如果对字段做了函数计算，就用不上索引了，这是 MySQL 的规定。</p>
-<p>现在你已经学过了 InnoDB 的索引结构了，可以再追问一句为什么？为什么条件是 <code>where t_modified='2018-7-1’</code>的时候可以用上索引，而改成 <code>where month(t_modified)=7</code> 的时候就不行了？</p>
+<p>现在你已经学过了 InnoDB 的索引结构了，可以再追问一句为什么？为什么条件是 <code>where t_modified='2018-7-1'</code>的时候可以用上索引，而改成 <code>where month(t_modified)=7</code> 的时候就不行了？</p>
 <p>下面是这个 t_modified 索引的示意图。方框上面的数字就是 month() 函数对应的值。</p>
 <div style="text-align:center"><img src="../../images/mysql45/18/图%201%20t_modified%20索引示意图.png"><p><font color="gray">图 1 t_modified 索引示意图</font></p></div>
 
