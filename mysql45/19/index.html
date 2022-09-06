@@ -800,7 +800,7 @@
 <div style="text-align:center"><img src="../../images/mysql45/19/图%202%20Waiting%20for%20table%20metadata%20lock%20状态示意图.png"><p><font color="gray">图 2 Waiting for table metadata lock 状态示意图</font></p></div>
 
 <p>出现<strong>这个状态表示的是，现在有一个线程正在表 t 上请求或者持有 MDL 写锁，把 select 语句堵住了。</strong></p>
-<p>在第 6 篇文章<a href="../6">《全局锁和表锁 ：给表加个字段怎么有这么多阻碍？》</a>中，我给你介绍过一种复现方法。但需要说明的是，那个复现过程是基于 MySQL 5.6 版本的。而 MySQL 5.7 版本修改了 MDL 的加锁策略，所以就不能复现这个场景了。<del><font color="red">5.7.37可以复现</font></del></p>
+<p>在第 6 篇文章<a href="../6/#%E8%A1%A8%E7%BA%A7%E9%94%81">《全局锁和表锁 ：给表加个字段怎么有这么多阻碍？》</a>中，我给你介绍过一种复现方法。但需要说明的是，那个复现过程是基于 MySQL 5.6 版本的。而 MySQL 5.7 版本修改了 MDL 的加锁策略，所以就不能复现这个场景了。<del><font color="red">5.7.37可以复现</font></del></p>
 <p>不过，在 MySQL 5.7 版本下复现这个场景，也很容易。如图 3 所示，我给出了简单的复现步骤。</p>
 <div style="text-align:center"><img src="../../images/mysql45/19/图%203%20MySQL%205.7%20中%20Waiting%20for%20table%20metadata%20lock%20的复现步骤.png"><p><font color="gray">图 3 MySQL 5.7 中 Waiting for table metadata lock 的复现步骤</font></p></div>
 

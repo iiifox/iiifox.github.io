@@ -731,7 +731,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-01
+                    2022-09-06
                 </div>
                 
 
@@ -767,22 +767,22 @@
 <p><img src="../../images/mysql45/20/20.jpg"></p>
 <p>在上一篇文章最后，我给你留了一个关于加锁规则的问题。今天，我们就从这个问题说起吧。</p>
 <p>为了便于说明问题，这一篇文章，我们就先使用一个小一点儿的表。建表和初始化语句如下（为了便于本期的例子说明，我把上篇文章中用到的表结构做了点儿修改）：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `t` (
-  `id` int(11) NOT NULL,
-  `c` int(11) DEFAULT NULL,
-  `d` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `c` (`c`)
-) ENGINE=InnoDB;
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>t<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>c<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>d<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">KEY</span> <span class="token identifier"><span class="token punctuation">`</span>c<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>c<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">INNODB</span><span class="token punctuation">;</span>
  
-insert into t values(0,0,0),(5,5,5),
-(10,10,10),(15,15,15),(20,20,20),(25,25,25);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这个表除了主键 id 外，还有一个索引 c，初始化语句在表中插入了 6 行数据。</p>
 <p>上期我留给你的问题是，下面的语句序列，是怎么加锁的，加的锁又是什么时候释放的呢？</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">begin;
-select * from t where d=5 for update;
-commit;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">BEGIN</span><span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> t <span class="token keyword">WHERE</span> d<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">FOR</span> <span class="token keyword">UPDATE</span><span class="token punctuation">;</span>
+<span class="token keyword">COMMIT</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>比较好理解的是，这个语句会命中 d=5 的这一行，对应的主键 id=5，因此在 select 语句执行完成后，id=5 这一行会加一个写锁，而且由于两阶段锁协议，这个写锁会在执行 commit 语句的时候释放。</p>
 <p>由于字段 d 上没有索引，因此这条查询语句会做全表扫描。那么，其他被扫描到的，但是不满足条件的 5 行记录上，会不会被加锁呢？</p>
@@ -834,13 +834,13 @@ commit;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <li>T6 时刻，session A 事务提交，写入了 update t set d=100 where d=5 这条语句。</li>
 </ol>
 <p>我统一放到一起的话，就是这样的：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">update t set d=5 where id=0; /*(0,0,5)*/
-update t set c=5 where id=0; /*(0,5,5)*/
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">update</span> t <span class="token keyword">set</span> d<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">/*(0,0,5)*/</span>
+<span class="token keyword">update</span> t <span class="token keyword">set</span> c<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">/*(0,5,5)*/</span>
  
-insert into t values(1,1,5); /*(1,1,5)*/
-update t set c=5 where id=1; /*(1,5,5)*/
+<span class="token keyword">insert</span> <span class="token keyword">into</span> t <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/*(1,1,5)*/</span>
+<span class="token keyword">update</span> t <span class="token keyword">set</span> c<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">/*(1,5,5)*/</span>
  
-update t set d=100 where d=5;/* 所有 d=5 的行，d 改成 100*/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">update</span> t <span class="token keyword">set</span> d<span class="token operator">=</span><span class="token number">100</span> <span class="token keyword">where</span> d<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span><span class="token comment">/* 所有 d=5 的行，d 改成 100*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>好，你应该看出问题了。这个语句序列，不论是拿到备库去执行，还是以后用 binlog 来克隆一个库，这三行的结果，都变成了 (0,5,100)、(1,5,100) 和 (5,5,100)。</p>
 <p>也就是说，id=0 和 id=1 这两行，发生了数据不一致。这个问题很严重，是不行的。</p>
@@ -852,13 +852,13 @@ update t set d=100 where d=5;/* 所有 d=5 的行，d 改成 100*/<span aria-hid
 
 <p>由于 session A 把所有的行都加了写锁，所以 session B 在执行第一个 update 语句的时候就被锁住了。需要等到 T6 时刻 session A 提交以后，session B 才能继续执行。</p>
 <p>这样对于 id=0 这一行，在数据库里的最终结果还是 (0,5,5)。在 binlog 里面，执行序列是这样的：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">insert into t values(1,1,5); /*(1,1,5)*/
-update t set c=5 where id=1; /*(1,5,5)*/
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> t <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/*(1,1,5)*/</span>
+<span class="token keyword">update</span> t <span class="token keyword">set</span> c<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">/*(1,5,5)*/</span>
  
-update t set d=100 where d=5;/* 所有 d=5 的行，d 改成 100*/
+<span class="token keyword">update</span> t <span class="token keyword">set</span> d<span class="token operator">=</span><span class="token number">100</span> <span class="token keyword">where</span> d<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span><span class="token comment">/* 所有 d=5 的行，d 改成 100*/</span>
  
-update t set d=5 where id=0; /*(0,0,5)*/
-update t set c=5 where id=0; /*(0,5,5)*/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">update</span> t <span class="token keyword">set</span> d<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">/*(0,0,5)*/</span>
+<span class="token keyword">update</span> t <span class="token keyword">set</span> c<span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">/*(0,5,5)*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>可以看到，按照日志顺序执行，id=0 这一行的最终结果也是 (0,5,5)。所以，id=0 这一行的问题解决了。</p>
 <p>但同时你也可以看到，id=1 这一行，在数据库里面的结果是 (1,5,5)，而根据 binlog 的执行结果是 (1,5,100)，也就是说幻读的问题还是没有解决。为什么我们已经这么“凶残”地，把所有的记录都上了锁，还是阻止不了 id=1 这一行的插入和更新呢？</p>
