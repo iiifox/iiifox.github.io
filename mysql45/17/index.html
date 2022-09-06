@@ -817,9 +817,9 @@
 <li>排序完成后，取出前三个结果的位置信息，依次到内存临时表中取出 word 值，返回给客户端。这个过程中，访问了表的三行数据，总扫描行数变成了 20003。</li>
 </ol>
 <p>接下来，我们通过慢查询日志（slow log）来验证一下我们分析得到的扫描行数是否正确。</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># Query_time: 0.900376  Lock_time: 0.000347 Rows_sent: 3 Rows_examined: 20003</span>
-<span class="token keyword">SET</span> <span class="token keyword">timestamp</span><span class="token operator">=</span><span class="token number">1541402277</span><span class="token punctuation">;</span>
-<span class="token keyword">select</span> word <span class="token keyword">from</span> words <span class="token keyword">order</span> <span class="token keyword">by</span> rand<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">limit</span> <span class="token number">3</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-log" data-language="log"><code class="language-log"><span class="token operator">#</span> Query_time<span class="token operator">:</span> <span class="token number">0.900376</span>  Lock_time<span class="token operator">:</span> <span class="token number">0.000347</span> Rows_sent<span class="token operator">:</span> <span class="token number">3</span> Rows_examined<span class="token operator">:</span> <span class="token number">20003</span>
+SET timestamp<span class="token operator">=</span><span class="token number">1541402277</span><span class="token operator">;</span>
+select word from words order by rand<span class="token operator">(</span><span class="token operator">)</span> limit <span class="token number">3</span><span class="token operator">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>其中，Rows_examined：20003 就表示这个语句执行过程中扫描了 20003 行，也就验证了我们分析得出的结论。</p>
 <p>这里插一句题外话，在平时学习概念的过程中，你可以经常这样做，先通过原理分析算出扫描行数，然后再通过查看慢查询日志，来验证自己的结论。我自己就是经常这么做，这个过程很有趣，分析对了开心，分析错了但是弄清楚了也很开心。</p>
