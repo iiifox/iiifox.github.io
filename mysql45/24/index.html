@@ -730,7 +730,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-02
+                    2022-09-07
                 </div>
                 
 
@@ -797,27 +797,27 @@
 <p>分析完了这个长连接的逻辑，我们再来看一个问题：binlog 里面到底是什么内容，为什么备库拿过去可以直接执行。</p>
 <h1 id="binlog-的三种格式对比"><a href="#binlog-的三种格式对比" class="headerlink" title="binlog 的三种格式对比"></a>binlog 的三种格式对比</h1><p>我在<a href="../15">第 15 篇答疑文章</a>中，和你提到过 binlog 有两种格式，一种是 statement，一种是 row。可能你在其他资料上还会看到有第三种格式，叫作 mixed，其实它就是前两种格式的混合。</p>
 <p>为了便于描述 binlog 的这三种格式间的区别，我创建了一个表，并初始化几行数据。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `t` (
-  `id` int(11) NOT NULL,
-  `a` int(11) DEFAULT NULL,
-  `t_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `a` (`a`),
-  KEY `t_modified`(`t_modified`)
-) ENGINE=InnoDB;
- 
-insert into t values(1,1,'2018-11-13');
-insert into t values(2,2,'2018-11-12');
-insert into t values(3,3,'2018-11-11');
-insert into t values(4,4,'2018-11-10');
-insert into t values(5,5,'2018-11-09');<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>t<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>a<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token identifier"><span class="token punctuation">`</span>t_modified<span class="token punctuation">`</span></span> <span class="token keyword">TIMESTAMP</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CURRENT_TIMESTAMP</span><span class="token punctuation">,</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">KEY</span> <span class="token identifier"><span class="token punctuation">`</span>a<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>a<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">KEY</span> <span class="token identifier"><span class="token punctuation">`</span>t_modified<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>t_modified<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span> <span class="token operator">=</span> <span class="token keyword">INNODB</span> <span class="token punctuation">;</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'2018-11-13'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'2018-11-12'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'2018-11-11'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">'2018-11-10'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token string">'2018-11-09'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>如果要在表中删除一行数据的话，我们来看看这个 delete 语句的 binlog 是怎么记录的。</p>
 <p>注意，下面这个语句包含注释，如果你用 MySQL 客户端来做这个实验的话，要记得加 -c 参数，否则客户端会自动去掉注释。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql&gt; delete from t /*comment*/  where a&gt;=4 and t_modified&lt;='2018-11-10' limit 1;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">delete</span> <span class="token keyword">from</span> t <span class="token comment">/*comment*/</span>  <span class="token keyword">where</span> a<span class="token operator">&gt;=</span><span class="token number">4</span> <span class="token operator">and</span> t_modified<span class="token operator">&lt;=</span><span class="token string">'2018-11-10'</span> <span class="token keyword">limit</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>当 <code>binlog_format='statement'</code> 时，binlog 里面记录的就是 SQL 语句的原文。你可以用</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql&gt; show binlog events in 'master.000001';<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SHOW</span> BINLOG EVENTS <span class="token operator">IN</span> <span class="token string">'master.000001'</span> <span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>命令看 binlog 中的内容。</p>
 <div style="text-align:center"><img src="../../images/mysql45/24/图%203%20statement%20格式%20binlog%20示例.png"><p><font color="gray">图 3 statement 格式 binlog 示例</font></p></div>
@@ -827,7 +827,7 @@ insert into t values(5,5,'2018-11-09');<span aria-hidden="true" class="line-numb
 <li>第一行 SET @@SESSION.GTID_NEXT=’ANONYMOUS’ 你可以先忽略，后面文章我们会在介绍主备切换的时候再提到；</li>
 <li>第二行是一个 BEGIN，跟第四行的 commit 对应，表示中间是一个事务；</li>
 <li>第三行就是真实执行的语句了。可以看到，在真实执行的 delete 命令之前，还有一个“use ‘test’”命令。这条命令不是我们主动执行的，而是 MySQL 根据当前要操作的表所在的数据库，自行添加的。这样做可以保证日志传到备库去执行的时候，不论当前的工作线程在哪个库里，都能够正确地更新到 test 库的表 t。<br>use ‘test’命令之后的 delete 语句，就是我们输入的 SQL 原文了。可以看到，binlog“忠实”地记录了 SQL 命令，甚至连注释也一并记录了。</li>
-<li>最后一行是一个 COMMIT。你可以看到里面写着 xid=61。你还记得这个 XID 是做什么用的吗？如果记忆模糊了，可以再回顾一下<a href="../15">第 15 篇文章</a>中的相关内容。</li>
+<li>最后一行是一个 COMMIT。你可以看到里面写着 xid=61。你还记得这个 XID 是做什么用的吗？如果记忆模糊了，可以再回顾一下<a href="../15/#%E8%BF%BD%E9%97%AE-2%EF%BC%9Aredo-log-%E5%92%8C-binlog-%E6%98%AF%E6%80%8E%E4%B9%88%E5%85%B3%E8%81%94%E8%B5%B7%E6%9D%A5%E7%9A%84">第 15 篇文章</a>中的相关内容。</li>
 </ul>
 <p>为了说明 statement 和 row 格式的区别，我们来看一下这条 delete 命令的执行效果图：</p>
 <div style="text-align:center"><img src="../../images/mysql45/24/图%204%20delete%20执行%20warnings.png"><p><font color="gray">图 4 delete 执行 warnings</font></p></div>
@@ -878,7 +878,7 @@ insert into t values(5,5,'2018-11-09');<span aria-hidden="true" class="line-numb
 <p>如果执行的是 update 语句的话，binlog 里面会记录修改前整行的数据和修改后的整行数据。所以，如果你误执行了 update 语句的话，只需要把这个 event 前后的两行信息对调一下，再去数据库里面执行，就能恢复这个更新操作了。</p>
 <p>其实，由 delete、insert 或者 update 语句导致的数据操作错误，需要恢复到操作之前状态的情况，也时有发生。MariaDB 的<a target="_blank" rel="noopener" href="https://mariadb.com/kb/en/library/flashback/">Flashback</a>工具就是基于上面介绍的原理来回滚数据的。</p>
 <p>虽然 mixed 格式的 binlog 现在已经用得不多了，但这里我还是要再借用一下 mixed 格式来说明一个问题，来看一下这条 SQL 语句：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql&gt; insert into t values(10,10, now());<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> t <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>如果我们把 binlog 格式设置为 mixed，你觉得 MySQL 会把它记录为 row 格式还是 statement 格式呢？</p>
 <p>先不要着急说结果，我们一起来看一下这条语句执行的效果。</p>
