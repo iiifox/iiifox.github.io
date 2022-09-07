@@ -5,16 +5,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 3 题：无重复字符的最长子串（中等）, iiifox">
-    <meta name="description" content="「力扣」第 3 题：无重复字符的最长子串
+    <meta name="description" content="3. 无重复字符的最长子串
 链接
 
 题目描述给定一个字符串 s ，请你找出其中不含有重复字符的&amp;nbsp;最长子串&amp;nbsp;的长度。
 
-&amp;nbsp;
-
 示例&amp;nbsp;1:
 输入: s = &#34;abcabcbb&#34;
-输出: 3 ">
+输出: 3 
+解释: 因为无重复字符的最长">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -709,10 +708,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                                <span class="chip bg-color">双指针</span>
-                            </a>
-                        
                             <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
                                 <span class="chip bg-color">滑动窗口</span>
                             </a>
@@ -745,14 +740,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-09-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    657
+                    659
                 </div>
                 
 
@@ -777,12 +772,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-3-题：无重复字符的最长子串"><a href="#「力扣」第-3-题：无重复字符的最长子串" class="headerlink" title="「力扣」第 3 题：无重复字符的最长子串"></a>「力扣」第 3 题：无重复字符的最长子串</h2><ul>
+                <h1 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3. 无重复字符的最长子串"></a>3. 无重复字符的最长子串</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/">链接</a></li>
 </ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的&nbsp;<strong>最长子串&nbsp;</strong>的长度。</p>
-
-<p>&nbsp;</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的&nbsp;<strong>最长子串&nbsp;</strong>的长度。</p>
 
 <pre><strong>示例&nbsp;1:</strong>
 <strong>输入: </strong>s = "abcabcbb"
@@ -803,19 +796,13 @@
 &nbsp;    请注意，你的答案必须是 <strong>子串 </strong>的长度，"pwke"&nbsp;是一个子序列，不是子串。
 </pre>
 
-<p>&nbsp;</p>
-
 <p><strong>提示：</strong>
 </p><ul>
     <li><code>0 &lt;= s.length &lt;= 5 * 10<sup>4</sup></code></li>
     <li><code>s</code>&nbsp;由英文字母、数字、符号和空格组成</li>
 </ul><p></p>
 
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：左右指针"><a href="#参考代码：左右指针" class="headerlink" title="参考代码：左右指针"></a>参考代码：左右指针</h3><p><strong><font color="red">关于复杂度中出现常数的一些说明：</font></strong></p>
+<h2 id="参考代码：滑动窗口"><a href="#参考代码：滑动窗口" class="headerlink" title="参考代码：滑动窗口"></a>参考代码：滑动窗口</h2><p><strong><font color="red">关于复杂度中出现常数的一些说明：</font></strong></p>
 <ul>
 <li>常数表示字符集中字符的个数，故没有将常数省略</li>
 </ul>
@@ -825,8 +812,8 @@
 <li>对于字符串中字符的遍历，由于 <code>Java</code> 中字符串的 <code>charAt()</code> 方法每次都会检查下标是否越界，对于长字符串这会降低其性能，故一般会先将字符串转成字符数组，通过数组的检索来提高运行效率。</li>
 </ul>
 <blockquote>
-<p>时间复杂度：$O(n + 128)$    <code>若使用哈希表而不采用窗口数组，则时间复杂度为 O(n)</code></p>
-<p>空间复杂度：$O(n + 128)$    <code>若不使用字符串转字符数组，则空间复杂度为 O(128)</code></p>
+<p>时间复杂度：$O(n + 128)$&nbsp;&nbsp;&nbsp;&nbsp;<code>若使用哈希表而不采用窗口数组，则时间复杂度为 O(n)</code></p>
+<p>空间复杂度：$O(n + 128)$&nbsp;&nbsp;&nbsp;&nbsp;<code>若不使用字符串转字符数组，则空间复杂度为 O(128)</code></p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -838,7 +825,7 @@
         
         <span class="token comment">// s.charAt(i) 操作会去检查下标是否越界，故将字符串转换成字符数组</span>
         <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chars <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// chars 在 [left, right] 中没有重复元素</span>
+        <span class="token comment">// chars 在窗口 [left, right] 中没有重复元素</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> right <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> right<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment">// 字符值为 chars[right] 在前面出现过了，</span>
             <span class="token comment">// 前一次出现的索引是否在 [left, right] 中决定是否进行窗口滑动</span>
@@ -917,10 +904,6 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                                    <span class="chip bg-color">双指针</span>
-                                </a>
                             
                                 <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
                                     <span class="chip bg-color">滑动窗口</span>
@@ -1335,7 +1318,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">185k</span>
+                        class="white-color">186.3k</span>
             
             
             
