@@ -795,7 +795,7 @@
 </ol>
 <p>这里需要说明，后来由于多线程复制方案的引入，sql_thread 演化成为了多个线程，跟我们今天要介绍的原理没有直接关系，暂且不展开。</p>
 <p>分析完了这个长连接的逻辑，我们再来看一个问题：binlog 里面到底是什么内容，为什么备库拿过去可以直接执行。</p>
-<h1 id="binlog-的三种格式对比"><a href="#binlog-的三种格式对比" class="headerlink" title="binlog 的三种格式对比"></a>binlog 的三种格式对比</h1><p>我在<a href="../15">第 15 篇答疑文章</a>中，和你提到过 binlog 有两种格式，一种是 statement，一种是 row。可能你在其他资料上还会看到有第三种格式，叫作 mixed，其实它就是前两种格式的混合。</p>
+<h1 id="binlog-的三种格式对比"><a href="#binlog-的三种格式对比" class="headerlink" title="binlog 的三种格式对比"></a>binlog 的三种格式对比</h1><p>我在<a href="../15/#%E8%BF%BD%E9%97%AE-1%EF%BC%9AMySQL-%E6%80%8E%E4%B9%88%E7%9F%A5%E9%81%93-binlog-%E6%98%AF%E5%AE%8C%E6%95%B4%E7%9A%84">第 15 篇答疑文章</a>中，和你提到过 binlog 有两种格式，一种是 statement，一种是 row。可能你在其他资料上还会看到有第三种格式，叫作 mixed，其实它就是前两种格式的混合。</p>
 <p>为了便于描述 binlog 的这三种格式间的区别，我创建了一个表，并初始化几行数据。</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>t<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
   <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span> <span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
