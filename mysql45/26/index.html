@@ -870,7 +870,7 @@
 </ol>
 <p>但是，如果你的主库上的表都放在同一个 DB 里面，这个策略就没有效果了；或者如果不同 DB 的热点不同，比如一个是业务逻辑库，一个是系统配置库，那也起不到并行的效果。</p>
 <p>理论上你可以创建不同的 DB，把相同热度的表均匀分到这些不同的 DB 中，强行使用这个策略。不过据我所知，由于需要特地移动数据，这个策略用得并不多。</p>
-<h1 id="MariaDB-的并行复制策略"><a href="#MariaDB-的并行复制策略" class="headerlink" title="MariaDB 的并行复制策略"></a>MariaDB 的并行复制策略</h1><p>在<a href="../23">第 23 篇文章</a>中，我给你介绍了 redo log 组提交 (group commit) 优化， 而 MariaDB 的并行复制策略利用的就是这个特性：</p>
+<h1 id="MariaDB-的并行复制策略"><a href="#MariaDB-的并行复制策略" class="headerlink" title="MariaDB 的并行复制策略"></a>MariaDB 的并行复制策略</h1><p>在<a href="../23/#redo-log-%E7%9A%84%E5%86%99%E5%85%A5%E6%9C%BA%E5%88%B6">第 23 篇文章</a>中，我给你介绍了 redo log 组提交 (group commit) 优化， 而 MariaDB 的并行复制策略利用的就是这个特性：</p>
 <ol>
 <li>能够在同一组里提交的事务，一定不会修改同一行；</li>
 <li>主库上可以并行执行的事务，备库上也一定是可以并行执行的。</li>
