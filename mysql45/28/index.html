@@ -4,10 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="15 | 答疑文章（一）：日志和索引相关问题, iiifox">
-    <meta name="description" content="15 | 答疑文章（一）：日志和索引相关问题2018-12-17 林晓斌
+    <meta name="keywords" content="28 | 读写分离有哪些坑？, iiifox">
+    <meta name="description" content="28 | 读写分离有哪些坑？2019-01-16 林晓斌
 
-在今天这篇答疑文章更新前，MySQL 实战这个专栏已经更新了 14 篇。在这些文章中，大家在评论区留下了很多高质量的留言。现在，每篇文章的评论区都有热心的同学帮忙总">
+在上一篇文章中，我和你介绍了一主多从的结构以及切换流程。今天我们就继续聊聊一主多从架构的应用场景：读写分离，以及怎么处理主备延迟导致的读写分离问题。
+我们在上一篇文章中提到的一主多">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +22,7 @@
 
     
 
-    <title>15 | 答疑文章（一）：日志和索引相关问题 | iiifox</title>
+    <title>28 | 读写分离有哪些坑？ | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -581,12 +582,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">15 | 答疑文章（一）：日志和索引相关问题</h1>
+                    <h1 class="description center-align post-title">28 | 读写分离有哪些坑？</h1>
                 </div>
             </div>
         </div>
@@ -723,21 +724,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-30
+                    2022-09-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-06
+                    2022-09-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    5.5k
                 </div>
                 
 
@@ -762,222 +763,211 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="15-答疑文章（一）：日志和索引相关问题"><a href="#15-答疑文章（一）：日志和索引相关问题" class="headerlink" title="15 | 答疑文章（一）：日志和索引相关问题"></a>15 | 答疑文章（一）：日志和索引相关问题</h1><p><font color="gray">2018-12-17 林晓斌</font></p>
-<p><img src="../../images/mysql45/15/15.jpg"></p>
-<p>在今天这篇答疑文章更新前，MySQL 实战这个专栏已经更新了 14 篇。在这些文章中，大家在评论区留下了很多高质量的留言。现在，每篇文章的评论区都有热心的同学帮忙总结文章知识点，也有不少同学提出了很多高质量的问题，更有一些同学帮忙解答其他同学提出的问题。</p>
-<p>在浏览这些留言并回复的过程中，我倍受鼓舞，也尽我所知地帮助你解决问题、和你讨论。可以说，你们的留言活跃了整个专栏的氛围、提升了整个专栏的质量，谢谢你们。</p>
-<p>评论区的大多数留言我都直接回复了，对于需要展开说明的问题，我都拿出小本子记了下来。这些被记下来的问题，就是我们今天这篇答疑文章的素材了。</p>
-<p>到目前为止，我已经收集了 47 个问题，很难通过今天这一篇文章全部展开。所以，我就先从中找了几个联系非常紧密的问题，串了起来，希望可以帮你解决关于日志和索引的一些疑惑。而其他问题，我们就留着后面慢慢展开吧。</p>
-<h1 id="日志相关问题"><a href="#日志相关问题" class="headerlink" title="日志相关问题"></a>日志相关问题</h1><p>我在第 2 篇文章<a href="../2/#%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4">《日志系统：一条 SQL 更新语句是如何执行的？》</a>中，和你讲到 binlog（归档日志）和 redo log（重做日志）配合崩溃恢复的时候，用的是反证法，说明了如果没有两阶段提交，会导致 MySQL 出现主备数据不一致等问题。</p>
-<p>在这篇文章下面，很多同学在问，在两阶段提交的不同瞬间，MySQL 如果发生异常重启，是怎么保证数据完整性的？</p>
-<p>现在，我们就从这个问题开始吧。</p>
-<p>我再放一次两阶段提交的图，方便你学习下面的内容。</p>
-<div style="text-align:center"><img src="../../images/mysql45/15/图%201%20两阶段提交示意图.jpg"><p><font color="gray">图 1 两阶段提交示意图</font></p></div>
+                <h1 id="28-读写分离有哪些坑？"><a href="#28-读写分离有哪些坑？" class="headerlink" title="28 | 读写分离有哪些坑？"></a>28 | 读写分离有哪些坑？</h1><p><font color="gray">2019-01-16 林晓斌</font></p>
+<p><img src="../../images/mysql45/28/28.jpg"></p>
+<p>在上一篇文章中，我和你介绍了一主多从的结构以及切换流程。今天我们就继续聊聊一主多从架构的应用场景：读写分离，以及怎么处理主备延迟导致的读写分离问题。</p>
+<p>我们在上一篇文章中提到的一主多从的结构，其实就是读写分离的基本结构了。这里，我再把这张图贴过来，方便你理解。</p>
+<div style="text-align:center"><img src="../../images/mysql45/28/图%201%20读写分离基本结构.png"><p><font color="gray">图 1 读写分离基本结构</font></p></div>
 
-<p>这里，我要先和你解释一个误会式的问题。有同学在评论区问到，这个图不是一个 update 语句的执行流程吗，怎么还会调用 commit 语句？</p>
-<p>他产生这个疑问的原因，是把<strong>两个“commit”的概念</strong>混淆了：</p>
+<p>读写分离的主要目标就是分摊主库的压力。图 1 中的结构是客户端（client）主动做负载均衡，这种模式下一般会把数据库的连接信息放在客户端的连接层。也就是说，由客户端来选择后端数据库进行查询。</p>
+<p>还有一种架构是，在 MySQL 和客户端之间有一个中间代理层 proxy，客户端只连接 proxy， 由 proxy 根据请求类型和上下文决定请求的分发路由。</p>
+<div style="text-align:center"><img src="../../images/mysql45/28/图%202%20带%20proxy%20的读写分离架构.png"><p><font color="gray">图 2 带 proxy 的读写分离架构</font></p></div>
+
+<p>接下来，我们就看一下客户端直连和带 proxy 的读写分离架构，各有哪些特点。</p>
+<ol>
+<li>客户端直连方案，因为少了一层 proxy 转发，所以查询性能稍微好一点儿，并且整体架构简单，排查问题更方便。但是这种方案，由于要了解后端部署细节，所以在出现主备切换、库迁移等操作的时候，客户端都会感知到，并且需要调整数据库连接信息。<br>你可能会觉得这样客户端也太麻烦了，信息大量冗余，架构很丑。其实也未必，一般采用这样的架构，一定会伴随一个负责管理后端的组件，比如 Zookeeper，尽量让业务端只专注于业务逻辑开发。</li>
+<li>带 proxy 的架构，对客户端比较友好。客户端不需要关注后端细节，连接维护、后端信息维护等工作，都是由 proxy 完成的。但这样的话，对后端维护团队的要求会更高。而且，proxy 也需要有高可用架构。因此，带 proxy 架构的整体就相对比较复杂。</li>
+</ol>
+<p>理解了这两种方案的优劣，具体选择哪个方案就取决于数据库团队提供的能力了。但目前看，趋势是往带 proxy 的架构方向发展的。</p>
+<p>但是，不论使用哪种架构，你都会碰到我们今天要讨论的问题：由于主从可能存在延迟，客户端执行完一个更新事务后马上发起查询，如果查询选择的是从库的话，就有可能读到刚刚的事务更新之前的状态。</p>
+<p><strong>这种“在从库上会读到系统的一个过期状态”的现象，在这篇文章里，我们暂且称之为“过期读”。</strong></p>
+<p>前面我们说过了几种可能导致主备延迟的原因，以及对应的优化策略，但是主从延迟还是不能 100% 避免的。</p>
+<p>不论哪种结构，客户端都希望查询从库的数据结果，跟查主库的数据结果是一样的。</p>
+<p>接下来，我们就来讨论怎么处理过期读问题。</p>
+<p>这里，我先把文章中涉及到的处理过期读的方案汇总在这里，以帮助你更好地理解和掌握全文的知识脉络。这些方案包括：</p>
 <ul>
-<li>他说的“commit 语句”，是指 MySQL 语法中，用于提交一个事务的命令。一般跟 begin/start transaction 配对使用。</li>
-<li>而我们图中用到的这个“commit 步骤”，指的是事务提交过程中的一个小步骤，也是最后一步。当这个步骤执行完成后，这个事务就提交完成了。</li>
-<li>“commit 语句”执行的时候，会包含“commit 步骤”。</li>
+<li>强制走主库方案；</li>
+<li>sleep 方案；</li>
+<li>判断主备无延迟方案；</li>
+<li>配合 semi-sync 方案；</li>
+<li>等主库位点方案；</li>
+<li>等 GTID 方案。</li>
 </ul>
-<p>而我们这个例子里面，没有显式地开启事务，因此这个 update 语句自己就是一个事务，在执行完成后提交事务时，就会用到这个“commit 步骤“。</p>
-<p>接下来，我们就一起分析一下<strong>在两阶段提交的不同时刻，MySQL 异常重启会出现什么现象。</strong></p>
-<p>如果在图中时刻 A 的地方，也就是写入 redo log 处于 prepare 阶段之后、写 binlog 之前，发生了崩溃（crash），由于此时 binlog 还没写，redo log 也还没提交，所以崩溃恢复的时候，这个事务会回滚。这时候，binlog 还没写，所以也不会传到备库。到这里，大家都可以理解。</p>
-<p>大家出现问题的地方，主要集中在时刻 B，也就是 binlog 写完，redo log 还没 commit 前发生 crash，那崩溃恢复的时候 MySQL 会怎么处理？</p>
-<p>我们先来看一下崩溃恢复时的判断规则。</p>
+<h1 id="强制走主库方案"><a href="#强制走主库方案" class="headerlink" title="强制走主库方案"></a>强制走主库方案</h1><p>强制走主库方案其实就是，将查询请求做分类。通常情况下，我们可以将查询请求分为这么两类：</p>
 <ol>
-<li>如果 redo log 里面的事务是完整的，也就是已经有了 commit 标识，则直接提交；</li>
-<li>如果 redo log 里面的事务只有完整的 prepare，则判断对应的事务 binlog 是否存在并完整：<br>a. 如果是，则提交事务；<br>b. 否则，回滚事务。</li>
+<li>对于必须要拿到最新结果的请求，强制将其发到主库上。比如，在一个交易平台上，卖家发布商品以后，马上要返回主页面，看商品是否发布成功。那么，这个请求需要拿到最新的结果，就必须走主库。</li>
+<li>对于可以读到旧数据的请求，才将其发到从库上。在这个交易平台上，买家来逛商铺页面，就算晚几秒看到最新发布的商品，也是可以接受的。那么，这类请求就可以走从库。</li>
 </ol>
-<p>这里，时刻 B 发生 crash 对应的就是 2(a) 的情况，崩溃恢复过程中事务会被提交。</p>
-<p>现在，我们继续延展一下这个问题。</p>
-<h2 id="追问-1：MySQL-怎么知道-binlog-是完整的"><a href="#追问-1：MySQL-怎么知道-binlog-是完整的" class="headerlink" title="追问 1：MySQL 怎么知道 binlog 是完整的?"></a>追问 1：MySQL 怎么知道 binlog 是完整的?</h2><p>回答：一个事务的 binlog 是有完整格式的：</p>
+<p>你可能会说，这个方案是不是有点畏难和取巧的意思，但其实这个方案是用得最多的。</p>
+<p>当然，这个方案最大的问题在于，有时候你会碰到“所有查询都不能是过期读”的需求，比如一些金融类的业务。这样的话，你就要放弃读写分离，所有读写压力都在主库，等同于放弃了扩展性。</p>
+<p>因此接下来，我们来讨论的话题是：可以支持读写分离的场景下，有哪些解决过期读的方案，并分析各个方案的优缺点。</p>
+<h1 id="Sleep-方案"><a href="#Sleep-方案" class="headerlink" title="Sleep 方案"></a>Sleep 方案</h1><p>主库更新后，读从库之前先 sleep 一下。具体的方案就是，类似于执行一条 select sleep(1) 命令。</p>
+<p>这个方案的假设是，大多数情况下主备延迟在 1 秒之内，做一个 sleep 可以有很大概率拿到最新的数据。</p>
+<p>这个方案给你的第一感觉，很可能是不靠谱儿，应该不会有人用吧？并且，你还可能会说，直接在发起查询时先执行一条 sleep 语句，用户体验很不友好啊。</p>
+<p>但，这个思路确实可以在一定程度上解决问题。为了看起来更靠谱儿，我们可以换一种方式。</p>
+<p>以卖家发布商品为例，商品发布后，用 Ajax（Asynchronous JavaScript + XML，异步 JavaScript 和 XML）直接把客户端输入的内容作为“新的商品”显示在页面上，而不是真正地去数据库做查询。</p>
+<p>这样，卖家就可以通过这个显示，来确认产品已经发布成功了。等到卖家再刷新页面，去查看商品的时候，其实已经过了一段时间，也就达到了 sleep 的目的，进而也就解决了过期读的问题。</p>
+<p>也就是说，这个 sleep 方案确实解决了类似场景下的过期读问题。但，从严格意义上来说，这个方案存在的问题就是不精确。这个不精确包含了两层意思：</p>
+<ol>
+<li>如果这个查询请求本来 0.5 秒就可以在从库上拿到正确结果，也会等 1 秒；</li>
+<li>如果延迟超过 1 秒，还是会出现过期读。</li>
+</ol>
+<p>看到这里，你是不是有一种“你是不是在逗我”的感觉，这个改进方案虽然可以解决类似 Ajax 场景下的过期读问题，但还是怎么看都不靠谱儿。别着急，接下来我就和你介绍一些更准确的方案。</p>
+<h1 id="判断主备无延迟方案"><a href="#判断主备无延迟方案" class="headerlink" title="判断主备无延迟方案"></a>判断主备无延迟方案</h1><p>要确保备库无延迟，通常有三种做法。</p>
+<p>通过前面的<a href="../25/#%E4%B8%BB%E5%A4%87%E5%BB%B6%E8%BF%9F">第 25 篇</a>文章，我们知道 show slave status 结果里的 seconds_behind_master 参数的值，可以用来衡量主备延迟时间的长短。</p>
+<p>所以<strong>第一种确保主备无延迟的方法是，</strong>每次从库执行查询请求前，先判断 seconds_behind_master 是否已经等于 0。如果还不等于 0 ，那就必须等到这个参数变为 0 才能执行查询请求。</p>
+<p>seconds_behind_master 的单位是秒，如果你觉得精度不够的话，还可以采用对比位点和 GTID 的方法来确保主备无延迟，也就是我们接下来要说的第二和第三种方法。</p>
+<p>如图 3 所示，是一个 <code>show slave status</code> 结果的部分截图。</p>
+<div style="text-align:center"><img src="../../images/mysql45/28/图%203%20show%20slave%20status%20结果.png"><p><font color="gray">图 3 show slave status 结果</font></p></div>
+
+<p>现在，我们就通过这个结果，来看看具体如何通过对比位点和 GTID 来确保主备无延迟。</p>
+<p><strong>第二种方法，</strong>对比位点确保主备无延迟：</p>
 <ul>
-<li>statement 格式的 binlog，最后会有 COMMIT；</li>
-<li>row 格式的 binlog，最后会有一个 XID event。</li>
+<li>Master_Log_File 和 Read_Master_Log_Pos，表示的是读到的主库的最新位点；</li>
+<li>Relay_Master_Log_File 和 Exec_Master_Log_Pos，表示的是备库执行的最新位点。</li>
 </ul>
-<p>另外，在 MySQL 5.6.2 版本以后，还引入了 <code>binlog-checksum</code> 参数，用来验证 binlog 内容的正确性。对于 binlog 日志由于磁盘原因，可能会在日志中间出错的情况，MySQL 可以通过校验 checksum 的结果来发现。所以，MySQL 还是有办法验证事务 binlog 的完整性的。</p>
-<h2 id="追问-2：redo-log-和-binlog-是怎么关联起来的"><a href="#追问-2：redo-log-和-binlog-是怎么关联起来的" class="headerlink" title="追问 2：redo log 和 binlog 是怎么关联起来的?"></a>追问 2：redo log 和 binlog 是怎么关联起来的?</h2><p>回答：它们有一个共同的数据字段，叫 <code>XID</code>。崩溃恢复的时候，会按顺序扫描 redo log：</p>
+<p>如果 Master_Log_File 和 Relay_Master_Log_File、Read_Master_Log_Pos 和 Exec_Master_Log_Pos 这两组值完全相同，就表示接收到的日志已经同步完成。</p>
+<p><strong>第三种方法，</strong>对比 GTID 集合确保主备无延迟：</p>
 <ul>
-<li>如果碰到既有 prepare、又有 commit 的 redo log，就直接提交；</li>
-<li>如果碰到只有 parepare、而没有 commit 的 redo log，就拿着 XID 去 binlog 找对应的事务。</li>
+<li>Auto_Position=1 ，表示这对主备关系使用了 GTID 协议。</li>
+<li>Retrieved_Gtid_Set，是备库收到的所有日志的 GTID 集合；</li>
+<li>Executed_Gtid_Set，是备库所有已经执行完成的 GTID 集合。</li>
 </ul>
-<h2 id="追问-3：处于-prepare-阶段的-redo-log-加上完整-binlog，重启就能恢复，MySQL-为什么要这么设计"><a href="#追问-3：处于-prepare-阶段的-redo-log-加上完整-binlog，重启就能恢复，MySQL-为什么要这么设计" class="headerlink" title="追问 3：处于 prepare 阶段的 redo log 加上完整 binlog，重启就能恢复，MySQL 为什么要这么设计?"></a>追问 3：处于 prepare 阶段的 redo log 加上完整 binlog，重启就能恢复，MySQL 为什么要这么设计?</h2><p>回答：其实，这个问题还是跟我们在反证法中说到的数据与备份的一致性有关。在时刻 B，也就是 binlog 写完以后 MySQL 发生崩溃，这时候 binlog 已经写入了，之后就会被从库（或者用这个 binlog 恢复出来的库）使用。</p>
-<p>所以，在主库上也要提交这个事务。采用这个策略，主库和备库的数据就保证了一致性。</p>
-<h2 id="追问-4：如果这样的话，为什么还要两阶段提交呢？干脆先-redo-log-写完，再写-binlog。崩溃恢复的时候，必须得两个日志都完整才可以。是不是一样的逻辑？"><a href="#追问-4：如果这样的话，为什么还要两阶段提交呢？干脆先-redo-log-写完，再写-binlog。崩溃恢复的时候，必须得两个日志都完整才可以。是不是一样的逻辑？" class="headerlink" title="追问 4：如果这样的话，为什么还要两阶段提交呢？干脆先 redo log 写完，再写 binlog。崩溃恢复的时候，必须得两个日志都完整才可以。是不是一样的逻辑？"></a>追问 4：如果这样的话，为什么还要两阶段提交呢？干脆先 redo log 写完，再写 binlog。崩溃恢复的时候，必须得两个日志都完整才可以。是不是一样的逻辑？</h2><p>回答：其实，两阶段提交是经典的分布式系统问题，并不是 MySQL 独有的。</p>
-<p>如果必须要举一个场景，来说明这么做的必要性的话，那就是事务的持久性问题。</p>
-<p>对于 InnoDB 引擎来说，如果 redo log 提交完成了，事务就不能回滚（如果这还允许回滚，就可能覆盖掉别的事务的更新）。而如果 redo log 直接提交，然后 binlog 写入的时候失败，InnoDB 又回滚不了，数据和 binlog 日志又不一致了。</p>
-<p>两阶段提交就是为了给所有人一个机会，当每个人都说“我 ok”的时候，再一起提交。</p>
-<h2 id="追问-5：不引入两个日志，也就没有两阶段提交的必要了。只用-binlog-来支持崩溃恢复，又能支持归档，不就可以了？"><a href="#追问-5：不引入两个日志，也就没有两阶段提交的必要了。只用-binlog-来支持崩溃恢复，又能支持归档，不就可以了？" class="headerlink" title="追问 5：不引入两个日志，也就没有两阶段提交的必要了。只用 binlog 来支持崩溃恢复，又能支持归档，不就可以了？"></a>追问 5：不引入两个日志，也就没有两阶段提交的必要了。只用 binlog 来支持崩溃恢复，又能支持归档，不就可以了？</h2><p>回答：这位同学的意思是，只保留 binlog，然后可以把提交流程改成这样：… -&gt; “数据更新到内存” -&gt; “写 binlog” -&gt; “提交事务”，是不是也可以提供崩溃恢复的能力？</p>
-<p>答案是不可以。</p>
-<p>如果说<strong>历史原因</strong>的话，那就是 InnoDB 并不是 MySQL 的原生存储引擎。MySQL 的原生引擎是 MyISAM，设计之初就有没有支持崩溃恢复。</p>
-<p>InnoDB 在作为 MySQL 的插件加入 MySQL 引擎家族之前，就已经是一个提供了崩溃恢复和事务支持的引擎了。</p>
-<p>InnoDB 接入了 MySQL 后，发现既然 binlog 没有崩溃恢复的能力，那就用 InnoDB 原有的 redo log 好了。</p>
-<p>而如果说<strong>实现上的原因</strong>的话，就有很多了。就按照问题中说的，只用 binlog 来实现崩溃恢复的流程，我画了一张示意图，这里就没有 redo log 了。</p>
-<div style="text-align:center"><img src="../../images/mysql45/15/图%202%20只用%20binlog%20支持崩溃恢复.jpg"><p><font color="gray">图 2 只用 binlog 支持崩溃恢复</font></p></div>
-
-<p>这样的流程下，binlog 还是不能支持崩溃恢复的。我说一个不支持的点吧：binlog 没有能力恢复“数据页”。</p>
-<p>如果在图中标的位置，也就是 binlog2 写完了，但是整个事务还没有 commit 的时候，MySQL 发生了 crash。</p>
-<p>重启后，引擎内部事务 2 会回滚，然后应用 binlog2 可以补回来；但是对于事务 1 来说，系统已经认为提交完成了，不会再应用一次 binlog1。</p>
-<p>但是，InnoDB 引擎使用的是 WAL 技术，执行事务的时候，写完内存和日志，事务就算完成了。如果之后崩溃，要依赖于日志来恢复数据页。</p>
-<p>也就是说在图中这个位置发生崩溃的话，事务 1 也是可能丢失了的，而且是数据页级的丢失。此时，binlog 里面并没有记录数据页的更新细节，是补不回来的。</p>
-<p>你如果要说，那我优化一下 binlog 的内容，让它来记录数据页的更改可以吗？但，这其实就是又做了一个 redo log 出来。</p>
-<p>所以，至少现在的 binlog 能力，还不能支持崩溃恢复。</p>
-<h2 id="追问-6：那能不能反过来，只用-redo-log，不要-binlog？"><a href="#追问-6：那能不能反过来，只用-redo-log，不要-binlog？" class="headerlink" title="追问 6：那能不能反过来，只用 redo log，不要 binlog？"></a>追问 6：那能不能反过来，只用 redo log，不要 binlog？</h2><p>回答：如果只从崩溃恢复的角度来讲是可以的。你可以把 binlog 关掉，这样就没有两阶段提交了，但系统依然是 crash-safe 的。</p>
-<p>但是，如果你了解一下业界各个公司的使用场景的话，就会发现在正式的生产库上，binlog 都是开着的。因为 binlog 有着 redo log 无法替代的功能。</p>
-<p>一个是归档。redo log 是循环写，写到末尾是要回到开头继续写的。这样历史日志没法保留，redo log 也就起不到归档的作用。</p>
-<p>一个就是 MySQL 系统依赖于 binlog。binlog 作为 MySQL 一开始就有的功能，被用在了很多地方。其中，MySQL 系统高可用的基础，就是 binlog 复制。</p>
-<p>还有很多公司有异构系统（比如一些数据分析系统），这些系统就靠消费 MySQL 的 binlog 来更新自己的数据。关掉 binlog 的话，这些下游系统就没法输入了。</p>
-<p>总之，由于现在包括 MySQL 高可用在内的很多系统机制都依赖于 binlog，所以“鸠占鹊巢”redo log 还做不到。你看，发展生态是多么重要。</p>
-<h2 id="追问-7：redo-log-一般设置多大？"><a href="#追问-7：redo-log-一般设置多大？" class="headerlink" title="追问 7：redo log 一般设置多大？"></a>追问 7：redo log 一般设置多大？</h2><p>回答：redo log 太小的话，会导致很快就被写满，然后不得不强行刷 redo log，这样 WAL 机制的能力就发挥不出来了。</p>
-<p>所以，如果是现在常见的几个 TB 的磁盘的话，就不要太小气了，直接将 redo log 设置为 4 个文件、每个文件 1GB 吧。</p>
-<h2 id="追问-8：正常运行中的实例，数据写入后的最终落盘，是从-redo-log-更新过来的还是从-buffer-pool-更新过来的呢？"><a href="#追问-8：正常运行中的实例，数据写入后的最终落盘，是从-redo-log-更新过来的还是从-buffer-pool-更新过来的呢？" class="headerlink" title="追问 8：正常运行中的实例，数据写入后的最终落盘，是从 redo log 更新过来的还是从 buffer pool 更新过来的呢？"></a>追问 8：正常运行中的实例，数据写入后的最终落盘，是从 redo log 更新过来的还是从 buffer pool 更新过来的呢？</h2><p>回答：这个问题其实问得非常好。这里涉及到了，“redo log 里面到底是什么”的问题。</p>
-<p>实际上，redo log 并没有记录数据页的完整数据，所以它并没有能力自己去更新磁盘数据页，也就不存在“数据最终落盘，是由 redo log 更新过去”的情况。</p>
+<p>如果这两个集合相同，也表示备库接收到的日志都已经同步完成。</p>
+<p>可见，对比位点和对比 GTID 这两种方法，都要比判断 seconds_behind_master 是否为 0 更准确。</p>
+<p>在执行查询请求之前，先判断从库是否同步完成的方法，相比于 sleep 方案，准确度确实提升了不少，但还是没有达到“精确”的程度。为什么这么说呢？</p>
+<p>我们现在一起来回顾下，一个事务的 binlog 在主备库之间的状态：</p>
 <ol>
-<li>如果是正常运行的实例的话，数据页被修改以后，跟磁盘的数据页不一致，称为脏页。最终数据落盘，就是把内存中的数据页写盘。这个过程，甚至与 redo log 毫无关系。</li>
-<li>在崩溃恢复场景中，InnoDB 如果判断到一个数据页可能在崩溃恢复的时候丢失了更新，就会将它读到内存，然后让 redo log 更新内存内容。更新完成后，内存页变成脏页，就回到了第一种情况的状态。</li>
+<li>主库执行完成，写入 binlog，并反馈给客户端；</li>
+<li>binlog 被从主库发送给备库，备库收到；</li>
+<li>在备库执行 binlog 完成。</li>
 </ol>
-<h2 id="追问-9：redo-log-buffer-是什么？是先修改内存，还是先写-redo-log-文件？"><a href="#追问-9：redo-log-buffer-是什么？是先修改内存，还是先写-redo-log-文件？" class="headerlink" title="追问 9：redo log buffer 是什么？是先修改内存，还是先写 redo log 文件？"></a>追问 9：redo log buffer 是什么？是先修改内存，还是先写 redo log 文件？</h2><p>回答：这两个问题可以一起回答。</p>
-<p>在一个事务的更新过程中，日志是要写多次的。比如下面这个事务：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">begin</span><span class="token punctuation">;</span>
-<span class="token keyword">insert</span> <span class="token keyword">into</span> t1 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">insert</span> <span class="token keyword">into</span> t2 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">commit</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我们上面判断主备无延迟的逻辑，是“备库收到的日志都执行完成了”。但是，从 binlog 在主备之间状态的分析中，不难看出还有一部分日志，处于客户端已经收到提交确认，而备库还没收到日志的状态。</p>
+<p>如图 4 所示就是这样的一个状态。</p>
+<div style="text-align:center"><img src="../../images/mysql45/28/图%204%20备库还没收到%20trx3.png"><p><font color="gray">图 4 备库还没收到 trx3</font></p></div>
 
-<p>这个事务要往两个表中插入记录，插入数据的过程中，生成的日志都得先保存起来，但又不能在还没 commit 的时候就直接写到 redo log 文件里。</p>
-<p>所以，redo log buffer 就是一块内存，用来先存 redo 日志的。也就是说，在执行第一个 insert 的时候，数据的内存被修改了，redo log buffer 也写入了日志。</p>
-<p>但是，真正把日志写到 redo log 文件（文件名是 ib_logfile+ 数字），是在执行 commit 语句的时候做的。</p>
-<p>（这里说的是事务执行过程中不会“主动去刷盘”，以减少不必要的 IO 消耗。但是可能会出现“被动写入磁盘”，比如内存不够、其他事务提交等情况。这个问题我们会在后面第 22 篇文章《MySQL 有哪些“饮鸩止渴”的提高性能的方法？》中再详细展开）。</p>
-<p>单独执行一个更新语句的时候，InnoDB 会自己启动一个事务，在语句执行完成的时候提交。过程跟上面是一样的，只不过是“压缩”到了一个语句里面完成。</p>
-<p>以上这些问题，就是把大家提过的关于 redo log 和 binlog 的问题串起来，做的一次集中回答。如果你还有问题，可以在评论区继续留言补充。</p>
-<h1 id="业务设计问题"><a href="#业务设计问题" class="headerlink" title="业务设计问题"></a>业务设计问题</h1><p>接下来，我再和你分享 @ithunter 同学在第 8 篇文章<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/article/70562">《</a><a href="../8">事务到底是隔离的还是不隔离的？</a><a target="_blank" rel="noopener" href="https://time.geekbang.org/column/article/70562">》</a>的评论区提到的跟索引相关的一个问题。我觉得这个问题挺有趣、也挺实用的，其他同学也可能会碰上这样的场景，在这里解答和分享一下。</p>
-<p>问题是这样的（我文字上稍微做了点修改，方便大家理解）：</p>
-<blockquote>
-<p>业务上有这样的需求，A、B 两个用户，如果互相关注，则成为好友。设计上是有两张表，一个是 like 表，一个是 friend 表，like 表有 user_id、liker_id 两个字段，我设置为复合唯一索引即 uk_user_id_liker_id。语句执行逻辑是这样的：</p>
-</blockquote>
-<blockquote>
-<p>以 A 关注 B 为例：<br>第一步，先查询对方有没有关注自己（B 有没有关注 A）<br>select * from like where user_id = B and liker_id = A;</p>
-</blockquote>
-<blockquote>
-<p>如果有，则成为好友<br>insert into friend;</p>
-</blockquote>
-<blockquote>
-<p>没有，则只是单向关注关系<br>insert into like;</p>
-</blockquote>
-<blockquote>
-<p>但是如果 A、B 同时关注对方，会出现不会成为好友的情况。因为上面第 1 步，双方都没关注对方。第 1 步即使使用了排他锁也不行，因为记录不存在，行锁无法生效。请问这种情况，在 MySQL 锁层面有没有办法处理？</p>
-</blockquote>
-<p>首先，我要先赞一下这样的提问方式。虽然极客时间现在的评论区还不能追加评论，但如果大家能够一次留言就把问题讲清楚的话，其实影响也不大。所以，我希望你在留言提问的时候，也能借鉴这种方式。</p>
-<p>接下来，我把 @ithunter 同学说的表模拟出来，方便我们讨论。</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>like<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
-  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
-  <span class="token identifier"><span class="token punctuation">`</span>user_id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  <span class="token identifier"><span class="token punctuation">`</span>liker_id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token keyword">UNIQUE</span> <span class="token keyword">KEY</span> <span class="token identifier"><span class="token punctuation">`</span>uk_user_id_liker_id<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>user_id<span class="token punctuation">`</span></span><span class="token punctuation">,</span><span class="token identifier"><span class="token punctuation">`</span>liker_id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">INNODB</span><span class="token punctuation">;</span>
- 
-<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>friend<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
-  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
-  <span class="token identifier"><span class="token punctuation">`</span>friend_1_id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  <span class="token identifier"><span class="token punctuation">`</span>firned_2_id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  <span class="token keyword">UNIQUE</span> <span class="token keyword">KEY</span> <span class="token identifier"><span class="token punctuation">`</span>uk_friend<span class="token punctuation">`</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>friend_1_id<span class="token punctuation">`</span></span><span class="token punctuation">,</span><span class="token identifier"><span class="token punctuation">`</span>firned_2_id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
-  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">INNODB</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>虽然这个题干中，并没有说到 friend 表的索引结构。但我猜测 friend_1_id 和 friend_2_id 也有索引，为便于描述，我给加上唯一索引。</p>
-<p>顺便说明一下，“like”是关键字，我一般不建议使用关键字作为库名、表名、字段名或索引名。</p>
-<p>我把他的疑问翻译一下，在并发场景下，同时有两个人，设置为关注对方，就可能导致无法成功加为朋友关系。</p>
-<p>现在，我用你已经熟悉的时刻顺序表的形式，把这两个事务的执行语句列出来：</p>
-<div style="text-align:center"><img src="../../images/mysql45/15/图%203%20并发“喜欢”逻辑操作顺序.png"><p><font color="gray">图 3 并发“喜欢”逻辑操作顺序</font></p></div>
-
-<p>由于一开始 A 和 B 之间没有关注关系，所以两个事务里面的 select 语句查出来的结果都是空。</p>
-<p>因此，session 1 的逻辑就是“既然 B 没有关注 A，那就只插入一个单向关注关系”。session 2 也同样是这个逻辑。</p>
-<p>这个结果对业务来说就是 bug 了。因为在业务设定里面，这两个逻辑都执行完成以后，是应该在 friend 表里面插入一行记录的。</p>
-<p>如提问里面说的，“第 1 步即使使用了排他锁也不行，因为记录不存在，行锁无法生效”。不过，我想到了另外一个方法，来解决这个问题。</p>
-<p>首先，要给“like”表增加一个字段，比如叫作 relation_ship，并设为整型，取值 1、2、3。</p>
-<blockquote>
-<p>值是 1 的时候，表示 user_id 关注 liker_id;<br>值是 2 的时候，表示 liker_id 关注 user_id;<br>值是 3 的时候，表示互相关注。</p>
-</blockquote>
-<p>然后，当 A 关注 B 的时候，逻辑改成如下所示的样子：</p>
-<p>应用代码里面，比较 A 和 B 的大小，如果 A&lt;B，就执行下面的逻辑</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">BEGIN</span><span class="token punctuation">;</span> <span class="token comment">/* 启动事务 */</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>like<span class="token punctuation">`</span></span><span class="token punctuation">(</span>user_id<span class="token punctuation">,</span> liker_id<span class="token punctuation">,</span> relation_ship<span class="token punctuation">)</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">ON</span> <span class="token keyword">DUPLICATE</span> <span class="token keyword">KEY</span> <span class="token keyword">UPDATE</span> relation_ship<span class="token operator">=</span>relation_ship <span class="token operator">|</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">SELECT</span> relation_ship <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>like<span class="token punctuation">`</span></span> <span class="token keyword">WHERE</span> user_id<span class="token operator">=</span>A <span class="token operator">AND</span> liker_id<span class="token operator">=</span>B<span class="token punctuation">;</span>
-<span class="token comment">/* 代码中判断返回的 relation_ship，
-  如果是 1，事务结束，执行 commit
-  如果是 3，则执行下面这两个语句：
-  */</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">IGNORE</span> <span class="token keyword">INTO</span> friend<span class="token punctuation">(</span>friend_1_id<span class="token punctuation">,</span> friend_2_id<span class="token punctuation">)</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">COMMIT</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>如果 A&gt;B，则执行下面的逻辑</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">BEGIN</span><span class="token punctuation">;</span> <span class="token comment">/* 启动事务 */</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>like<span class="token punctuation">`</span></span><span class="token punctuation">(</span>user_id<span class="token punctuation">,</span> liker_id<span class="token punctuation">,</span> relation_ship<span class="token punctuation">)</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span>B<span class="token punctuation">,</span> A<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">ON</span> <span class="token keyword">DUPLICATE</span> <span class="token keyword">KEY</span> <span class="token keyword">UPDATE</span> relation_ship<span class="token operator">=</span>relation_ship <span class="token operator">|</span> <span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token keyword">SELECT</span> relation_ship <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>like<span class="token punctuation">`</span></span> <span class="token keyword">WHERE</span> user_id<span class="token operator">=</span>B <span class="token operator">AND</span> liker_id<span class="token operator">=</span>A<span class="token punctuation">;</span>
-<span class="token comment">/* 代码中判断返回的 relation_ship，
-  如果是 2，事务结束，执行 commit
-  如果是 3，则执行下面这两个语句：
-*/</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">IGNORE</span> <span class="token keyword">INTO</span> friend<span class="token punctuation">(</span>friend_1_id<span class="token punctuation">,</span> friend_2_id<span class="token punctuation">)</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span>B<span class="token punctuation">,</span>A<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">COMMIT</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这个设计里，让“like”表里的数据保证 user_id &lt; liker_id，这样不论是 A 关注 B，还是 B 关注 A，在操作“like”表的时候，如果反向的关系已经存在，就会出现行锁冲突。</p>
-<p>然后，<code>insert … on duplicate</code> 语句，确保了在事务内部，执行了这个 SQL 语句后，就强行占住了这个行锁，之后的 select 判断 relation_ship 这个逻辑时就确保了是在行锁保护下的读操作。</p>
-<p>操作符 “|” 是按位或，连同最后一句 insert 语句里的 ignore，是为了保证重复调用时的幂等性。</p>
-<p>这样，即使在双方“同时”执行关注操作，最终数据库里的结果，也是 like 表里面有一条关于 A 和 B 的记录，而且 relation_ship 的值是 3， 并且 friend 表里面也有了 A 和 B 的这条记录。</p>
-<p>不知道你会不会吐槽：之前明明还说尽量不要使用唯一索引，结果这个例子一上来我就创建了两个。这里我要再和你说明一下，之前文章我们讨论的，是在“业务开发保证不会插入重复记录”的情况下，着重要解决性能问题的时候，才建议尽量使用普通索引。</p>
-<p>而像这个例子里，按照这个设计，业务根本就是保证“我一定会插入重复数据，数据库一定要要有唯一性约束”，这时就没啥好说的了，唯一索引建起来吧。</p>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>这是专栏的第一篇答疑文章。</p>
-<p>我针对前 14 篇文章，大家在评论区中的留言，从中摘取了关于日志和索引的相关问题，串成了今天这篇文章。这里我也要再和你说一声，有些我答应在答疑文章中进行扩展的话题，今天这篇文章没来得及扩展，后续我会再找机会为你解答。所以，篇幅所限，评论区见吧。</p>
-<p>最后，虽然这篇是答疑文章，但课后问题还是要有的。</p>
-<p>我们创建了一个简单的表 t，并插入一行，然后对这一行做修改。</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>t<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
-  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
-  <span class="token identifier"><span class="token punctuation">`</span>a<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span>
-<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">INNODB</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这时候，表 t 里有唯一的一行数据 (1,2)。假设，我现在要执行：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">UPDATE</span> t <span class="token keyword">SET</span> a<span class="token operator">=</span><span class="token number">2</span> <span class="token keyword">WHERE</span> id<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>你会看到这样的结果：</p>
-<p><img src="../../images/mysql45/15/%E8%AF%BE%E5%90%8E%E9%97%AE%E9%A2%98.png"></p>
-<p>结果显示，匹配 (rows matched) 了一行，修改 (Changed) 了 0 行。</p>
-<p>仅从现象上看，MySQL 内部在处理这个命令的时候，可以有以下三种选择：</p>
+<p>这时，主库上执行完成了三个事务 trx1、trx2 和 trx3，其中：</p>
 <ol>
-<li>更新都是先读后写的，MySQL 读出数据，发现 a 的值本来就是 2，不更新，直接返回，执行结束；</li>
-<li>MySQL 调用了 InnoDB 引擎提供的“修改为 (1,2)”这个接口，但是引擎发现值与原来相同，不更新，直接返回；</li>
-<li>InnoDB 认真执行了“把这个值修改成 (1,2)”这个操作，该加锁的加锁，该更新的更新。</li>
+<li>trx1 和 trx2 已经传到从库，并且已经执行完成了；</li>
+<li>trx3 在主库执行完成，并且已经回复给客户端，但是还没有传到从库中。</li>
 </ol>
-<p>你觉得实际情况会是以上哪种呢？你可否用构造实验的方式，来证明你的结论？进一步地，可以思考一下，MySQL 为什么要选择这种策略呢？</p>
-<p>你可以把你的验证方法和思考写在留言区里，我会在下一篇文章的末尾和你讨论这个问题。感谢你的收听，也欢迎你把这篇文章分享给更多的朋友一起阅读。</p>
-<h1 id="上期问题时间"><a href="#上期问题时间" class="headerlink" title="上期问题时间"></a>上期问题时间</h1><p>上期的问题是，用一个计数表记录一个业务表的总行数，在往业务表插入数据的时候，需要给计数值加 1。</p>
-<p>逻辑实现上是启动一个事务，执行两个语句：</p>
+<p>如果这时候你在从库 B 上执行查询请求，按照我们上面的逻辑，从库认为已经没有同步延迟，但还是查不到 trx3 的。严格地说，就是出现了过期读。</p>
+<p>那么，这个问题有没有办法解决呢？</p>
+<h1 id="配合-semi-sync"><a href="#配合-semi-sync" class="headerlink" title="配合 semi-sync"></a>配合 semi-sync</h1><p>要解决这个问题，就要引入半同步复制，也就是 semi-sync replication。</p>
+<p>semi-sync 做了这样的设计：</p>
 <ol>
-<li>insert into 数据表；</li>
-<li>update 计数表，计数值加 1。</li>
+<li>事务提交的时候，主库把 binlog 发给从库；</li>
+<li>从库收到 binlog 以后，发回给主库一个 ack，表示收到了；</li>
+<li>主库收到这个 ack 以后，才能给客户端返回“事务完成”的确认。</li>
 </ol>
-<p>从系统并发能力的角度考虑，怎么安排这两个语句的顺序。</p>
-<p>这里，我直接复制 @阿建 的回答过来供你参考：</p>
-<blockquote>
-<p>并发系统性能的角度考虑，应该先插入操作记录，再更新计数表。<br>知识点在<a href="../7/#%E4%BB%8E%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81%E8%AF%B4%E8%B5%B7">《行锁功过：怎么减少行锁对性能的影响？》</a><br>因为更新计数表涉及到行锁的竞争，先插入再更新能最大程度地减少事务之间的锁等待，提升并发度。</p>
-</blockquote>
-<p>评论区有同学说，应该把 update 计数表放后面，因为这个计数表可能保存了多个业务表的计数值。如果把 update 计数表放到事务的第一个语句，多个业务表同时插入数据的话，等待时间会更长。</p>
-<p>这个答案的结论是对的，但是理解不太正确。即使我们用一个计数表记录多个业务表的行数，也肯定会给表名字段加唯一索引。类似于下面这样的表结构：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>rows_stat<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
-  <span class="token identifier"><span class="token punctuation">`</span>table_name<span class="token punctuation">`</span></span> <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  <span class="token identifier"><span class="token punctuation">`</span>row_count<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">UNSIGNED</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
-  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>table_name<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">INNODB</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>也就是说，如果启用了 semi-sync，就表示所有给客户端发送过确认的事务，都确保了备库已经收到了这个日志。</p>
+<p>在<a href="../25">第 25 篇文章</a>的评论区，有同学问到：如果主库掉电的时候，有些 binlog 还来不及发给从库，会不会导致系统数据丢失？</p>
+<p>答案是，如果使用的是普通的异步复制模式，就可能会丢失，但 semi-sync 就可以解决这个问题。</p>
+<p>这样，semi-sync 配合前面关于位点的判断，就能够确定在从库上执行的查询请求，可以避免过期读。</p>
+<p>但是，semi-sync+ 位点判断的方案，只对一主一备的场景是成立的。在一主多从场景中，主库只要等到一个从库的 ack，就开始给客户端返回确认。这时，在从库上执行查询请求，就有两种情况：</p>
+<ol>
+<li>如果查询是落在这个响应了 ack 的从库上，是能够确保读到最新数据；</li>
+<li>但如果是查询落到其他从库上，它们可能还没有收到最新的日志，就会产生过期读的问题。</li>
+</ol>
+<p>其实，判断同步位点的方案还有另外一个潜在的问题，即：如果在业务更新的高峰期，主库的位点或者 GTID 集合更新很快，那么上面的两个位点等值判断就会一直不成立，很可能出现从库上迟迟无法响应查询请求的情况。</p>
+<p>实际上，回到我们最初的业务逻辑里，当发起一个查询请求以后，我们要得到准确的结果，其实并不需要等到“主备完全同步”。</p>
+<p>为什么这么说呢？我们来看一下这个时序图。</p>
+<div style="text-align:center"><img src="../../images/mysql45/28/图%205%20主备持续延迟一个事务.png"><p><font color="gray">图 5 主备持续延迟一个事务</font></p></div>
 
-<p>在更新计数表的时候，一定会传入 <code>where table_name=$table_name</code>，使用主键索引，更新加行锁只会锁在一行上。</p>
-<p>而在不同业务表插入数据，是更新不同的行，不会有行锁。</p>
+<p>图 5 所示，就是等待位点方案的一个 bad case。图中备库 B 下的虚线框，分别表示 relaylog 和 binlog 中的事务。可以看到，图 5 中从状态 1 到状态 4，一直处于延迟一个事务的状态。</p>
+<p>备库 B 一直到状态 4 都和主库 A 存在延迟，如果用上面必须等到无延迟才能查询的方案，select 语句直到状态 4 都不能被执行。</p>
+<p>但是，其实客户端是在发完 trx1 更新后发起的 select 语句，我们只需要确保 trx1 已经执行完成就可以执行 select 语句了。也就是说，如果在状态 3 执行查询请求，得到的就是预期结果了。</p>
+<p>到这里，我们小结一下，semi-sync 配合判断主备无延迟的方案，存在两个问题：</p>
+<ol>
+<li>一主多从的时候，在某些从库执行查询请求会存在过期读的现象；</li>
+<li>在持续延迟的情况下，可能出现过度等待的问题。</li>
+</ol>
+<p>接下来，我要和你介绍的等主库位点方案，就可以解决这两个问题。</p>
+<h1 id="等主库位点方案"><a href="#等主库位点方案" class="headerlink" title="等主库位点方案"></a>等主库位点方案</h1><p>要理解等主库位点方案，我需要先和你介绍一条命令：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> MASTER_POS_WAIT<span class="token punctuation">(</span><span class="token keyword">FILE</span><span class="token punctuation">,</span> pos<span class="token punctuation">[</span><span class="token punctuation">,</span> timeout<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这条命令的逻辑如下：</p>
+<ol>
+<li>它是在从库执行的；</li>
+<li>参数 file 和 pos 指的是主库上的文件名和位置；</li>
+<li>timeout 可选，设置为正整数 N 表示这个函数最多等待 N 秒。</li>
+</ol>
+<p>这个命令正常返回的结果是一个正整数 M，表示从命令开始执行，到应用完 file 和 pos 表示的 binlog 位置，执行了多少事务。</p>
+<p>当然，除了正常返回一个正整数 M 外，这条命令还会返回一些其他结果，包括：</p>
+<ol>
+<li>如果执行期间，备库同步线程发生异常，则返回 NULL；</li>
+<li>如果等待超过 N 秒，就返回 -1；</li>
+<li>如果刚开始执行的时候，就发现已经执行过这个位置了，则返回 0。</li>
+</ol>
+<p>对于图 5 中先执行 trx1，再执行一个查询请求的逻辑，要保证能够查到正确的数据，我们可以使用这个逻辑：</p>
+<ol>
+<li>trx1 事务更新完成后，马上执行 show master status 得到当前主库执行到的 File 和 Position；</li>
+<li>选定一个从库执行查询语句；</li>
+<li>在从库上执行 select master_pos_wait(File, Position, 1)；</li>
+<li>如果返回值是 &gt;=0 的正整数，则在这个从库执行查询语句；</li>
+<li>否则，到主库执行查询语句。</li>
+</ol>
+<p>我把上面这个流程画出来。</p>
+<div style="text-align:center"><img src="../../images/mysql45/28/图%206%20master_pos_wait%20方案.png"><p><font color="gray"></font>图 6 master_pos_wait 方案</p></div>
+
+<p>这里我们假设，这条 select 查询最多在从库上等待 1 秒。那么，如果 1 秒内 master_pos_wait 返回一个大于等于 0 的整数，就确保了从库上执行的这个查询结果一定包含了 trx1 的数据。</p>
+<p>步骤 5 到主库执行查询语句，是这类方案常用的退化机制。因为从库的延迟时间不可控，不能无限等待，所以如果等待超时，就应该放弃，然后到主库去查。</p>
+<p>你可能会说，如果所有的从库都延迟超过 1 秒了，那查询压力不就都跑到主库上了吗？确实是这样。</p>
+<p>但是，按照我们设定不允许过期读的要求，就只有两种选择，一种是超时放弃，一种是转到主库查询。具体怎么选择，就需要业务开发同学做好限流策略了。</p>
+<h1 id="GTID-方案"><a href="#GTID-方案" class="headerlink" title="GTID 方案"></a>GTID 方案</h1><p>如果你的数据库开启了 GTID 模式，对应的也有等待 GTID 的方案。</p>
+<p>MySQL 中同样提供了一个类似的命令：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> wait_for_executed_gtid_set<span class="token punctuation">(</span>gtid_set<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这条命令的逻辑是：</p>
+<ol>
+<li>等待，直到这个库执行的事务中包含传入的 gtid_set，返回 0；</li>
+<li>超时返回 1。</li>
+</ol>
+<p>在前面等位点的方案中，我们执行完事务后，还要主动去主库执行 show master status。而 MySQL 5.7.6 版本开始，允许在执行完更新类事务后，把这个事务的 GTID 返回给客户端，这样等 GTID 的方案就可以减少一次查询。</p>
+<p>这时，等 GTID 的执行流程就变成了：</p>
+<ol>
+<li>trx1 事务更新完成后，从返回包直接获取这个事务的 GTID，记为 gtid1；</li>
+<li>选定一个从库执行查询语句；</li>
+<li>在从库上执行 select wait_for_executed_gtid_set(gtid1, 1)；</li>
+<li>如果返回值是 0，则在这个从库执行查询语句；</li>
+<li>否则，到主库执行查询语句。</li>
+</ol>
+<p>跟等主库位点的方案一样，等待超时后是否直接到主库查询，需要业务开发同学来做限流考虑。</p>
+<p>我把这个流程图画出来。</p>
+<div style="text-align:center"><img src="../../images/mysql45/28/图%207%20wait_for_executed_gtid_set%20方案.png"><p><font color="gray">图 7 wait_for_executed_gtid_set 方案</font></p></div>
+
+<p>在上面的第一步中，trx1 事务更新完成后，从返回包直接获取这个事务的 GTID。问题是，怎么能够让 MySQL 在执行事务后，返回包中带上 GTID 呢？</p>
+<p>你只需要将参数 session_track_gtids 设置为 OWN_GTID，然后通过 API 接口 mysql_session_track_get_first 从返回包解析出 GTID 的值即可。</p>
+<p>在专栏的<a href="../1/#%E8%BF%9E%E6%8E%A5%E5%99%A8">第一篇文章</a>中，我介绍 <code>mysql_reset_connection</code> 的时候，评论区有同学留言问这类接口应该怎么使用。</p>
+<p>这里我再回答一下。其实，MySQL 并没有提供这类接口的 SQL 用法，是提供给程序的 API(<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/c-api-functions.html)%E3%80%82">https://dev.mysql.com/doc/refman/5.7/en/c-api-functions.html)。</a></p>
+<p>比如，为了让客户端在事务提交后，返回的 GITD 能够在客户端显示出来，我对 MySQL 客户端代码做了点修改，如下所示：</p>
+<div style="text-align:center"><img src="../../images/mysql45/28/图%208%20显示更新事务的%20GTID--%20代码.png"><p><font color="gray"></font>图 8 显示更新事务的 GTID-- 代码</p></div>
+
+<p>这样，就可以看到语句执行完成，显示出 GITD 的值。</p>
+<div style="text-align:center"><img src="../../images/mysql45/28/图%209%20显示更新事务的%20GTID--%20效果.png"><p><font color="gray">图 9 显示更新事务的 GTID-- 效果</font></p></div>
+
+<p>当然了，这只是一个例子。你要使用这个方案的时候，还是应该在你的客户端代码中调用 mysql_session_track_get_first 这个函数。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>在今天这篇文章中，我跟你介绍了一主多从做读写分离时，可能碰到过期读的原因，以及几种应对的方案。</p>
+<p>这几种方案中，有的方案看上去是做了妥协，有的方案看上去不那么靠谱儿，但都是有实际应用场景的，你需要根据业务需求选择。</p>
+<p>即使是最后等待位点和等待 GTID 这两个方案，虽然看上去比较靠谱儿，但仍然存在需要权衡的情况。如果所有的从库都延迟，那么请求就会全部落到主库上，这时候会不会由于压力突然增大，把主库打挂了呢？</p>
+<p>其实，在实际应用中，这几个方案是可以混合使用的。</p>
+<p>比如，先在客户端对请求做分类，区分哪些请求可以接受过期读，而哪些请求完全不能接受过期读；然后，对于不能接受过期读的语句，再使用等 GTID 或等位点的方案。</p>
+<p>但话说回来，过期读在本质上是由一写多读导致的。在实际应用中，可能会有别的不需要等待就可以水平扩展的数据库方案，但这往往是用牺牲写性能换来的，也就是需要在读性能和写性能中取权衡。</p>
+<p>最后 ，我给你留下一个问题吧。</p>
+<p>假设你的系统采用了我们文中介绍的最后一个方案，也就是等 GTID 的方案，现在你要对主库的一张大表做 DDL，可能会出现什么情况呢？为了避免这种情况，你会怎么做呢？</p>
+<p>你可以把你的分析和方案设计写在评论区，我会在下一篇文章跟你讨论这个问题。感谢你的收听，也欢迎你把这篇文章分享给更多的朋友一起阅读。</p>
+<h1 id="上期问题时间"><a href="#上期问题时间" class="headerlink" title="上期问题时间"></a>上期问题时间</h1><p>上期给你留的问题是，在 GTID 模式下，如果一个新的从库接上主库，但是需要的 binlog 已经没了，要怎么做？</p>
+<p>@某、人同学给了很详细的分析，我把他的回答略做修改贴过来。</p>
+<ol>
+<li>如果业务允许主从不一致的情况，那么可以在主库上先执行 <code>show global variables like 'gtid_purged'</code>，得到主库已经删除的 GTID 集合，假设是 gtid_purged1；然后先在从库上执行 <code>reset master</code>，再执行 <code>set global gtid_purged ='gtid_purged1'</code>；最后执行 <code>start slave</code>，就会从主库现存的 binlog 开始同步。binlog 缺失的那一部分，数据在从库上就可能会有丢失，造成主从不一致。</li>
+<li>如果需要主从数据一致的话，最好还是通过重新搭建从库来做。</li>
+<li>如果有其他的从库保留有全量的 binlog 的话，可以把新的从库先接到这个保留了全量 binlog 的从库，追上日志以后，如果有需要，再接回主库。</li>
+<li>如果 binlog 有备份的情况，可以先在从库上应用缺失的 binlog，然后再执行 start slave。</li>
+</ol>
 <p><img src="../../images/mysql45/%E4%B8%81%E5%A5%87.jpg"></p>
 <hr>
-<p><a href="../14">上一篇</a>    14 | count(*)这么慢，我该怎么办？</p>
-<p><a href="../review">下一篇</a>    直播回顾 | 林晓斌：我的 MySQL 心路历程</p>
+<p><a href="../27">上一篇</a>    27 | 主库出问题了，从库怎么办？</p>
+<p><a href="../29">下一篇</a>    29 | 如何判断一个数据库是不是出问题了？</p>
 
                 
             </div>
@@ -1004,7 +994,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://iiifox.github.io/mysql45/15/">https://iiifox.github.io/mysql45/15/</a>
+                    <a href="https://iiifox.github.io/mysql45/28/">https://iiifox.github.io/mysql45/28/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1213,17 +1203,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/mysql45/review/">
+                <a href="/mysql45/28/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="直播回顾 | 林晓斌：我的 MySQL 心路历程">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="28 | 读写分离有哪些坑？">
                         
-                        <span class="card-title">直播回顾 | 林晓斌：我的 MySQL 心路历程</span>
+                        <span class="card-title">28 | 读写分离有哪些坑？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1233,9 +1224,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1248,6 +1239,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -1258,13 +1250,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/mysql45/14/">
+                <a href="/mysql45/27/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="14 | count(*)这么慢，我该怎么办？">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="27 | 主库出问题了，从库怎么办？">
                         
-                        <span class="card-title">14 | count(*)这么慢，我该怎么办？</span>
+                        <span class="card-title">27 | 主库出问题了，从库怎么办？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1275,7 +1267,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-07
                             </span>
                         <span class="publish-author">
                             
