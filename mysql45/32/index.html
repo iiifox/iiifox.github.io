@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="iiifox">
+    <meta name="keywords" content="32 | 为什么还有kill不掉的语句？, iiifox">
     <meta name="description" content="32 | 为什么还有kill不掉的语句？2019-01-25 林晓斌
 
 在 MySQL 中有两个 kill 命令：一个是 kill query + 线程 id，表示终止这个线程中正在执行的语句；一个是 kill connection + 线">
@@ -21,7 +21,7 @@
 
     
 
-    <title>iiifox</title>
+    <title>32 | 为什么还有kill不掉的语句？ | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -581,12 +581,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">32 | 为什么还有kill不掉的语句？</h1>
                 </div>
             </div>
         </div>
@@ -706,6 +706,15 @@
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/" class="post-category">
+                                MySQL实战45讲
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -830,7 +839,7 @@
 <div style="text-align:center"><img src="../../images/mysql45/32/图%204%20连接等待.png"><p><font color="gray">图 4 连接等待</font></p></div>
 
 <p>而如果 db1 这个库里表很少的话，连接起来就会很快，可以很快进入输入命令的状态。因此，有同学会认为是表的数目影响了连接性能。</p>
-<p>从<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/article/68319">第一篇文章</a>你就知道，每个客户端在和服务端建立连接的时候，需要做的事情就是 TCP 握手、用户校验、获取权限。但这几个操作，显然跟库里面表的个数无关。</p>
+<p>从<a href="../1/#%E8%BF%9E%E6%8E%A5%E5%99%A8">第一篇文章</a>你就知道，每个客户端在和服务端建立连接的时候，需要做的事情就是 TCP 握手、用户校验、获取权限。但这几个操作，显然跟库里面表的个数无关。</p>
 <p>但实际上，正如图中的文字提示所说的，当使用默认参数连接的时候，MySQL 客户端会提供一个本地库名和表名补全的功能。为了实现这个功能，客户端在连接成功后，需要多做一些操作：</p>
 <ol>
 <li>执行 show databases；</li>
@@ -839,9 +848,9 @@
 </ol>
 <p>在这些操作中，最花时间的就是第三步在本地构建哈希表的操作。所以，当一个库中的表个数非常多的时候，这一步就会花比较长的时间。</p>
 <p>也就是说，<strong>我们感知到的连接过程慢，其实并不是连接慢，也不是服务端慢，而是客户端慢。</strong></p>
-<p>图中的提示也说了，如果在连接命令中加上 -A，就可以关掉这个自动补全的功能，然后客户端就可以快速返回了。</p>
+<p>图中的提示也说了，如果在连接命令中加上 <code>-A</code>，就可以关掉这个自动补全的功能，然后客户端就可以快速返回了。</p>
 <p>这里自动补全的效果就是，你在输入库名或者表名的时候，输入前缀，可以使用 Tab 键自动补全表名或者显示提示。</p>
-<p>实际使用中，如果你自动补全功能用得并不多，我建议你每次使用的时候都默认加 -A。</p>
+<p>实际使用中，如果你自动补全功能用得并不多，我建议你每次使用的时候都默认加 <code>-A</code>。</p>
 <p>其实提示里面没有说，除了加 -A 以外，加–quick(或者简写为 -q) 参数，也可以跳过这个阶段。但是，这个<strong>–quick 是一个更容易引起误会的参数，也是关于客户端常见的一个误解。</strong></p>
 <p>你看到这个参数，是不是觉得这应该是一个让服务端加速的参数？但实际上恰恰相反，设置了这个参数可能会降低服务端的性能。为什么这么说呢？</p>
 <p>MySQL 客户端发送请求后，接收服务端返回结果的方式有两种：</p>
@@ -906,7 +915,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://iiifox.github.io/undefined/undefined/">https://iiifox.github.io/undefined/undefined/</a>
+                    <a href="https://iiifox.github.io/mysql45/32/">https://iiifox.github.io/mysql45/32/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1120,13 +1129,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/undefined/undefined/">
+                <a href="/mysql45/32/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="32 | 为什么还有kill不掉的语句？">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">32 | 为什么还有kill不掉的语句？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1141,8 +1150,12 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            田章
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/" class="post-category">
+                                    MySQL实战45讲
+                                </a>
+                            
                             
                         </span>
                     </div>
