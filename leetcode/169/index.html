@@ -5,12 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 169 题：多数元素（简单）, iiifox">
-    <meta name="description" content="「力扣」第 169 题：多数元素
+    <meta name="description" content="169. 多数元素
 链接
 
 题目描述给定一个大小为 n 的数组&amp;nbsp;nums ，返回其中的多数元素。多数元素是指在数组中出现次数 大于&amp;nbsp;⌊ n/2 ⌋&amp;nbsp;的元素。
 
-你可以假设数组是非空的，并且给定的数">
+你可以假设数组是非空的，并且给定的数组总是存在多数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -737,14 +737,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-09-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    286
+                    247
                 </div>
                 
 
@@ -769,14 +769,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-169-题：多数元素"><a href="#「力扣」第-169-题：多数元素" class="headerlink" title="「力扣」第 169 题：多数元素"></a>「力扣」第 169 题：多数元素</h2><ul>
+                <h1 id="169-多数元素"><a href="#169-多数元素" class="headerlink" title="169. 多数元素"></a>169. 多数元素</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/majority-element/">链接</a></li>
 </ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个大小为 <code>n</code><em> </em>的数组&nbsp;<code>nums</code> ，返回其中的多数元素。多数元素是指在数组中出现次数 <strong>大于</strong>&nbsp;<code>⌊ n/2 ⌋</code>&nbsp;的元素。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个大小为 <code>n</code><em> </em>的数组&nbsp;<code>nums</code> ，返回其中的多数元素。多数元素是指在数组中出现次数 <strong>大于</strong>&nbsp;<code>⌊ n/2 ⌋</code>&nbsp;的元素。</p>
 
 <p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
-
-<p>&nbsp;</p>
 
 <pre><strong>示例&nbsp;1：</strong>
 <strong>输入：</strong>nums = [3,2,3]
@@ -787,8 +785,6 @@
 <strong>输出：</strong>2
 </pre>
 
-<p>&nbsp;</p>
-
 <p><strong>提示：</strong>
 </p><ul>
     <li><code>n == nums.length</code></li>
@@ -796,35 +792,28 @@
     <li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul><p></p>
 
-<p>&nbsp;</p>
-
 <p><strong>进阶：</strong>尝试设计时间复杂度为 O(n)、空间复杂度为 O(1) 的算法解决此问题。</p>
 
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：Boyer-Moore-投票算法"><a href="#参考代码：Boyer-Moore-投票算法" class="headerlink" title="参考代码：Boyer-Moore 投票算法"></a>参考代码：Boyer-Moore 投票算法</h3><blockquote>
+<h2 id="参考代码：Boyer-Moore-投票算法"><a href="#参考代码：Boyer-Moore-投票算法" class="headerlink" title="参考代码：Boyer-Moore 投票算法"></a>参考代码：Boyer-Moore 投票算法</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">majorityElement</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token comment">// 初始化为一个 nums 中不存在的数。-10^9 &lt;= nums[i] &lt;= 10^9</span>
-        <span class="token comment">// 或者定义为 Integer 并初始化为 null（==比较时自动拆箱和自动装箱降低运行速度）</span>
-        <span class="token keyword">int</span> candidate <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token constant">MIN_VALUE</span><span class="token punctuation">;</span>
+        <span class="token comment">// 初始化为一个 nums 中不存在的数。 -10^9 &lt;= nums[i] &lt;= 10^9</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token constant">MIN_VALUE</span><span class="token punctuation">;</span>
 
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment">// 候选人下台，下一个候选人上</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>count <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                candidate <span class="token operator">=</span> num<span class="token punctuation">;</span>
+                res <span class="token operator">=</span> num<span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
-            count <span class="token operator">+=</span> <span class="token punctuation">(</span>num <span class="token operator">==</span> candidate<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+            count <span class="token operator">+=</span> <span class="token punctuation">(</span>res <span class="token operator">==</span> num<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> candidate<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1307,7 +1296,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">186.2k</span>
+                        class="white-color">186.1k</span>
             
             
             
