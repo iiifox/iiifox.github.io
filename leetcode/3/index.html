@@ -747,7 +747,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    618
+                    615
                 </div>
                 
 
@@ -817,7 +817,7 @@
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// windows[i] 存储的是 chars 中字符值为 i 的最新索引</span>
+        <span class="token comment">// windows[i] 存储的是字符串 s 中字符值为 i 的最新索引</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> window <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         
@@ -826,7 +826,7 @@
         <span class="token comment">// chars 在窗口 [left, right] 中没有重复元素</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> right <span class="token operator">&lt;</span> chars<span class="token punctuation">.</span>length<span class="token punctuation">;</span> right<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment">// 字符值为 chars[right] 在窗口内出现过，则 left 需要右移</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">[</span>chars<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">&amp;&amp;</span> window<span class="token punctuation">[</span>chars<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&gt;=</span> left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">[</span>chars<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&gt;=</span> left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 left <span class="token operator">=</span> window<span class="token punctuation">[</span>chars<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
             <span class="token comment">// 更新一下字符值为 chars[right] 的最新索引</span>
