@@ -755,7 +755,7 @@
             <div id="articleContent">
                 <h1 id="32-为什么还有kill不掉的语句？"><a href="#32-为什么还有kill不掉的语句？" class="headerlink" title="32 | 为什么还有kill不掉的语句？"></a>32 | 为什么还有kill不掉的语句？</h1><p><font color="gray">2019-01-25 林晓斌</font></p>
 <p><img src="../../images/mysql45/32/32.jpg"></p>
-<p>在 MySQL 中有两个 kill 命令：一个是 kill query + 线程 id，表示终止这个线程中正在执行的语句；一个是 kill connection + 线程 id，这里 connection 可缺省，表示断开这个线程的连接，当然如果这个线程有语句正在执行，也是要先停止正在执行的语句的。</p>
+<p>在 MySQL 中有两个 kill 命令：一个是 <code>kill query + 线程 id</code>，表示终止这个线程中正在执行的语句；一个是 <code>kill connection + 线程 id</code>，这里 connection 可缺省，表示断开这个线程的连接，当然如果这个线程有语句正在执行，也是要先停止正在执行的语句的。</p>
 <p>不知道你在使用 MySQL 的时候，有没有遇到过这样的现象：使用了 kill 命令，却没能断开这个连接。再执行 show processlist 命令，看到这条语句的 Command 列显示的是 Killed。</p>
 <p>你一定会奇怪，显示为 Killed 是什么意思，不是应该直接在 show processlist 的结果里看不到这个线程了吗？</p>
 <p>今天，我们就来讨论一下这个问题。</p>
@@ -765,7 +765,7 @@
 
 <p>可以看到，session C 执行 kill query 以后，session B 几乎同时就提示了语句被中断。这，就是我们预期的结果。</p>
 <h1 id="收到-kill-以后，线程做什么？"><a href="#收到-kill-以后，线程做什么？" class="headerlink" title="收到 kill 以后，线程做什么？"></a>收到 kill 以后，线程做什么？</h1><p>但是，这里你要停下来想一下：session B 是直接终止掉线程，什么都不管就直接退出吗？显然，这是不行的。</p>
-<p>我在<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/article/69862">第 6 篇文章</a>中讲过，当对一个表做增删改查操作时，会在表上加 MDL 读锁。所以，session B 虽然处于 blocked 状态，但还是拿着一个 MDL 读锁的。如果线程被 kill 的时候，就直接终止，那之后这个 MDL 读锁就没机会被释放了。</p>
+<p>我在<a href="../6">第 6 篇文章</a>中讲过，当对一个表做增删改查操作时，会在表上加 MDL 读锁。所以，session B 虽然处于 blocked 状态，但还是拿着一个 MDL 读锁的。如果线程被 kill 的时候，就直接终止，那之后这个 MDL 读锁就没机会被释放了。</p>
 <p>这样看来，kill 并不是马上停止的意思，而是告诉执行线程说，这条语句已经不需要继续执行了，可以开始“执行停止的逻辑了”。</p>
 <blockquote>
 <p>其实，这跟 Linux 的 kill 命令类似，kill -N pid 并不是让进程直接停止，而是给进程发一个信号，然后进程处理这个信号，进入终止逻辑。只是对于 MySQL 的 kill 命令来说，不需要传信号量参数，就只有“停止”这个命令。</p>
@@ -1328,7 +1328,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">193.5k</span>
+                        class="white-color">193.4k</span>
             
             
             
