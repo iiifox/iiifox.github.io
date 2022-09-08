@@ -822,9 +822,8 @@
  <li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li> 
  <li><code>nums</code> 中，除某个元素仅出现 <strong>一次</strong> 外，其余每个元素都恰出现 <strong>三次</strong></li> 
 </ul><p></p>
-## 参考代码：位运算
 
-<p>我们可以使用一个「黑盒」存储当前遍历过的所有整数。「黑盒」的第 i 位为 {0,1,2} 三者之一，表示当前遍历过的所有整数的第 i 位之和除以 3 的余数。但由于二进制表示中只有 0 和 1 而没有 2，因此我们可以考虑在「黑盒」中使用两个整数来进行存储，即：</p>
+<h2 id="参考代码：位运算-1"><a href="#参考代码：位运算-1" class="headerlink" title="参考代码：位运算"></a>参考代码：位运算</h2><p>我们可以使用一个「黑盒」存储当前遍历过的所有整数。「黑盒」的第 i 位为 {0,1,2} 三者之一，表示当前遍历过的所有整数的第 i 位之和除以 3 的余数。但由于二进制表示中只有 0 和 1 而没有 2，因此我们可以考虑在「黑盒」中使用两个整数来进行存储，即：</p>
 <p>黑盒中存储了两个整数 a 和 b，且会有三种情况：</p>
 <ul>
 <li>a 的第 i 位为 0 且 b 的第 i 位为 0，表示 0；</li>
@@ -876,7 +875,7 @@
  <li>除两个只出现一次的整数外，<code>nums</code> 中的其他数字都出现两次</li> 
 </ul><p></p>
 
-<h2 id="参考代码：位运算-1"><a href="#参考代码：位运算-1" class="headerlink" title="参考代码：位运算"></a>参考代码：位运算</h2><p><strong><font color="red">记整数数组中只出现一次的两个元素为 <code>a</code> 和 <code>b</code> ：</font></strong></p>
+<h2 id="参考代码：位运算-2"><a href="#参考代码：位运算-2" class="headerlink" title="参考代码：位运算"></a>参考代码：位运算</h2><p><strong><font color="red">记整数数组中只出现一次的两个元素为 <code>a</code> 和 <code>b</code> ：</font></strong></p>
 <ol>
 <li><p>将整数数组中所有元素进行异或，其结果为 <code>xorSum = a ^ b</code></p>
 </li>
@@ -1389,7 +1388,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">196.3k</span>
+                        class="white-color">196.2k</span>
             
             
             
