@@ -765,7 +765,7 @@
 
 <p>可以看到，session C 执行 kill query 以后，session B 几乎同时就提示了语句被中断。这，就是我们预期的结果。</p>
 <h1 id="收到-kill-以后，线程做什么？"><a href="#收到-kill-以后，线程做什么？" class="headerlink" title="收到 kill 以后，线程做什么？"></a>收到 kill 以后，线程做什么？</h1><p>但是，这里你要停下来想一下：session B 是直接终止掉线程，什么都不管就直接退出吗？显然，这是不行的。</p>
-<p>我在<a href="../6">第 6 篇文章</a>中讲过，当对一个表做增删改查操作时，会在表上加 MDL 读锁。所以，session B 虽然处于 blocked 状态，但还是拿着一个 MDL 读锁的。如果线程被 kill 的时候，就直接终止，那之后这个 MDL 读锁就没机会被释放了。</p>
+<p>我在<a href="../6/#%E8%A1%A8%E7%BA%A7%E9%94%81">第 6 篇文章</a>中讲过，当对一个表做增删改查操作时，会在表上加 MDL 读锁。所以，session B 虽然处于 blocked 状态，但还是拿着一个 MDL 读锁的。如果线程被 kill 的时候，就直接终止，那之后这个 MDL 读锁就没机会被释放了。</p>
 <p>这样看来，kill 并不是马上停止的意思，而是告诉执行线程说，这条语句已经不需要继续执行了，可以开始“执行停止的逻辑了”。</p>
 <blockquote>
 <p>其实，这跟 Linux 的 kill 命令类似，kill -N pid 并不是让进程直接停止，而是给进程发一个信号，然后进程处理这个信号，进入终止逻辑。只是对于 MySQL 的 kill 命令来说，不需要传信号量参数，就只有“停止”这个命令。</p>
@@ -784,7 +784,7 @@
 <li>语句从开始进入终止逻辑，到终止逻辑完全完成，是有一个过程的。</li>
 </ol>
 <p>到这里你就知道了，原来不是“说停就停的”。</p>
-<p>接下来，我们<strong>再看一个 kill 不掉的例子</strong>，也就是我们在前面<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/article/78134">第 29 篇文章</a>中提到的 innodb_thread_concurrency 不够用的例子。</p>
+<p>接下来，我们<strong>再看一个 kill 不掉的例子</strong>，也就是我们在前面<a href="../29/#select-1-%E5%88%A4%E6%96%AD">第 29 篇文章</a>中提到的 innodb_thread_concurrency 不够用的例子。</p>
 <p>首先，执行 set global innodb_thread_concurrency=2，将 InnoDB 的并发线程上限数设置为 2；然后，执行下面的序列：</p>
 <div style="text-align:center"><img src="../../images/mysql45/32/图%202%20kill%20query%20无效的例子.png"><p><font color="gray">图 2 kill query 无效的例子</font></p></div>
 
