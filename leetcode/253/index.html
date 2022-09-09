@@ -5,11 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 253 题：会议室 II（中等）, iiifox">
-    <meta name="description" content="252. 会议室给定一个会议时间安排的数组 intervals ，每个会议时间都会包括开始和结束的时间 intervals[i] = [starti, endi] ，请你判断一个人是否能够参加这里面的全部会议。
+    <meta name="description" content="252. 会议室题目描述给定一个会议时间安排的数组 intervals ，每个会议时间都会包括开始和结束的时间 intervals[i] = [starti, endi] ，请你判断一个人是否能够参加这里面的全部会议。
 
-&amp;nbsp;
-
-示例 1：">
+示例 1：
+输入：">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -704,8 +703,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/">
-                                <span class="chip bg-color">未完成</span>
+                            <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                                <span class="chip bg-color">排序</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">
+                                <span class="chip bg-color">优先队列</span>
                             </a>
                         
                     </div>
@@ -743,7 +746,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    236
+                    375
                 </div>
                 
 
@@ -768,37 +771,47 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="252-会议室"><a href="#252-会议室" class="headerlink" title="252. 会议室"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/meeting-rooms/">252. 会议室</a></h1><p>给定一个会议时间安排的数组 <code>intervals</code> ，每个会议时间都会包括开始和结束的时间 <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> ，请你判断一个人是否能够参加这里面的全部会议。</p>
+                <h1 id="252-会议室"><a href="#252-会议室" class="headerlink" title="252. 会议室"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/meeting-rooms/">252. 会议室</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个会议时间安排的数组 <code>intervals</code> ，每个会议时间都会包括开始和结束的时间 <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> ，请你判断一个人是否能够参加这里面的全部会议。</p>
 
-<p>&nbsp;</p>
-
-<p><strong>示例 1：</strong></p>
-
-<pre><strong>输入：</strong>intervals = [[0,30],[5,10],[15,20]]
+<pre><strong>示例 1：</strong>
+<strong>输入：</strong>intervals = [[0,30],[5,10],[15,20]]
 <strong>输出</strong>：false
 </pre>
 
-<p><strong>示例 2：</strong></p>
-
-<pre><strong>输入：</strong>intervals = [[7,10],[2,4]]
+<pre><strong>示例 2：</strong>
+<strong>输入：</strong>intervals = [[7,10],[2,4]]
 <strong>输出</strong>：true
 </pre>
 
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong></p>
-
-<ul> 
+<p><strong>提示：</strong>
+</p><ul> 
  <li><code>0 &lt;= intervals.length &lt;= 10<sup>4</sup></code></li> 
  <li><code>intervals[i].length == 2</code></li> 
  <li><code>0 &lt;= start<sub>i</sub> &lt;&nbsp;end<sub>i</sub> &lt;= 10<sup>6</sup></code></li> 
-</ul>
+</ul><p></p>
 
-<div><div>Related Topics</div><div><li>数组</li><li>排序</li></div></div><br><div><li>👍 130</li><li>👎 0</li></div>
+<h2 id="参考代码：排序"><a href="#参考代码：排序" class="headerlink" title="参考代码：排序"></a>参考代码：排序</h2><blockquote>
+<p>时间复杂度：$O(nlogn)$</p>
+<p>空间复杂度：$O(nlogn)$</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">canAttendMeetings</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> intervals<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>intervals<span class="token punctuation">,</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">-</span> b<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<h1 id="253-会议室-II"><a href="#253-会议室-II" class="headerlink" title="253. 会议室 II"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/meeting-rooms-ii/">253. 会议室 II</a></h1><p>给你一个会议时间安排的数组 <code>intervals</code> ，每个会议时间都会包括开始和结束的时间 <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> ，返回 <em>所需会议室的最小数量</em> 。</p>
+        <span class="token keyword">int</span> end <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token constant">MIN_VALUE</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> interval <span class="token operator">:</span> intervals<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>interval<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            end <span class="token operator">=</span> interval<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>&nbsp;</p>
+
+
+<h1 id="253-会议室-II"><a href="#253-会议室-II" class="headerlink" title="253. 会议室 II"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/meeting-rooms-ii/">253. 会议室 II</a></h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个会议时间安排的数组 <code>intervals</code> ，每个会议时间都会包括开始和结束的时间 <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> ，返回所需会议室的最小数量 。</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -806,22 +819,40 @@
 <strong>输出：</strong>2
 </pre>
 
-<p><strong>示例 2：</strong></p>
-
-<pre><strong>输入：</strong>intervals = [[7,10],[2,4]]
+<pre><strong>示例 2：</strong>
+<strong>输入：</strong>intervals = [[7,10],[2,4]]
 <strong>输出：</strong>1
 </pre>
 
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong></p>
-
-<ul> 
+<p><strong>提示：</strong>
+</p><ul> 
  <li><code>1 &lt;=&nbsp;intervals.length &lt;= 10<sup>4</sup></code></li> 
  <li><code>0 &lt;= start<sub>i</sub> &lt; end<sub>i</sub> &lt;= 10<sup>6</sup></code></li> 
-</ul>
+</ul><p></p>
 
-<div><div>Related Topics</div><div><li>贪心</li><li>数组</li><li>双指针</li><li>排序</li><li>堆（优先队列）</li></div></div><br><div><li>👍 467</li><li>👎 0</li></div>
+<h2 id="参考代码：优先队列"><a href="#参考代码：优先队列" class="headerlink" title="参考代码：优先队列"></a>参考代码：优先队列</h2><blockquote>
+<p>时间复杂度：$O(nlogn)$</p>
+<p>空间复杂度：$O(n)$</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">minMeetingRooms</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> intervals<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>intervals<span class="token punctuation">,</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">-</span> b<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 最小堆。存储每个会议的结束时间</span>
+        <span class="token class-name">PriorityQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> minHeap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PriorityQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>intervals<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 1 &lt;= intervals.length &lt;= 10^4</span>
+        minHeap<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>intervals<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> intervals<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>intervals<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&gt;=</span> minHeap<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                minHeap<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            minHeap<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>intervals<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> minHeap<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -885,8 +916,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/">
-                                    <span class="chip bg-color">未完成</span>
+                                <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                                    <span class="chip bg-color">排序</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">
+                                    <span class="chip bg-color">优先队列</span>
                                 </a>
                             
                         </div>
@@ -1298,7 +1333,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">198.3k</span>
+                        class="white-color">198.5k</span>
             
             
             
