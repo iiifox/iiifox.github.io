@@ -1170,11 +1170,11 @@
       
         <tags>
             
+            <tag> 动态规划 </tag>
+            
             <tag> 二叉树 </tag>
             
             <tag> 深度优先搜索 </tag>
-            
-            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -1412,7 +1412,7 @@
     
     
     <entry>
-      <title>「力扣」第 253 题：会议室 II（中等）</title>
+      <title>「力扣」第 253 题：会议室 II（合集）</title>
       <link href="/leetcode/253/"/>
       <url>/leetcode/253/</url>
       
@@ -1439,7 +1439,7 @@
     
     
     <entry>
-      <title>「力扣」第 240 题：搜索二维矩阵 II（中等）</title>
+      <title>「力扣」第 240 题：搜索二维矩阵 II（合集）</title>
       <link href="/leetcode/240/"/>
       <url>/leetcode/240/</url>
       
@@ -1703,7 +1703,7 @@
     
     
     <entry>
-      <title>「力扣」第 206 题：反转链表（简单）</title>
+      <title>「力扣」第 206 题：反转链表（合集）</title>
       <link href="/leetcode/206/"/>
       <url>/leetcode/206/</url>
       
@@ -2017,7 +2017,7 @@
     
     
     <entry>
-      <title>「力扣」第 136 题：只出现一次的数字（简单）</title>
+      <title>「力扣」第 136 题：只出现一次的数字（合集）</title>
       <link href="/leetcode/136/"/>
       <url>/leetcode/136/</url>
       
@@ -2243,9 +2243,9 @@
             
             <tag> 二叉树 </tag>
             
-            <tag> 广度优先搜索 </tag>
-            
             <tag> 深度优先搜索 </tag>
+            
+            <tag> 广度优先搜索 </tag>
             
         </tags>
       
@@ -3201,7 +3201,7 @@
     
     
     <entry>
-      <title>「力扣」第 2 题：两数相加（中等）</title>
+      <title>「力扣」第 2 题：两数相加（合集）</title>
       <link href="/leetcode/2/"/>
       <url>/leetcode/2/</url>
       
@@ -3226,7 +3226,7 @@
     
     
     <entry>
-      <title>「力扣」第 1 题：两数之和（简单）</title>
+      <title>「力扣」第 1 题：两数之和（合集）</title>
       <link href="/leetcode/1/"/>
       <url>/leetcode/1/</url>
       
