@@ -5,10 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 239 题：滑动窗口最大值（困难）, iiifox">
-    <meta name="description" content="「力扣」第 239 题：滑动窗口最大值
-链接
+    <meta name="description" content="239. 滑动窗口最大值题目描述给你一个整数数组 nums，有一个大小为&amp;nbsp;k&amp;nbsp;的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 k&amp;nbsp;个数字。滑动窗口每次只向右移动一位。
 
-题目描述给你一个整数数组 nums，有一个大小为&amp;nbsp;k&amp;nbsp;的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 k&amp;nbsp;个数字。滑动窗口每次只向右移动一">
+返回滑动窗口中的">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -739,14 +738,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-27
+                    2022-09-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    432
+                    425
                 </div>
                 
 
@@ -771,14 +770,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-239-题：滑动窗口最大值"><a href="#「力扣」第-239-题：滑动窗口最大值" class="headerlink" title="「力扣」第 239 题：滑动窗口最大值"></a>「力扣」第 239 题：滑动窗口最大值</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sliding-window-maximum/">链接</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个整数数组 <code>nums</code>，有一个大小为&nbsp;<code>k</code><em>&nbsp;</em>的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 <code>k</code>&nbsp;个数字。滑动窗口每次只向右移动一位。</p>
+                <h1 id="239-滑动窗口最大值"><a href="#239-滑动窗口最大值" class="headerlink" title="239. 滑动窗口最大值"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sliding-window-maximum/">239. 滑动窗口最大值</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数数组 <code>nums</code>，有一个大小为&nbsp;<code>k</code><em>&nbsp;</em>的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 <code>k</code>&nbsp;个数字。滑动窗口每次只向右移动一位。</p>
 
 <p>返回滑动窗口中的最大值 。</p>
-
-<p>&nbsp;</p>
 
 <pre><strong>示例 1：</strong>
 <b>输入：</b>nums = [1,3,-1,-3,5,3,6,7], k = 3
@@ -794,14 +788,10 @@
  1  3  -1  -3  5 [3  6  7]      <strong>7</strong>
 </pre>
 
-
-
 <pre><strong>示例 2：</strong>
 <b>输入：</b>nums = [1], k = 1
 <b>输出：</b>[1]
 </pre>
-
-<p>&nbsp;</p>
 
 <p><b>提示：</b>
 </p><ul> 
@@ -810,18 +800,14 @@
  <li><code>1 &lt;= k &lt;= nums.length</code></li> 
 </ul><p></p>
 
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：单调队列"><a href="#参考代码：单调队列" class="headerlink" title="参考代码：单调队列"></a>参考代码：单调队列</h3><blockquote>
+<h2 id="参考代码：单调队列"><a href="#参考代码：单调队列" class="headerlink" title="参考代码：单调队列"></a>参考代码：单调队列</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(k)$</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">maxSlidingWindow</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// 存储滑动窗口内的下标(从小到大)，并且它们在数组 nums 中对应的值是严格单调递减的</span>
-        <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> deque <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 存储滑动窗口内的下标(从小到大)，其在数组 nums 中对应的值严格单调递减</span>
+        <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> deque <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>nums<span class="token punctuation">.</span>length <span class="token operator">-</span> k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -832,17 +818,19 @@
             deque<span class="token punctuation">.</span><span class="token function">offerLast</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token comment">// 窗口大小已经达到 k</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&gt;=</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token comment">// 将单调队列中不在窗口区间 [i-k+1, i] 的元素全部移除</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>deque<span class="token punctuation">.</span><span class="token function">peekFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> i <span class="token operator">-</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 判断单调队列中的第一个元素是否需要移除 窗口区间:[i-k+1, i]</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>deque<span class="token punctuation">.</span><span class="token function">peekFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> i <span class="token operator">-</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     deque<span class="token punctuation">.</span><span class="token function">pollFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
-                <span class="token comment">// 队首元素即为滑动窗口中的最大值</span>
+                <span class="token comment">// 队首元素即为滑动窗口中的最大值的索引</span>
                 res<span class="token punctuation">[</span>i <span class="token operator">-</span> k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>deque<span class="token punctuation">.</span><span class="token function">peekFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
 
                 
