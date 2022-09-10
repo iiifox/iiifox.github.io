@@ -1353,8 +1353,6 @@
       
         <tags>
             
-            <tag> 双指针 </tag>
-            
             <tag> Floyd 判圈算法 </tag>
             
         </tags>
@@ -2245,9 +2243,9 @@
             
             <tag> 二叉树 </tag>
             
-            <tag> 深度优先搜索 </tag>
-            
             <tag> 广度优先搜索 </tag>
+            
+            <tag> 深度优先搜索 </tag>
             
         </tags>
       
