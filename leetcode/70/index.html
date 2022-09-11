@@ -796,9 +796,8 @@
 </p><ul>
     <li><code>1 &lt;= n &lt;= 45</code></li>
 </ul><p></p>
-## 参考代码：斐波那契数列
 
-<h3 id="方法一：通项公式"><a href="#方法一：通项公式" class="headerlink" title="方法一：通项公式"></a>方法一：通项公式</h3><p><code>f(1)=1,f(2)=2 f(n)=f(n-1)+f(n-2) </code></p>
+<h2 id="参考代码：斐波那契数列"><a href="#参考代码：斐波那契数列" class="headerlink" title="参考代码：斐波那契数列"></a>参考代码：斐波那契数列</h2><h3 id="方法一：通项公式"><a href="#方法一：通项公式" class="headerlink" title="方法一：通项公式"></a>方法一：通项公式</h3><p><code>f(1)=1,f(2)=2 f(n)=f(n-1)+f(n-2) </code></p>
 <p>由特征根法求得 $f(n)=\frac{1}{\sqrt{5}}(\frac{1+\sqrt{5}}{2})^{n+1}-\frac{1}{\sqrt{5}}(\frac{1-\sqrt{5}}{2})^{n+1}$</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
