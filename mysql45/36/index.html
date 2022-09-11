@@ -782,7 +782,7 @@ CREATE TE">
 </ul>
 <p>弄清楚了内存表和临时表的区别以后，我们再来看看临时表有哪些特征。</p>
 <h1 id="临时表的特性"><a href="#临时表的特性" class="headerlink" title="临时表的特性"></a>临时表的特性</h1><p>为了便于理解，我们来看下下面这个操作序列：</p>
-<div style="text-align:center"><img src="../../images/mysql45/36/图%201%20临时表特性示例.png"><p><font color="gray"></font></p></div>
+<div style="text-align:center"><img src="../../images/mysql45/36/图%201%20临时表特性示例.png"><p><font color="gray">图 1 临时表特性示例</font></p></div>
 
 <p>可以看到，临时表在使用上有以下几个特点：</p>
 <ol>
@@ -800,7 +800,7 @@ CREATE TE">
 </ol>
 <h1 id="临时表的应用"><a href="#临时表的应用" class="headerlink" title="临时表的应用"></a>临时表的应用</h1><p>由于不用担心线程之间的重名冲突，临时表经常会被用在复杂查询的优化过程中。其中，分库分表系统的跨库查询就是一个典型的使用场景。</p>
 <p>一般分库分表的场景，就是要把一个逻辑上的大表分散到不同的数据库实例上。比如。将一个大表 ht，按照字段 f，拆分成 1024 个分表，然后分布到 32 个数据库实例上。如下图所示：</p>
-<div style="text-align:center"><img src="../../images/mysql45/36/图%202%20分库分表简图.jpg"><p><font color="gray"></font></p></div>
+<div style="text-align:center"><img src="../../images/mysql45/36/图%202%20分库分表简图.jpg"><p><font color="gray">图 2 分库分表简图</font></p></div>
 
 <p>一般情况下，这种分库分表系统都有一个中间层 proxy。不过，也有一些方案会让客户端直接连接数据库，也就是没有 proxy 这一层。</p>
 <p>在这个架构中，分区 key 的选择是以“减少跨库和跨表查询”为依据的。如果大部分的语句都会包含 f 的等值条件，那么就要用 f 做分区键。这样，在 proxy 这一层解析完 SQL 语句以后，就能确定将这条语句路由到哪个分表做查询。</p>
@@ -1150,18 +1150,17 @@ CREATE TE">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/mysql45/36/">
+                <a href="/mysql45/37/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="36 | 为什么临时表可以重名？">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="37 | 什么时候会使用内部临时表？">
                         
-                        <span class="card-title">36 | 为什么临时表可以重名？</span>
+                        <span class="card-title">37 | 什么时候会使用内部临时表？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1171,9 +1170,9 @@ CREATE TE">
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-11
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-11
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1186,7 +1185,6 @@ CREATE TE">
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -1367,7 +1365,7 @@ CREATE TE">
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">211.8k</span>
+                        class="white-color">215.3k</span>
             
             
             
