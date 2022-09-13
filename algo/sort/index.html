@@ -740,7 +740,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.6k
+                    8.1k
                 </div>
                 
 
@@ -775,6 +775,19 @@
 <li>跟希尔排序一样，桶排序的时间复杂度与桶的个数以及分布情况有关，这里不给出。</li>
 </ul>
 <p>在本文实现中基数排序较计数排序的优势是减少了部分的空间复杂度，值得一提的是，网上不少基数排序的代码实现使用的是二维数组，其空间复杂度为 $O(n \times k)$，在与计数排序比较中时间复杂度不占优的情况下（具体看代码实现就知道了），其空间复杂度也不占优，图啥呢？而且网上不少计数排序使用的是空间复杂度为 O(k) 的算法，该算法不能够实现其稳定性。</p>
+<blockquote>
+<p><strong>关于稳定性，这里说一下稳定性的作用：</strong></p>
+<p>稳定性是什么？如果 <code>a</code> 和 <code>b</code> 在数组中排序的值一样，在排序后 <code>a</code> 与 <code>b</code> 的相对位置并没有发生改变。</p>
+<ul>
+<li>对于基本数据类型的排序，稳定性没一点用。</li>
+<li>引用数据类型的两个字段及其更多字段进行排序时，一定需要稳定性的维持：比如一件商品需要先按好评从高到低进行排序，好评一样的话则按价格从低到高排序。<ul>
+<li>我们先对价格按照升序排，比如 A 商品是 <code>20 元 | 9.9 评分</code>，B 商品是 <code>30 元 | 9.9 评分</code>，并且 A 商品排在 B 商品的前面；</li>
+<li>接下来我们按照好评从高到低进行排序，如果不能维持稳定性，由于 A 商品和 B 商品的评分是一样的，因此 B 商品可能会排在 A 商品前面；</li>
+<li>这时候我们发现，原本排序规则是好评一样则按照价格进行升序排序，但 A 商品与 B 商品好评一样，价格却是降序排的，造成这个的原因就是因为破坏了稳定性！（JDK8 底层对引用数据类型进行排序使用的是 <strong>归并排序 + 插入排序</strong> ，现在我们应该理解了，是因为这两个排序能够维持稳定性）</li>
+</ul>
+</li>
+</ul>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -906,8 +919,11 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
+<h3 id="复杂度及稳定性"><a href="#复杂度及稳定性" class="headerlink" title="复杂度及稳定性"></a>复杂度及稳定性</h3><ul>
+<li>最好时间复杂度与最坏时间复杂度：$O(n^2)$</li>
+<li>空间复杂度：$O(1)$</li>
+<li>稳定性：不能保证稳定性</li>
+</ul>
 <h2 id="专题二：冒泡排序（了解）"><a href="#专题二：冒泡排序（了解）" class="headerlink" title="专题二：冒泡排序（了解）"></a>专题二：冒泡排序（了解）</h2><h3 id="基本思想-1"><a href="#基本思想-1" class="headerlink" title="基本思想"></a>基本思想</h3><blockquote>
 <p>外层循环每一次经过两两比较，把 <strong>每一轮未排定部分最大的元素放到了数组的末尾</strong></p>
 </blockquote>
@@ -946,8 +962,11 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
+<h3 id="复杂度及稳定性-1"><a href="#复杂度及稳定性-1" class="headerlink" title="复杂度及稳定性"></a>复杂度及稳定性</h3><ul>
+<li>最好时间复杂度：$O(n)$，最坏时间复杂度：$O(n^2)$</li>
+<li>空间复杂度：$O(1)$</li>
+<li>稳定性：可以保证稳定性</li>
+</ul>
 <h2 id="专题三：插入排序（熟悉）"><a href="#专题三：插入排序（熟悉）" class="headerlink" title="专题三：插入排序（熟悉）"></a>专题三：插入排序（熟悉）</h2><h3 id="基本思想："><a href="#基本思想：" class="headerlink" title="基本思想："></a>基本思想：</h3><blockquote>
 <p>每次将一个数字插入一个有序的数组里，成为一个长度更长的有序数组，有限次操作以后，数组整体有序。</p>
 </blockquote>
@@ -971,6 +990,11 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="复杂度及稳定性-2"><a href="#复杂度及稳定性-2" class="headerlink" title="复杂度及稳定性"></a>复杂度及稳定性</h3><ul>
+<li>最好时间复杂度：$O(n)$，最坏时间复杂度：$O(n^2)$</li>
+<li>空间复杂度：$O(1)$</li>
+<li>稳定性：可以保证稳定性</li>
+</ul>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
 <li>优化方向：希尔排序。</li>
 <li>特点：「插入排序」可以提前终止内层循环（体现在 <code>nums[j-1] &gt; temp</code> 不满足时），在数组「几乎有序」的前提下，「插入排序」的时间复杂度可以达到 $O(N)$；</li>
@@ -2133,7 +2157,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">256.8k</span>
+                        class="white-color">257.3k</span>
             
             
             

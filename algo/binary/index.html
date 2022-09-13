@@ -731,7 +731,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-12
+                    2022-09-13
                 </div>
                 
 
@@ -770,24 +770,22 @@
 <li>思路 2：在循环体内部排除元素：<code>while (left &lt; right)</code>。</li>
 </ul>
 </li>
-<li>全部使用<strong>左闭右闭</strong>区间，不建议使用左闭右开区间，反而使得问题变得复杂；</li>
+<li>全部使用 <strong>左闭右闭</strong> 区间，不建议使用左闭右开区间，反而使得问题变得复杂；</li>
 <li><strong>不建议背模板</strong>，每一步都要清楚为什么这样写，不要跳步，更不能想当然。</li>
 </ul>
-<h1 id="思路-1：在循环体内部查找元素（解决简单问题时有用）"><a href="#思路-1：在循环体内部查找元素（解决简单问题时有用）" class="headerlink" title="思路 1：在循环体内部查找元素（解决简单问题时有用）"></a>思路 1：在循环体内部查找元素（解决简单问题时有用）</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-
+<h1 id="思路-1：在循环体内部查找元素（解决简单问题时有用）"><a href="#思路-1：在循环体内部查找元素（解决简单问题时有用）" class="headerlink" title="思路 1：在循环体内部查找元素（解决简单问题时有用）"></a>思路 1：在循环体内部查找元素（解决简单问题时有用）</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">search</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">// 特殊用例判断</span>
-        <span class="token keyword">int</span> len <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nums <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> nums<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
+        
         <span class="token comment">// 在 [left, right] 区间里查找 target</span>
         <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> right <span class="token operator">=</span> len <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> right <span class="token operator">=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;=</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment">// 为了防止 left + right 整形溢出，写成如下形式</span>
-            <span class="token keyword">int</span> mid <span class="token operator">=</span> left <span class="token operator">+</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
-
+            <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&gt;</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -800,9 +798,9 @@
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>说明：</p>
+<p><strong>说明：</strong></p>
 <ul>
 <li>最简单的二分查找思路：在一个有序数组里查找目标元素。特别像以前电视「猜价格」上的猜价格游戏：运气好，一下子猜中，如果主持人说猜高了，下一步就应该往低了猜，如果主持人说猜低了，下一步就应该就往高了猜。这个思路把待搜索区间 <code>[left, right]</code> 分为 3 个部分：<ul>
 <li><code>mid</code> 位置（只有 1 个元素）；</li>
@@ -821,15 +819,7 @@
 </ul>
 <p><strong>注意事项</strong>：</p>
 <ul>
-<li><p>许多刚刚写的朋友，经常在写 </p>
-<pre class="line-numbers language-none"><code class="language-none">left = mid + 1;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p> 还是写 </p>
-<pre class="line-numbers language-none"><code class="language-none">right = mid - 1;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p> 上感到困惑，一个行之有效的思考策略是：</p>
-<p>永远去想下一轮目标元素应该在哪个区间里</p>
-<p>；</p>
+<li><p>许多刚刚写的朋友，经常在写 <code>left = mid + 1;</code> 还是写 <code>right = mid - 1;</code> 上感到困惑，一个行之有效的思考策略是：永远去想下一轮目标元素应该在哪个区间里；</p>
 <ul>
 <li>如果目标元素在区间 <code>[left, mid - 1]</code> 里，就需要设置设置 <code>right = mid - 1</code>；</li>
 <li>如果目标元素在区间 <code>[mid + 1, right]</code> 里，就需要设置设置 <code>left = mid + 1</code>；</li>
@@ -839,18 +829,17 @@
 </li>
 <li><p>循环可以继续的条件是 <code>while (left &lt;= right)</code>，特别地，当 <code>left == right</code> 即当待搜索区间里只有一个元素的时候，查找也必须进行下去；</p>
 </li>
-<li><p><code>int mid = (left + right) / 2;</code> 在 <code>left + right</code> 整形溢出的时候，<code>mid</code> 会变成负数，回避这个问题的办法是写成 <code>int mid = left + (right - left) / 2;</code>。</p>
+<li><p><code>int mid = (left + right) / 2;</code> 在 <code>left + right</code> 整形溢出的时候，<code>mid</code> 会变成负数，回避这个问题的办法是写成 <code>int mid = left + (right - left) / 2;</code> 或者 <code>int mid = (left + right) &gt;&gt;&gt; 1</code>。</p>
 </li>
 </ul>
-<h1 id="思路-2：在循环体内部排除元素（在解决复杂问题时非常有用）"><a href="#思路-2：在循环体内部排除元素（在解决复杂问题时非常有用）" class="headerlink" title="思路 2：在循环体内部排除元素（在解决复杂问题时非常有用）"></a>思路 2：在循环体内部排除元素（在解决复杂问题时非常有用）</h1><blockquote>
-<p>这个版本的模板推荐使用的原因是：<strong>需要考虑的细节最少，编码时不容易出错</strong>。</p>
-</blockquote>
-<p>根据中间数被分到左边还是右边，一共就以下两种写法。不能死记硬背，应该通过多练习，理解当看到 <code>left = mid</code> 的时候，将取中间数的取法改成上取整的原因。</p>
+<h1 id="思路-2：在循环体内部排除元素（在解决复杂问题时非常有用）"><a href="#思路-2：在循环体内部排除元素（在解决复杂问题时非常有用）" class="headerlink" title="思路 2：在循环体内部排除元素（在解决复杂问题时非常有用）"></a>思路 2：在循环体内部排除元素（在解决复杂问题时非常有用）</h1><p>根据中间数被分到左边还是右边，一共就以下两种写法。不能死记硬背，应该通过多练习，理解当看到 <code>left = mid</code> 的时候，将取中间数的取法改成上取整的原因。</p>
+<p>如下两个模板看不懂的话，建议看一下本站 <a href="https://iiifox.github.io/leetcode/34/">34. 在排序数组中查找元素的第一个和最后一个位置</a></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">search</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// 在区间 [left, right] 里查找目标元素</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">// 选择中间数时下取整</span>
-        <span class="token keyword">int</span> mid <span class="token operator">=</span> left <span class="token operator">+</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">// check(mid) 表示区间 [left, mid] 不满足条件</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">check</span><span class="token punctuation">(</span>mid<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment">// 下一轮搜索区间是 [mid + 1, right]</span>
             left <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span>
@@ -860,13 +849,14 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
     <span class="token comment">// 退出循环的时候，程序只剩下一个元素没有看到，视情况，是否需要单独判断 left（或者 right）这个下标的元素是否符合题意</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">search</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// 在区间 [left, right] 里查找目标元素</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">// 选择中间数时上取整</span>
-        <span class="token keyword">int</span> mid <span class="token operator">=</span> left <span class="token operator">+</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span>
+        <span class="token comment">// check(mid) 表示区间 [mid, right] 不满足条件</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">check</span><span class="token punctuation">(</span>mid<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment">// 下一轮搜索区间是 [left, mid - 1]</span>
             right <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -876,26 +866,17 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
     <span class="token comment">// 退出循环的时候，程序只剩下一个元素没有看到，视情况，是否需要单独判断 left（或者 right）这个下标的元素是否符合题意</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>理解模板代码的要点：</p>
 <ul>
-<li><p>核心思想：虽然模板有两个，但是核心思想只有一个，那就是：把待搜索的目标元素放在最后判断，每一次循环排除掉不存在目标元素的区间，目的依然是确定下一轮搜索的区间；</p>
+<li><p>核心思想：虽然模板有两个，但是核心思想只有一个，那就是：把待搜索的目标元素放在最后判断，每一次循环 <strong>排除</strong> 掉不存在目标元素的区间，目的依然是确定下一轮搜索的区间；</p>
 </li>
 <li><p>特征：<code>while (left &lt; right)</code>，这里使用严格小于 <code>&lt;</code> 表示的临界条件是：当区间里的元素只有 2 个时，依然可以执行循环体。换句话说，退出循环的时候一定有 <code>left == right</code> 成立，<strong>这一点在定位元素下标的时候极其有用</strong>；</p>
 </li>
-<li><p>在循环体中，先考虑 </p>
-<pre class="line-numbers language-none"><code class="language-none">nums[mid]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p> 在满足什么条件下不是目标元素，进而考虑两个区间 </p>
-<pre class="line-numbers language-none"><code class="language-none">[left, mid - 1]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p> 以及 </p>
-<pre class="line-numbers language-none"><code class="language-none">[mid + 1, right]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p> 里元素的性质，目的依然是确定下一轮搜索的区间； </p>
+<li><p>在循环体中，先考虑 <code>nums[mid]</code> 在满足什么条件下不是目标元素，进而考虑两个区间 <code>[left, mid - 1]</code> 以及 <code>[mid + 1, right]</code> 里元素的性质，目的依然是确定下一轮搜索的区间； </p>
 <ul>
-<li><strong>注意 1</strong>：先考虑什么时候不是解，是一个经验，在绝大多数情况下不易出错，重点还是确定下一轮搜索的区间，由于这一步不容易出错，它的反面（也就是 <code>else</code> 语句的部分），就不用去考虑对应的区间是什么，直接从上一个分支的反面区间得到，进而确定边界如何设置；</li>
+<li><strong>注意 1</strong>：先考虑什么时候不是解，是一个经验，在绝大多数情况下不易出错，重点还是确定下一轮搜索的区间，由于这一步不容易出错，它的反面（也就是 <code>else</code> 语句的部分）就不用去考虑对应的区间是什么，直接从上一个分支的反面区间得到，进而确定边界如何设置；</li>
 </ul>
 </li>
 <li><p>根据边界情况，看取中间数的时候是否需要上取整；</p>
@@ -913,7 +894,7 @@
 </li>
 <li><p>先写分支逻辑，再决定中间数是否上取整；</p>
 </li>
-<li><p>在使用多了以后，就很容易记住，只要看到 <code>left = mid</code> ，它对应的取中位数的取法一定是 <code>int mid = left + (right - left + 1) / 2;</code>。</p>
+<li><p>在使用多了以后，就很容易记住，只要看到 <code>left = mid</code> ，它对应的取中位数的取法一定是 <code>int mid = (left + right + 1) &gt;&gt;&gt; 1;</code>。</p>
 </li>
 </ul>
 <h1 id="使用建议"><a href="#使用建议" class="headerlink" title="使用建议"></a>使用建议</h1><ul>
@@ -1384,7 +1365,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">256.8k</span>
+                        class="white-color">257.3k</span>
             
             
             
