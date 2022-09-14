@@ -5,13 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 10 题：正则表达式匹配（困难）, iiifox">
-    <meta name="description" content="「力扣」第 10 题：正则表达式匹配
-链接
-
-题目描述给你一个字符串&amp;nbsp;s&amp;nbsp;和一个字符规律&amp;nbsp;p，请你来实现一个支持 &#39;.&#39;&amp;nbsp;和&amp;nbsp;&#39;*&#39;&amp;nbsp;的正则表达式匹配。
+    <meta name="description" content="10. 正则表达式匹配题目描述给你一个字符串&amp;nbsp;s&amp;nbsp;和一个字符规律&amp;nbsp;p，请你来实现一个支持 &#39;.&#39;&amp;nbsp;和&amp;nbsp;&#39;*&#39;&amp;nbsp;的正则表达式匹配。
 
 
-    &#39;.&#39; 匹配任">
+    &#39;.&#39; 匹配任意单个字符
+    &#39;*">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -738,14 +736,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-09-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    724
+                    680
                 </div>
                 
 
@@ -770,10 +768,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-10-题：正则表达式匹配"><a href="#「力扣」第-10-题：正则表达式匹配" class="headerlink" title="「力扣」第 10 题：正则表达式匹配"></a>「力扣」第 10 题：正则表达式匹配</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/regular-expression-matching/">链接</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个字符串&nbsp;<code>s</code>&nbsp;和一个字符规律&nbsp;<code>p</code>，请你来实现一个支持 <code>'.'</code>&nbsp;和&nbsp;<code>'*'</code>&nbsp;的正则表达式匹配。</p>
+                <h1 id="10-正则表达式匹配"><a href="#10-正则表达式匹配" class="headerlink" title="10. 正则表达式匹配"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/regular-expression-matching/">10. 正则表达式匹配</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个字符串&nbsp;<code>s</code>&nbsp;和一个字符规律&nbsp;<code>p</code>，请你来实现一个支持 <code>'.'</code>&nbsp;和&nbsp;<code>'*'</code>&nbsp;的正则表达式匹配。</p>
 
 <ul>
     <li><code>'.'</code> 匹配任意单个字符</li>
@@ -781,8 +776,6 @@
 </ul>
 
 <p>所谓匹配，是要涵盖&nbsp;<strong>整个&nbsp;</strong>字符串&nbsp;<code>s</code>的，而不是部分字符串。</p>
-
-<p>&nbsp;</p>
 
 <pre><strong>示例 1：</strong>
 <strong>输入：</strong>s = "aa", p = "a"
@@ -803,8 +796,6 @@
 <strong>解释：</strong>".*" 表示可匹配零个或多个（'*'）任意字符（'.'）。
 </pre>
 
-<p>&nbsp;</p>
-
 <p><strong>提示：</strong>
 </p><ul>
     <li><code>1 &lt;= s.length&nbsp;&lt;= 20</code></li>
@@ -814,11 +805,7 @@
     <li>保证每次出现字符&nbsp;<code>*</code> 时，前面都匹配到有效的字符</li>
 </ul><p></p>
 
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h3><blockquote>
+<h2 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h2><blockquote>
 <p>时间复杂度：$O(mn)$</p>
 <p>空间复杂度：$O(mn)$</p>
 </blockquote>
@@ -833,15 +820,14 @@
         <span class="token comment">// i 从 0 开始是让 '.*'、'a*' 等可以匹配 ''</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> dp<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token comment">// 以 ‘*’ 结尾，可以匹配前面字符零次或多次，即扔组合（不匹配）或扔字符</span>
+                <span class="token comment">// 以 ‘*’ 结尾，可以匹配前面字符零次或多次</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token char">'*'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     <span class="token comment">// p 中的第 j-1 个字符与 s 的第 i 个字符相匹配</span>
                     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">matches</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> i<span class="token punctuation">,</span> p<span class="token punctuation">,</span> j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                         <span class="token comment">// 注意：即使能够匹配，也有可能匹配零次。比如 s="a",p="aa*"</span>
-                        <span class="token comment">// 将该组合扔掉(匹配零次) or 将该字符扔掉</span>
                         dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">||</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
                     <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                        <span class="token comment">// p 中的第 j-1 个字符与 s 的第 i 个字符不匹配。将该组合扔掉</span>
+                        <span class="token comment">// p 中的第 j-1 个字符与 s 的第 i 个字符不匹配。</span>
                         dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
                     <span class="token punctuation">}</span>
                 <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">matches</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> i<span class="token punctuation">,</span> p<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -864,7 +850,7 @@
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> p<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">||</span> p<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token char">'.'</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1343,7 +1329,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">255.9k</span>
+                        class="white-color">255.8k</span>
             
             
             
