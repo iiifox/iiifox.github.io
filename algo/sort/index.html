@@ -771,7 +771,7 @@
 <ul>
 <li>对于基本数据类型的排序，稳定性没一点用。</li>
 <li>引用数据类型的两个字段及其更多字段进行排序时，一定需要稳定性的维持：比如一件商品需要先按好评从高到低进行排序，好评一样的话则按价格从低到高排序。<ul>
-<li>我们先对价格按照升序排，比如 A 商品是 <code>20 元 | 9.9 评分</code>，B 商品是 <code>30 元 | 9.9 评分</code>，并且 A 商品排在 B 商品的前面；</li>
+<li>我们先对价格按照升序排，比如 A 商品是 <code>20 元 | 9.9 评分</code>，B 商品是 <code>30 元 | 9.9 评分</code>，排好序后 A 商品在 B 商品的前面；</li>
 <li>接下来我们按照好评从高到低进行排序，如果不能维持稳定性，由于 A 商品和 B 商品的评分是一样的，因此 B 商品可能会排在 A 商品前面；</li>
 <li>这时候我们发现，原本排序规则是好评一样则按照价格进行升序排序，但 A 商品与 B 商品好评一样，价格却是降序排的，造成这个的原因就是因为破坏了稳定性！（JDK8 底层对引用数据类型进行排序使用的是 <strong>归并排序 + 插入排序</strong> ，现在我们应该理解了，是因为这两个排序能够维持稳定性）  </li>
 </ul>
@@ -1517,9 +1517,7 @@
 <h2 id="桶排序（了解）"><a href="#桶排序（了解）" class="headerlink" title="桶排序（了解）"></a>桶排序（了解）</h2><blockquote>
 <p>一个坑一个萝卜，也可以一个坑多个萝卜，对每个坑排序，再拿出来，整体就有序。</p>
 </blockquote>
-<h3 id="Java-代码：-4"><a href="#Java-代码：-4" class="headerlink" title="Java 代码："></a>Java 代码：</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Arrays</span></span><span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<h3 id="Java-代码-3"><a href="#Java-代码-3" class="headerlink" title="Java 代码"></a>Java 代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">bucketSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>nums <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> nums<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span><span class="token punctuation">;</span>
@@ -1570,7 +1568,7 @@
             nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>跟希尔排序一样，桶排序的时间复杂度与桶的个数以及分布情况有关，这里不给出。</strong></p>
 
