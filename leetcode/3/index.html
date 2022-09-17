@@ -737,14 +737,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-09
+                    2022-09-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    613
+                    652
                 </div>
                 
 
@@ -802,7 +802,7 @@
 </ul>
 <p><strong><font color="blue">滑动窗口类题目的一些优化技巧：</font></strong></p>
 <ul>
-<li>在滑动窗口一类题中往往会开辟一个窗口数组。对于本题是可以用哈希表来代替窗口数组的，但哈希表的效率是会低于数组检索效率的，故并没有使用哈希表的方式。</li>
+<li>在滑动窗口一类题中往往会开辟一个窗口数组。为什么是数组呢？其实哈希表同样可以完成，但哈希表的检索效率是会低于数组直接通过索引进行检索的。当然，如果字符范围并没有给出，这时候我们只能使用哈希表（或者字符范围过大，需要开辟一个很大的数组）。</li>
 <li>对于字符串中字符的遍历，由于 <code>Java</code> 中字符串的 <code>charAt()</code> 方法每次都会检查下标是否越界，对于长字符串这会降低其性能，故一般会先将字符串转成字符数组，通过数组的检索来提高运行效率。</li>
 </ul>
 <blockquote>
