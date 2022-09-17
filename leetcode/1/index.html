@@ -1120,14 +1120,14 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">TreeNode</span> <span class="token function">precursor</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">,</span> <span class="token class-name">TreeNode</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token class-name">TreeNode</span> precursor <span class="token operator">=</span> node<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
-        <span class="token comment">// 该结点有左树，则后继节点就是左树的最右结点</span>
+        <span class="token comment">// 该结点有左树，则前驱节点就是左树的最右结点</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>precursor <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">while</span> <span class="token punctuation">(</span>precursor<span class="token punctuation">.</span>right <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 precursor <span class="token operator">=</span> precursor<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
             <span class="token comment">// 否则，向上找。直到某个孩子是父节点的右孩子时停止，</span>
-            <span class="token comment">// 父节点就是要找的后继节点</span>
+            <span class="token comment">// 父节点就是要找的前驱节点</span>
             <span class="token keyword">while</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>root<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> node<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     precursor <span class="token operator">=</span> root<span class="token punctuation">;</span>
@@ -1141,7 +1141,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="方法三：迭代-中序遍历-双指针"><a href="#方法三：迭代-中序遍历-双指针" class="headerlink" title="方法三：迭代+中序遍历+双指针"></a>方法三：迭代+中序遍历+双指针</h3><blockquote>
+<h3 id="方法三：栈寻找二叉搜索树结点的前驱者与后继者"><a href="#方法三：栈寻找二叉搜索树结点的前驱者与后继者" class="headerlink" title="方法三：栈寻找二叉搜索树结点的前驱者与后继者"></a>方法三：栈寻找二叉搜索树结点的前驱者与后继者</h3><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
@@ -1674,7 +1674,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">258.3k</span>
+                        class="white-color">258.4k</span>
             
             
             
