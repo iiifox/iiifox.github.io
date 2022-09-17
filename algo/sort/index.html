@@ -1449,7 +1449,7 @@
 <li>空间复杂度：$O(n+k)$</li>
 <li>稳定性：可以保证稳定性</li>
 </ul>
-<h3 id="低配版计数排序"><a href="#低配版计数排序" class="headerlink" title="低配版计数排序"></a>低配版计数排序</h3><p>上面给出的是一个全能（能统计负数，并且能保证稳定性）的计数排序。事实上，我们在使用计数排序时，更多的是不需要这两个功能，因此下面给出了简单版的计数排序（无稳定性、值不能为负数）。</p>
+<h3 id="低配版计数排序"><a href="#低配版计数排序" class="headerlink" title="低配版计数排序"></a>低配版计数排序</h3><p>上面给出的是一个全能（能统计负数，并且能保证稳定性）的计数排序。事实上，我们在使用计数排序时，很多时候是不需要这两个功能，因此下面给出了简单版的计数排序（无稳定性、值不能为负数）。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">countingSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>nums <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> nums<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
