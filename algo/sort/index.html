@@ -740,7 +740,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.4k
+                    7.5k
                 </div>
                 
 
@@ -780,7 +780,7 @@
 </blockquote>
 <p><strong><font color="red">下表中的时间复杂度仅代表本文给出代码的时间复杂度，具体跟网上可能会有不一样。</font></strong></p>
 <p>希尔排序的时间复杂度跟选取的 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Shellsort">增量序列</a> 有关，本文给出的是较容易实现的 <code>Knuth</code> 增量序列，其最坏时间复杂度是 $O(n^{\frac{3}{2}})$；目前已被证实的最佳增量序列是 <strong>Pratt</strong> 序列，其最坏时间复杂度是 $O(n\log^2n)$</p>
-<p>虽然快速排序的最坏时间复杂度是 $O(n^2)$ ，但是这种最坏情况几乎是不可能发生的，我们可以随机化选择切分元素（<code>pivot</code>）来降低最坏情况发生的概率，此时最坏时间复杂度发生的概率为 $(\frac {2} {n})^n$ 。此外，在三类 $O(n\log n)$ 的比较排序算法中，快排时间复杂度的常数项是最低的，所以 <strong>在能够使用快排的情况下，我们应该优先考虑使用快排。</strong></p>
+<p>虽然快速排序的最坏时间复杂度是 $O(n^2)$ ，但是这种最坏情况几乎是不可能发生的，我们可以随机化选择切分元素（<code>pivot</code>）来降低最坏情况发生的概率，此时最坏时间复杂度发生的概率为 $\frac {2^n} {n!}$ 。此外，在三类 $O(n\log n)$ 的比较排序算法中，快排时间复杂度的常数项是最低的，所以 <strong>在能够使用快排的情况下，我们应该优先考虑使用快排。</strong></p>
 <p>计数数组中复杂度的表达式中 n 表示数组长度，k 表示计数数组的长度 <code>max - min + 1</code>，为了维持其稳定性，除了计数数组外，还需要额外开辟一个与原数组等长的数组。</p>
 <table>
 <thead>
@@ -993,7 +993,7 @@
 <li>nums[2], nums[5], nums[8], …</li>
 </ul>
 <p>分组的好处是在当数组长度较大时，能够有效的减少插入排序过程中的移动次数。</p>
-<p>事实上，一般在不需要实现稳定性的情况下，我们采用 <strong>快排+插入</strong>，在快排拆分小数组时，当其数组长度低于某一个阈值，就由快排转而调用插入排序，充分利用两类排序算法的优点；而在需要实现稳定性的排序中（比如对引用类型中的字段进行排序），我们一般需要保证其稳定性，从而采用 <strong>归并+插入</strong>；在需要实现稳定性且对空间复杂度要求较高的时候，我们采用 <strong>堆排序+插入排序</strong>。因此，希尔排序实际上用途并不大。</p>
+<p>事实上，一般在不需要实现稳定性的情况下，我们采用 <strong>快排+插入</strong>，在快排拆分小数组时，当其数组长度低于某一个阈值，就由快排转而调用插入排序，充分利用两类排序算法的优点；而在需要实现稳定性的排序中（比如对引用类型中的字段进行排序），我们一般需要保证其稳定性，从而采用 <strong>归并+插入</strong>；在对空间复杂度要求较高的时候，我们采用 <strong>堆排序+插入排序</strong>。因此，希尔排序实际上用途并不大。</p>
 <h3 id="Java-代码"><a href="#Java-代码" class="headerlink" title="Java 代码"></a>Java 代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">shellSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>nums <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> nums<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1267,11 +1267,15 @@
 <p>堆排序是选择排序的优化，选择排序需要在未排定的部分里通过「打擂台」的方式选出最大的元素（复杂度 $O(N)$），而「堆排序」就把未排定的部分构建成一个「大顶堆」，这样就能以 $O(log⁡N)$ 的方式选出最大元素；</p>
 <p>堆是一种相当有意思的数据结构，它在很多语言里也被命名为「优先队列」<del><font color="red">Java 中的&nbsp;PriorityQueue 就是堆排序</font></del>。它是建立在数组上的「树」结构，类似的数据结构还有「并查集」「线段树」等。</p>
 </blockquote>
-<h3 id="堆化的时间复杂度分析"><a href="#堆化的时间复杂度分析" class="headerlink" title="堆化的时间复杂度分析"></a>堆化的时间复杂度分析</h3><p>堆中元素个数 <code>2<sup>k-1</sup> - 1 &lt; n &lt;= 2<sup>k</sup> - 1</code> ，即二叉树的高度为 k ，注意到第 <code>i</code> 层结点数为 <code>2<sup>i</sup></code> ，这在计算时间复杂度时要用上。</p>
+<h3 id="堆化的时间复杂度分析"><a href="#堆化的时间复杂度分析" class="headerlink" title="堆化的时间复杂度分析"></a>堆化的时间复杂度分析</h3><p>堆中元素个数 <code>2<sup>k-1</sup> - 1 &lt; n &lt;= 2<sup>k</sup> - 1</code> ，即二叉树的高度为 k ，注意到第 <code>i</code> 层结点数为 <code>2<sup>i-1</sup></code> ，这在计算时间复杂度时要用上。</p>
 <h4 id="向上堆化"><a href="#向上堆化" class="headerlink" title="向上堆化"></a>向上堆化</h4><blockquote>
-<p>深度为 i （第 i 层）的结点堆化的时间复杂度为 $O(i)$</p>
+<p>一个深度为 i （第 i 层）的结点堆化需要 <code>i</code> 次判断</p>
 </blockquote>
-<p>$T(n) = T(2^k) = 1 \times 1 + 2 \times 2 + 2^2 \times 3 + \cdots + 2^{k-1} \times k = (k-1)2^k + 1 =  (\log n - 1) \times n + 1 = O(n\log n)$</p>
+<p>$T(2^k-1) = \sum\limits_{i=1}^{k} i\times 2^{i-1} = 1 \times 2^0 + 2 \times 2^1 + 3 \times 2^2 + \cdots + k \times 2^{k-1} = (k-1)2^k + 1$</p>
+<p><strong>于是：</strong></p>
+<p>$T(n) \le T(2^k-1) = (k-1)2^k+1 &lt; \log(n+1) \times 2(n+1)+1 = O(n\log n)$</p>
+<p>$T(n) &gt; T(2^{k-1}-1) = (k-2)2^{k-1}+1 &gt; (\log(n+1)-2) \times 2^{\log (n+1)-1} + 1 = O(n\log n)$</p>
+<p><strong><font color="red">从而向上堆化的时间复杂度是 $O(n\log n)$</font></strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">siftUp</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -1279,15 +1283,19 @@
 <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">siftUp</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// parent 父节点的下标</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> parent <span class="token operator">=</span> <span class="token punctuation">(</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">&gt;</span> nums<span class="token punctuation">[</span>parent<span class="token punctuation">]</span><span class="token punctuation">;</span> parent <span class="token operator">=</span> <span class="token punctuation">(</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">swap</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> k<span class="token punctuation">,</span> <span class="token punctuation">(</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">swap</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> k<span class="token punctuation">,</span> parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
         k <span class="token operator">=</span> <span class="token punctuation">(</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="向下堆化"><a href="#向下堆化" class="headerlink" title="向下堆化"></a>向下堆化</h4><blockquote>
-<p>深度为 i （第 i 层）的结点堆化的时间复杂度为 $O(k+1-i)$</p>
+<p>一个深度为 i （第 i 层）的结点堆化需要 <code>k + 1 - i</code> 次判断 </p>
 </blockquote>
-<p>$T(n) = T(2^k) = 2^{k-1} \times 1 + 2^{k-2} \times 2 + 2^{k-3} \times 3 + \cdots + 1 \times k = 2^{k+1} - k - 2 = 2n - \log n - 2 = O(n)$</p>
+<p>$T(2^k-1) = \sum\limits_{i=1}^{k} (k+1-i)\times 2^{i-1} = k \times 2^0 + (k-1) \times 2^1 + \cdots + 1 \times 2^{k-1} = 2^{k+1} -2 -k$</p>
+<p><strong>于是：</strong></p>
+<p>$T(n) \le T(2^k-1) = 2^{k+1}-2-k &lt; 4(n+1)-2-\log(n+1) = O(n)$</p>
+<p>$T(n) &gt; T(2^{k-1}-1) = 2^{k}-2-(k-1) &gt; (n+1)-2-\log(n+1) = O(n)$</p>
+<p><strong><font color="red">从而向上堆化的时间复杂度是 $O(n)$</font></strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">heapify</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token function">siftDown</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> i<span class="token punctuation">,</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2028,7 +2036,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">257.9k</span>
+                        class="white-color">258k</span>
             
             
             
