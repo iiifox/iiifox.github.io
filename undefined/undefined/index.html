@@ -5,7 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="iiifox">
-    <meta name="description" content="">
+    <meta name="description" content="第 10 条：覆盖 equals 时请遵守通用约定不覆盖 equals 方法的情况
+类的每个实例本质上都是唯一的。
+类没有必要提供“逻辑相等”的测试功能。
+超类已经覆盖了 equals ，超类的行为对于这个类也是合适的。
+类是私有的，或者是">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -726,7 +730,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    105
                 </div>
                 
 
@@ -751,7 +755,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="第-10-条：覆盖-equals-时请遵守通用约定"><a href="#第-10-条：覆盖-equals-时请遵守通用约定" class="headerlink" title="第 10 条：覆盖 equals 时请遵守通用约定"></a>第 10 条：覆盖 equals 时请遵守通用约定</h1><h2 id="不覆盖-equals-方法的情况"><a href="#不覆盖-equals-方法的情况" class="headerlink" title="不覆盖 equals 方法的情况"></a>不覆盖 equals 方法的情况</h2><ul>
+<li>类的每个实例本质上都是唯一的。</li>
+<li>类没有必要提供“逻辑相等”的测试功能。</li>
+<li>超类已经覆盖了 equals ，超类的行为对于这个类也是合适的。</li>
+<li>类是私有的，或者是包级私有的，可以确定它的 equals 方法永远不会被调用。</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -1199,7 +1209,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">257.8k</span>
+                        class="white-color">257.9k</span>
             
             
             
