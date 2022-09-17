@@ -741,7 +741,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.1k
                 </div>
                 
 
@@ -1057,7 +1057,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
 
 <h3 id="方法二：找二叉搜索树的前驱者与后继者"><a href="#方法二：找二叉搜索树的前驱者与后继者" class="headerlink" title="方法二：找二叉搜索树的前驱者与后继者"></a>方法二：找二叉搜索树的前驱者与后继者</h3><p>其中 <code>successor</code> 方法在 LeetCode 有原题 <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/successor-lcci/">面试题 04.06. 后继者</a> 。</p>
 <blockquote>
-<p>时间复杂度：$O(n)$</p>
+<p>时间复杂度：$O(n^2)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
@@ -1140,6 +1140,61 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
         <span class="token keyword">return</span> precursor<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="方法三：迭代-中序遍历-双指针"><a href="#方法三：迭代-中序遍历-双指针" class="headerlink" title="方法三：迭代+中序遍历+双指针"></a>方法三：迭代+中序遍历+双指针</h3><blockquote>
+<p>时间复杂度：$O(n)$</p>
+<p>空间复杂度：$O(n)$</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">findTarget</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 中序遍历最左结点</span>
+        <span class="token class-name">TreeNode</span> left <span class="token operator">=</span> root<span class="token punctuation">;</span>
+        <span class="token comment">// 栈顶元素永远是 left 节点的后继结点</span>
+        <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">&gt;</span></span> leftStack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        leftStack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>left<span class="token punctuation">.</span>left <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            leftStack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>left<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            left <span class="token operator">=</span> left<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 中序遍历最右结点</span>
+        <span class="token class-name">TreeNode</span> right <span class="token operator">=</span> root<span class="token punctuation">;</span>
+        <span class="token comment">// 栈顶元素永远是 right 节点的前驱结点</span>
+        <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">&gt;</span></span> rightStack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        rightStack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>right<span class="token punctuation">.</span>right <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            rightStack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>right<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            right <span class="token operator">=</span> right<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">!=</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>left<span class="token punctuation">.</span>val <span class="token operator">+</span> right<span class="token punctuation">.</span>val <span class="token operator">==</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>left<span class="token punctuation">.</span>val <span class="token operator">+</span> right<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                left <span class="token operator">=</span> <span class="token function">getLeft</span><span class="token punctuation">(</span>leftStack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                right <span class="token operator">=</span> <span class="token function">getRight</span><span class="token punctuation">(</span>rightStack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">TreeNode</span> <span class="token function">getLeft</span><span class="token punctuation">(</span><span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">&gt;</span></span> stack<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">TreeNode</span> root <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">TreeNode</span> node <span class="token operator">=</span> root<span class="token punctuation">.</span>right<span class="token punctuation">;</span> node <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> node <span class="token operator">=</span> node<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">TreeNode</span> <span class="token function">getRight</span><span class="token punctuation">(</span><span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">&gt;</span></span> stack<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">TreeNode</span> root <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">TreeNode</span> node <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span> node <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> node <span class="token operator">=</span> node<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1619,7 +1674,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">258.1k</span>
+                        class="white-color">258.3k</span>
             
             
             
