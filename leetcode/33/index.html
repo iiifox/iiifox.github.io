@@ -5,12 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 33 题：搜索旋转排序数组（中等）, iiifox">
-    <meta name="description" content="「力扣」第 33 题：搜索旋转排序数组
-链接
+    <meta name="description" content="33. 搜索旋转排序数组题目描述整数数组 nums 按升序排列，数组中的值 互不相同 。
 
-题目描述整数数组 nums 按升序排列，数组中的值 互不相同 。
-
-在传递给函数之前，nums 在预先未知的某个下标 k（0 &amp;lt;= k &amp;lt; nums.length）上进行了 旋转，">
+在传递给函数之前，nums 在预先未知的某个下标 k（0 &amp;lt;= k &amp;lt; nums.length）上进行了 旋转，使数组变为 [nums[">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -737,14 +734,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-09-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    897
+                    888
                 </div>
                 
 
@@ -769,18 +766,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-33-题：搜索旋转排序数组"><a href="#「力扣」第-33-题：搜索旋转排序数组" class="headerlink" title="「力扣」第 33 题：搜索旋转排序数组"></a>「力扣」第 33 题：搜索旋转排序数组</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/search-in-rotated-sorted-array/">链接</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>整数数组 <code>nums</code> 按升序排列，数组中的值 <strong>互不相同</strong> 。</p>
+                <h1 id="33-搜索旋转排序数组"><a href="#33-搜索旋转排序数组" class="headerlink" title="33. 搜索旋转排序数组"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/search-in-rotated-sorted-array/">33. 搜索旋转排序数组</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>整数数组 <code>nums</code> 按升序排列，数组中的值 <strong>互不相同</strong> 。</p>
 
 <p>在传递给函数之前，<code>nums</code> 在预先未知的某个下标 <code>k</code>（<code>0 &lt;= k &lt; nums.length</code>）上进行了 <strong>旋转</strong>，使数组变为 <code>[nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]</code>（下标 <strong>从 0 开始</strong> 计数）。例如， <code>[0,1,2,4,5,6,7]</code> 在下标 <code>3</code> 处经旋转后可能变为&nbsp;<code>[4,5,6,7,0,1,2]</code> 。</p>
 
 <p>给你 <strong>旋转后</strong> 的数组 <code>nums</code> 和一个整数 <code>target</code> ，如果 <code>nums</code> 中存在这个目标值 <code>target</code> ，则返回它的下标，否则返回&nbsp;<code>-1</code>&nbsp;。</p>
 
 <p>你必须设计一个时间复杂度为 <code>O(log n)</code> 的算法解决此问题。</p>
-
-<p>&nbsp;</p>
 
 <pre><strong>示例 1：</strong>
 <strong>输入：</strong>nums = [4,5,6,7,0,1,2], target = 0
@@ -791,13 +783,10 @@
 <strong>输入：</strong>nums = [4,5,6,7,0,1,2], target = 3
 <strong>输出：</strong>-1</pre>
 
-
 <pre><strong>示例 3：</strong>
 <strong>输入：</strong>nums = [1], target = 0
 <strong>输出：</strong>-1
 </pre>
-
-<p>&nbsp;</p>
 
 <p><strong>提示：</strong>
 </p><ul>
@@ -808,11 +797,7 @@
     <li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
 </ul><p></p>
 
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：二分查找"><a href="#参考代码：二分查找" class="headerlink" title="参考代码：二分查找"></a>参考代码：二分查找</h3><p><strong><font color="blue">将升序数组 <code>nums</code> 从任意位置进行旋转，不妨设数组区间为 <code>[left, right]</code> ，旋转位置索引为 <code>k</code> ，记 <code>mid </code> 为数组的中间位置索引。</font></strong></p>
+<h2 id="参考代码：二分查找"><a href="#参考代码：二分查找" class="headerlink" title="参考代码：二分查找"></a>参考代码：二分查找</h2><p><strong><font color="blue">将升序数组 <code>nums</code> 从任意位置进行旋转，不妨设数组区间为 <code>[left, right]</code> ，旋转位置索引为 <code>k</code> ，记 <code>mid </code> 为数组的中间位置索引。</font></strong></p>
 <ul>
 <li><code>k &lt; mid</code> ：即将有序数组 <strong>左边少于一半的数放入右边</strong> ，从而旋转后 <code>nums</code> 左半部分 <code>[left, mid]</code> 有序；</li>
 <li><code>k &gt; mid</code> ：即将有序数组 <strong>左边多于一半的数放入右边</strong> ，从而旋转后 <code>nums</code> 右半部分 <code>[mid, rigth]</code> 有序；</li>
@@ -840,7 +825,7 @@
 <li>如果 <code>target</code> 的值位于无序的一半区间，我们注意到 <strong>此时这个无序的区间也可以看做到有序经过某个位置旋转得到</strong> ，故可继续二分。</li>
 </ul>
 <blockquote>
-<p>时间复杂度：$O(logn)$</p>
+<p>时间复杂度：$O(\log n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
