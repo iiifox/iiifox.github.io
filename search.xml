@@ -2616,9 +2616,9 @@
       
         <tags>
             
-            <tag> 卡塔兰数 </tag>
-            
             <tag> 二叉搜索树 </tag>
+            
+            <tag> 卡塔兰数 </tag>
             
         </tags>
       
@@ -3254,8 +3254,6 @@
         <tags>
             
             <tag> 回溯 </tag>
-            
-            <tag> 卡塔兰数 </tag>
             
         </tags>
       
