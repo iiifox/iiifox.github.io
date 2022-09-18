@@ -858,7 +858,6 @@
 [2,6]
 ]</pre>
 
-
 <pre><strong>示例&nbsp;2:</strong>
 <strong>输入:</strong> candidates =&nbsp;[2,5,2,1,2], target =&nbsp;5,
 <strong>输出:</strong>
@@ -904,7 +903,7 @@
             <span class="token keyword">if</span> <span class="token punctuation">(</span>target <span class="token operator">&lt;</span> candidates<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token keyword">break</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
-            <span class="token comment">// 剪枝。同一层中相同数值的结点进行去重。（上一个这样的值没有选，）</span>
+            <span class="token comment">// 剪枝。同一层中相同数值的结点进行去重。</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&gt;</span> begin <span class="token operator">&amp;&amp;</span> candidates<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> candidates<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token keyword">continue</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
