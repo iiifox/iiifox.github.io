@@ -742,7 +742,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    731
+                    730
                 </div>
                 
 
@@ -806,7 +806,7 @@
  <li><code>0 &lt;= nums[i] &lt;= 100</code></li> 
 </ul><p></p>
 
-<h2 id="参考代码：双指针"><a href="#参考代码：双指针" class="headerlink" title="参考代码：双指针"></a>参考代码：双指针</h2><p><strong><font color="blue">思路与步骤：</font></strong></p>
+<h2 id="参考代码：数学"><a href="#参考代码：数学" class="headerlink" title="参考代码：数学"></a>参考代码：数学</h2><p><strong><font color="blue">思路与步骤：</font></strong></p>
 <ul>
 <li>先找出满足 <code>nums[i] &lt; nums[i+1]</code> 的最大索引 <code>i</code> ；<del><font color="green">如果不存在，说明整个数组是递减序，翻转整个数组就是答案。</font></del></li>
 <li>再找出满足 <code>nums[j] &gt; nums[i]</code> 的最大索引 <code>j</code> ；<del><font color="green">这是一定能找到的，因为 <code>i+1</code> 位置的数满足 <code>nums[i+1] &gt; nums[i]</code> </font></del><br>此时 <code>nums[i+1: ]</code> 是数组 <code>nums</code> 右端的 <strong>最长降序子串</strong> 。从而下一个排列应该是：<code>i</code> 位置前面的数不变，将 <code>i</code> 位置的数稍微扩大一点点（在 <code>i</code> 位置右端找一个稍大于 <code>i</code> 位置的数，然后交换），此时 <code>i</code> 右端的数仍是递减序，只需翻转即可。</li>
@@ -1340,7 +1340,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">258.6k</span>
+                        class="white-color">259.8k</span>
             
             
             
