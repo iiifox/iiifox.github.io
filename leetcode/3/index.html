@@ -737,14 +737,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-18
+                    2022-09-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    652
+                    651
                 </div>
                 
 
@@ -809,7 +809,7 @@
 <p>时间复杂度：$O(n + 128)$&nbsp;&nbsp;&nbsp;&nbsp;<code>若使用哈希表而不采用窗口数组，则时间复杂度为 O(n)</code></p>
 <p>空间复杂度：$O(n + 128)$&nbsp;&nbsp;&nbsp;&nbsp;<code>若不使用字符串转字符数组，则空间复杂度为 O(128)</code></p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">// windows[i] 存储的是字符串 s 中字符值为 i 的最新索引</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> window <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
