@@ -735,14 +735,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-20
+                    2022-09-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    680
+                    688
                 </div>
                 
 
@@ -829,7 +829,7 @@
         <span class="token comment">// size(左)。可通过该数求得 j = totalLeft - i;</span>
         <span class="token keyword">int</span> totalLeft <span class="token operator">=</span> <span class="token punctuation">(</span>m <span class="token operator">+</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token comment">// 注意这里：left &lt; right，故均值向下取整后 &lt; right &lt;= m。即索引 i 不会越界</span>
-        <span class="token comment">// 为什么索引 j-1 不会越界？因为 m &lt;= n 。（非常巧妙）</span>
+        <span class="token comment">// 为什么索引 j-1 不会越界？因为 m &lt;= n 并且 i 是向下取整。（非常巧妙）</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
             <span class="token keyword">int</span> j <span class="token operator">=</span> totalLeft <span class="token operator">-</span> i<span class="token punctuation">;</span>
