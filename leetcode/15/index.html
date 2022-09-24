@@ -726,7 +726,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    594
+                    553
                 </div>
                 
 
@@ -772,8 +772,7 @@
 <li><code>0 &lt;= nums.length &lt;= 3000</code></li>
 <li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
-<h2 id="参考代码：排序-左右指针"><a href="#参考代码：排序-左右指针" class="headerlink" title="参考代码：排序 + 左右指针"></a>参考代码：排序 + 左右指针</h2><p>代码过长只是因为剪枝判断过多，对于本题的数据量，去掉一部分剪枝判断反倒运行的更快。</p>
-<blockquote>
+<h2 id="参考代码：排序-左右指针"><a href="#参考代码：排序-左右指针" class="headerlink" title="参考代码：排序 + 左右指针"></a>参考代码：排序 + 左右指针</h2><blockquote>
 <p>时间复杂度：$O(n^2)$</p>
 <p>空间复杂度：$O(\log n)$&nbsp;&nbsp;&nbsp;&nbsp;<code>空间复杂度主要是 sort 函数排序调用的栈空间，另外如果要求不改变 nums，则需要拷贝一份数组进行排序查找。其空间复杂度为 O(n)</code></p>
 </blockquote>
@@ -790,31 +789,29 @@
             <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token keyword">continue</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
-            <span class="token comment">// 最小的三个数都大于零，后面的不用看了</span>
+            <span class="token comment">// 剪枝。最小的三个数都大于零，后面的不用看了</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment">// 剪枝。以 i 开头的最大三个数都小于零，则不能以 i 开头</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
 
             <span class="token comment">// 在升序数组 nums 区间 [left, right] 中找不重复的两数和为 target</span>
             <span class="token keyword">int</span> target <span class="token operator">=</span> <span class="token operator">-</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
             <span class="token keyword">int</span> left <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
             <span class="token keyword">int</span> right <span class="token operator">=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
             <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token comment">// 最小两数之和大于目标值 或者 最大两数之和小于目标值（剪枝）</span>
-                <span class="token comment">// if (nums[left] + nums[left + 1] &gt; target </span>
-                <span class="token comment">//         || nums[right] + nums[right - 1] &lt; target) {</span>
-                <span class="token comment">//     break;</span>
-                <span class="token comment">// }</span>
                 <span class="token comment">// 符合要求，添加到 res 当中</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     res<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                         left<span class="token operator">++</span><span class="token punctuation">;</span>
                     <span class="token punctuation">}</span>
-                    <span class="token comment">// while (left &lt; right &amp;&amp; nums[right - 1] == nums[right]) {</span>
-                    <span class="token comment">//     right--;</span>
-                    <span class="token comment">// }</span>
+                    <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>right <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        right<span class="token operator">--</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
                     <span class="token comment">// 左右指针都要移动。查找下一对符合要求的索引</span>
                     left<span class="token operator">++</span><span class="token punctuation">;</span>
                     right<span class="token operator">--</span><span class="token punctuation">;</span>
@@ -829,7 +826,7 @@
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 

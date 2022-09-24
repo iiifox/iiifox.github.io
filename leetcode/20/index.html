@@ -5,13 +5,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 20 题：有效的括号（简单）, iiifox">
-    <meta name="description" content="20. 有效的括号题目描述给定一个只包括 &#39;(&#39;，&#39;)&#39;，&#39;{&#39;，&#39;}&#39;，&#39;[&#39;，&#39;]&#39;&amp;nbsp;的字符串 s ，判断字符串是否有效。
-
+    <meta name="description" content="20. 有效的括号题目描述给定一个只包括 &#39;(&#39;，&#39;)&#39;，&#39;{&#39;，&#39;}&#39;，&#39;[&#39;，&#39;]&#39; 的字符串 s ，判断字符串是否有效。
 有效字符串需满足：
 
+左括号必须用相同类型的右括号闭合。
+左括号必须以正确的顺序闭合。
 
-    左括号必须用相同类型的右括号闭合。
-    左括号必须以正确的顺序闭">
+示例 1：
+输入：s ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -719,14 +720,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-20
+                    2022-09-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    217
+                    216
                 </div>
                 
 
@@ -751,15 +752,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="20-有效的括号"><a href="#20-有效的括号" class="headerlink" title="20. 有效的括号"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/valid-parentheses/">20. 有效的括号</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个只包括 <code>'('</code>，<code>')'</code>，<code>'{'</code>，<code>'}'</code>，<code>'['</code>，<code>']'</code>&nbsp;的字符串 <code>s</code> ，判断字符串是否有效。</p>
-
+                <h1 id="20-有效的括号"><a href="#20-有效的括号" class="headerlink" title="20. 有效的括号"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/valid-parentheses/">20. 有效的括号</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个只包括 <code>'('</code>，<code>')'</code>，<code>'{'</code>，<code>'}'</code>，<code>'['</code>，<code>']'</code> 的字符串 <code>s</code> ，判断字符串是否有效。</p>
 <p>有效字符串需满足：</p>
-
 <ol>
-    <li>左括号必须用相同类型的右括号闭合。</li>
-    <li>左括号必须以正确的顺序闭合。</li>
+<li>左括号必须用相同类型的右括号闭合。</li>
+<li>左括号必须以正确的顺序闭合。</li>
 </ol>
-
 <pre><strong>示例 1：</strong>
 <strong>输入：</strong>s = "()"
 <strong>输出：</strong>true
@@ -783,13 +781,11 @@
 <pre><strong>示例&nbsp;5：</strong>
 <strong>输入：</strong>s = "{[]}"
 <strong>输出：</strong>true</pre>
-
-<p><strong>提示：</strong>
-</p><ul>
-    <li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
-    <li><code>s</code> 仅由括号 <code>'()[]{}'</code> 组成</li>
-</ul><p></p>
-
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
+<li><code>s</code> 仅由括号 <code>'()[]{}'</code> 组成</li>
+</ul>
 <h2 id="参考代码：栈"><a href="#参考代码：栈" class="headerlink" title="参考代码：栈"></a>参考代码：栈</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(n)$</p>
