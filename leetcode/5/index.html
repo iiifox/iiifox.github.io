@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 5 题：最长回文子串（中等）, iiifox">
     <meta name="description" content="5. 最长回文子串题目描述给你一个字符串 s，找到 s 中最长的回文子串。
-
 示例 1：
 输入：s = &#34;babad&#34;
 输出：&#34;bab&#34;
@@ -16,6 +15,7 @@
 示例 2：
 输入：s = &#34;cbbd&#34;
 输出：&#34;bb&#34;
+
 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -724,7 +724,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-23
+                    2022-09-24
                 </div>
                 
 
@@ -757,7 +757,6 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="5-最长回文子串"><a href="#5-最长回文子串" class="headerlink" title="5. 最长回文子串"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-palindromic-substring/">5. 最长回文子串</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
-
 <pre><strong>示例 1：</strong>
 <strong>输入：</strong>s = "babad"
 <strong>输出：</strong>"bab"
@@ -768,13 +767,11 @@
 <strong>输入：</strong>s = "cbbd"
 <strong>输出：</strong>"bb"
 </pre>
-
-<p><strong>提示：</strong>
-</p><ul>
-    <li><code>1 &lt;= s.length &lt;= 1000</code></li>
-    <li><code>s</code> 仅由数字和英文字母组成</li>
-</ul><p></p>
-
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+<li><code>s</code> 仅由数字和英文字母组成</li>
+</ul>
 <h2 id="参考代码：Manacher-算法"><a href="#参考代码：Manacher-算法" class="headerlink" title="参考代码：Manacher 算法"></a>参考代码：Manacher 算法</h2><p>求最长回文字符串可以采用中心扩散的思想，即求位置 i 为中心的最长回文字符串（由位置 i 处向两端不断扩散，直至不满足回文字符串要求为止）。这里有一个问题，其回文字符串的长度可能是奇数也可能是偶数，偶数回文字符串的中心位置索引不存在。</p>
 <p>为此我们可以通过一个特别地操作将最大回文字符串长度为奇偶数的情况统一起来：我们向字符串的头尾以及每两个字符中间添加一个特殊字符 <code>#</code> ，比如字符串 <code>aaba</code> 处理后会变成 <code>#a#a#b#a#</code> 。这样，其回文字符串的长度都将是奇数。</p>
 <ul>

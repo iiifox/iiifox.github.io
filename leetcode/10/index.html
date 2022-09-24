@@ -7,9 +7,8 @@
     <meta name="keywords" content="「力扣」第 10 题：正则表达式匹配（困难）, iiifox">
     <meta name="description" content="10. 正则表达式匹配题目描述给你一个字符串&amp;nbsp;s&amp;nbsp;和一个字符规律&amp;nbsp;p，请你来实现一个支持 &#39;.&#39;&amp;nbsp;和&amp;nbsp;&#39;*&#39;&amp;nbsp;的正则表达式匹配。
 
-
-    &#39;.&#39; 匹配任意单个字符
-    &#39;*">
+&#39;.&#39; 匹配任意单个字符
+&#39;*&#39; 匹配零个或多个">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -717,7 +716,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-20
+                    2022-09-24
                 </div>
                 
 
@@ -750,14 +749,11 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="10-正则表达式匹配"><a href="#10-正则表达式匹配" class="headerlink" title="10. 正则表达式匹配"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/regular-expression-matching/">10. 正则表达式匹配</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个字符串&nbsp;<code>s</code>&nbsp;和一个字符规律&nbsp;<code>p</code>，请你来实现一个支持 <code>'.'</code>&nbsp;和&nbsp;<code>'*'</code>&nbsp;的正则表达式匹配。</p>
-
 <ul>
-    <li><code>'.'</code> 匹配任意单个字符</li>
-    <li><code>'*'</code> 匹配零个或多个前面的那一个元素</li>
+<li><code>'.'</code> 匹配任意单个字符</li>
+<li><code>'*'</code> 匹配零个或多个前面的那一个元素</li>
 </ul>
-
 <p>所谓匹配，是要涵盖&nbsp;<strong>整个&nbsp;</strong>字符串&nbsp;<code>s</code>的，而不是部分字符串。</p>
-
 <pre><strong>示例 1：</strong>
 <strong>输入：</strong>s = "aa", p = "a"
 <strong>输出：</strong>false
@@ -776,18 +772,15 @@
 <strong>输出：</strong>true
 <strong>解释：</strong>".*" 表示可匹配零个或多个（'*'）任意字符（'.'）。
 </pre>
-
-<p><strong>提示：</strong>
-</p><ul>
-    <li><code>1 &lt;= s.length&nbsp;&lt;= 20</code></li>
-    <li><code>1 &lt;= p.length&nbsp;&lt;= 30</code></li>
-    <li><code>s</code>&nbsp;只包含从&nbsp;<code>a-z</code>&nbsp;的小写字母。</li>
-    <li><code>p</code>&nbsp;只包含从&nbsp;<code>a-z</code>&nbsp;的小写字母，以及字符&nbsp;<code>.</code>&nbsp;和&nbsp;<code>*</code>。</li>
-    <li>保证每次出现字符&nbsp;<code>*</code> 时，前面都匹配到有效的字符</li>
-</ul><p></p>
-## 参考代码：动态规划
-
-<p>字符串的动态规划问题中，经常会将二维数组多开一行一列，这是为了保存边界条件，即字符长度为 0 的情况，当然这不是必须的，只是为了避免每次对长度为 0 的情况进行特殊判断。</p>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length&nbsp;&lt;= 20</code></li>
+<li><code>1 &lt;= p.length&nbsp;&lt;= 30</code></li>
+<li><code>s</code>&nbsp;只包含从&nbsp;<code>a-z</code>&nbsp;的小写字母。</li>
+<li><code>p</code>&nbsp;只包含从&nbsp;<code>a-z</code>&nbsp;的小写字母，以及字符&nbsp;<code>.</code>&nbsp;和&nbsp;<code>*</code>。</li>
+<li>保证每次出现字符&nbsp;<code>*</code> 时，前面都匹配到有效的字符</li>
+</ul>
+<h2 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h2><p>字符串的动态规划问题中，经常会将二维数组多开一行一列，这是为了保存边界条件，即字符长度为 0 的情况，当然这不是必须的，只是为了避免每次对长度为 0 的情况进行特殊判断。</p>
 <blockquote>
 <p>时间复杂度：$O(mn)$</p>
 <p>空间复杂度：$O(mn)$</p>

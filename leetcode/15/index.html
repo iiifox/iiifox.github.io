@@ -5,9 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 15 题：三数之和（中等）, iiifox">
-    <meta name="description" content="15. 三数之和题目描述给你一个包含 n 个整数的数组&amp;nbsp;nums，判断&amp;nbsp;nums&amp;nbsp;中是否存在三个元素 a，b，c ，使得&amp;nbsp;a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
-
-注意">
+    <meta name="description" content="15. 三数之和题目描述给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
+注意：答案中不可以包含重复的三元组。
+示例 1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -719,14 +719,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-20
+                    2022-09-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    598
+                    594
                 </div>
                 
 
@@ -751,10 +751,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="15-三数之和"><a href="#15-三数之和" class="headerlink" title="15. 三数之和"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/3sum/">15. 三数之和</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个包含 <code>n</code> 个整数的数组&nbsp;<code>nums</code>，判断&nbsp;<code>nums</code>&nbsp;中是否存在三个元素 a，b，c ，使得&nbsp;a + b + c = 0 ？请你找出所有和为 <code>0</code> 且不重复的三元组。</p>
-
+                <h1 id="15-三数之和"><a href="#15-三数之和" class="headerlink" title="15. 三数之和"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/3sum/">15. 三数之和</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个包含 <code>n</code> 个整数的数组 <code>nums</code>，判断 <code>nums</code> 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 <code>0</code> 且不重复的三元组。</p>
 <p><strong>注意：</strong>答案中不可以包含重复的三元组。</p>
-
 <pre><strong>示例 1：</strong>
 <strong>输入：</strong>nums = [-1,0,1,2,-1,-4]
 <strong>输出：</strong>[[-1,-1,2],[-1,0,1]]
@@ -769,13 +767,11 @@
 <strong>输入：</strong>nums = [0]
 <strong>输出：</strong>[]
 </pre>
-
-<p><strong>提示：</strong>
-</p><ul>
-    <li><code>0 &lt;= nums.length &lt;= 3000</code></li>
-    <li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
-</ul><p></p>
-
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= nums.length &lt;= 3000</code></li>
+<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
+</ul>
 <h2 id="参考代码：排序-左右指针"><a href="#参考代码：排序-左右指针" class="headerlink" title="参考代码：排序 + 左右指针"></a>参考代码：排序 + 左右指针</h2><p>代码过长只是因为剪枝判断过多，对于本题的数据量，去掉一部分剪枝判断反倒运行的更快。</p>
 <blockquote>
 <p>时间复杂度：$O(n^2)$</p>
