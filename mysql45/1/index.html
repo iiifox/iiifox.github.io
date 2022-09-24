@@ -5,10 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="01 | 基础架构：一条SQL查询语句是如何执行的？, iiifox">
-    <meta name="description" content="01 | 基础架构：一条SQL查询语句是如何执行的？2018-11-14 林晓斌
-
-你好，我是林晓斌。
-这是专栏的第一篇文章，我想来跟你聊聊 MySQL 的基础架构。我们经常说，看一个事儿千万不要直接陷入细节里，你应该先鸟瞰其全貌，这样能够">
+    <meta name="description" content="01 | 基础架构：一条SQL查询语句是如何执行的？你好，我是林晓斌。
+这是专栏的第一篇文章，我想来跟你聊聊 MySQL 的基础架构。我们经常说，看一个事儿千万不要直接陷入细节里，你应该先鸟瞰其全貌，这样能够帮助你从高维度理解问题。同样，对">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -506,7 +504,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/../../images/mysql45/1/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -655,7 +653,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-08
+                    2022-09-24
                 </div>
                 
 
@@ -687,9 +685,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="01-基础架构：一条SQL查询语句是如何执行的？"><a href="#01-基础架构：一条SQL查询语句是如何执行的？" class="headerlink" title="01 | 基础架构：一条SQL查询语句是如何执行的？"></a>01 | 基础架构：一条SQL查询语句是如何执行的？</h1><p><font color="gray">2018-11-14 林晓斌</font></p>
-<p><img src="../../images/mysql45/1/1.jpg"></p>
-<p>你好，我是林晓斌。</p>
+                <h1 id="01-基础架构：一条SQL查询语句是如何执行的？"><a href="#01-基础架构：一条SQL查询语句是如何执行的？" class="headerlink" title="01 | 基础架构：一条SQL查询语句是如何执行的？"></a>01 | 基础架构：一条SQL查询语句是如何执行的？</h1><p>你好，我是林晓斌。</p>
 <p>这是专栏的第一篇文章，我想来跟你聊聊 MySQL 的基础架构。我们经常说，看一个事儿千万不要直接陷入细节里，你应该先鸟瞰其全貌，这样能够帮助你从高维度理解问题。同样，对于 MySQL 的学习也是这样。平时我们使用数据库，看到的通常都是一个整体。比如，你有个最简单的表，表里只有一个 ID 字段，在执行下面这个查询语句时：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> T <span class="token keyword">where</span> ID<span class="token operator">=</span><span class="token number">10</span>；<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -701,7 +697,7 @@
 <p>大体来说，MySQL 可以分为 Server 层和存储引擎层两部分。</p>
 <p>Server 层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函数（如日期、时间、数学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。</p>
 <p>而存储引擎层负责数据的存储和提取。其架构模式是插件式的，支持 InnoDB、MyISAM、Memory 等多个存储引擎。现在最常用的存储引擎是 InnoDB，它从 MySQL 5.5.5 版本开始成为了默认存储引擎。</p>
-<p>也就是说，你执行 create table 建表的时候，如果不指定引擎类型，默认使用的就是 InnoDB。不过，你也可以通过指定存储引擎的类型来选择别的引擎，比如在 <code>create table</code> 语句中使用 <code>engine=memory</code>, 来指定使用内存引擎创建表。不同存储引擎的表数据存取方式不同，支持的功能也不同，在后面的文章中，我们会讨论到引擎的选择。</p>
+<p>也就是说，你执行 create table 建表的时候，如果不指定引擎类型，默认使用的就是 InnoDB。不过，你也可以通过指定存储引擎的类型来选择别的引擎，比如在 create table 语句中使用 engine=memory, 来指定使用内存引擎创建表。不同存储引擎的表数据存取方式不同，支持的功能也不同，在后面的文章中，我们会讨论到引擎的选择。</p>
 <p>从图中不难看出，不同的存储引擎共用一个<strong>Server 层</strong>，也就是从连接器到执行器的部分。你可以先对每个组件的名字有个印象，接下来我会结合开头提到的那条 SQL 语句，带你走一遍整个执行流程，依次看下每个组件的作用。</p>
 <h1 id="连接器"><a href="#连接器" class="headerlink" title="连接器"></a>连接器</h1><p>第一步，你会先连接到这个数据库上，这时候接待你的就是连接器。连接器负责跟客户端建立连接、获取权限、维持和管理连接。连接命令一般是这么写的：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysql -h<span class="token variable">$ip</span> -P<span class="token variable">$port</span> -u<span class="token variable">$user</span> <span class="token parameter variable">-p</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -709,14 +705,14 @@
 <p>输完命令之后，你就需要在交互对话里面输入密码。虽然密码也可以直接跟在 <code>-p</code> 后面写在命令行中，但这样可能会导致你的密码泄露。如果你连的是生产服务器，强烈建议你不要这么做。</p>
 <p>连接命令中的 mysql 是客户端工具，用来跟服务端建立连接。在完成经典的 TCP 握手后，连接器就要开始认证你的身份，这个时候用的就是你输入的用户名和密码。</p>
 <ul>
-<li>如果用户名或密码不对，你就会收到一个”Access denied for user”的错误，然后客户端程序结束执行。</li>
+<li>如果用户名或密码不对，你就会收到一个<font color="red">“Access denied for user”</font>的错误，然后客户端程序结束执行。</li>
 <li>如果用户名密码认证通过，连接器会到权限表里面查出你拥有的权限。之后，这个连接里面的权限判断逻辑，都将依赖于此时读到的权限。</li>
 </ul>
 <p>这就意味着，一个用户成功建立连接后，即使你用管理员账号对这个用户的权限做了修改，也不会影响已经存在连接的权限。修改完成后，只有再新建的连接才会使用新的权限设置。</p>
 <p>连接完成后，如果你没有后续的动作，这个连接就处于空闲状态，你可以在 <code>show processlist</code> 命令中看到它。文本中这个图是 show processlist 的结果，其中的 Command 列显示为“Sleep”的这一行，就表示现在系统里面有一个空闲连接。</p>
 <p><img src="../../images/mysql45/1/processlist.png"></p>
 <p>客户端如果太长时间没动静，连接器就会自动将它断开。这个时间是由参数 <code>wait_timeout</code> 控制的，默认值是 <code>8</code> 小时。</p>
-<p>如果在连接被断开之后，客户端再次发送请求的话，就会收到一个错误提醒： Lost connection to MySQL server during query。这时候如果你要继续，就需要重连，然后再执行请求了。</p>
+<p>如果在连接被断开之后，客户端再次发送请求的话，就会收到一个错误提醒： <font color="red">Lost connection to MySQL server during query</font>。这时候如果你要继续，就需要重连，然后再执行请求了。</p>
 <p>数据库里面，长连接是指连接成功后，如果客户端持续有请求，则一直使用同一个连接。短连接则是指每次执行完很少的几次查询就断开连接，下次查询再重新建立一个。</p>
 <p>建立连接的过程通常是比较复杂的，所以我建议你在使用中要尽量减少建立连接的动作，也就是尽量使用长连接。</p>
 <p>但是全部使用长连接后，你可能会发现，有些时候 MySQL 占用内存涨得特别快，这是因为 MySQL 在执行过程中临时使用的内存是管理在连接对象里面的。这些资源会在连接断开的时候才释放。所以如果长连接累积下来，可能导致内存占用太大，被系统强行杀掉（OOM），从现象看就是 MySQL 异常重启了。</p>
@@ -726,7 +722,7 @@
 <li>如果你用的是 MySQL 5.7 或更新版本，可以在每次执行一个比较大的操作后，通过执行 <code>mysql_reset_connection</code> 来重新初始化连接资源。这个过程不需要重连和重新做权限验证，但是会将连接恢复到刚刚创建完时的状态。</li>
 </ol>
 <h1 id="查询缓存"><a href="#查询缓存" class="headerlink" title="查询缓存"></a>查询缓存</h1><p>连接建立完成后，你就可以执行 select 语句了。执行逻辑就会来到第二步：查询缓存。</p>
-<p>MySQL 拿到一个查询请求后，会先到查询缓存看看，之前是不是执行过这条语句。之前执行过的语句及其结果可能会以 key-value 对的形式，被直接缓存在内存中。key 是查询的语句<del><font color="red">关键字大小写以及空格数不一样，键都不一致</font></del>，value 是查询的结果。如果你的查询能够直接在这个缓存中找到 key，那么这个 value 就会被直接返回给客户端。</p>
+<p>MySQL 拿到一个查询请求后，会先到查询缓存看看，之前是不是执行过这条语句。之前执行过的语句及其结果可能会以 key-value 对的形式，被直接缓存在内存中。key 是查询的语句，value 是查询的结果。如果你的查询能够直接在这个缓存中找到 key，那么这个 value 就会被直接返回给客户端。</p>
 <p>如果语句不在查询缓存中，就会继续后面的执行阶段。执行完成后，执行结果会被存入查询缓存中。你可以看到，如果查询命中缓存，MySQL 不需要执行后面的复杂操作，就可以直接返回结果，这个效率会很高。</p>
 <p><strong>但是大多数情况下我会建议你不要使用查询缓存，为什么呢？因为查询缓存往往弊大于利。</strong></p>
 <p>查询缓存的失效非常频繁，只要有对一个表的更新，这个表上所有的查询缓存都会被清空。因此很可能你费劲地把结果存起来，还没使用呢，就被一个更新全清空了。对于更新压力大的数据库来说，查询缓存的命中率会非常低。除非你的业务就是有一张静态表，很长时间才会更新一次。比如，一个系统配置表，那这张表上的查询才适合使用查询缓存。</p>
@@ -738,15 +734,15 @@
 <p>分析器先会做“词法分析”。你输入的是由多个字符串和空格组成的一条 SQL 语句，MySQL 需要识别出里面的字符串分别是什么，代表什么。</p>
 <p>MySQL 从你输入的”select”这个关键字识别出来，这是一个查询语句。它也要把字符串“T”识别成“表名 T”，把字符串“ID”识别成“列 ID”。</p>
 <p>做完了这些识别以后，就要做“语法分析”。根据词法分析的结果，语法分析器会根据语法规则，判断你输入的这个 SQL 语句是否满足 MySQL 语法。</p>
-<p>如果你的语句不对，就会收到“You have an error in your SQL syntax”的错误提醒，比如下面这个语句 select 少打了开头的字母“s”。</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">elect <span class="token operator">*</span> <span class="token keyword">from</span> t <span class="token keyword">where</span> ID<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<p>如果你的语句不对，就会收到<font color="red">“You have an error in your SQL syntax”</font>的错误提醒，比如下面这个语句 select 少打了开头的字母“s”。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> elece <span class="token operator">*</span> <span class="token keyword">from</span> t <span class="token keyword">where</span> ID<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
  
 ERROR <span class="token number">1064</span> <span class="token punctuation">(</span><span class="token number">42000</span><span class="token punctuation">)</span>: You have an error <span class="token operator">in</span> your <span class="token keyword">SQL</span> syntax<span class="token punctuation">;</span> <span class="token keyword">check</span> the manual that corresponds <span class="token keyword">to</span> your MySQL server version <span class="token keyword">for</span> the <span class="token keyword">right</span> syntax <span class="token keyword">to</span> <span class="token keyword">use</span> near <span class="token string">'elect * from t where ID=1'</span> at line <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>一般语法错误会提示第一个出现错误的位置，所以你要关注的是紧接“use near”的内容。</p>
 <h1 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h1><p>经过了分析器，MySQL 就知道你要做什么了。在开始执行之前，还要先经过优化器的处理。</p>
 <p>优化器是在表里面有多个索引的时候，决定使用哪个索引；或者在一个语句有多表关联（join）的时候，决定各个表的连接顺序。比如你执行下面这样的语句，这个语句是执行两个表的 join：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t1 <span class="token keyword">join</span> t2 <span class="token keyword">using</span><span class="token punctuation">(</span>ID<span class="token punctuation">)</span>  <span class="token keyword">where</span> t1<span class="token punctuation">.</span>c<span class="token operator">=</span><span class="token number">10</span> <span class="token operator">and</span> t2<span class="token punctuation">.</span>d<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t1 <span class="token keyword">join</span> t2 <span class="token keyword">using</span><span class="token punctuation">(</span>ID<span class="token punctuation">)</span> <span class="token keyword">where</span> t1<span class="token punctuation">.</span>c<span class="token operator">=</span><span class="token number">10</span> <span class="token operator">and</span> t2<span class="token punctuation">.</span>d<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>既可以先从表 t1 里面取出 c=10 的记录的 ID 值，再根据 ID 值关联到表 t2，再判断 t2 里面 d 的值是否等于 20。</li>
@@ -756,7 +752,7 @@ ERROR <span class="token number">1064</span> <span class="token punctuation">(</
 <p>优化器阶段完成后，这个语句的执行方案就确定下来了，然后进入执行器阶段。如果你还有一些疑问，比如优化器是怎么选择索引的，有没有可能选择错等等，没关系，我会在后面的文章中单独展开说明优化器的内容。</p>
 <h1 id="执行器"><a href="#执行器" class="headerlink" title="执行器"></a>执行器</h1><p>MySQL 通过分析器知道了你要做什么，通过优化器知道了该怎么做，于是就进入了执行器阶段，开始执行语句。</p>
 <p>开始执行的时候，要先判断一下你对这个表 T 有没有执行查询的权限，如果没有，就会返回没有权限的错误，如下所示 (在工程实现上，如果命中查询缓存，会在查询缓存返回结果的时候，做权限验证。查询也会在优化器之前调用 precheck 验证权限)。</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> T <span class="token keyword">where</span> ID<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> T <span class="token keyword">where</span> ID<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
  
 ERROR <span class="token number">1142</span> <span class="token punctuation">(</span><span class="token number">42000</span><span class="token punctuation">)</span>: <span class="token keyword">SELECT</span> command denied <span class="token keyword">to</span> <span class="token keyword">user</span> <span class="token string">'b'</span><span class="token variable">@'localhost'</span> <span class="token keyword">for</span> <span class="token keyword">table</span> <span class="token string">'T'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
@@ -772,9 +768,8 @@ ERROR <span class="token number">1142</span> <span class="token punctuation">(</
 <p>你会在数据库的慢查询日志中看到一个 <code>rows_examined</code> 的字段，表示这个语句执行过程中扫描了多少行。这个值就是在执行器每次调用引擎获取数据行的时候累加的。</p>
 <p>在有些场景下，执行器调用一次，在引擎内部则扫描了多行，因此<strong>引擎扫描行数跟 rows_examined 并不是完全相同的。</strong>我们后面会专门有一篇文章来讲存储引擎的内部机制，里面会有详细的说明。</p>
 <h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>今天我给你介绍了 MySQL 的逻辑架构，希望你对一个 SQL 语句完整执行流程的各个阶段有了一个初步的印象。由于篇幅的限制，我只是用一个查询的例子将各个环节过了一遍。如果你还对每个环节的展开细节存有疑问，也不用担心，后续在实战章节中我还会再提到它们。</p>
-<p>我给你留一个问题吧，如果表 T 中没有字段 k，而你执行了这个语句 <code>select * from T where k=1</code>, 那肯定是会报“不存在这个列”的错误： “Unknown column ‘k’ in ‘where clause’”。你觉得这个错误是在我们上面提到的哪个阶段报出来的呢？<del><font color="red">分析器</font></del></p>
+<p>我给你留一个问题吧，如果表 T 中没有字段 k，而你执行了这个语句 <code>select * from T where k=1</code>, 那肯定是会报“不存在这个列”的错误：<font color="red"> “Unknown column ‘k’ in ‘where clause’”</font>。你觉得这个错误是在我们上面提到的哪个阶段报出来的呢？<del><font color="red">分析器</font></del></p>
 <p>感谢你的收听，欢迎你给我留言，也欢迎分享给更多的朋友一起阅读。</p>
-<p><img src="../../images/mysql45/%E4%B8%81%E5%A5%87.jpg"></p>
 
                 
             </div>
@@ -1017,8 +1012,7 @@ ERROR <span class="token number">1142</span> <span class="token punctuation">(</
                 <a href="/mysql45/2/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="02 | 日志系统：一条SQL更新语句是如何执行的？">
+                        <img src="/../../images/mysql45/2/2.jpg" class="responsive-img" alt="02 | 日志系统：一条SQL更新语句是如何执行的？">
                         
                         <span class="card-title">02 | 日志系统：一条SQL更新语句是如何执行的？</span>
                     </div>
@@ -1058,8 +1052,7 @@ ERROR <span class="token number">1142</span> <span class="token punctuation">(</
                 <a href="/mysql45/0/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="开篇词 | 这一次，让我们一起来搞懂MySQL">
+                        <img src="/../../images/mysql45/0/0.jpg" class="responsive-img" alt="开篇词 | 这一次，让我们一起来搞懂MySQL">
                         
                         <span class="card-title">开篇词 | 这一次，让我们一起来搞懂MySQL</span>
                     </div>
@@ -1225,7 +1218,7 @@ ERROR <span class="token number">1142</span> <span class="token punctuation">(</
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">322.5k</span>
+                        class="white-color">333.8k</span>
             
             
             
