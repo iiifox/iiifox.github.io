@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 33 题：搜索旋转排序数组（合集）, iiifox">
     <meta name="description" content="33. 搜索旋转排序数组题目描述整数数组 nums 按升序排列，数组中的值 互不相同 。
-
-在传递给函数之前，nums 在预先未知的某个下标 k（0 &amp;lt;= k &amp;lt; nums.length）上进行了 旋转，使数组变为 [nums[">
+在传递给函数之前，nums 在预先未知的某个下标 k（0 &amp;lt;= k &amp;lt; nums.length）上进行了 旋转，使数组变为 [nums[k">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -715,7 +714,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-20
+                    2022-09-25
                 </div>
                 
 
@@ -748,13 +747,9 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="33-搜索旋转排序数组"><a href="#33-搜索旋转排序数组" class="headerlink" title="33. 搜索旋转排序数组"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/search-in-rotated-sorted-array/">33. 搜索旋转排序数组</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>整数数组 <code>nums</code> 按升序排列，数组中的值 <strong>互不相同</strong> 。</p>
-
 <p>在传递给函数之前，<code>nums</code> 在预先未知的某个下标 <code>k</code>（<code>0 &lt;= k &lt; nums.length</code>）上进行了 <strong>旋转</strong>，使数组变为 <code>[nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]</code>（下标 <strong>从 0 开始</strong> 计数）。例如， <code>[0,1,2,4,5,6,7]</code> 在下标 <code>3</code> 处经旋转后可能变为&nbsp;<code>[4,5,6,7,0,1,2]</code> 。</p>
-
 <p>给你 <strong>旋转后</strong> 的数组 <code>nums</code> 和一个整数 <code>target</code> ，如果 <code>nums</code> 中存在这个目标值 <code>target</code> ，则返回它的下标，否则返回&nbsp;<code>-1</code>&nbsp;。</p>
-
-<p>你必须设计一个时间复杂度为 <code>O(log n)</code> 的算法解决此问题。</p>
-
+<p>你必须设计一个时间复杂度为 <code>O(logn)</code> 的算法解决此问题。</p>
 <pre><strong>示例 1：</strong>
 <strong>输入：</strong>nums = [4,5,6,7,0,1,2], target = 0
 <strong>输出：</strong>4
@@ -768,16 +763,14 @@
 <strong>输入：</strong>nums = [1], target = 0
 <strong>输出：</strong>-1
 </pre>
-
-<p><strong>提示：</strong>
-</p><ul>
-    <li><code>1 &lt;= nums.length &lt;= 5000</code></li>
-    <li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
-    <li><code>nums</code> 中的每个值都 <strong>独一无二</strong></li>
-    <li>题目数据保证 <code>nums</code> 在预先未知的某个下标上进行了旋转</li>
-    <li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
-</ul><p></p>
-
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 5000</code></li>
+<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+<li><code>nums</code> 中的每个值都 <strong>独一无二</strong></li>
+<li>题目数据保证 <code>nums</code> 在预先未知的某个下标上进行了旋转</li>
+<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
+</ul>
 <h2 id="参考代码：二分查找"><a href="#参考代码：二分查找" class="headerlink" title="参考代码：二分查找"></a>参考代码：二分查找</h2><p><strong>将升序数组 <code>nums</code> 从任意位置进行旋转，不妨设数组区间为 <code>[left, right]</code> ，旋转位置索引为 <code>k</code> ，记 <code>mid </code> 为数组的中间位置索引。</strong></p>
 <ul>
 <li><code>k &lt; mid</code> ：即将有序数组 <strong>左边少于一半的数放入右边</strong> ，从而旋转后 <code>nums</code> 左半部分 <code>[left, mid]</code> 有序；</li>
@@ -836,33 +829,29 @@
 
 
 <h1 id="81-搜索旋转排序数组-II"><a href="#81-搜索旋转排序数组-II" class="headerlink" title="81. 搜索旋转排序数组 II"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/search-in-rotated-sorted-array-ii/">81. 搜索旋转排序数组 II</a></h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>已知存在一个按非降序排列的整数数组 <code>nums</code> ，数组中的值不必互不相同。</p>
-
 <p>在传递给函数之前，<code>nums</code> 在预先未知的某个下标 <code>k</code>（<code>0 &lt;= k &lt; nums.length</code>）上进行了 <strong>旋转 </strong>，使数组变为 <code>[nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]</code>（下标 <strong>从 0 开始</strong> 计数）。例如， <code>[0,1,2,4,4,4,5,6,6,7]</code> 在下标 <code>5</code> 处经旋转后可能变为 <code>[4,5,6,6,7,0,1,2,4,4]</code> 。</p>
-
 <p>给你 <strong>旋转后</strong> 的数组 <code>nums</code> 和一个整数 <code>target</code> ，请你编写一个函数来判断给定的目标值是否存在于数组中。如果 <code>nums</code> 中存在这个目标值 <code>target</code> ，则返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
-
 <p>你必须尽可能减少整个操作步骤。</p>
-
 <pre><strong>示例&nbsp;1：</strong>
 <strong>输入：</strong>nums = [2,5,6,0,0,1,2], target = 0
 <strong>输出：</strong>true
 </pre>
+
 <pre><strong>示例&nbsp;2：</strong>
 <strong>输入：</strong>nums = [2,5,6,0,0,1,2], target = 3
 <strong>输出：</strong>false</pre>
-<p><strong>提示：</strong>
-</p><ul> 
- <li><code>1 &lt;= nums.length &lt;= 5000</code></li> 
- <li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li> 
- <li>题目数据保证 <code>nums</code> 在预先未知的某个下标上进行了旋转</li> 
- <li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li> 
-</ul><p></p>
-<p><strong>进阶：</strong>
-</p><ul> 
- <li>这是 <a href="">搜索旋转排序数组</a>&nbsp;的延伸题目，本题中的&nbsp;<code>nums</code>&nbsp; 可能包含重复元素。</li> 
- <li>这会影响到程序的时间复杂度吗？会有怎样的影响，为什么？</li> 
-</ul><p></p>
-
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 5000</code></li>
+<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+<li>题目数据保证 <code>nums</code> 在预先未知的某个下标上进行了旋转</li>
+<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
+</ul>
+<p><strong>进阶：</strong></p>
+<ul>
+<li>这是 <a href="">搜索旋转排序数组</a>&nbsp;的延伸题目，本题中的&nbsp;<code>nums</code>&nbsp; 可能包含重复元素。</li>
+<li>这会影响到程序的时间复杂度吗？会有怎样的影响，为什么？</li>
+</ul>
 <h2 id="参考代码：二分查找-1"><a href="#参考代码：二分查找-1" class="headerlink" title="参考代码：二分查找"></a>参考代码：二分查找</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
