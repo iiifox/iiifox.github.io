@@ -5,9 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="04 | 深入浅出索引（上）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="04 | 深入浅出索引（上）2018-11-21 林晓斌
-
-提到数据库索引，我想你并不陌生，在日常工作中会经常接触到。比如某一个 SQL 查询比较慢，分析完原因之后，你可能就会说“给某个字段加个索引吧”之类的解决方案。但到底什么是索引，索引">
+    <meta name="description" content="04 | 深入浅出索引（上）提到数据库索引，我想你并不陌生，在日常工作中会经常接触到。比如某一个 SQL 查询比较慢，分析完原因之后，你可能就会说“给某个字段加个索引吧”之类的解决方案。但到底什么是索引，索引又是如何工作的呢？今天就让我们一">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -562,7 +560,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/../../images/mysql45/4/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -711,7 +709,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-08
+                    2022-09-26
                 </div>
                 
 
@@ -743,9 +741,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="04-深入浅出索引（上）"><a href="#04-深入浅出索引（上）" class="headerlink" title="04 | 深入浅出索引（上）"></a>04 | 深入浅出索引（上）</h1><p><font color="gray">2018-11-21 林晓斌</font></p>
-<p><img src="../../images/mysql45/4/4.jpg"></p>
-<p>提到数据库索引，我想你并不陌生，在日常工作中会经常接触到。比如某一个 SQL 查询比较慢，分析完原因之后，你可能就会说“给某个字段加个索引吧”之类的解决方案。但到底什么是索引，索引又是如何工作的呢？今天就让我们一起来聊聊这个话题吧。</p>
+                <h1 id="04-深入浅出索引（上）"><a href="#04-深入浅出索引（上）" class="headerlink" title="04 | 深入浅出索引（上）"></a>04 | 深入浅出索引（上）</h1><p>提到数据库索引，我想你并不陌生，在日常工作中会经常接触到。比如某一个 SQL 查询比较慢，分析完原因之后，你可能就会说“给某个字段加个索引吧”之类的解决方案。但到底什么是索引，索引又是如何工作的呢？今天就让我们一起来聊聊这个话题吧。</p>
 <p>数据库索引的内容比较多，我分成了上下两篇文章。索引是数据库系统里面最重要的概念之一，所以我希望你能够耐心看完。在后面的实战文章中，我也会经常引用这两篇文章中提到的知识点，加深你对数据库索引的理解。</p>
 <p>一句话简单来说，<font color="#fa8919">索引的出现其实就是为了提高数据查询的效率，就像书的目录一样。</font>一本 500 页的书，如果你想快速找到其中的某一个知识点，在不借助目录的情况下，那我估计你可得找一会儿。同样，对于数据库的表而言，索引其实就是它的“目录”。</p>
 <h1 id="索引的常见模型"><a href="#索引的常见模型" class="headerlink" title="索引的常见模型"></a>索引的常见模型</h1><p>索引的出现是为了提高查询效率，但是实现索引的方式却有很多种，所以这里也就引入了索引模型的概念。可以用于提高读写效率的数据结构很多，这里我先给你介绍三种常见、也比较简单的数据结构，它们分别是哈希表、有序数组和搜索树。</p>
@@ -786,7 +782,7 @@
 <p>假设，我们有一个主键列为 ID 的表，表中有字段 k，并且在 k 上有索引。</p>
 <p>这个表的建表语句是：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> T<span class="token punctuation">(</span>
-  id <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">,</span> 
+  ID <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">,</span> 
   k <span class="token keyword">int</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span> 
   name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token keyword">index</span> <span class="token punctuation">(</span>k<span class="token punctuation">)</span>
@@ -855,7 +851,6 @@
 <li>在业务功能测试阶段要求输出所有的 general_log，分析日志行为提前发现问题；</li>
 <li>如果使用的是 MySQL 5.6 或者更新版本，把 <code>innodb_undo_tablespaces</code> 设置成 <code>2</code>（或更大的值）。如果真的出现大事务导致回滚段过大，这样设置后清理起来更方便。</li>
 </ol>
-<p><img src="../../images/mysql45/%E4%B8%81%E5%A5%87.jpg"></p>
 
                 
             </div>
@@ -1098,8 +1093,7 @@
                 <a href="/mysql45/5/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="05 | 深入浅出索引（下）">
+                        <img src="/../../images/mysql45/5/5.jpg" class="responsive-img" alt="05 | 深入浅出索引（下）">
                         
                         <span class="card-title">05 | 深入浅出索引（下）</span>
                     </div>

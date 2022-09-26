@@ -5,11 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="05 | 深入浅出索引（下）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="05 | 深入浅出索引（下）2018-11-23 林晓斌
-
-在上一篇文章中，我和你介绍了 InnoDB 索引的数据结构模型，今天我们再继续聊聊跟 MySQL 索引有关的概念。
+    <meta name="description" content="05 | 深入浅出索引（下）在上一篇文章中，我和你介绍了 InnoDB 索引的数据结构模型，今天我们再继续聊聊跟 MySQL 索引有关的概念。
 在开始这篇文章之前，我们先来看一下这个问题：
-在下面这个表 T ">
+在下面这个表 T 中，如果我执行 select *">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -564,7 +562,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/../../images/mysql45/5/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -713,7 +711,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-08
+                    2022-09-26
                 </div>
                 
 
@@ -745,9 +743,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="05-深入浅出索引（下）"><a href="#05-深入浅出索引（下）" class="headerlink" title="05 | 深入浅出索引（下）"></a>05 | 深入浅出索引（下）</h1><p><font color="gray">2018-11-23 林晓斌</font></p>
-<p><img src="../../images/mysql45/5/5.jpg"></p>
-<p>在上一篇文章中，我和你介绍了 InnoDB 索引的数据结构模型，今天我们再继续聊聊跟 MySQL 索引有关的概念。</p>
+                <h1 id="05-深入浅出索引（下）"><a href="#05-深入浅出索引（下）" class="headerlink" title="05 | 深入浅出索引（下）"></a>05 | 深入浅出索引（下）</h1><p>在上一篇文章中，我和你介绍了 InnoDB 索引的数据结构模型，今天我们再继续聊聊跟 MySQL 索引有关的概念。</p>
 <p>在开始这篇文章之前，我们先来看一下这个问题：</p>
 <p>在下面这个表 T 中，如果我执行 <code>select * from T where k between 3 and 5</code>，需要执行几次树的搜索操作，会扫描多少行？</p>
 <p>下面是这个表的初始化语句。</p>
@@ -758,7 +754,7 @@
   <span class="token keyword">index</span> k<span class="token punctuation">(</span>k<span class="token punctuation">)</span>
 <span class="token punctuation">)</span> <span class="token keyword">engine</span><span class="token operator">=</span><span class="token keyword">InnoDB</span><span class="token punctuation">;</span>
  
-<span class="token keyword">insert</span> <span class="token keyword">into</span> T <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'aa'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'bb'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'cc'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token string">'ee'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">600</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token string">'ff'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">700</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token string">'gg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> T <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'aa'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'bb'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'cc'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token string">'ee'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">600</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token string">'ff'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">700</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token string">'gg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <div style="text-align:center"><img src="../../images/mysql45/5/图%201%20InnoDB%20的索引组织结构.png"><p><font color="gray">图 1 InnoDB 的索引组织结构</font></p></div>
 
@@ -851,7 +847,6 @@
 <p>在评论区，有同学问到为什么要重建索引。我们文章里面有提到，索引可能因为删除，或者页分裂等原因，导致数据页有空洞，重建索引的过程会创建一个新的索引，把数据按顺序插入，这样页面的利用率最高，也就是索引更紧凑、更省空间。</p>
 <p>这道题目，我给你的“参考答案”是：</p>
 <p>重建索引 k 的做法是合理的，可以达到省空间的目的。但是，重建主键的过程不合理。不论是删除主键还是创建主键，都会将整个表重建。所以连着执行这两个语句的话，第一个语句就白做了。这两个语句，你可以用这个语句代替 ： <code>alter table T engine=InnoDB</code>。在专栏的第 12 篇文章《为什么表数据删掉一半，表文件大小不变？》中，我会和你分析这条语句的执行流程。</p>
-<p><img src="../../images/mysql45/%E4%B8%81%E5%A5%87.jpg"></p>
 
                 
             </div>
@@ -1135,8 +1130,7 @@
                 <a href="/mysql45/4/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="04 | 深入浅出索引（上）">
+                        <img src="/../../images/mysql45/4/4.jpg" class="responsive-img" alt="04 | 深入浅出索引（上）">
                         
                         <span class="card-title">04 | 深入浅出索引（上）</span>
                     </div>
