@@ -4,19 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「力扣」第 55 题：跳跃游戏（中等）, iiifox">
-    <meta name="description" content="「力扣」第 55 题：跳跃游戏
-链接
-
-题目描述给定一个非负整数数组&amp;nbsp;nums ，你最初位于数组的 第一个下标 。
-
+    <meta name="keywords" content="「力扣」第 55 题：跳跃游戏（合集）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
+    <meta name="description" content="55. 跳跃游戏题目描述给定一个非负整数数组&amp;nbsp;nums ，你最初位于数组的 第一个下标 。
 数组中的每个元素代表你在该位置可以跳跃的最大长度。
-
 判断你是否能够到达最后一个下标。
-
-&amp;nbsp;
-
-示例&amp;">
+示例&amp;nbsp;1：
+输入：nums = [2,3,">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -30,7 +23,7 @@
 
     
 
-    <title>「力扣」第 55 题：跳跃游戏（中等） | iiifox</title>
+    <title>「力扣」第 55 题：跳跃游戏（合集） | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -571,12 +564,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「力扣」第 55 题：跳跃游戏（中等）</h1>
+                    <h1 class="description center-align post-title">「力扣」第 55 题：跳跃游戏（合集）</h1>
                 </div>
             </div>
         </div>
@@ -724,14 +717,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-21
+                    2022-09-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    360
+                    3k
                 </div>
                 
 
@@ -756,17 +749,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-55-题：跳跃游戏"><a href="#「力扣」第-55-题：跳跃游戏" class="headerlink" title="「力扣」第 55 题：跳跃游戏"></a>「力扣」第 55 题：跳跃游戏</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/jump-game/">链接</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个非负整数数组&nbsp;<code>nums</code> ，你最初位于数组的 <strong>第一个下标</strong> 。</p>
-
+                <h1 id="55-跳跃游戏"><a href="#55-跳跃游戏" class="headerlink" title="55. 跳跃游戏"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/jump-game/">55. 跳跃游戏</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个非负整数数组&nbsp;<code>nums</code> ，你最初位于数组的 <strong>第一个下标</strong> 。</p>
 <p>数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
-
 <p>判断你是否能够到达最后一个下标。</p>
-
-<p>&nbsp;</p>
-
 <pre><strong>示例&nbsp;1：</strong>
 <strong>输入：</strong>nums = [2,3,1,1,4]
 <strong>输出：</strong>true
@@ -778,44 +763,354 @@
 <strong>输出：</strong>false
 <strong>解释：</strong>无论怎样，总会到达下标为 3 的位置。但该下标的最大跳跃长度是 0 ， 所以永远不可能到达最后一个下标。
 </pre>
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong>
-</p><ul> 
- <li><code>1 &lt;= nums.length &lt;= 3 * 10<sup>4</sup></code></li> 
- <li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li> 
-</ul><p></p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：贪心"><a href="#参考代码：贪心" class="headerlink" title="参考代码：贪心"></a>参考代码：贪心</h3><blockquote>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 3 * 10<sup>4</sup></code></li>
+<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
+</ul>
+<h2 id="参考代码：贪心"><a href="#参考代码：贪心" class="headerlink" title="参考代码：贪心"></a>参考代码：贪心</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">canJump</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// [0, i) 里能达到的最远下标</span>
-        <span class="token keyword">int</span> rightMost <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token comment">// 注意 [0] 这一个特殊测试用例，条件不应写成 n &lt; nums.length - 1</span>
+        <span class="token comment">// 能达到的最远位置</span>
+        <span class="token keyword">int</span> lastPosition <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// 该位置是可达的，尝试更新最远下标</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> rightMost<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                rightMost <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>rightMost<span class="token punctuation">,</span> i <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token comment">// 最远能够到达最后一个下标</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>rightMost <span class="token operator">&gt;=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 该位置是可达的，尝试更新最远位置</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> lastPosition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                lastPosition <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>lastPosition<span class="token punctuation">,</span> i <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 最远能够到达最后一个位置</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>lastPosition <span class="token operator">&gt;=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                <span class="token comment">// 可以直接返回 false 了。因为最远仅能到达上一个下标 i - 1</span>
+                <span class="token comment">// 最远仅能到达 i-1 位置</span>
                 <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
+        <span class="token comment">// 即使前面一直没有提前退出，当 i=n-1 时也必定在循环中退出</span>
         <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"Can jump exception"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="45-跳跃游戏-II"><a href="#45-跳跃游戏-II" class="headerlink" title="45. 跳跃游戏 II"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/jump-game-ii/">45. 跳跃游戏 II</a></h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个非负整数数组&nbsp;<code>nums</code> ，你最初位于数组的第一个位置。</p>
+<p>数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
+<p>你的目标是使用最少的跳跃次数到达数组的最后一个位置。</p>
+<p>假设你总是可以到达数组的最后一个位置。</p>
+<p><strong>示例 1:</strong></p>
+<pre><strong>输入:</strong> nums = [2,3,1,1,4]
+<strong>输出:</strong> 2
+<strong>解释:</strong> 跳到最后一个位置的最小跳跃数是 <span><code>2</code></span>。
+&nbsp;    从下标为 0 跳到下标为 1 的位置，跳&nbsp;<span><code>1</code></span>&nbsp;步，然后跳&nbsp;<span><code>3</code></span>&nbsp;步到达数组的最后一个位置。
+</pre>
+
+<p><strong>示例 2:</strong>
+</p><pre><strong>输入:</strong> nums = [2,3,0,1,4]
+<strong>输出:</strong> 2
+</pre><p></p>
+
+<p><strong>提示:</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
+</ul>
+<h2 id="参考代码：贪心-1"><a href="#参考代码：贪心-1" class="headerlink" title="参考代码：贪心"></a>参考代码：贪心</h2><blockquote>
+<p>时间复杂度：$O(n)$</p>
+<p>空间复杂度：$O(1)$</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">jump</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token comment">// 当前位置下所能达到的最远距离，即 max{i+nums[i]}</span>
+        <span class="token keyword">int</span> maxPosition <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token comment">// 当前步数下所能到达的最远位置</span>
+        <span class="token keyword">int</span> curEnd <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token comment">// 不访问最后一个元素（因为一定可达，在 if 中的语句保证在 res 步能达到）</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            maxPosition <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>maxPosition<span class="token punctuation">,</span> i <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// res 步最远能到达这一个位置，下一个位置需要增加步数</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> curEnd<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                res<span class="token operator">++</span><span class="token punctuation">;</span>
+                curEnd <span class="token operator">=</span> maxPosition<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="1306-跳跃游戏-III"><a href="#1306-跳跃游戏-III" class="headerlink" title="1306. 跳跃游戏 III"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/jump-game-iii/">1306. 跳跃游戏 III</a></h1><h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>这里有一个非负整数数组&nbsp;<code>arr</code>，你最开始位于该数组的起始下标&nbsp;<code>start</code>&nbsp;处。当你位于下标&nbsp;<code>i</code>&nbsp;处时，你可以跳到&nbsp;<code>i + arr[i]</code> 或者 <code>i - arr[i]</code>。</p>
+<p>请你判断自己是否能够跳到对应元素值为 0 的 <strong>任一</strong> 下标处。</p>
+<p>注意，不管是什么情况下，你都无法跳到数组之外。</p>
+<pre><strong>示例 1：</strong>
+<strong>输入：</strong>arr = [4,2,3,0,3,1,2], start = 5
+<strong>输出：</strong>true
+<strong>解释：</strong>
+到达值为 0 的下标 3 有以下可能方案： 
+下标 5 -&gt; 下标 4 -&gt; 下标 1 -&gt; 下标 3 
+下标 5 -&gt; 下标 6 -&gt; 下标 4 -&gt; 下标 1 -&gt; 下标 3 
+</pre>
+
+<pre><strong>示例 2：</strong>
+<strong>输入：</strong>arr = [4,2,3,0,3,1,2], start = 0
+<strong>输出：</strong>true 
+<strong>解释：
+</strong>到达值为 0 的下标 3 有以下可能方案： 
+下标 0 -&gt; 下标 4 -&gt; 下标 1 -&gt; 下标 3
+</pre>
+
+<pre><strong>示例 3：</strong>
+<strong>输入：</strong>arr = [3,0,2,1,2], start = 2
+<strong>输出：</strong>false
+<strong>解释：</strong>无法到达值为 0 的下标 1 处。 
+</pre>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= arr.length &lt;= 5 * 10^4</code></li>
+<li><code>0 &lt;= arr[i] &lt;&nbsp;arr.length</code></li>
+<li><code>0 &lt;= start &lt; arr.length</code></li>
+</ul>
+<h2 id="参考代码：深度优先搜索"><a href="#参考代码：深度优先搜索" class="headerlink" title="参考代码：深度优先搜索"></a>参考代码：深度优先搜索</h2><blockquote>
+<p>时间复杂度：$O(n)$</p>
+<p>空间复杂度：$O(n)$</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">canReach</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> start<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">dfs</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">,</span> start<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token punctuation">]</span> visit<span class="token punctuation">,</span> <span class="token keyword">int</span> start<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 不能跳到数组之外。走过的位置别再走了</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>start <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> start <span class="token operator">&gt;</span> arr<span class="token punctuation">.</span>length <span class="token operator">||</span> visit<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// 标记该位置已经走过了</span>
+        visit<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">dfs</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> visit<span class="token punctuation">,</span> start <span class="token operator">+</span> arr<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token operator">||</span> <span class="token function">dfs</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> visit<span class="token punctuation">,</span> start <span class="token operator">-</span> arr<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="1345-跳跃游戏-IV"><a href="#1345-跳跃游戏-IV" class="headerlink" title="1345. 跳跃游戏 IV"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/jump-game-iv/">1345. 跳跃游戏 IV</a></h1><h2 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数数组&nbsp;<code>arr</code>&nbsp;，你一开始在数组的第一个元素处（下标为 0）。</p>
+<p>每一步，你可以从下标&nbsp;<code>i</code>&nbsp;跳到下标&nbsp;<code>i + 1</code> 、<code>i - 1</code> 或者 <code>j</code> ：</p>
+<ul>
+<li><code>i + 1</code> 需满足：<code>i + 1 &lt; arr.length</code></li>
+<li><code>i - 1</code>&nbsp;需满足：<code>i - 1 &gt;= 0</code></li>
+<li><code>j</code>&nbsp;需满足：<code>arr[i] == arr[j]</code>&nbsp;且&nbsp;<code>i != j</code></li>
+</ul>
+<p>请你返回到达数组最后一个元素的下标处所需的&nbsp;<strong>最少操作次数</strong>&nbsp;。</p>
+<p>注意：任何时候你都不能跳到数组外面。</p>
+<pre><strong>示例 1：</strong>
+<strong>输入：</strong>arr = [100,-23,-23,404,100,23,23,23,3,404]
+<strong>输出：</strong>3
+<strong>解释：</strong>那你需要跳跃 3 次，下标依次为 0 --&gt; 4 --&gt; 3 --&gt; 9 。下标 9 为数组的最后一个元素的下标。
+</pre>
+
+<pre><strong>示例 2：</strong>
+<strong>输入：</strong>arr = [7]
+<strong>输出：</strong>0
+<strong>解释：</strong>一开始就在最后一个元素处，所以你不需要跳跃。
+</pre>
+
+<pre><strong>示例 3：</strong>
+<strong>输入：</strong>arr = [7,6,9,6,9,6,9,7]
+<strong>输出：</strong>1
+<strong>解释：</strong>你可以直接从下标 0 处跳到下标 7 处，也就是数组的最后一个元素处。
+</pre>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= arr.length &lt;= 5 * 10<sup>4</sup></code></li>
+<li><code>-10<sup>8</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>8</sup></code></li>
+</ul>
+<h2 id="参考代码：广度优先搜索"><a href="#参考代码：广度优先搜索" class="headerlink" title="参考代码：广度优先搜索"></a>参考代码：广度优先搜索</h2><blockquote>
+<p>时间复杂度：$O(n)$</p>
+<p>空间复杂度：$O(n)$</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">minJumps</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 键存储数组元素值，值存储数组元素索引</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            map<span class="token punctuation">.</span><span class="token function">computeIfAbsent</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> v <span class="token operator">-&gt;</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token punctuation">]</span> visit <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Queue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        queue<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        visit<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> step <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token operator">!</span>queue<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> step<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 队列中都是第 step 步能访问到的。将其依次出队列，并将下一步能访问到的入队列</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> size <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> size <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span> size<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">int</span> i <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 到达数组最后一个元素的位置了</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> step<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">int</span> v <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token comment">// 下一步选择下标 i+1</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>visit<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    queue<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    visit<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token comment">// 下一步选择下标 i-1</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>visit<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    queue<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    visit<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token comment">// 下一步选择下标 j</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">:</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>visit<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            queue<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            visit<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token comment">// 剪枝。把该子图清空，就不会重复访问该子图的其他边了。</span>
+                    map<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"好吧，其实我是执行不到的啦~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="1340-跳跃游戏-V"><a href="#1340-跳跃游戏-V" class="headerlink" title="1340. 跳跃游戏 V"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/jump-game-v/">1340. 跳跃游戏 V</a></h1><h2 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数数组&nbsp;<code>arr</code> 和一个整数&nbsp;<code>d</code> 。每一步你可以从下标&nbsp;<code>i</code>&nbsp;跳到：</p>
+<ul>
+<li><code>i + x</code>&nbsp;，其中&nbsp;<code>i + x &lt; arr.length</code>&nbsp;且&nbsp;<code>0 &lt; x &lt;= d</code>&nbsp;。</li>
+<li><code>i - x</code>&nbsp;，其中&nbsp;<code>i - x &gt;= 0</code>&nbsp;且&nbsp;<code>0 &lt; x &lt;= d</code>&nbsp;。</li>
+</ul>
+<p>除此以外，你从下标&nbsp;<code>i</code> 跳到下标 <code>j</code>&nbsp;需要满足：<code>arr[i] &gt; arr[j]</code>&nbsp;且 <code>arr[i] &gt; arr[k]</code>&nbsp;，其中下标&nbsp;<code>k</code>&nbsp;是所有 <code>i</code>&nbsp;到 <code>j</code>&nbsp;之间的数字（更正式的，<code>min(i, j) &lt; k &lt; max(i, j)</code>）。</p>
+<p>你可以选择数组的任意下标开始跳跃。请你返回你 <strong>最多</strong>&nbsp;可以访问多少个下标。</p>
+<p>请注意，任何时刻你都不能跳到数组的外面。</p>
+<pre><strong>示例 1：</strong>
+<img alt="" src="../../images/leetcode/55/meta-chart.jpeg" style="height: 419px; width: 633px;">
+<strong>输入：</strong>arr = [6,4,14,6,8,13,9,7,10,6,12], d = 2
+<strong>输出：</strong>4
+<strong>解释：</strong>你可以从下标 10 出发，然后如上图依次经过 10 --&gt; 8 --&gt; 6 --&gt; 7 。
+注意，如果你从下标 6 开始，你只能跳到下标 7 处。你不能跳到下标 5 处因为 13 &gt; 9 。你也不能跳到下标 4 处，因为下标 5 在下标 4 和 6 之间且 13 &gt; 9 。
+类似的，你不能从下标 3 处跳到下标 2 或者下标 1 处。
+</pre>
+
+<pre><strong>示例 2：</strong>
+<strong>输入：</strong>arr = [3,3,3,3,3], d = 3
+<strong>输出：</strong>1
+<strong>解释：</strong>你可以从任意下标处开始且你永远无法跳到任何其他坐标。
+</pre>
+
+<pre><strong>示例 3：</strong>
+<strong>输入：</strong>arr = [7,6,5,4,3,2,1], d = 1
+<strong>输出：</strong>7
+<strong>解释：</strong>从下标 0 处开始，你可以按照数值从大到小，访问所有的下标。
+</pre>
+
+<pre><strong>示例 4：</strong>
+<strong>输入：</strong>arr = [7,1,7,1,7,1], d = 2
+<strong>输出：</strong>2
+</pre>
+
+<pre><strong>示例 5：</strong>
+<strong>输入：</strong>arr = [66], d = 1
+<strong>输出：</strong>1
+</pre>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= arr.length &lt;= 1000</code></li>
+<li><code>1 &lt;= arr[i] &lt;= 10^5</code></li>
+<li><code>1 &lt;= d &lt;= arr.length</code></li>
+</ul>
+<h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">```
+
+# <span class="token punctuation">[</span><span class="token number">1696.</span> 跳跃游戏 <span class="token constant">VI</span><span class="token punctuation">]</span><span class="token punctuation">(</span>https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>leetcode<span class="token punctuation">.</span>cn<span class="token operator">/</span>problems<span class="token operator">/</span>jump<span class="token operator">-</span>game<span class="token operator">-</span>vi<span class="token operator">/</span><span class="token punctuation">)</span>
+
+## 题目描述
+
+<span class="token generics"><span class="token punctuation">&lt;</span>p<span class="token punctuation">&gt;</span></span>给你一个下标从 <span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span><span class="token number">0</span><span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span> 开始的整数数组 <span class="token generics"><span class="token punctuation">&lt;</span>code<span class="token punctuation">&gt;</span></span>nums<span class="token operator">&lt;</span><span class="token operator">/</span>code<span class="token operator">&gt;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span>和一个整数 <span class="token generics"><span class="token punctuation">&lt;</span>code<span class="token punctuation">&gt;</span></span>k<span class="token operator">&lt;</span><span class="token operator">/</span>code<span class="token operator">&gt;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span>。<span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>p<span class="token punctuation">&gt;</span></span>一开始你在下标<span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token generics"><span class="token punctuation">&lt;</span>code<span class="token punctuation">&gt;</span></span><span class="token number">0</span><span class="token operator">&lt;</span><span class="token operator">/</span>code<span class="token operator">&gt;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span>处。每一步，你最多可以往前跳<span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token generics"><span class="token punctuation">&lt;</span>code<span class="token punctuation">&gt;</span></span>k<span class="token operator">&lt;</span><span class="token operator">/</span>code<span class="token operator">&gt;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span>步，但你不能跳出数组的边界。也就是说，你可以从下标<span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token generics"><span class="token punctuation">&lt;</span>code<span class="token punctuation">&gt;</span></span>i<span class="token operator">&lt;</span><span class="token operator">/</span>code<span class="token operator">&gt;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span>跳到<span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token generics"><span class="token punctuation">&lt;</span>code<span class="token punctuation">&gt;</span></span><span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span>， <span class="token function">min</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> i <span class="token operator">+</span> k<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token operator">&lt;</span><span class="token operator">/</span>code<span class="token operator">&gt;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span>包含<span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span> 两个端点的任意位置。<span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>p<span class="token punctuation">&gt;</span></span>你的目标是到达数组最后一个位置（下标为 <span class="token generics"><span class="token punctuation">&lt;</span>code<span class="token punctuation">&gt;</span></span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>code<span class="token operator">&gt;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span>），你的 <span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span>得分<span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span>为经过的所有数字之和。<span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>p<span class="token punctuation">&gt;</span></span>请你返回你能得到的 <span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span>最大得分<span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span>。<span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>p<span class="token punctuation">&gt;</span></span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>p<span class="token punctuation">&gt;</span></span><span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span>示例 <span class="token number">1</span>：<span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>pre<span class="token punctuation">&gt;</span></span>
+<span class="token generics"><span class="token punctuation">&lt;</span>b<span class="token punctuation">&gt;</span></span>输入：<span class="token operator">&lt;</span><span class="token operator">/</span>b<span class="token operator">&gt;</span>nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span><span class="token number">4</span><span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span><span class="token number">3</span><span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token generics"><span class="token punctuation">&lt;</span>b<span class="token punctuation">&gt;</span></span>输出：<span class="token operator">&lt;</span><span class="token operator">/</span>b<span class="token operator">&gt;</span><span class="token number">7</span>
+<span class="token generics"><span class="token punctuation">&lt;</span>b<span class="token punctuation">&gt;</span></span>解释：<span class="token operator">&lt;</span><span class="token operator">/</span>b<span class="token operator">&gt;</span>你可以选择子序列 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span> （上面加粗的数字），和为 <span class="token number">7</span> 。
+<span class="token operator">&lt;</span><span class="token operator">/</span>pre<span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>p<span class="token punctuation">&gt;</span></span><span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span>示例 <span class="token number">2</span>：<span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>pre<span class="token punctuation">&gt;</span></span>
+<span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span>输入：<span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span>nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span><span class="token number">10</span><span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span><span class="token number">4</span><span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span><span class="token number">3</span><span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">3</span>
+<span class="token generics"><span class="token punctuation">&lt;</span>b<span class="token punctuation">&gt;</span></span>输出：<span class="token operator">&lt;</span><span class="token operator">/</span>b<span class="token operator">&gt;</span><span class="token number">17</span>
+<span class="token generics"><span class="token punctuation">&lt;</span>b<span class="token punctuation">&gt;</span></span>解释：<span class="token operator">&lt;</span><span class="token operator">/</span>b<span class="token operator">&gt;</span>你可以选择子序列 <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span> （上面加粗数字），和为 <span class="token number">17</span> 。
+<span class="token operator">&lt;</span><span class="token operator">/</span>pre<span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>p<span class="token punctuation">&gt;</span></span><span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span>示例 <span class="token number">3</span>：<span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>pre<span class="token punctuation">&gt;</span></span>
+<span class="token generics"><span class="token punctuation">&lt;</span>b<span class="token punctuation">&gt;</span></span>输入：<span class="token operator">&lt;</span><span class="token operator">/</span>b<span class="token operator">&gt;</span>nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token generics"><span class="token punctuation">&lt;</span>b<span class="token punctuation">&gt;</span></span>输出：<span class="token operator">&lt;</span><span class="token operator">/</span>b<span class="token operator">&gt;</span><span class="token number">0</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>pre<span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>p<span class="token punctuation">&gt;</span></span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>p<span class="token punctuation">&gt;</span></span><span class="token generics"><span class="token punctuation">&lt;</span>strong<span class="token punctuation">&gt;</span></span>提示：<span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>ul<span class="token punctuation">&gt;</span></span> 
+ <span class="token generics"><span class="token punctuation">&lt;</span>li<span class="token punctuation">&gt;</span></span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token generics"><span class="token punctuation">&lt;</span>code<span class="token punctuation">&gt;</span></span><span class="token number">1</span> <span class="token operator">&amp;</span>lt<span class="token punctuation">;</span><span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">,</span> k <span class="token operator">&amp;</span>lt<span class="token punctuation">;</span><span class="token operator">=</span> <span class="token number">10</span><span class="token generics"><span class="token punctuation">&lt;</span>sup<span class="token punctuation">&gt;</span></span><span class="token number">5</span><span class="token operator">&lt;</span><span class="token operator">/</span>sup<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>code<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span> 
+ <span class="token generics"><span class="token punctuation">&lt;</span>li<span class="token punctuation">&gt;</span></span><span class="token generics"><span class="token punctuation">&lt;</span>code<span class="token punctuation">&gt;</span></span><span class="token operator">-</span><span class="token number">10</span><span class="token generics"><span class="token punctuation">&lt;</span>sup<span class="token punctuation">&gt;</span></span><span class="token number">4</span><span class="token operator">&lt;</span><span class="token operator">/</span>sup<span class="token operator">&gt;</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>lt<span class="token punctuation">;</span><span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>lt<span class="token punctuation">;</span><span class="token operator">=</span> <span class="token number">10</span><span class="token generics"><span class="token punctuation">&lt;</span>sup<span class="token punctuation">&gt;</span></span><span class="token number">4</span><span class="token operator">&lt;</span><span class="token operator">/</span>sup<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>code<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">&gt;</span>
+## 参考代码
+
+```java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="1871-跳跃游戏-VII"><a href="#1871-跳跃游戏-VII" class="headerlink" title="1871. 跳跃游戏 VII"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/jump-game-vii/">1871. 跳跃游戏 VII</a></h1><h2 id="题目描述-5"><a href="#题目描述-5" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个下标从 <strong>0 </strong>开始的二进制字符串&nbsp;<code>s</code>&nbsp;和两个整数&nbsp;<code>minJump</code> 和&nbsp;<code>maxJump</code>&nbsp;。一开始，你在下标&nbsp;<code>0</code>&nbsp;处，且该位置的值一定为&nbsp;<code>'0'</code>&nbsp;。当同时满足如下条件时，你可以从下标&nbsp;<code>i</code>&nbsp;移动到下标&nbsp;<code>j</code>&nbsp;处：</p>
+
+<ul> 
+ <li><code>i + minJump &lt;= j &lt;= min(i + maxJump, s.length - 1)</code>&nbsp;且</li> 
+ <li><code>s[j] == '0'</code>.</li> 
+</ul>
+
+<p>如果你可以到达 <code>s</code>&nbsp;的下标<i>&nbsp;</i><code>s.length - 1</code>&nbsp;处，请你返回&nbsp;<code>true</code>&nbsp;，否则返回&nbsp;<code>false</code>&nbsp;。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre><b>输入：</b>s = "<strong>0</strong>11<strong>0</strong>1<strong>0</strong>", minJump = 2, maxJump = 3
+<b>输出：</b>true
+<strong>解释：</strong>
+第一步，从下标 0 移动到下标 3 。
+第二步，从下标 3 移动到下标 5 。
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre><b>输入：</b>s = "01101110", minJump = 2, maxJump = 3
+<b>输出：</b>false
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul> 
+ <li><code>2 &lt;= s.length &lt;= 10<sup>5</sup></code></li> 
+ <li><code>s[i]</code>&nbsp;要么是&nbsp;<code>'0'</code>&nbsp;，要么是&nbsp;<code>'1'</code></li> 
+ <li><code>s[0] == '0'</code></li> 
+ <li><code>1 &lt;= minJump &lt;= maxJump &lt; s.length</code></li> 
+</ul>
+## 参考代码
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
                 
@@ -1298,7 +1593,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">333.8k</span>
+                        class="white-color">336.4k</span>
             
             
             
