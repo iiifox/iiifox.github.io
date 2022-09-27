@@ -714,7 +714,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-25
+                    2022-09-27
                 </div>
                 
 
@@ -789,7 +789,7 @@
 <p><strong>怎么确定旋转后的数组 <code>nums</code> 是左边有序还是右边有序呢？</strong>其实对上面的分析过程进一步观察就能知道：</p>
 <ul>
 <li><code>nums</code> 的左半部分区间 <code>[left, mid]</code> 有序，等价于 <code>nums[left] &lt; nums[mid]</code></li>
-<li><code>nums</code> 的右半部分区间 <code>[left, mid]</code> 有序，等价于 <code>nums[mid] &lt; nums[right]</code></li>
+<li><code>nums</code> 的右半部分区间 <code>[mid, right]</code> 有序，等价于 <code>nums[mid] &lt; nums[right]</code></li>
 </ul>
 <blockquote>
 <p>时间复杂度：$O(\log n)$</p>
