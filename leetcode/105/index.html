@@ -5,10 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 105 题：从前序与中序遍历序列构造二叉树（中等）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="「力扣」第 105 题：从前序与中序遍历序列构造二叉树
-链接
-
-题目描述给定两个整数数组&amp;nbsp;preorder 和 inorder&amp;nbsp;，其中&amp;nbsp;preorder 是二叉树的先序遍历， inorder&amp;nbsp;是同一棵">
+    <meta name="description" content="105. 从前序与中序遍历序列构造二叉树题目描述给定两个整数数组&amp;nbsp;preorder 和 inorder&amp;nbsp;，其中&amp;nbsp;preorder 是二叉树的先序遍历， inorder&amp;nbsp;是同一棵树的中序遍历，请构造二叉">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -720,14 +717,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-09-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    569
+                    460
                 </div>
                 
 
@@ -752,40 +749,27 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-105-题：从前序与中序遍历序列构造二叉树"><a href="#「力扣」第-105-题：从前序与中序遍历序列构造二叉树" class="headerlink" title="「力扣」第 105 题：从前序与中序遍历序列构造二叉树"></a>「力扣」第 105 题：从前序与中序遍历序列构造二叉树</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">链接</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定两个整数数组&nbsp;<code>preorder</code> 和 <code>inorder</code>&nbsp;，其中&nbsp;<code>preorder</code> 是二叉树的<strong>先序遍历</strong>， <code>inorder</code>&nbsp;是同一棵树的<strong>中序遍历</strong>，请构造二叉树并返回其根节点。</p>
-
-<p>&nbsp;</p>
-
+                <h1 id="105-从前序与中序遍历序列构造二叉树"><a href="#105-从前序与中序遍历序列构造二叉树" class="headerlink" title="105. 从前序与中序遍历序列构造二叉树"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">105. 从前序与中序遍历序列构造二叉树</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个整数数组&nbsp;<code>preorder</code> 和 <code>inorder</code>&nbsp;，其中&nbsp;<code>preorder</code> 是二叉树的<strong>先序遍历</strong>， <code>inorder</code>&nbsp;是同一棵树的<strong>中序遍历</strong>，请构造二叉树并返回其根节点。</p>
 <pre><strong>示例 1:</strong>
 <img alt="" src="../../images/leetcode/105/tree.jpg" style="height: 302px; width: 277px;"> 
 <strong>输入</strong><strong>:</strong> preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
 <strong>输出:</strong> [3,9,20,null,null,15,7]
 </pre>
 
-
 <pre><strong>示例 2:</strong>
 <strong>输入:</strong> preorder = [-1], inorder = [-1]
 <strong>输出:</strong> [-1]
 </pre>
-
-<p>&nbsp;</p>
-
-<p><strong>提示:</strong>
-</p><ul> 
- <li><code>1 &lt;= preorder.length &lt;= 3000</code></li> 
- <li><code>inorder.length == preorder.length</code></li> 
- <li><code>-3000 &lt;= preorder[i], inorder[i] &lt;= 3000</code></li> 
- <li><code>preorder</code>&nbsp;和&nbsp;<code>inorder</code>&nbsp;均 <strong>无重复</strong> 元素</li> 
- <li><code>inorder</code>&nbsp;均出现在&nbsp;<code>preorder</code></li> 
- <li><code>preorder</code>&nbsp;<strong>保证</strong> 为二叉树的前序遍历序列</li> 
- <li><code>inorder</code>&nbsp;<strong>保证</strong> 为二叉树的中序遍历序列</li> 
-</ul><p></p>
-
-<p>&nbsp;</p>
-
+<p><strong>提示:</strong></p>
+<ul>
+<li><code>1 &lt;= preorder.length &lt;= 3000</code></li>
+<li><code>inorder.length == preorder.length</code></li>
+<li><code>-3000 &lt;= preorder[i], inorder[i] &lt;= 3000</code></li>
+<li><code>preorder</code>&nbsp;和&nbsp;<code>inorder</code>&nbsp;均 <strong>无重复</strong> 元素</li>
+<li><code>inorder</code>&nbsp;均出现在&nbsp;<code>preorder</code></li>
+<li><code>preorder</code>&nbsp;<strong>保证</strong> 为二叉树的前序遍历序列</li>
+<li><code>inorder</code>&nbsp;<strong>保证</strong> 为二叉树的中序遍历序列</li>
+</ul>
 <p><strong>二叉树结点定义</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * Definition for a binary tree node.
@@ -803,21 +787,17 @@
  * }
  */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：分治"><a href="#参考代码：分治" class="headerlink" title="参考代码：分治"></a>参考代码：分治</h3><blockquote>
+<h2 id="参考代码：分治"><a href="#参考代码：分治" class="headerlink" title="参考代码：分治"></a>参考代码：分治</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    
-    <span class="token comment">// 键存取中序遍历中的结点值，值存取结点值对应的中序索引</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 键存取中序遍历中的结点值，值存取结点值对应的中序索引
+     */</span>
     <span class="token keyword">private</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token keyword">public</span> <span class="token class-name">TreeNode</span> <span class="token function">buildTree</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> preorder<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> inorder<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// 1 &lt;= preorder.length &lt;= 3000</span>
         <span class="token keyword">int</span> n <span class="token operator">=</span> inorder<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>inorder<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -825,8 +805,8 @@
         <span class="token keyword">return</span> <span class="token function">buildTree</span><span class="token punctuation">(</span>preorder<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> inorder<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-    
-    <span class="token keyword">private</span> <span class="token class-name">TreeNode</span> <span class="token function">buildTree</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> preorder<span class="token punctuation">,</span> <span class="token keyword">int</span> preLeft<span class="token punctuation">,</span> <span class="token keyword">int</span> preRight<span class="token punctuation">,</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">TreeNode</span> <span class="token function">buildTree</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> preorder<span class="token punctuation">,</span> <span class="token keyword">int</span> preLeft<span class="token punctuation">,</span> <span class="token keyword">int</span> preRight<span class="token punctuation">,</span> 
                                <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> inorder<span class="token punctuation">,</span> <span class="token keyword">int</span> inLeft<span class="token punctuation">,</span> <span class="token keyword">int</span> inRight<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>preLeft <span class="token operator">&gt;</span> preRight<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
@@ -840,18 +820,14 @@
         <span class="token keyword">int</span> leftSize <span class="token operator">=</span> inRoot <span class="token operator">-</span> inLeft<span class="token punctuation">;</span>
 
         <span class="token comment">// 递归地构造左子树，并连接到根节点</span>
-        <span class="token comment">// 先序遍历中「从 左边界+1 开始的 leftSize」个元素</span>
-        <span class="token comment">// 就对应了中序遍历中「从 左边界 开始到 根节点定位-1」的元素</span>
         root<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token function">buildTree</span><span class="token punctuation">(</span>preorder<span class="token punctuation">,</span> preLeft <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> preLeft <span class="token operator">+</span> leftSize<span class="token punctuation">,</span>
                 inorder<span class="token punctuation">,</span> inLeft<span class="token punctuation">,</span> inRoot <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">// 递归地构造右子树，并连接到根节点</span>
-        <span class="token comment">// 先序遍历中「从 左边界+左子树节点数目+1 开始到 右边界」的元素</span>
-        <span class="token comment">// 就对应了中序遍历中「从 根节点定位+1 到 右边界」的元素</span>
         root<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token function">buildTree</span><span class="token punctuation">(</span>preorder<span class="token punctuation">,</span> preLeft <span class="token operator">+</span> leftSize <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> preRight<span class="token punctuation">,</span>
                 inorder<span class="token punctuation">,</span> inRoot <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> inRight<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> root<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1338,7 +1314,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">338k</span>
+                        class="white-color">337.9k</span>
             
             
             
