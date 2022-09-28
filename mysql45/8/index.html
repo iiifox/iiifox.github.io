@@ -5,10 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="08 | 事务到底是隔离的还是不隔离的？, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="08 | 事务到底是隔离的还是不隔离的？2018-11-30 林晓斌
-
-
-你好，我是林晓斌。你现在看到的这篇文章是我重写过的。在第一版文章发布之后，我发现在介绍事务可见性规则时，由于引入了太多概念，导致理解起来很困难。随后，我索性就重写了这">
+    <meta name="description" content="08 | 事务到底是隔离的还是不隔离的？
+你好，我是林晓斌。你现在看到的这篇文章是我重写过的。在第一版文章发布之后，我发现在介绍事务可见性规则时，由于引入了太多概念，导致理解起来很困难。随后，我索性就重写了这篇文章。现在的用户留言中，还能看">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -571,7 +569,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/../../images/mysql45/8/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -713,14 +711,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-26
+                    2018-11-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-08
+                    2022-09-28
                 </div>
                 
 
@@ -752,9 +750,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="08-事务到底是隔离的还是不隔离的？"><a href="#08-事务到底是隔离的还是不隔离的？" class="headerlink" title="08 | 事务到底是隔离的还是不隔离的？"></a>08 | 事务到底是隔离的还是不隔离的？</h1><p><font color="gray">2018-11-30 林晓斌</font></p>
-<p><img src="../../images/mysql45/8/8.jpg"></p>
-<blockquote>
+                <h1 id="08-事务到底是隔离的还是不隔离的？"><a href="#08-事务到底是隔离的还是不隔离的？" class="headerlink" title="08 | 事务到底是隔离的还是不隔离的？"></a>08 | 事务到底是隔离的还是不隔离的？</h1><blockquote>
 <p>你好，我是林晓斌。<br>你现在看到的这篇文章是我重写过的。在第一版文章发布之后，我发现在介绍事务可见性规则时，由于引入了太多概念，导致理解起来很困难。随后，我索性就重写了这篇文章。<br>现在的用户留言中，还能看到第一版文章中引入的 up_limit_id 的概念，为了避免大家产生误解，再此特地和大家事先说明一下。</p>
 </blockquote>
 <p>我在第 3 篇文章和你讲事务隔离级别的时候提到过，如果是可重复读隔离级别，事务 T 启动的时候会创建一个视图 read-view，之后事务 T 执行期间，即使有其他事务修改了数据，事务 T 看到的仍然跟在启动时看到的一样。也就是说，一个在可重复读隔离级别下执行的事务，好像与世无争，不受外界影响。</p>
@@ -765,7 +761,8 @@
   <span class="token identifier"><span class="token punctuation">`</span>k<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
   <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
 <span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">INNODB</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t<span class="token punctuation">(</span>id<span class="token punctuation">,</span> k<span class="token punctuation">)</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t<span class="token punctuation">(</span>id<span class="token punctuation">,</span> k<span class="token punctuation">)</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <div style="text-align:center"><img src="../../images/mysql45/8/图%201%20事务%20A、B、C%20的执行流程.png"><p><font color="gray">图 1 事务 A、B、C 的执行流程</font></p></div>
 
@@ -788,8 +785,8 @@
 <h1 id="“快照”在-MVCC-里是怎么工作的？"><a href="#“快照”在-MVCC-里是怎么工作的？" class="headerlink" title="“快照”在 MVCC 里是怎么工作的？"></a>“快照”在 MVCC 里是怎么工作的？</h1><p>在可重复读隔离级别下，事务在启动的时候就“拍了个快照”。注意，这个快照是基于整库的。</p>
 <p>这时，你会说这看上去不太现实啊。如果一个库有 100G，那么我启动一个事务，MySQL 就要拷贝 100G 的数据出来，这个过程得多慢啊。可是，我平时的事务执行起来很快啊。</p>
 <p>实际上，我们并不需要拷贝出这 100G 的数据。我们先来看看这个快照是怎么实现的。</p>
-<p>InnoDB 里面每个事务有一个唯一的事务 ID，叫作 <code>transaction id</code>。它是在事务开始的时候向 InnoDB 的事务系统申请的，是按申请顺序严格递增的。</p>
-<p>而每行数据也都是有多个版本的。每次事务更新数据的时候，都会生成一个新的数据版本，并且把 <code>transaction id</code> 赋值给这个数据版本的事务 ID，记为 <code>row trx_id</code>。同时，旧的数据版本要保留，并且在新的数据版本中，能够有信息可以直接拿到它。</p>
+<p>InnoDB 里面每个事务有一个唯一的事务 ID，叫作 transaction id。它是在事务开始的时候向 InnoDB 的事务系统申请的，是按申请顺序严格递增的。</p>
+<p>而每行数据也都是有多个版本的。每次事务更新数据的时候，都会生成一个新的数据版本，并且把 transaction id 赋值给这个数据版本的事务 ID，记为 row trx_id。同时，旧的数据版本要保留，并且在新的数据版本中，能够有信息可以直接拿到它。</p>
 <p>也就是说，数据表中的一行记录，其实可能有多个版本 (row)，每个版本有自己的 <code>row trx_id</code>。</p>
 <p>如图 2 所示，就是一个记录被多个事务连续更新后的状态。</p>
 <div style="text-align:center"><img src="../../images/mysql45/8/图%202%20行状态变更图.png"><p><font color="gray">图 2 行状态变更图
@@ -908,7 +905,8 @@
   <span class="token identifier"><span class="token punctuation">`</span>c<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
   <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span><span class="token punctuation">)</span>
 <span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">INNODB</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t<span class="token punctuation">(</span>id<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t<span class="token punctuation">(</span>id<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="../../images/mysql45/8/%E5%9D%91.png"></p>
 <p>复现出来以后，请你再思考一下，在实际的业务开发中有没有可能碰到这种情况？你的应用代码会不会掉进这个“坑”里，你又是怎么解决的呢？</p>
@@ -917,7 +915,6 @@
 <p>确实是这样的，第二种方式是相对较好的。</p>
 <p>第一种方式（即：直接执行 delete from T limit 10000）里面，单个语句占用时间长，锁的时间也比较长；而且大事务还会导致主从延迟。</p>
 <p>第三种方式（即：在 20 个连接中同时执行 delete from T limit 500），会人为造成锁冲突。</p>
-<p><img src="../../images/mysql45/%E4%B8%81%E5%A5%87.jpg"></p>
 
                 
             </div>
@@ -1174,7 +1171,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-27
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-12-03
                         </span>
                         <span class="publish-author">
                             
@@ -1198,13 +1195,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/leetcode/739/">
+                <a href="/mysql45/7/">
                     <div class="card-image">
                         
+                        <img src="/../../images/mysql45/7/7.jpg" class="responsive-img" alt="07 | 行锁功过：怎么减少行锁对性能的影响？">
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="「力扣」第 739 题：每日温度（中等）">
-                        
-                        <span class="card-title">「力扣」第 739 题：每日温度（中等）</span>
+                        <span class="card-title">07 | 行锁功过：怎么减少行锁对性能的影响？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1215,27 +1211,19 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-11-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/LeetCode-%E7%83%AD%E9%A2%98-HOT-100/" class="post-category">
-                                    LeetCode 热题 HOT 100
+                            <a href="/categories/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/" class="post-category">
+                                    MySQL实战45讲
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/">
-                        <span class="chip bg-color">单调栈</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1376,7 +1364,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">337.8k</span>
+                        class="white-color">341.1k</span>
             
             
             
