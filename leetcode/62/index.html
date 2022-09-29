@@ -912,9 +912,8 @@
 </ul>
 <p>返回在四个方向（上、下、左、右）上行走时，从起始方格到结束方格的不同路径的数目。</p>
 <p><strong>每一个无障碍方格都要通过一次，但是一条路径中不能重复通过同一个方格。</strong></p>
-<p><strong>示例 1：</strong></p>
-
-<pre><strong>输入：</strong>[[1,0,0,0],[0,0,0,0],[0,0,2,-1]]
+<pre><strong>示例 1：</strong>
+<strong>输入：</strong>[[1,0,0,0],[0,0,0,0],[0,0,2,-1]]
 <strong>输出：</strong>2
 <strong>解释：</strong>我们有以下两条路径：
 1. (0,0),(0,1),(0,2),(0,3),(1,3),(1,2),(1,1),(1,0),(2,0),(2,1),(2,2)
@@ -969,7 +968,7 @@
         <span class="token punctuation">}</span>
         <span class="token comment">// 到达终点，判断是否经过所有的无障碍方格了</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>grid<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token punctuation">(</span>step <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>step <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token comment">// 已走过的标记为障碍</span>
         grid<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
