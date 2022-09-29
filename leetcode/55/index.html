@@ -732,7 +732,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5k
+                    5.2k
                 </div>
                 
 
@@ -1176,7 +1176,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="动态规划-剪枝（时间复杂度同上）"><a href="#动态规划-剪枝（时间复杂度同上）" class="headerlink" title="动态规划+剪枝（时间复杂度同上）"></a>动态规划+剪枝（时间复杂度同上）</h2><p>对于 $j_1 &lt; j_2$  ，如果 $f[j_1] \leq f[j_2]$ ，那么在 $i &gt; j_2$  之后，$j_1$  将永远不可能作为状态转移方程中最优的 $j$。这是因为 $f[j_2]$ 不劣于 $f[j_1]$，并且 $j_2$  的下标更大，满足限制的最远位置也大于 $j_1$ ，因此无论什么时候从 $j_1$  转移都不会比从 $j_2$  转移要优，因此我们可以将 $j_1$  从候选的 $j$ 值集合中永远的移除。<font color="red">这类题有一个专门的解法：单调队列，解法四将给出单调队列的代码。</font></p>
+<h2 id="动态规划-剪枝（复杂度同上）"><a href="#动态规划-剪枝（复杂度同上）" class="headerlink" title="动态规划+剪枝（复杂度同上）"></a>动态规划+剪枝（复杂度同上）</h2><p>对于 $j_1 &lt; j_2$  ，如果 $f[j_1] \leq f[j_2]$ ，那么在 $i &gt; j_2$  之后，$j_1$  将永远不可能作为状态转移方程中最优的 $j$。这是因为 $f[j_2]$ 不劣于 $f[j_1]$，并且 $j_2$  的下标更大，满足限制的最远位置也大于 $j_1$ ，因此无论什么时候从 $j_1$  转移都不会比从 $j_2$  转移要优，因此我们可以将 $j_1$  从候选的 $j$ 值集合中永远的移除。<font color="red">这类题有一个专门的解法：单调队列，解法四将给出单调队列的代码。</font></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxResult</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
@@ -1314,6 +1314,25 @@
         <span class="token keyword">return</span> dp<span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="进一步优化（复杂度同上）"><a href="#进一步优化（复杂度同上）" class="headerlink" title="进一步优化（复杂度同上）"></a>进一步优化（复杂度同上）</h2><p>事实上，我们能够发现上面的代码 dp 数组是可以省掉的，为了编码的方便，这次我们在前缀和数组中添加一个哨兵位。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">canReach</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token keyword">int</span> minJump<span class="token punctuation">,</span> <span class="token keyword">int</span> maxJump<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// pre[i] 表示 [0, i-1] 区间可达的位置数</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> pre <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment">// 预处理：[0, minJump-1] 区间内只有 0 位置可达</span>
+        <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>pre<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> minJump <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> minJump<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            pre<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> pre<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token char">'0'</span>
+                    <span class="token operator">&amp;&amp;</span> pre<span class="token punctuation">[</span>i <span class="token operator">-</span> minJump <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> pre<span class="token punctuation">[</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i <span class="token operator">-</span> maxJump<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                pre<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> pre<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">&gt;</span> pre<span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1796,7 +1815,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">354.9k</span>
+                        class="white-color">355.1k</span>
             
             
             
