@@ -1150,7 +1150,7 @@
 <li>&nbsp;<code>1 &lt;= nums.length, k &lt;= 10<sup>5</sup></code></li>
 <li><code>-10<sup>4</sup>&nbsp;&lt;= nums[i]&nbsp;&lt;= 10<sup>4</sup></code></li>
 </ul>
-<h2 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h2><p>我们用 <code>f[i]</code> 表示从下标 <code>0</code> 跳到下标 <code>i</code> 的最大得分，显然有如下的状态转移方程：</p>
+<h2 id="参考代码：动态规划（超时）"><a href="#参考代码：动态规划（超时）" class="headerlink" title="参考代码：动态规划（超时）"></a>参考代码：动态规划（超时）</h2><p>我们用 <code>f[i]</code> 表示从下标 <code>0</code> 跳到下标 <code>i</code> 的最大得分，显然有如下的状态转移方程：</p>
 <ul>
 <li>$f[i] = \max\limits_{\max(0, i-k) \leq j &lt; i} { f[j] } + \textit{nums}[i]$</li>
 </ul>
@@ -1176,7 +1176,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="动态规划-剪枝"><a href="#动态规划-剪枝" class="headerlink" title="动态规划+剪枝"></a>动态规划+剪枝</h2><p>对于 $j_1 &lt; j_2$  ，如果 $f[j_1] \leq f[j_2]$ ，那么在 $i &gt; j_2$  之后，$j_1$  将永远不可能作为状态转移方程中最优的 $j$。这是因为 $f[j_2]$ 不劣于 $f[j_1]$，并且 $j_2$  的下标更大，满足限制的最远位置也大于 $j_1$ ，因此无论什么时候从 $j_1$  转移都不会比从 $j_2$  转移要优，因此我们可以将 $j_1$  从候选的 $j$ 值集合中永远的移除。</p>
+<h2 id="动态规划-剪枝"><a href="#动态规划-剪枝" class="headerlink" title="动态规划+剪枝"></a>动态规划+剪枝</h2><p>对于 $j_1 &lt; j_2$  ，如果 $f[j_1] \leq f[j_2]$ ，那么在 $i &gt; j_2$  之后，$j_1$  将永远不可能作为状态转移方程中最优的 $j$。这是因为 $f[j_2]$ 不劣于 $f[j_1]$，并且 $j_2$  的下标更大，满足限制的最远位置也大于 $j_1$ ，因此无论什么时候从 $j_1$  转移都不会比从 $j_2$  转移要优，因此我们可以将 $j_1$  从候选的 $j$ 值集合中永远的移除。<font color="red">这类题有一个专门的解法：单调队列，解法四将给出单调队列的代码。</font></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxResult</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
