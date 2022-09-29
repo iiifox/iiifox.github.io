@@ -732,7 +732,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.9k
+                    5k
                 </div>
                 
 
@@ -1176,7 +1176,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="动态规划-剪枝"><a href="#动态规划-剪枝" class="headerlink" title="动态规划+剪枝"></a>动态规划+剪枝</h2><p>对于 $j_1 &lt; j_2$  ，如果 $f[j_1] \leq f[j_2]$ ，那么在 $i &gt; j_2$  之后，$j_1$  将永远不可能作为状态转移方程中最优的 $j$。这是因为 $f[j_2]$ 不劣于 $f[j_1]$，并且 $j_2$  的下标更大，满足限制的最远位置也大于 $j_1$ ，因此无论什么时候从 $j_1$  转移都不会比从 $j_2$  转移要优，因此我们可以将 $j_1$  从候选的 $j$ 值集合中永远的移除。<font color="red">这类题有一个专门的解法：单调队列，解法四将给出单调队列的代码。</font></p>
+<h2 id="动态规划-剪枝（时间复杂度同上）"><a href="#动态规划-剪枝（时间复杂度同上）" class="headerlink" title="动态规划+剪枝（时间复杂度同上）"></a>动态规划+剪枝（时间复杂度同上）</h2><p>对于 $j_1 &lt; j_2$  ，如果 $f[j_1] \leq f[j_2]$ ，那么在 $i &gt; j_2$  之后，$j_1$  将永远不可能作为状态转移方程中最优的 $j$。这是因为 $f[j_2]$ 不劣于 $f[j_1]$，并且 $j_2$  的下标更大，满足限制的最远位置也大于 $j_1$ ，因此无论什么时候从 $j_1$  转移都不会比从 $j_2$  转移要优，因此我们可以将 $j_1$  从候选的 $j$ 值集合中永远的移除。<font color="red">这类题有一个专门的解法：单调队列，解法四将给出单调队列的代码。</font></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxResult</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
@@ -1198,15 +1198,22 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="动态规划-贪心（最优）"><a href="#动态规划-贪心（最优）" class="headerlink" title="动态规划+贪心（最优）"></a>动态规划+贪心（最优）</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<h2 id="动态规划-贪心（最优）"><a href="#动态规划-贪心（最优）" class="headerlink" title="动态规划+贪心（最优）"></a>动态规划+贪心（最优）</h2><p>可以想一下为什么这个代码中的贪心策略是正确的的呢？其实关键就在于最外层循环最后的一个 if 判断。</p>
+<blockquote>
+<p>时间复杂度：$O(n)$</p>
+<p>空间复杂度：$O(n)$</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxResult</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
         dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
+        <span class="token comment">// dp[i] 的值将由位置 lastMaxIndex 决定</span>
+        <span class="token comment">// 换句话说，lastMaxIndex 是 [i-k,i-1] 中的“最优”位置</span>
         <span class="token keyword">int</span> lastMaxIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// 不满足限制，即不能由 lastMaxIndex 直接到 i</span>
+            <span class="token comment">// lastMaxIndex 已经不能直接确定 i （太远了）</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>lastMaxIndex <span class="token operator">&lt;</span> i <span class="token operator">-</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 lastMaxIndex <span class="token operator">=</span> i <span class="token operator">-</span> k<span class="token punctuation">;</span>
                 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> lastMaxIndex <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1216,14 +1223,14 @@
                 <span class="token punctuation">}</span>
             <span class="token punctuation">}</span>
             dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>lastMaxIndex<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token comment">// 不满足单调性</span>
+            <span class="token comment">// i 是一个比 lastMaxIndex 更优的位置</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;=</span> dp<span class="token punctuation">[</span>lastMaxIndex<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 lastMaxIndex <span class="token operator">=</span> i<span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> dp<span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="动态规划-单调队列"><a href="#动态规划-单调队列" class="headerlink" title="动态规划+单调队列"></a>动态规划+单调队列</h2><p>我们可以使用一个严格单调递减的队列存储所有的候选 <code>j</code> 值集合，这里严格单调递减的意思是：从队首到队尾的所有 <code>j</code> 值，它们的下标严格单调递增，而对应的 <code>f[j]</code> 值严格单调递减。这样一来，当我们枚举到 <code>i</code> 时，队首的 <code>j</code> 就是我们的最优转移。与优先队列类似，此时队首的 <code>j</code> 可能已经不满足限制，因此我们需要不断弹出队首元素，直到其满足限制为止。在转移完成之后，<code>i</code> 就是我们未来的一个候选 <code>j</code> 值，因此我们将 <code>i</code> 加入队尾，并且不断弹出队尾元素，直到队列为空或者队尾的 <code>j</code> 值满足 <code>f[j] &gt; f[i]</code>。</p>
 <blockquote>
@@ -1789,7 +1796,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">354.8k</span>
+                        class="white-color">354.9k</span>
             
             
             
