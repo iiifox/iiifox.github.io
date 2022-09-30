@@ -6,14 +6,12 @@
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 70 题：爬楼梯（简单）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
     <meta name="description" content="70. 爬楼梯题目描述假设你正在爬楼梯。需要 n&amp;nbsp;阶你才能到达楼顶。
-
 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
-
 示例 1：
 输入：n = 2
 输出：2
 解释：有两种方法可以爬到楼顶。
-1. 1 阶">
+1. 1 阶 +">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -767,14 +765,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-11
+                    2022-09-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    575
+                    567
                 </div>
                 
 
@@ -800,9 +798,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="70-爬楼梯"><a href="#70-爬楼梯" class="headerlink" title="70. 爬楼梯"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/climbing-stairs/">70. 爬楼梯</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>假设你正在爬楼梯。需要 <code>n</code>&nbsp;阶你才能到达楼顶。</p>
-
 <p>每次你可以爬 <code>1</code> 或 <code>2</code> 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
-
 <pre><strong>示例 1：</strong>
 <strong>输入：</strong>n = 2
 <strong>输出：</strong>2
@@ -818,20 +814,18 @@
 2. 1 阶 + 2 阶
 3. 2 阶 + 1 阶
 </pre>
-
-<p><strong>提示：</strong>
-</p><ul>
-    <li><code>1 &lt;= n &lt;= 45</code></li>
-</ul><p></p>
-
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 45</code></li>
+</ul>
 <h2 id="参考代码：斐波那契数列"><a href="#参考代码：斐波那契数列" class="headerlink" title="参考代码：斐波那契数列"></a>参考代码：斐波那契数列</h2><h3 id="方法一：通项公式"><a href="#方法一：通项公式" class="headerlink" title="方法一：通项公式"></a>方法一：通项公式</h3><p><code>f(1)=1,f(2)=2 f(n)=f(n-1)+f(n-2) </code></p>
 <p>由特征根法求得 $f(n)=\frac{1}{\sqrt{5}}(\frac{1+\sqrt{5}}{2})^{n+1}-\frac{1}{\sqrt{5}}(\frac{1-\sqrt{5}}{2})^{n+1}$</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">double</span> sqrt5 <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">// 用浮点数计算来实现，可能会产生精度误差。</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> sqrt5<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span>
-                <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> sqrt5<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> sqrt5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> sqrt5<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+                <span class="token operator">-</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> sqrt5<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> sqrt5<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -839,9 +833,8 @@
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// 1 &lt;= n &lt;= 45</span>
         <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -851,14 +844,14 @@
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> a<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="方法三：矩阵快速幂"><a href="#方法三：矩阵快速幂" class="headerlink" title="方法三：矩阵快速幂"></a>方法三：矩阵快速幂</h3><p><strong><font color="red">递推关系如下：</font></strong><br>$$<br>\left[ \begin{matrix} 1 &amp; 1 \\ 1 &amp; 0 \end{matrix} \right]<br>\left[ \begin{matrix} f(n) &amp; f(n-1) \\ f(n-1) &amp; f(n-2) \end{matrix} \right] =  \left[ \begin{matrix} f(n+1) &amp; f(n) \\ f(n) &amp; f(n-1) \end{matrix} \right]<br>$$<br>于是可是得出： $\left[ \begin{matrix} f(n) &amp; f(n-1) \\ f(n-1) &amp; f(n-2) \end{matrix} \right] =<br>\left[ \begin{matrix} 1 &amp; 1 \\ 1 &amp; 0 \end{matrix} \right] ^{n-1}<br>\left[ \begin{matrix} f(1) &amp; f(0) \\ f(0) &amp; f(-1) \end{matrix} \right] =<br>\left[ \begin{matrix} 1 &amp; 1 \\ 1 &amp; 0 \end{matrix} \right]^n $</p>
 <blockquote>
 <p>时间复杂度：$O(\log{n})$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token function">pow</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -1369,7 +1362,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">356.8k</span>
+                        class="white-color">356.7k</span>
             
             
             
