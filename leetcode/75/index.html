@@ -5,13 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 75 题：颜色分类（中等）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="「力扣」第 75 题：颜色分类
-链接
-
-题目描述：给定一个包含红色、白色和蓝色、共&amp;nbsp;n 个元素的数组
- &amp;nbsp;nums&amp;nbsp;，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
-
-我们使用整数">
+    <meta name="description" content="75. 颜色分类题目描述：给定一个包含红色、白色和蓝色、共&amp;nbsp;n 个元素的数组&amp;nbsp;nums&amp;nbsp;，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
+我们使用整数 0、&amp;nbsp;1 和 2 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -765,14 +760,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-21
+                    2022-09-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    360
+                    348
                 </div>
                 
 
@@ -797,18 +792,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-75-题：颜色分类"><a href="#「力扣」第-75-题：颜色分类" class="headerlink" title="「力扣」第 75 题：颜色分类"></a>「力扣」第 75 题：颜色分类</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sort-colors/">链接</a></li>
-</ul>
-<h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>给定一个包含红色、白色和蓝色、共&nbsp;<code>n</code><em> </em>个元素的数组
- <meta charset="UTF-8">&nbsp;<code>nums</code>&nbsp;，<strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank">原地</a></strong>对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。</p>
-
+                <h1 id="75-颜色分类"><a href="#75-颜色分类" class="headerlink" title="75. 颜色分类"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sort-colors/">75. 颜色分类</a></h1><h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>给定一个包含红色、白色和蓝色、共&nbsp;<code>n</code><em> </em>个元素的数组&nbsp;<code>nums</code>&nbsp;，<strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank">原地</a></strong>对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。</p>
 <p>我们使用整数 <code>0</code>、&nbsp;<code>1</code> 和 <code>2</code> 分别表示红色、白色和蓝色。</p>
-
 <p>必须在不使用库的sort函数的情况下解决这个问题。</p>
-
-<p>&nbsp;</p>
-
 <pre><strong>示例 1：</strong>
 <strong>输入：</strong>nums = [2,0,2,1,1,0]
 <strong>输出：</strong>[0,0,1,1,2,2]
@@ -818,39 +804,27 @@
 <strong>输入：</strong>nums = [2,0,1]
 <strong>输出：</strong>[0,1,2]
 </pre>
-
-<p>&nbsp;</p>
-
-<p> <strong>提示：</strong>
-</p><ul>
- <li><code>n == nums.length</code></li> 
- <li><code>1 &lt;= n &lt;= 300</code></li> 
- <li><code>nums[i]</code> 为 <code>0</code>、<code>1</code> 或 <code>2</code></li> 
-</ul><p></p>
-
-
-<p>&nbsp;</p>
-
-<p><strong>进阶：</strong>
-</p><ul> 
- <li>你可以不使用代码库中的排序函数来解决这道题吗？</li> 
- <li>你能想出一个仅使用常数空间的一趟扫描算法吗？</li> 
-</ul><p></p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：左右指针"><a href="#参考代码：左右指针" class="headerlink" title="参考代码：左右指针"></a>参考代码：左右指针</h3><blockquote>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>n == nums.length</code></li>
+<li><code>1 &lt;= n &lt;= 300</code></li>
+<li><code>nums[i]</code> 为 <code>0</code>、<code>1</code> 或 <code>2</code></li>
+</ul>
+<p><strong>进阶：</strong></p>
+<ul>
+<li>你可以不使用代码库中的排序函数来解决这道题吗？</li>
+<li>你能想出一个仅使用常数空间的一趟扫描算法吗？</li>
+</ul>
+<h2 id="参考代码：左右指针"><a href="#参考代码：左右指针" class="headerlink" title="参考代码：左右指针"></a>参考代码：左右指针</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sortColors</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">// 「荷兰国旗问题」：本题我们需要选取的 pivot = 1</span>
         <span class="token keyword">int</span> lt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> gt <span class="token operator">=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
+        
         <span class="token comment">// nums[0, lt) == 0</span>
         <span class="token comment">// nums[lt, i) == 1</span>
         <span class="token comment">// nums(gt, n-1] == 2</span>
@@ -871,14 +845,13 @@
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-
     
     <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> temp <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
         nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
         nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 

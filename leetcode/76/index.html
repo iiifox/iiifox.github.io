@@ -6,11 +6,9 @@
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 76 题：最小覆盖子串（困难）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
     <meta name="description" content="76. 最小覆盖子串题目描述给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 &#34;&#34; 。
-
 注意：
 
- 
- 对于 t 中重复字符，我们寻找的子字符串中">
+对于 t 中重复字符，我们寻找的子字符串中该字符数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -764,14 +762,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-20
+                    2022-09-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    805
+                    806
                 </div>
                 
 
@@ -797,14 +795,11 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="76-最小覆盖子串"><a href="#76-最小覆盖子串" class="headerlink" title="76. 最小覆盖子串"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-window-substring/">76. 最小覆盖子串</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个字符串 <code>s</code> 、一个字符串 <code>t</code> 。返回 <code>s</code> 中涵盖 <code>t</code> 所有字符的最小子串。如果 <code>s</code> 中不存在涵盖 <code>t</code> 所有字符的子串，则返回空字符串 <code>""</code> 。</p>
-
 <p><strong>注意：</strong></p>
-
-<ul> 
- <li>对于 <code>t</code> 中重复字符，我们寻找的子字符串中该字符数量必须不少于 <code>t</code> 中该字符数量。</li> 
- <li>如果 <code>s</code> 中存在这样的子串，我们保证它是唯一的答案。</li> 
+<ul>
+<li>对于 <code>t</code> 中重复字符，我们寻找的子字符串中该字符数量必须不少于 <code>t</code> 中该字符数量。</li>
+<li>如果 <code>s</code> 中存在这样的子串，我们保证它是唯一的答案。</li>
 </ul>
-
 <pre><strong>示例 1：</strong>
 <strong>输入：</strong>s = "ADOBECODEBANC", t = "ABC"
 <strong>输出：</strong>"BANC"
@@ -820,13 +815,11 @@
 <strong>输出:</strong> ""
 <strong>解释:</strong> t 中两个字符 'a' 均应包含在 s 的子串中，
 因此没有符合条件的子字符串，返回空字符串。</pre>
-
-<p><strong>提示：</strong>
-</p><ul> 
- <li><code>1 &lt;= s.length, t.length &lt;= 10<sup>5</sup></code></li> 
- <li><code>s</code> 和 <code>t</code> 由英文字母组成</li> 
-</ul><p></p>
-
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length, t.length &lt;= 10<sup>5</sup></code></li>
+<li><code>s</code> 和 <code>t</code> 由英文字母组成</li>
+</ul>
 <p><strong>进阶：</strong>你能设计一个在 <code>o(n)</code> 时间内解决此问题的算法吗？</p>
 <h2 id="参考代码：滑动窗口"><a href="#参考代码：滑动窗口" class="headerlink" title="参考代码：滑动窗口"></a>参考代码：滑动窗口</h2><p><strong><font color="red">思路分析：</font></strong></p>
 <ol>
@@ -843,7 +836,7 @@
 <p>时间复杂度：$O(m+n+58)$</p>
 <p>空间复杂度：$O(m+n+58)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">minWindow</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">String</span> t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">// 特判。（不是必须的）</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> t<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -852,7 +845,7 @@
 
         <span class="token comment">// s 和 t 由英文字母组成，'A' = 65 'z' = 122</span>
         <span class="token comment">// 窗口数组，统计当前窗口内 t 中存在的字符出现的次数</span>
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> window <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">58</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> window <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token char">'z'</span> <span class="token operator">-</span> <span class="token char">'A'</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token comment">// 统计字符串 t 中每个字符出现的次数</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> pattern <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">58</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> t<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
