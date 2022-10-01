@@ -761,7 +761,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-29
+                    2022-10-01
                 </div>
                 
 
@@ -824,7 +824,7 @@
 <li><code>1 &lt;= m, n &lt;= 100</code></li>
 <li>题目数据保证答案小于等于 <code>2 * 10<sup>9</sup></code></li>
 </ul>
-<h2 id="参考代码：组合数学"><a href="#参考代码：组合数学" class="headerlink" title="参考代码：组合数学"></a>参考代码：组合数学</h2><p>$C_{m+n-2}^{m-1} = {m+n-2 \choose m-1} = \frac {(m+n-2)!} {(m-1)!(n-1)!} = \frac{n-1+1}{1} \times \frac{n-1+2}{2} \times \cdots \times \frac{n-1+m-1}{m-1}$</p>
+<h2 id="参考代码：组合数学"><a href="#参考代码：组合数学" class="headerlink" title="参考代码：组合数学"></a>参考代码：组合数学</h2><p>$C_{m+n-2}^{m-1} = {m+n-2 \choose m-1} = \frac {(m+n-2)!} {(m-1)!(n-1)!} = \frac{m+n-2}{1} \times \frac{(m+n-2)-1}{2} \times \cdots \times \frac{(m+n-2)-(m-2)}{m-1}$</p>
 <p><strong>注意</strong>：此题本质其实是一个动态规划问题，即 <code>dp[i][j] = dp[i-1][j] + dp[i][j-1]</code> 。</p>
 <blockquote>
 <p>时间复杂度：$O(\min(m,n))$</p>
@@ -841,10 +841,10 @@
         
         <span class="token comment">// 题目数据保证答案小于等于 20 亿，但是最后一步是除法，可能会越界</span>
         <span class="token keyword">long</span> res <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token comment">// res 为 n-1+i 个不同元素中选 i 个的组合数</span>
+        <span class="token comment">// res 为 m+n-2 个不同元素中选 i 个的组合数</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment">// 注意不要写成 *=</span>
-            res <span class="token operator">=</span> res <span class="token operator">*</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">+</span> i<span class="token punctuation">)</span> <span class="token operator">/</span> i<span class="token punctuation">;</span>
+            res <span class="token operator">=</span> res <span class="token operator">*</span> <span class="token punctuation">(</span>m <span class="token operator">+</span> n <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">+</span> i<span class="token punctuation">)</span> <span class="token operator">/</span> i<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
