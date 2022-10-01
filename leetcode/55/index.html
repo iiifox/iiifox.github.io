@@ -763,14 +763,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-29
+                    2022-10-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.2k
+                    5.6k
                 </div>
                 
 
@@ -995,7 +995,6 @@
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     <span class="token keyword">return</span> step<span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
-                <span class="token keyword">int</span> v <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
                 <span class="token comment">// 下一步选择下标 i+1</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>visit<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     queue<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1007,6 +1006,7 @@
                     visit<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
                 <span class="token comment">// 下一步选择下标 j</span>
+                <span class="token keyword">int</span> v <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">:</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>visit<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1195,7 +1195,7 @@
 <p>即我们考虑是从下标 <code>j</code> 跳到下标 <code>i</code> 的，那么 <code>j</code> 与 <code>i</code> 的间隔不能超过 <code>k</code>，即 <code>i − k &lt;= j</code>；并且 <code>j</code> 不能超过边界，即 <code>j &gt;= 0</code>。</p>
 <p>边界条件为 <code>f[0]=nums[0]</code>，最终答案即为<code>f[n−1]</code>。</p>
 <blockquote>
-<p>时间复杂度：$O(n^2)$</p>
+<p>时间复杂度：$O(nk)$</p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
@@ -1214,7 +1214,10 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="动态规划-剪枝（复杂度同上）"><a href="#动态规划-剪枝（复杂度同上）" class="headerlink" title="动态规划+剪枝（复杂度同上）"></a>动态规划+剪枝（复杂度同上）</h2><p>对于 $j_1 &lt; j_2$  ，如果 $f[j_1] \leq f[j_2]$ ，那么在 $i &gt; j_2$  之后，$j_1$  将永远不可能作为状态转移方程中最优的 $j$。这是因为 $f[j_2]$ 不劣于 $f[j_1]$，并且 $j_2$  的下标更大，满足限制的最远位置也大于 $j_1$ ，因此无论什么时候从 $j_1$  转移都不会比从 $j_2$  转移要优，因此我们可以将 $j_1$  从候选的 $j$ 值集合中永远的移除。<font color="red">这类题有一个专门的解法：单调队列，解法四将给出单调队列的代码。</font></p>
+<h2 id="动态规划-剪枝（复杂度同上）"><a href="#动态规划-剪枝（复杂度同上）" class="headerlink" title="动态规划+剪枝（复杂度同上）"></a>动态规划+剪枝（复杂度同上）</h2><blockquote>
+<p>常规的动态规划似乎行不太通，基于下面的原因，我们可以让每次来到 <code>i</code> 位置时，<code>i</code> 都是已经是确定好了，并且在当前轮中可以由 <code>i</code> 位置更新的 <code>j</code> 给更新一下。</p>
+</blockquote>
+<p>对于 $j_1 &lt; j_2$  ，如果 $f[j_1] \leq f[j_2]$ ，那么在 $i &gt; j_2$  之后，$j_1$  将永远不可能作为状态转移方程中最优的 $j$。这是因为 $f[j_2]$ 不劣于 $f[j_1]$，并且 $j_2$  的下标更大，满足限制的最远位置也大于 $j_1$ ，因此无论什么时候从 $j_1$  转移都不会比从 $j_2$  转移要优，因此我们可以将 $j_1$  从候选的 $j$ 值集合中永远的移除。**<font color="red">这类题有一个专门的解法：单调队列，解法四将给出单调队列的代码。</font>**</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxResult</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
@@ -1222,7 +1225,7 @@
         <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>dp<span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token constant">MIN_VALUE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">int</span> right <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>i <span class="token operator">+</span> k<span class="token punctuation">,</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> right<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1236,7 +1239,10 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="动态规划-贪心（最优）"><a href="#动态规划-贪心（最优）" class="headerlink" title="动态规划+贪心（最优）"></a>动态规划+贪心（最优）</h2><p>可以想一下为什么这个代码中的贪心策略是正确的的呢？其实关键就在于最外层循环最后的一个 if 判断。</p>
+<h2 id="动态规划-贪心（最优）"><a href="#动态规划-贪心（最优）" class="headerlink" title="动态规划+贪心（最优）"></a>动态规划+贪心（最优）</h2><p><strong>首先我们想一下为什么解法二还不够好呢？</strong></p>
+<p>因为我们其实做了多余的更新。在遍历 <code>i</code> 的时候，尝试性的更新了 <code>j</code> ，但是 <code>j</code> 可能并不是最优，后续还需要再更新，<strong>我们能不能只更新一次就让 j 完成更新呢？</strong>当然可以！这种题其实是很典型的单调队列问题，但由于内置的数据结构其实还是比较“耗时”的，因此我们先给出一种贪心策略的解法，而在下一个解法中再给出标准的单调队列解法。</p>
+<p>读者需要知道的是，本解法其实是基于 <strong>动态规划+贪心+滑动窗口</strong> 的，因此我们其实可以将空间复杂度优化到 $O(k)$ ，但同时带来的问题是什么呢？我们此时不能使用数组了，而需要一个堆（优先队列）来实时维护窗口，这会导致时间复杂度上升到 $\max(n, k\log k)$ ，这并不是我们想要的结果，而且事实上内置的数据结构所谓的空间复杂度 $O(k)$ 所占用的内存其实很可能还会大于我们整形数组的 $O(n)$ 。</p>
+<p><strong><font color="red">可以想一下为什么这个代码中的贪心策略是正确的的呢？其实关键就在于最外层循环最后的一个 if 判断。</font></strong></p>
 <blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(n)$</p>
@@ -1853,7 +1859,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">356.7k</span>
+                        class="white-color">357.1k</span>
             
             
             
