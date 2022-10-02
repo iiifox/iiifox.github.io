@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>并查集代码模板</title>
+      <title>并查集代码模板（未完成）</title>
       <link href="/algo/union-find/"/>
       <url>/algo/union-find/</url>
       
@@ -632,9 +632,9 @@
       
         <tags>
             
-            <tag> 二叉树 </tag>
-            
             <tag> 动态规划 </tag>
+            
+            <tag> 二叉树 </tag>
             
             <tag> 深度优先搜索 </tag>
             
@@ -1705,9 +1705,9 @@
             
             <tag> 二叉树 </tag>
             
-            <tag> 广度优先搜索 </tag>
-            
             <tag> 深度优先搜索 </tag>
+            
+            <tag> 广度优先搜索 </tag>
             
         </tags>
       
