@@ -4,13 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「力扣」第 121 题：买卖股票的最佳时机（简单）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="「力扣」第 121 题：买卖股票的最佳时机
-链接
-「力扣」第 53 题：最大子数组和
-「力扣」第 309 题：最佳买卖股票时机含冷冻期
-
-题目描述给定一个数组 prices ，它的第&amp;nbsp;i 个元素&amp;nbsp;prices[i] 表示">
+    <meta name="keywords" content="「力扣」第 121 题：买卖股票的最佳时机（合集）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
+    <meta name="description" content="121. 买卖股票的最佳时机题目描述给定一个数组 prices ，它的第&amp;nbsp;i 个元素&amp;nbsp;prices[i] 表示一支给定股票第 i 天的价格。
+你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +20,7 @@
 
     
 
-    <title>「力扣」第 121 题：买卖股票的最佳时机（简单） | iiifox</title>
+    <title>「力扣」第 121 题：买卖股票的最佳时机（合集） | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -611,12 +607,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「力扣」第 121 题：买卖股票的最佳时机（简单）</h1>
+                    <h1 class="description center-align post-title">「力扣」第 121 题：买卖股票的最佳时机（合集）</h1>
                 </div>
             </div>
         </div>
@@ -736,6 +732,10 @@
                                 <span class="chip bg-color">动态规划</span>
                             </a>
                         
+                            <a href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/">
+                                <span class="chip bg-color">未完成</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -764,14 +764,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-10-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    415
+                    821
                 </div>
                 
 
@@ -796,55 +796,34 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-121-题：买卖股票的最佳时机"><a href="#「力扣」第-121-题：买卖股票的最佳时机" class="headerlink" title="「力扣」第 121 题：买卖股票的最佳时机"></a>「力扣」第 121 题：买卖股票的最佳时机</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/">链接</a></li>
-<li><a href="https://iiifox.github.io/leetcode/53/">「力扣」第 53 题：最大子数组和</a></li>
-<li><a href="https://iiifox.github.io/leetcode/309/">「力扣」第 309 题：最佳买卖股票时机含冷冻期</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个数组 <code>prices</code> ，它的第&nbsp;<code>i</code> 个元素&nbsp;<code>prices[i]</code> 表示一支给定股票第 <code>i</code> 天的价格。</p>
-
+                <h1 id="121-买卖股票的最佳时机"><a href="#121-买卖股票的最佳时机" class="headerlink" title="121. 买卖股票的最佳时机"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/">121. 买卖股票的最佳时机</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个数组 <code>prices</code> ，它的第&nbsp;<code>i</code> 个元素&nbsp;<code>prices[i]</code> 表示一支给定股票第 <code>i</code> 天的价格。</p>
 <p>你只能选择 <strong>某一天</strong> 买入这只股票，并选择在 <strong>未来的某一个不同的日子</strong> 卖出该股票。设计一个算法来计算你所能获取的最大利润。</p>
-
 <p>返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 <code>0</code> 。</p>
-
-<p>&nbsp;</p>
-
 <pre><strong>示例 1：</strong>
 <strong>输入：</strong>[7,1,5,3,6,4]
 <strong>输出：</strong>5
 <strong>解释：</strong>在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
      注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。
 </pre>
-
-
 <pre><strong>示例 2：</strong>
 <strong>输入：</strong>prices = [7,6,4,3,1]
 <strong>输出：</strong>0
 <strong>解释：</strong>在这种情况下, 没有交易完成, 所以最大利润为 0。
 </pre>
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong>
-</p><ul> 
- <li><code>1 &lt;= prices.length &lt;= 10<sup>5</sup></code></li> 
- <li><code>0 &lt;= prices[i] &lt;= 10<sup>4</sup></code></li> 
-</ul><p></p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h3><blockquote>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= prices.length &lt;= 10<sup>5</sup></code></li>
+<li><code>0 &lt;= prices[i] &lt;= 10<sup>4</sup></code></li>
+</ul>
+<h2 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h2><p>你可能会好奇，这怎么也是动态规划？是的，这就是动态规划，其中 <code>dp[i]</code> 记录 <code>prices</code> 在区间 <code>[0, i)</code> 中的最小值，只不过使用了滚动数组思想对空间进行了优化。</p>
+<blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxProfit</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token comment">// 记录历史最低价格。0 &lt;= prices[i] &lt;= 10^4</span>
         <span class="token keyword">int</span> minPrice <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token constant">MAX_VALUE</span><span class="token punctuation">;</span>
-        
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> price <span class="token operator">:</span> prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment">// 判断是否需要更新历史最低价格</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>price <span class="token operator">&lt;</span> minPrice<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -856,7 +835,53 @@
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="122-买卖股票的最佳时机-II"><a href="#122-买卖股票的最佳时机-II" class="headerlink" title="122. 买卖股票的最佳时机 II"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/">122. 买卖股票的最佳时机 II</a></h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数数组 <code>prices</code> ，其中&nbsp;<code>prices[i]</code> 表示某支股票第 <code>i</code> 天的价格。</p>
+<p>在每一天，你可以决定是否购买和/或出售股票。你在任何时候&nbsp;<strong>最多</strong>&nbsp;只能持有 <strong>一股</strong> 股票。你也可以先购买，然后在 <strong>同一天</strong> 出售。</p>
+<p>返回你能获得的 <strong>最大</strong> 利润&nbsp;。</p>
+<pre><strong>示例 1：</strong>
+<strong>输入：</strong>prices = [7,1,5,3,6,4]
+<strong>输出：</strong>7
+<strong>解释：</strong>在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4 。
+&nbsp;    随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6 - 3 = 3 。
+     总利润为 4 + 3 = 7 。
+</pre>
+
+<pre><strong>示例 2：</strong>
+<strong>输入：</strong>prices = [1,2,3,4,5]
+<strong>输出：</strong>4
+<strong>解释：</strong>在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4 。
+&nbsp;    总利润为 4 。
+</pre>
+
+<pre><strong>示例&nbsp;3：</strong>
+<strong>输入：</strong>prices = [7,6,4,3,1]
+<strong>输出：</strong>0
+<strong>解释：</strong>在这种情况下, 交易无法获得正利润，所以不参与交易可以获得最大利润，最大利润为 0 。
+</pre>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= prices.length &lt;= 3 * 10<sup>4</sup></code></li>
+<li><code>0 &lt;= prices[i] &lt;= 10<sup>4</sup></code></li>
+</ul>
+<h2 id="参考代码：贪心"><a href="#参考代码：贪心" class="headerlink" title="参考代码：贪心"></a>参考代码：贪心</h2><blockquote>
+<p>时间复杂度：$O(n)$</p>
+<p>空间复杂度：$O(1)$</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxProfit</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> prices<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> prices<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                res <span class="token operator">+=</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> prices<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -924,6 +949,10 @@
                             
                                 <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
                                     <span class="chip bg-color">动态规划</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/">
+                                    <span class="chip bg-color">未完成</span>
                                 </a>
                             
                         </div>
@@ -1339,7 +1368,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">358k</span>
+                        class="white-color">358.9k</span>
             
             
             
