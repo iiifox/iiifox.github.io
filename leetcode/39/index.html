@@ -759,7 +759,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-01
+                    2022-10-02
                 </div>
                 
 
@@ -817,9 +817,9 @@
 <li><code>candidate</code> 中的每个元素都 <strong>互不相同</strong></li>
 <li><code>1 &lt;= target &lt;= 500</code></li>
 </ul>
-<h2 id="参考代码：回溯"><a href="#参考代码：回溯" class="headerlink" title="参考代码：回溯"></a>参考代码：回溯</h2><p><strong>什么时候使用 <code>visit</code> 数组，什么时候使用 <code>begin</code> 变量？</strong></p>
+<h2 id="参考代码：回溯"><a href="#参考代码：回溯" class="headerlink" title="参考代码：回溯"></a>参考代码：回溯</h2><p><strong>什么时候使用 visited 数组，什么时候使用 begin 变量？</strong></p>
 <ul>
-<li><p><strong>排列问题，讲究顺序</strong>（即 [2, 2, 3] 与 [2, 3, 2] 视为不同列表时），需要记录哪些数字已经使用过，此时用 <code>visit</code> 数组；</p>
+<li><p><strong>排列问题，讲究顺序</strong>（即 [2, 2, 3] 与 [2, 3, 2] 视为不同列表时），需要记录哪些数字已经使用过，此时用 <code>visited</code> 数组；</p>
 </li>
 <li><p><strong>组合问题，不讲究顺序</strong>（即 [2, 2, 3] 与 [2, 3, 2] 视为相同列表时），需要按照某种顺序搜索，此时使用 <code>begin</code> 变量。</p>
 </li>

@@ -824,7 +824,7 @@
 <li><code>board</code> 和 <code>word</code> 仅由大小写英文字母组成</li>
 </ul>
 <p><strong>进阶：</strong>你可以使用搜索剪枝的技术来优化解决方案，使其在 <code>board</code> 更大的情况下可以更快解决问题？</p>
-<h2 id="参考代码：回溯"><a href="#参考代码：回溯" class="headerlink" title="参考代码：回溯"></a>参考代码：回溯</h2><p><strong><font color="red">为什么没有使用 visit 数组来做访问标记？</font></strong></p>
+<h2 id="参考代码：回溯"><a href="#参考代码：回溯" class="headerlink" title="参考代码：回溯"></a>参考代码：回溯</h2><p><strong><font color="red">为什么没有使用 visited 数组来做访问标记？</font></strong></p>
 <p>节省空间。</p>
 <p><strong><font color="red">在 dfs 方法中为什么要定义一个 boolean 变量，不是有一个方向可行就能直接返回 true 吗？</font></strong></p>
 <p>直接返回确实可以得到正确的结果，这里没有直接返回是为了保证不修改 <code>board</code> 数组（用此代替了 visit 数组的标记功能），但为了实现这一功能，我们新带来的问题是什么？效率问题！可以看到，为了方便编码，方向的选取我们的使用的是一维数组，而这不能够提前终止（如果直接将方向写死，可以直接四个方向的结果进行短路或运算，这能减少不必要的判断，即得到一个 true 就没必要看后面的了）。也许你会说，这也可以呀，直接去掉 for，写死就行，但那又降低了可读性且容易出错，如果这样，为什么不直接写死？因此我们采取的是，遇到一个 true，提前 break，这很简单，但是你要想清楚，为什么能够这样呢？因为 <strong>遇到 true 了，说明这个方向后面所有的位置都能够匹配上</strong>，这也是递归最大的好处。</p>
