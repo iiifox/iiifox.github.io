@@ -765,14 +765,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-30
+                    2022-10-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    567
+                    552
                 </div>
                 
 
@@ -818,7 +818,7 @@
 <ul>
 <li><code>1 &lt;= n &lt;= 45</code></li>
 </ul>
-<h2 id="参考代码：斐波那契数列"><a href="#参考代码：斐波那契数列" class="headerlink" title="参考代码：斐波那契数列"></a>参考代码：斐波那契数列</h2><h3 id="方法一：通项公式"><a href="#方法一：通项公式" class="headerlink" title="方法一：通项公式"></a>方法一：通项公式</h3><p><code>f(1)=1,f(2)=2 f(n)=f(n-1)+f(n-2) </code></p>
+<h2 id="参考代码：通项公式"><a href="#参考代码：通项公式" class="headerlink" title="参考代码：通项公式"></a>参考代码：通项公式</h2><p><code>f(1)=1,f(2)=2 f(n)=f(n-1)+f(n-2) </code></p>
 <p>由特征根法求得 $f(n)=\frac{1}{\sqrt{5}}(\frac{1+\sqrt{5}}{2})^{n+1}-\frac{1}{\sqrt{5}}(\frac{1-\sqrt{5}}{2})^{n+1}$</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -829,7 +829,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="方法二：动态规划"><a href="#方法二：动态规划" class="headerlink" title="方法二：动态规划"></a>方法二：动态规划</h3><blockquote>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
@@ -846,7 +846,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="方法三：矩阵快速幂"><a href="#方法三：矩阵快速幂" class="headerlink" title="方法三：矩阵快速幂"></a>方法三：矩阵快速幂</h3><p><strong><font color="red">递推关系如下：</font></strong><br>$$<br>\left[ \begin{matrix} 1 &amp; 1 \\ 1 &amp; 0 \end{matrix} \right]<br>\left[ \begin{matrix} f(n) &amp; f(n-1) \\ f(n-1) &amp; f(n-2) \end{matrix} \right] =  \left[ \begin{matrix} f(n+1) &amp; f(n) \\ f(n) &amp; f(n-1) \end{matrix} \right]<br>$$<br>于是可是得出： $\left[ \begin{matrix} f(n) &amp; f(n-1) \\ f(n-1) &amp; f(n-2) \end{matrix} \right] =<br>\left[ \begin{matrix} 1 &amp; 1 \\ 1 &amp; 0 \end{matrix} \right] ^{n-1}<br>\left[ \begin{matrix} f(1) &amp; f(0) \\ f(0) &amp; f(-1) \end{matrix} \right] =<br>\left[ \begin{matrix} 1 &amp; 1 \\ 1 &amp; 0 \end{matrix} \right]^n $</p>
+<h2 id="矩阵快速幂"><a href="#矩阵快速幂" class="headerlink" title="矩阵快速幂"></a>矩阵快速幂</h2><p><strong><font color="red">递推关系如下：</font></strong><br>$$<br>\left[ \begin{matrix} 1 &amp; 1 \\ 1 &amp; 0 \end{matrix} \right]<br>\left[ \begin{matrix} f(n) &amp; f(n-1) \\ f(n-1) &amp; f(n-2) \end{matrix} \right] =  \left[ \begin{matrix} f(n+1) &amp; f(n) \\ f(n) &amp; f(n-1) \end{matrix} \right]<br>$$<br>于是可是得出： $\left[ \begin{matrix} f(n) &amp; f(n-1) \\ f(n-1) &amp; f(n-2) \end{matrix} \right] =<br>\left[ \begin{matrix} 1 &amp; 1 \\ 1 &amp; 0 \end{matrix} \right] ^{n-1}<br>\left[ \begin{matrix} f(1) &amp; f(0) \\ f(0) &amp; f(-1) \end{matrix} \right] =<br>\left[ \begin{matrix} 1 &amp; 1 \\ 1 &amp; 0 \end{matrix} \right]^n $</p>
 <blockquote>
 <p>时间复杂度：$O(\log{n})$</p>
 <p>空间复杂度：$O(1)$</p>
@@ -1362,7 +1362,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">359.3k</span>
+                        class="white-color">359.2k</span>
             
             
             

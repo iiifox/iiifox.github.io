@@ -760,7 +760,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-02
+                    2022-10-03
                 </div>
                 
 
@@ -939,7 +939,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
 <li><code>-2<sup>31</sup> &lt;= value &lt;= 2<sup>31</sup> - 1</code></li>
 <li>最多调用 <code>10<sup>4</sup></code> 次 <code>add</code> 和 <code>find</code></li>
 </ul>
-<h2 id="方法一：双指针-二分查找优化"><a href="#方法一：双指针-二分查找优化" class="headerlink" title="方法一：双指针 + 二分查找优化"></a>方法一：双指针 + 二分查找优化</h2><blockquote>
+<h2 id="参考代码：双指针-二分查找优化"><a href="#参考代码：双指针-二分查找优化" class="headerlink" title="参考代码：双指针 + 二分查找优化"></a>参考代码：双指针 + 二分查找优化</h2><blockquote>
 <p>时间复杂度：<code>add:O(1) find:O(nlogn)</code></p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
@@ -977,7 +977,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="方法二：哈希表"><a href="#方法二：哈希表" class="headerlink" title="方法二：哈希表"></a>方法二：哈希表</h2><blockquote>
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><blockquote>
 <p>时间复杂度：<code>add:O(1) find:O(n)</code></p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
@@ -1046,7 +1046,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
  * }
  */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="方法一：深度优先搜索"><a href="#方法一：深度优先搜索" class="headerlink" title="方法一：深度优先搜索"></a>方法一：深度优先搜索</h2><blockquote>
+<h2 id="参考代码：深度优先搜索"><a href="#参考代码：深度优先搜索" class="headerlink" title="参考代码：深度优先搜索"></a>参考代码：深度优先搜索</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
@@ -1065,7 +1065,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="方法二：指针寻找二叉搜索树结点的前驱者与后继者"><a href="#方法二：指针寻找二叉搜索树结点的前驱者与后继者" class="headerlink" title="方法二：指针寻找二叉搜索树结点的前驱者与后继者"></a>方法二：指针寻找二叉搜索树结点的前驱者与后继者</h2><p>其中 <code>successor</code> 方法在 LeetCode 有原题 <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/inorder-successor-in-bst/">285. 二叉搜索树中的中序后继</a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/P5rCT8/">剑指 Offer II 053. 二叉搜索树中的中序后继</a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/successor-lcci/">面试题 04.06. 后继者</a>。</p>
+<h2 id="指针寻找二叉搜索树结点的前驱者与后继者"><a href="#指针寻找二叉搜索树结点的前驱者与后继者" class="headerlink" title="指针寻找二叉搜索树结点的前驱者与后继者"></a>指针寻找二叉搜索树结点的前驱者与后继者</h2><p>其中 <code>successor</code> 方法在 LeetCode 有原题 <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/inorder-successor-in-bst/">285. 二叉搜索树中的中序后继</a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/P5rCT8/">剑指 Offer II 053. 二叉搜索树中的中序后继</a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/successor-lcci/">面试题 04.06. 后继者</a>。</p>
 <blockquote>
 <p>时间复杂度：$O(n^2)$</p>
 <p>空间复杂度：$O(1)$</p>
@@ -1150,7 +1150,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="方法三：栈寻找二叉搜索树结点的前驱者与后继者"><a href="#方法三：栈寻找二叉搜索树结点的前驱者与后继者" class="headerlink" title="方法三：栈寻找二叉搜索树结点的前驱者与后继者"></a>方法三：栈寻找二叉搜索树结点的前驱者与后继者</h2><blockquote>
+<h2 id="栈寻找二叉搜索树结点的前驱者与后继者"><a href="#栈寻找二叉搜索树结点的前驱者与后继者" class="headerlink" title="栈寻找二叉搜索树结点的前驱者与后继者"></a>栈寻找二叉搜索树结点的前驱者与后继者</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
@@ -1673,7 +1673,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">359.3k</span>
+                        class="white-color">359.2k</span>
             
             
             
