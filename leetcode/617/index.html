@@ -5,12 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 617 题：合并二叉树（简单）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="「力扣」第 617 题：合并二叉树
-链接
-
-题目描述给你两棵二叉树： root1 和 root2 。
-
-想象一下，当你将其中一棵覆盖到另一棵之上时，两棵树上的一些节点将会重叠（而另一些不会）。你需要将这两棵树合并成一棵新二叉树。合并的规则是">
+    <meta name="description" content="617. 合并二叉树题目描述给你两棵二叉树： root1 和 root2 。
+想象一下，当你将其中一棵覆盖到另一棵之上时，两棵树上的一些节点将会重叠（而另一些不会）。你需要将这两棵树合并成一棵新二叉树。合并的规则是：如果两个节点重叠，那么将">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -768,14 +764,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-10-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    347
+                    335
                 </div>
                 
 
@@ -800,19 +796,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-617-题：合并二叉树"><a href="#「力扣」第-617-题：合并二叉树" class="headerlink" title="「力扣」第 617 题：合并二叉树"></a>「力扣」第 617 题：合并二叉树</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-two-binary-trees/">链接</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你两棵二叉树： <code>root1</code> 和 <code>root2</code> 。</p>
-
+                <h1 id="617-合并二叉树"><a href="#617-合并二叉树" class="headerlink" title="617. 合并二叉树"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-two-binary-trees/">617. 合并二叉树</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你两棵二叉树： <code>root1</code> 和 <code>root2</code> 。</p>
 <p>想象一下，当你将其中一棵覆盖到另一棵之上时，两棵树上的一些节点将会重叠（而另一些不会）。你需要将这两棵树合并成一棵新二叉树。合并的规则是：如果两个节点重叠，那么将这两个节点的值相加作为合并后节点的新值；否则，<strong>不为</strong> null 的节点将直接作为新二叉树的节点。</p>
-
 <p>返回合并后的二叉树。</p>
-
 <p><strong>注意:</strong> 合并过程必须从两个树的根节点开始。</p>
-
-<p>&nbsp;</p>
-
 <pre><strong>示例 1：</strong> 
 <img alt="" src="../../images/leetcode/617/merge.jpg" style="height: 163px; width: 600px;"> 
 <strong>输入：</strong>root1 = [1,3,2,5], root2 = [2,1,3,null,4,null,7]
@@ -823,17 +810,11 @@
 <strong>输入：</strong>root1 = [1], root2 = [1,2]
 <strong>输出：</strong>[2,2]
 </pre>
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong>
-</p><ul> 
- <li>两棵树中的节点数目在范围 <code>[0, 2000]</code> 内</li> 
- <li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li> 
-</ul><p></p>
-
-<p>&nbsp;</p>
-
+<p><strong>提示：</strong></p>
+<ul>
+<li>两棵树中的节点数目在范围 <code>[0, 2000]</code> 内</li>
+<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
+</ul>
 <p><strong>二叉树结点定义</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * Definition for a binary tree node.
@@ -851,15 +832,11 @@
  * }
  */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：深度优先搜索"><a href="#参考代码：深度优先搜索" class="headerlink" title="参考代码：深度优先搜索"></a>参考代码：深度优先搜索</h3><blockquote>
+<h2 id="参考代码：深度优先搜索"><a href="#参考代码：深度优先搜索" class="headerlink" title="参考代码：深度优先搜索"></a>参考代码：深度优先搜索</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token class-name">TreeNode</span> <span class="token function">mergeTrees</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root1<span class="token punctuation">,</span> <span class="token class-name">TreeNode</span> root2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>root1 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span> root2<span class="token punctuation">;</span>
@@ -868,10 +845,10 @@
             <span class="token keyword">return</span> root1<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
 
-        <span class="token class-name">TreeNode</span> merged <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeNode</span><span class="token punctuation">(</span>root1<span class="token punctuation">.</span>val <span class="token operator">+</span> root2<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">TreeNode</span> root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeNode</span><span class="token punctuation">(</span>root1<span class="token punctuation">.</span>val <span class="token operator">+</span> root2<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
         merged<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token function">mergeTrees</span><span class="token punctuation">(</span>root1<span class="token punctuation">.</span>left<span class="token punctuation">,</span> root2<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
         merged<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token function">mergeTrees</span><span class="token punctuation">(</span>root1<span class="token punctuation">.</span>right<span class="token punctuation">,</span> root2<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> merged<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> root<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -1356,7 +1333,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">359.1k</span>
+                        class="white-color">359.3k</span>
             
             
             

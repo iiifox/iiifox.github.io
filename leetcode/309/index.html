@@ -5,12 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 309 题：最佳买卖股票时机含冷冻期（中等）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="「力扣」第 309 题：最佳买卖股票时机含冷冻期
-链接
-「力扣」第 121 题：买卖股票的最佳时机
-
-题目描述给定一个整数数组
- prices，其中第&amp;nbsp;&amp;nbsp;prices[i]&amp;nbsp;表示第&amp;nbsp;i&amp;nbsp;天的">
+    <meta name="description" content="309. 最佳买卖股票时机含冷冻期题目描述给定一个整数数组 prices，其中第&amp;nbsp;prices[i]&amp;nbsp;表示第&amp;nbsp;i&amp;nbsp;天的股票价格 。
+设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -764,14 +760,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-10-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    667
+                    635
                 </div>
                 
 
@@ -796,23 +792,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-309-题：最佳买卖股票时机含冷冻期"><a href="#「力扣」第-309-题：最佳买卖股票时机含冷冻期" class="headerlink" title="「力扣」第 309 题：最佳买卖股票时机含冷冻期"></a>「力扣」第 309 题：最佳买卖股票时机含冷冻期</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/">链接</a></li>
-<li><a href="https://iiifox.github.io/leetcode/121/">「力扣」第 121 题：买卖股票的最佳时机</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数数组
- <meta charset="UTF-8"><code>prices</code>，其中第&nbsp;<em>&nbsp;</em><code>prices[i]</code>&nbsp;表示第&nbsp;<code><em>i</em></code>&nbsp;天的股票价格 。​</p>
-
+                <h1 id="309-最佳买卖股票时机含冷冻期"><a href="#309-最佳买卖股票时机含冷冻期" class="headerlink" title="309. 最佳买卖股票时机含冷冻期"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/">309. 最佳买卖股票时机含冷冻期</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个整数数组 <code>prices</code>，其中第&nbsp;<code>prices[i]</code>&nbsp;表示第&nbsp;<code>i</code>&nbsp;天的股票价格 。</p>
 <p>设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:</p>
-
-<ul> 
- <li>卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。</li> 
+<ul>
+<li>卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。</li>
 </ul>
-
 <p><strong>注意：</strong>你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。</p>
-
-<p>&nbsp;</p>
-
 <pre><strong>示例 1:</strong>
 <strong>输入:</strong> prices = [1,2,3,0,2]
 <strong>输出: </strong>3 
@@ -823,20 +808,12 @@
 <strong>输入:</strong> prices = [1]
 <strong>输出:</strong> 0
 </pre>
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong>
-</p><ul> 
- <li><code>1 &lt;= prices.length &lt;= 5000</code></li> 
- <li><code>0 &lt;= prices[i] &lt;= 1000</code></li> 
-</ul><p></p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h3><p>我们用 <code>dp[i]</code> 表示 <strong>第 i 天结束之后</strong> 的「累计最大收益」。根据题目描述，由于我们最多只能同时买入（持有）一支股票，并且卖出股票后有冷冻期的限制，因此我们会有三种不同的状态：</p>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= prices.length &lt;= 5000</code></li>
+<li><code>0 &lt;= prices[i] &lt;= 1000</code></li>
+</ul>
+<h2 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h2><p>我们用 <code>dp[i]</code> 表示 <strong>第 i 天结束之后</strong> 的「累计最大收益」。根据题目描述，由于我们最多只能同时买入（持有）一支股票，并且卖出股票后有冷冻期的限制，因此我们会有三种不同的状态：</p>
 <ul>
 <li><p>我们目前持有一支股票，对应的「累计最大收益」记为 <code>dp[i][0]</code>；</p>
 </li>
@@ -856,9 +833,8 @@
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxProfit</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> prices<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// 1 &lt;= prices.length &lt;= 5000</span>
         <span class="token comment">// 持有一支股票</span>
         <span class="token keyword">int</span> dp0 <span class="token operator">=</span> <span class="token operator">-</span>prices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token comment">// 不持有任何股票，并且处于冷冻期</span>
@@ -879,7 +855,7 @@
         <span class="token comment">// 显然 dp0 &lt;= max(dp1,dp2)</span>
         <span class="token keyword">return</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp1<span class="token punctuation">,</span> dp2<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1358,7 +1334,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">359.1k</span>
+                        class="white-color">359.3k</span>
             
             
             

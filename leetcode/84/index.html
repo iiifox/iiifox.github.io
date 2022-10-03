@@ -5,15 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 84 题：柱状图中最大的矩形（困难）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="「力扣」第 84 题：柱状图中最大的矩形
-链接
-「力扣」第 85 题：最大矩形
-
-题目描述给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
-
+    <meta name="description" content="84. 柱状图中最大的矩形题目描述给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
 求在该柱状图中，能够勾勒出来的矩形的最大面积。
+示例 1:
 
-&amp;nbs">
+输入：heights = [2,1,5,6,2,3]
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -767,14 +764,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-22
+                    2022-10-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    878
+                    1.1k
                 </div>
                 
 
@@ -799,16 +796,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-84-题：柱状图中最大的矩形"><a href="#「力扣」第-84-题：柱状图中最大的矩形" class="headerlink" title="「力扣」第 84 题：柱状图中最大的矩形"></a>「力扣」第 84 题：柱状图中最大的矩形</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/largest-rectangle-in-histogram/">链接</a></li>
-<li><a href="https://iiifox.github.io/leetcode/85/">「力扣」第 85 题：最大矩形</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定 <em>n</em> 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>
-
+                <h1 id="84-柱状图中最大的矩形"><a href="#84-柱状图中最大的矩形" class="headerlink" title="84. 柱状图中最大的矩形"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/largest-rectangle-in-histogram/">84. 柱状图中最大的矩形</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>
 <p>求在该柱状图中，能够勾勒出来的矩形的最大面积。</p>
-
-<p>&nbsp;</p>
-
 <pre><strong>示例 1:</strong>
 <img src="../../images/leetcode/84/histogram.jpg">
 <strong>输入：</strong>heights = [2,1,5,6,2,3]
@@ -820,43 +809,31 @@
 <img src="../../images/leetcode/84/histogram-1.jpg">
 <strong>输入：</strong> heights = [2,4]
 <b>输出：</b> 4</pre>
-
-
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong>
-</p><ul> 
- <li><code>1 &lt;= heights.length &lt;=10<sup>5</sup></code></li> 
- <li><code>0 &lt;= heights[i] &lt;= 10<sup>4</sup></code></li> 
-</ul><p></p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：单调栈"><a href="#参考代码：单调栈" class="headerlink" title="参考代码：单调栈"></a>参考代码：单调栈</h3><p><strong><font color="red">我们归纳一下枚举「高」的方法：</font></strong></p>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= heights.length &lt;=10<sup>5</sup></code></li>
+<li><code>0 &lt;= heights[i] &lt;= 10<sup>4</sup></code></li>
+</ul>
+<h2 id="参考代码：单调栈"><a href="#参考代码：单调栈" class="headerlink" title="参考代码：单调栈"></a>参考代码：单调栈</h2><p><strong><font color="red">我们归纳一下枚举「高」的方法：</font></strong></p>
 <ul>
 <li><p>首先我们枚举某一根柱子 <code>i</code> 作为高 <code>h = heights[i]</code> ；</p>
 </li>
-<li><p>随后我们需要进行向左右两边扩展，使得扩展到的柱子的高度均不小于 <code>h</code> 。换句话说，我们需要找到左右两侧最近的高度小于 <code>h</code> 的柱子，这样这两根柱子之间（不包括其本身）的所有柱子高度均不小于 <code>h</code> ，并且就是 <code>i</code> 能够扩展到的最远范围。</p>
+<li><p>随后我们需要进行向左右两边扩展，使得扩展到的柱子的高度均不低于 <code>h</code> 。换句话说，我们需要找到左右两侧最近的高度小于 <code>h</code> 的柱子，这样这两根柱子之间（不包括其本身）的所有柱子高度均不小于 <code>h</code> ，并且就是 <code>i</code> 能够扩展到的最远范围。</p>
 </li>
 </ul>
 <p><strong>在一维数组中对每一个数找到<strong><font color="gree">（左边、右边）</font></strong>第一个比自己小的元素。这类“在一维数组中找第一个满足某种条件的数”的场景就是典型的单调栈应用场景。</strong></p>
-<hr>
-
 <p><strong><font color="blue">一个小细节的说明：</font></strong></p>
 <ul>
-<li>常规单调栈处理的是 <strong>无重复元素</strong> 的数组，对于有重复元素的处理我们需要将栈的泛型设置为一个 <code>List</code> </li>
+<li>常规单调栈处理的是 <strong>无重复元素</strong> 的数组，对于有重复元素的处理我们需要将栈的泛型设置为一个 <code>List</code> 。</li>
 </ul>
 <p>对于本题，我们需要的是 <strong>计算矩形的最大面积</strong> ，而不需要准确的知道每一根柱子左右扩散能达到的最远范围。</p>
 <p><strong><font color="purple">注意到这一点，我们能发现：</font></strong> 当我们对当前柱子 <code>i</code> 向右扩展，如果遇到与当前柱子高度一样的柱子 <code>j1、j2、j3...jk</code> 。这个时候柱子 <code>j1、j2、j3...、jk</code> 左右扩展对应的最大矩形面积和柱子 <code>i</code> 其实是一样的。因此，我们只需要这 <code>k + 1</code> 根柱子中有一根扩展的最大矩形面积是真实的（ <strong>其他的可以更小，但是不能更大</strong> ）。</p>
-<p>为此，我们将常规的弹栈条件设置为 <code>heights[stack.peek()] &gt;= heights[i]</code> ，针对于相等的 <code>k + 1</code> 根柱子来说，它们的左边界都真实的确定了，其中最后一根柱子 <code>jk</code> 的右边界也真实的确定了（ <strong>其他的 <code>k</code> 根计算小了</strong> ）。</p>
+<p>为此，我们将常规的弹栈条件设置为 <code>heights[stack.peek()] &gt;= heights[i]</code> ，针对于相等的 <code>k + 1</code> 根柱子来说，它们的左边界都真实的确定了，其中最后一根柱子 <code>jk</code> 的右边界也真实的确定了（ <strong>其他的 k 根计算小了</strong> ）。</p>
 <blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">largestRectangleArea</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> heights<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> n <span class="token operator">=</span> heights<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
         <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -866,9 +843,9 @@
         <span class="token comment">// 「哨兵」，无限低的柱子。</span>
         stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// 栈非空并且栈顶元素大于(等于)当前元素，说明需要弹出栈顶元素</span>
+            <span class="token comment">// 要找下一个更低的柱子，遇到更低（或相等，只有本题可以相等）的柱子就让栈顶出栈</span>
             <span class="token keyword">while</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> heights<span class="token punctuation">[</span>stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">&gt;=</span> heights<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token comment">// index 位置右边柱子严格低于该位置柱子的最近位置是 i；</span>
+                <span class="token comment">// index 位置右边柱子严格低于该位置柱子的最近位置是 i</span>
                 <span class="token comment">// 左边柱子严格低于该位置柱子的最近位置是出栈后栈顶元素(注意哨兵-1)</span>
                 <span class="token keyword">int</span> index <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 res <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> heights<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -884,6 +861,37 @@
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="数组优化（复杂度同上）"><a href="#数组优化（复杂度同上）" class="headerlink" title="数组优化（复杂度同上）"></a>数组优化（复杂度同上）</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">largestRectangleArea</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> heights<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> heights<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 单调栈，存储数组的索引。其索引对应的元素值在栈中从下至上严格递增</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment">// 栈顶位置</span>
+        <span class="token keyword">int</span> top <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">// 「哨兵」，无限低的柱子。</span>
+        stack<span class="token punctuation">[</span><span class="token operator">++</span>top<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 要找下一个更低的柱子，遇到更低（或相等，只有本题可以相等）的柱子就让栈顶出栈</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>top <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> heights<span class="token punctuation">[</span>stack<span class="token punctuation">[</span>top<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&gt;=</span> heights<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// index 位置右边柱子严格低于该位置柱子的最近位置是 i</span>
+                <span class="token comment">// 左边柱子严格低于该位置柱子的最近位置是出栈后栈顶元素(注意哨兵-1)</span>
+                <span class="token keyword">int</span> index <span class="token operator">=</span> stack<span class="token punctuation">[</span>top<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                res <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> stack<span class="token punctuation">[</span>top<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> heights<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            stack<span class="token punctuation">[</span><span class="token operator">++</span>top<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 栈中还有元素。这些位置右边均不存在低于自身柱高的柱子</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>top <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> index <span class="token operator">=</span> stack<span class="token punctuation">[</span>top<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            res <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> stack<span class="token punctuation">[</span>top<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> heights<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1366,7 +1374,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">359.1k</span>
+                        class="white-color">359.3k</span>
             
             
             
