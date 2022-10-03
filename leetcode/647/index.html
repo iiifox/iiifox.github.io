@@ -762,14 +762,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-30
+                    2022-10-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    534
+                    435
                 </div>
                 
 
@@ -828,41 +828,27 @@
 
         <span class="token comment">// p[i] 表示以 chars[i] 为中心最长回文串的回文半径</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>chars<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-        <span class="token comment">// 已经遍历的所有回文子串的最右边下标，其对应的最左下标为 left</span>
-        <span class="token keyword">int</span> right <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token comment">// right 所属回文子串中心下标</span>
-        <span class="token keyword">int</span> center <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">// 已经遍历的所有回文子串的最右边下标再往右一个单位（方便计算）</span>
+        <span class="token keyword">int</span> pR <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">// 上面回文子串所对应的中心下标</span>
+        <span class="token keyword">int</span> pC <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
 
         <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> chars<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">int</span> temp <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token comment">// 子串 [left, right] 中 i 关于其中心的对称位置</span>
-                <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token punctuation">(</span>center <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> i<span class="token punctuation">;</span>
-                temp <span class="token operator">=</span> right <span class="token operator">-</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-                <span class="token comment">// j 为中心的最长回文串左边界不等于 left，可以直接确定 p[i]</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> temp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    res <span class="token operator">+=</span> <span class="token punctuation">(</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">continue</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
+            p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> pR<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">2</span> <span class="token operator">*</span> pC <span class="token operator">-</span> i<span class="token punctuation">]</span><span class="token punctuation">,</span> pR <span class="token operator">-</span> i<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> i <span class="token operator">+</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> chars<span class="token punctuation">.</span>length
+                    <span class="token operator">&amp;&amp;</span> chars<span class="token punctuation">[</span>i <span class="token operator">-</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">==</span> chars<span class="token punctuation">[</span>i <span class="token operator">+</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
-            <span class="token comment">// temp = 1               (i &gt;= right)</span>
-            <span class="token comment">// temp = right - i - 1   (i &lt; right &amp;&amp; p[j] != temp)</span>
-            <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> temp <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> i <span class="token operator">+</span> temp <span class="token operator">&lt;</span> chars<span class="token punctuation">.</span>length
-                    <span class="token operator">&amp;&amp;</span> chars<span class="token punctuation">[</span>i <span class="token operator">-</span> temp<span class="token punctuation">]</span> <span class="token operator">==</span> chars<span class="token punctuation">[</span>i <span class="token operator">+</span> temp<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                temp<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> pR<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                pR <span class="token operator">=</span> i <span class="token operator">+</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                pC <span class="token operator">=</span> i<span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
-            p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
             res <span class="token operator">+=</span> <span class="token punctuation">(</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment">// 执行到此，i 为中心的最长回文串右边界必然不会小于 right。更新最右边界。</span>
-            right <span class="token operator">=</span> i <span class="token operator">+</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            center <span class="token operator">=</span> i<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1341,7 +1327,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">359.2k</span>
+                        class="white-color">359.1k</span>
             
             
             
