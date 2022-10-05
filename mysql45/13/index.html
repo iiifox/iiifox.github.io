@@ -5,10 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="13 | 为什么表数据删掉一半，表文件大小不变？, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="13 | 为什么表数据删掉一半，表文件大小不变？2018-12-12 林晓斌
-
-经常会有同学来问我，我的数据库占用空间太大，我把一个最大的表删掉了一半的数据，怎么表文件的大小还是没变？
-那么今天，我就和你聊聊数据库表的空间回收，看看如何解决">
+    <meta name="description" content="13 | 为什么表数据删掉一半，表文件大小不变？经常会有同学来问我，我的数据库占用空间太大，我把一个最大的表删掉了一半的数据，怎么表文件的大小还是没变？
+那么今天，我就和你聊聊数据库表的空间回收，看看如何解决这个问题。
+这里，我们还是针对 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -609,7 +608,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/../../images/mysql45/13/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -758,7 +757,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-28
+                    2022-10-05
                 </div>
                 
 
@@ -790,9 +789,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="13-为什么表数据删掉一半，表文件大小不变？"><a href="#13-为什么表数据删掉一半，表文件大小不变？" class="headerlink" title="13 | 为什么表数据删掉一半，表文件大小不变？"></a>13 | 为什么表数据删掉一半，表文件大小不变？</h1><p><font color="gray">2018-12-12 林晓斌</font></p>
-<p><img src="../../images/mysql45/13/13.jpg"></p>
-<p>经常会有同学来问我，我的数据库占用空间太大，我把一个最大的表删掉了一半的数据，怎么表文件的大小还是没变？</p>
+                <h1 id="13-为什么表数据删掉一半，表文件大小不变？"><a href="#13-为什么表数据删掉一半，表文件大小不变？" class="headerlink" title="13 | 为什么表数据删掉一半，表文件大小不变？"></a>13 | 为什么表数据删掉一半，表文件大小不变？</h1><p>经常会有同学来问我，我的数据库占用空间太大，我把一个最大的表删掉了一半的数据，怎么表文件的大小还是没变？</p>
 <p>那么今天，我就和你聊聊数据库表的空间回收，看看如何解决这个问题。</p>
 <p>这里，我们还是针对 MySQL 中应用最广泛的 InnoDB 引擎展开讨论。一个 InnoDB 表包含两部分，即：表结构定义和数据。在 MySQL 8.0 版本以前，表结构是存在以 <code>.frm</code> 为后缀的文件里。而 MySQL 8.0 版本，则已经允许把表结构定义放在系统数据表中了。因为表结构定义占用的空间很小，所以我们今天主要讨论的是表数据。</p>
 <p>接下来，我会先和你说明为什么简单地删除表数据达不到表空间回收的效果，然后再和你介绍正确回收空间的方法。</p>
@@ -898,7 +895,6 @@
 <p><img src="../../images/mysql45/12/%E5%9B%BE%202%20redo%20log%20%E7%8A%B6%E6%80%81%E5%9B%BE.jpg"></p>
 <p>这时候系统不得不停止所有更新，去推进 checkpoint。</p>
 <p>这时，你看到的现象就是<strong>磁盘压力很小，但是数据库出现间歇性的性能下跌。</strong></p>
-<p><img src="../../images/mysql45/%E4%B8%81%E5%A5%87.jpg"></p>
 
                 
             </div>
@@ -1141,8 +1137,7 @@
                 <a href="/mysql45/14/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="14 | count(*)这么慢，我该怎么办？">
+                        <img src="/../../images/mysql45/14/14.jpg" class="responsive-img" alt="14 | count(*)这么慢，我该怎么办？">
                         
                         <span class="card-title">14 | count(*)这么慢，我该怎么办？</span>
                     </div>
@@ -1182,8 +1177,7 @@
                 <a href="/mysql45/12/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="12 | 为什么我的MySQL会“抖”一下？">
+                        <img src="/../../images/mysql45/12/12.jpg" class="responsive-img" alt="12 | 为什么我的MySQL会“抖”一下？">
                         
                         <span class="card-title">12 | 为什么我的MySQL会“抖”一下？</span>
                     </div>
@@ -1349,7 +1343,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">362.6k</span>
+                        class="white-color">362.5k</span>
             
             
             

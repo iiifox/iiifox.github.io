@@ -5,9 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="10 | MySQL为什么有时候会选错索引？, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="10 | MySQL为什么有时候会选错索引？2018-12-05 林晓斌
-
-前面我们介绍过索引，你已经知道了在 MySQL 中一张表其实是可以支持多个索引的。但是，你写 SQL 语句的时候，并没有主动指定使用哪个索引。也就是说，使用哪个索引">
+    <meta name="description" content="10 | MySQL为什么有时候会选错索引？前面我们介绍过索引，你已经知道了在 MySQL 中一张表其实是可以支持多个索引的。但是，你写 SQL 语句的时候，并没有主动指定使用哪个索引。也就是说，使用哪个索引是由 MySQL 来确定的。
+不">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -608,7 +607,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/../../images/mysql45/10/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -757,7 +756,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-28
+                    2022-10-05
                 </div>
                 
 
@@ -789,9 +788,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="10-MySQL为什么有时候会选错索引？"><a href="#10-MySQL为什么有时候会选错索引？" class="headerlink" title="10 | MySQL为什么有时候会选错索引？"></a>10 | MySQL为什么有时候会选错索引？</h1><p><font color="gray">2018-12-05 林晓斌</font></p>
-<p><img src="../../images/mysql45/10/10.jpg"></p>
-<p>前面我们介绍过索引，你已经知道了在 MySQL 中一张表其实是可以支持多个索引的。但是，你写 SQL 语句的时候，并没有主动指定使用哪个索引。也就是说，使用哪个索引是由 MySQL 来确定的。</p>
+                <h1 id="10-MySQL为什么有时候会选错索引？"><a href="#10-MySQL为什么有时候会选错索引？" class="headerlink" title="10 | MySQL为什么有时候会选错索引？"></a>10 | MySQL为什么有时候会选错索引？</h1><p>前面我们介绍过索引，你已经知道了在 MySQL 中一张表其实是可以支持多个索引的。但是，你写 SQL 语句的时候，并没有主动指定使用哪个索引。也就是说，使用哪个索引是由 MySQL 来确定的。</p>
 <p>不知道你有没有碰到过这种情况，一条本来可以执行得很快的语句，却由于 MySQL 选错了索引，而导致执行速度变得很慢？</p>
 <p>我们一起来看一个例子吧。</p>
 <p>我们先建一个简单的表，表里有 a、b 两个字段，并分别建上索引：</p>
@@ -831,7 +828,7 @@
 <div style="text-align:center"><img src="../../images/mysql45/10/图%202%20session%20A%20和%20session%20B%20的执行流程.png"><p><font color="gray">图 2 session A 和 session B 的执行流程</font></p></div>
 
 <p>这里，session A 的操作你已经很熟悉了，它就是开启了一个事务。随后，session B 把数据都删除后，又调用了 idata 这个存储过程，插入了 10 万行数据。</p>
-<p>这时候，session B 的查询语句 <code>select * from t where a between 10000 and 20000</code> 就不会再选择索引 a 了<del><font color="red">这里我实验多次，MySQL5.7.37版本已经修复了这个bug</font></del>。我们可以通过慢查询日志（slow log）来查看一下具体的执行情况。</p>
+<p>这时候，session B 的查询语句 <code>select * from t where a between 10000 and 20000</code> 就不会再选择索引 a 了<del><font color="red">（这里我实验多次，MySQL5.7.37版本已经修复了这个bug）</font></del>。我们可以通过慢查询日志（slow log）来查看一下具体的执行情况。</p>
 <p>为了说明优化器选择的结果是否正确，我增加了一个对照，即：使用 <code>force index(a)</code> 来让优化器强制使用索引 a（这部分内容，我还会在这篇文章的后半部分中提到）。</p>
 <p>下面的三条 SQL 语句，就是这个实验过程。</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SET</span> long_query_time<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
@@ -928,11 +925,11 @@
 <p>现在 order by b,a 这种写法，要求按照 b,a 排序，就意味着使用这两个索引都需要排序。因此，扫描行数成了影响决策的主要条件，于是此时优化器选了只需要扫描 1000 行的索引 a。</p>
 <p>当然，这种修改并不是通用的优化手段，只是刚好在这个语句里面有 limit 1，因此如果有满足条件的记录， <code>order by b limit 1</code> 和 <code>order by b,a limit 1</code> 都会返回 b 是最小的那一行，逻辑上一致，才可以这么做。</p>
 <p>如果你觉得修改语义这件事儿不太好，这里还有一种改法，图 11 是执行效果。</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">(</span>
-    <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> t 
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span>
+    <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> t 
     <span class="token keyword">WHERE</span> <span class="token punctuation">(</span>a <span class="token operator">BETWEEN</span> <span class="token number">1</span> <span class="token operator">AND</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token operator">AND</span> <span class="token punctuation">(</span>b <span class="token operator">BETWEEN</span> <span class="token number">50000</span> <span class="token operator">AND</span> <span class="token number">100000</span><span class="token punctuation">)</span> 
-    <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> b <span class="token keyword">LIMIT</span> <span class="token number">100</span>
-<span class="token punctuation">)</span>alias <span class="token keyword">LIMIT</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> b <span class="token keyword">LIMIT</span> <span class="token number">100</span><span class="token punctuation">)</span> alias
+<span class="token keyword">LIMIT</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <div style="text-align:center"><img src="../../images/mysql45/10/图%2011%20改写%20SQL%20的%20explain.png"><p><font color="gray">图 11 改写 SQL 的 explain</font></p></div>
 
@@ -960,7 +957,6 @@
 <li>写 redo log。这个 redo log 包含了数据的变更和 change buffer 的变更。</li>
 </ol>
 <p>到这里 merge 过程就结束了。这时候，数据页和内存中 change buffer 对应的磁盘位置都还没有修改，属于脏页，之后各自刷回自己的物理数据，就是另外一个过程了。</p>
-<p><img src="../../images/mysql45/%E4%B8%81%E5%A5%87.jpg"></p>
 
                 
             </div>
@@ -1203,8 +1199,7 @@
                 <a href="/mysql45/11/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="11 | 怎么给字符串字段加索引？">
+                        <img src="/../../images/mysql45/11/11.jpg" class="responsive-img" alt="11 | 怎么给字符串字段加索引？">
                         
                         <span class="card-title">11 | 怎么给字符串字段加索引？</span>
                     </div>
@@ -1244,8 +1239,7 @@
                 <a href="/mysql45/9/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="09 | 普通索引和唯一索引，应该怎么选择？">
+                        <img src="/../../images/mysql45/9/9.jpg" class="responsive-img" alt="09 | 普通索引和唯一索引，应该怎么选择？">
                         
                         <span class="card-title">09 | 普通索引和唯一索引，应该怎么选择？</span>
                     </div>
@@ -1411,7 +1405,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">362.6k</span>
+                        class="white-color">362.5k</span>
             
             
             

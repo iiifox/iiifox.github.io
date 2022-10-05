@@ -5,9 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="14 | count(*)这么慢，我该怎么办？, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="14 | count(*)这么慢，我该怎么办？2018-12-14 林晓斌
-
-在开发系统的时候，你可能经常需要计算一个表的行数，比如一个交易系统的所有变更记录总数。这时候你可能会想，一条 select count(*) from t 语句不">
+    <meta name="description" content="14 | count(*)这么慢，我该怎么办？在开发系统的时候，你可能经常需要计算一个表的行数，比如一个交易系统的所有变更记录总数。这时候你可能会想，一条 select count(*) from t 语句不就解决了吗？
+但是，你会发现随着">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -608,7 +607,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/../../images/mysql45/14/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -757,7 +756,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-28
+                    2022-10-05
                 </div>
                 
 
@@ -789,9 +788,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="14-count-这么慢，我该怎么办？"><a href="#14-count-这么慢，我该怎么办？" class="headerlink" title="14 | count(*)这么慢，我该怎么办？"></a>14 | count(*)这么慢，我该怎么办？</h1><p><font color="gray">2018-12-14 林晓斌</font></p>
-<p><img src="../../images/mysql45/14/14.jpg"></p>
-<p>在开发系统的时候，你可能经常需要计算一个表的行数，比如一个交易系统的所有变更记录总数。这时候你可能会想，一条 <code>select count(*) from t</code> 语句不就解决了吗？</p>
+                <h1 id="14-count-这么慢，我该怎么办？"><a href="#14-count-这么慢，我该怎么办？" class="headerlink" title="14 | count(*)这么慢，我该怎么办？"></a>14 | count(*)这么慢，我该怎么办？</h1><p>在开发系统的时候，你可能经常需要计算一个表的行数，比如一个交易系统的所有变更记录总数。这时候你可能会想，一条 <code>select count(*) from t</code> 语句不就解决了吗？</p>
 <p>但是，你会发现随着系统中记录数越来越多，这条语句执行得也会越来越慢。然后你可能就想了，MySQL 怎么这么笨啊，记个总数，每次要查的时候直接读出来，不就好了吗。</p>
 <p>那么今天，我们就来聊聊 count(*) 语句到底是怎样实现的，以及 MySQL 为什么会这么实现。然后，我会再和你说说，如果应用中有这种频繁变更并需要统计表行数的需求，业务设计上可以怎么做。</p>
 <h1 id="count-的实现方式"><a href="#count-的实现方式" class="headerlink" title="count(*) 的实现方式"></a>count(*) 的实现方式</h1><p>你首先要明确的是，在不同的 MySQL 引擎中，count(*) 有不同的实现方式。</p>
@@ -907,7 +904,6 @@
 <li>插入一部分数据，但是插入的这些数据，用掉了一部分的预留空间；</li>
 <li>这种情况下，再重建一次表 t，就可能会出现问题中的现象。</li>
 </ol>
-<p><img src="../../images/mysql45/%E4%B8%81%E5%A5%87.jpg"></p>
 
                 
             </div>
@@ -1150,8 +1146,7 @@
                 <a href="/mysql45/15/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="15 | 答疑文章（一）：日志和索引相关问题">
+                        <img src="/../../images/mysql45/15/15.jpg" class="responsive-img" alt="15 | 答疑文章（一）：日志和索引相关问题">
                         
                         <span class="card-title">15 | 答疑文章（一）：日志和索引相关问题</span>
                     </div>
@@ -1191,8 +1186,7 @@
                 <a href="/mysql45/13/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="13 | 为什么表数据删掉一半，表文件大小不变？">
+                        <img src="/../../images/mysql45/13/13.jpg" class="responsive-img" alt="13 | 为什么表数据删掉一半，表文件大小不变？">
                         
                         <span class="card-title">13 | 为什么表数据删掉一半，表文件大小不变？</span>
                     </div>
@@ -1358,7 +1352,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">362.6k</span>
+                        class="white-color">362.5k</span>
             
             
             

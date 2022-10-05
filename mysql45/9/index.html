@@ -5,9 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="09 | 普通索引和唯一索引，应该怎么选择？, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="09 | 普通索引和唯一索引，应该怎么选择？2018-12-03 林晓斌
-
-在前面的基础篇文章中，我给你介绍过索引的基本概念，相信你已经了解了唯一索引和普通索引的区别。今天我们就继续来谈谈，在不同的业务场景下，应该选择普通索引，还是唯一索引">
+    <meta name="description" content="09 | 普通索引和唯一索引，应该怎么选择？在前面的基础篇文章中，我给你介绍过索引的基本概念，相信你已经了解了唯一索引和普通索引的区别。今天我们就继续来谈谈，在不同的业务场景下，应该选择普通索引，还是唯一索引？
+假设你在维护一个市民系统，每">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -608,7 +607,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/../../images/mysql45/9/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -757,7 +756,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-28
+                    2022-10-05
                 </div>
                 
 
@@ -789,9 +788,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="09-普通索引和唯一索引，应该怎么选择？"><a href="#09-普通索引和唯一索引，应该怎么选择？" class="headerlink" title="09 | 普通索引和唯一索引，应该怎么选择？"></a>09 | 普通索引和唯一索引，应该怎么选择？</h1><p><font color="gray">2018-12-03 林晓斌</font></p>
-<p><img src="../../images/mysql45/9/9.jpg"></p>
-<p>在前面的基础篇文章中，我给你介绍过索引的基本概念，相信你已经了解了唯一索引和普通索引的区别。今天我们就继续来谈谈，在不同的业务场景下，应该选择普通索引，还是唯一索引？</p>
+                <h1 id="09-普通索引和唯一索引，应该怎么选择？"><a href="#09-普通索引和唯一索引，应该怎么选择？" class="headerlink" title="09 | 普通索引和唯一索引，应该怎么选择？"></a>09 | 普通索引和唯一索引，应该怎么选择？</h1><p>在前面的基础篇文章中，我给你介绍过索引的基本概念，相信你已经了解了唯一索引和普通索引的区别。今天我们就继续来谈谈，在不同的业务场景下，应该选择普通索引，还是唯一索引？</p>
 <p>假设你在维护一个市民系统，每个人都有一个唯一的身份证号，而且业务代码已经保证了不会写入两个重复的身份证号。如果市民系统需要按照身份证号查姓名，就会执行类似这样的 SQL 语句：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> name <span class="token keyword">from</span> CUser <span class="token keyword">where</span> id_card <span class="token operator">=</span> <span class="token string">'xxxxxxxyyyyyyzzzzz'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -895,7 +892,6 @@
 <p>当我试图在这里讲述完整规则的时候，发现第 8 篇文章<a href="../8">《事务到底是隔离的还是不隔离的？》</a>中的解释引入了太多的概念，以致于分析起来非常复杂。</p>
 <p>因此，我重写了第 8 篇，这样我们人工去判断可见性的时候，才会更方便。【看到这里，我建议你能够再重新打开第 8 篇文章并认真学习一次。如果学习的过程中，有任何问题，也欢迎你给我留言】</p>
 <p>用新的方式来分析 session B’的更新为什么对 session A 不可见就是：在 session A 视图数组创建的瞬间，session B’是活跃的，属于“版本未提交，不可见”这种情况。</p>
-<p><img src="../../images/mysql45/%E4%B8%81%E5%A5%87.jpg"></p>
 
                 
             </div>
@@ -1138,8 +1134,7 @@
                 <a href="/mysql45/10/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="10 | MySQL为什么有时候会选错索引？">
+                        <img src="/../../images/mysql45/10/10.jpg" class="responsive-img" alt="10 | MySQL为什么有时候会选错索引？">
                         
                         <span class="card-title">10 | MySQL为什么有时候会选错索引？</span>
                     </div>
@@ -1345,7 +1340,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">362.6k</span>
+                        class="white-color">362.5k</span>
             
             
             
