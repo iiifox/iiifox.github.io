@@ -765,7 +765,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-04
+                    2022-10-06
                 </div>
                 
 
@@ -847,7 +847,7 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="矩阵快速幂"><a href="#矩阵快速幂" class="headerlink" title="矩阵快速幂"></a>矩阵快速幂</h2><p><strong>前置结论</strong>：若恒有 $f(n)=a_1f(k-1)+a_2f(k-2)+\cdots+a_kf(a-k)$</p>
-<p>则 $[f(n) \ f(n-1) \cdots f(n-k+1)] = [f(n) \ f(n-1) \cdots f(n-k+1)] \times$ <strong>一个 k 级矩阵</strong></p>
+<p>则 $[f(n) \ f(n-1) \cdots f(n-k+1)] = [f(n-1) \ f(n-2) \cdots f(n-k)] \times$ <strong>一个 k 级矩阵</strong></p>
 <p><strong><font color="red">特别地，对于斐波那契数列，有以下递推关系：</font></strong><br>$$<br>\left[ \begin{matrix} 1 &amp; 1 \\ 1 &amp; 0 \end{matrix} \right]<br>\left[ \begin{matrix} f(n) &amp; f(n-1) \\ f(n-1) &amp; f(n-2) \end{matrix} \right] =  \left[ \begin{matrix} f(n+1) &amp; f(n) \\ f(n) &amp; f(n-1) \end{matrix} \right]<br>$$<br>于是可是得出： $\left[ \begin{matrix} f(n) &amp; f(n-1) \\ f(n-1) &amp; f(n-2) \end{matrix} \right] =<br>\left[ \begin{matrix} 1 &amp; 1 \\ 1 &amp; 0 \end{matrix} \right] ^{n-1}<br>\left[ \begin{matrix} f(1) &amp; f(0) \\ f(0) &amp; f(-1) \end{matrix} \right] =<br>\left[ \begin{matrix} 1 &amp; 1 \\ 1 &amp; 0 \end{matrix} \right]^n $</p>
 <blockquote>
 <p>时间复杂度：$O(\log{n})$</p>
