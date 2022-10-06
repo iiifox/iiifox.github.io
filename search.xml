@@ -1724,9 +1724,9 @@
             
             <tag> 二叉树 </tag>
             
-            <tag> 深度优先搜索 </tag>
-            
             <tag> 广度优先搜索 </tag>
+            
+            <tag> 深度优先搜索 </tag>
             
         </tags>
       
@@ -1756,6 +1756,8 @@
             <tag> 栈 </tag>
             
             <tag> 二叉搜索树 </tag>
+            
+            <tag> Morris </tag>
             
         </tags>
       
