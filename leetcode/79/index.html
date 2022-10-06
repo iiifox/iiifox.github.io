@@ -764,14 +764,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-04
+                    2022-10-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.9k
                 </div>
                 
 
@@ -831,6 +831,7 @@
 <p><strong><font color="red">回溯与深度优先搜索有什么区别？</font></strong></p>
 <p>这个问题的答案我在网上查了许久仍未得到一个清晰的答案。大部分人比较认同的一个观点是：<strong>回溯=深度优先搜索+剪枝函数</strong>。在笔者所给出的代码中也将根据主流观点对函数名进行命名。</p>
 <p>需要说明一点的是，回溯算法不仅仅适用于显示的树结构与图结构，对于隐式树结构也适用。<strong>什么是隐式树结构呢？</strong>若解空间是有限的，则可将解空间映射成树结构，例如前面的<a href="../46">排列问题</a>和<a href="../39">组合问题</a>等，其实都是将解空间映射成多叉树，然后在树上进行剪枝求解。说到这里，其实你应该明白了，原来大部分问题都可以映射成树结构进行求解，但你要注意，这个时间复杂度可不低，如果不选用高效的剪枝，其时间复杂度最少也将是指数级别的，排列问题甚至达到了阶乘级别的时间复杂度，因此只有当你看到题目数据量很小，并且你能够想出比较高效合理的剪枝再去写出回溯的代码。</p>
+<p><strong>拿下面的代码往力扣上一跑，你可能会吓一跳，前面的代码试剑石至少都是击败 90%+，为什么这个代码这么慢呢？别急，不是逻辑或优化的问题，而是由于方向向量使用了全局变量，实例变量和全局变量会比局部变量更耗时一些，为了编码的方便，后续所有的“图”的问题我们也都使用全局常量来定义方向。</strong></p>
 <blockquote>
 <p>时间复杂度：$mn \times 3^L$&nbsp;&nbsp;&nbsp;&nbsp;<code>L 为字符串 word 的长度</code></p>
 <p>空间复杂度：$O(mn)$</p>
@@ -867,7 +868,7 @@
         <span class="token comment">// 尝试选择下一个方向</span>
         <span class="token keyword">boolean</span> res <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            res <span class="token operator">|=</span> <span class="token function">backtrack</span><span class="token punctuation">(</span>board<span class="token punctuation">,</span> x <span class="token operator">+</span> <span class="token constant">DIRECTION</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> y <span class="token operator">+</span> <span class="token constant">DIRECTION</span><span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            res <span class="token operator">=</span> res <span class="token operator">||</span> <span class="token function">backtrack</span><span class="token punctuation">(</span>board<span class="token punctuation">,</span> x <span class="token operator">+</span> <span class="token constant">DIRECTION</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> y <span class="token operator">+</span> <span class="token constant">DIRECTION</span><span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
                     words<span class="token punctuation">,</span> pos <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token keyword">break</span><span class="token punctuation">;</span>
@@ -961,7 +962,7 @@
         <span class="token comment">// 尝试选择下一个方向</span>
         <span class="token keyword">boolean</span> res <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            res <span class="token operator">|=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>board<span class="token punctuation">,</span> x <span class="token operator">+</span> <span class="token constant">DIRECTION</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> y <span class="token operator">+</span> <span class="token constant">DIRECTION</span><span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            res <span class="token operator">=</span> res <span class="token operator">||</span> <span class="token function">dfs</span><span class="token punctuation">(</span>board<span class="token punctuation">,</span> x <span class="token operator">+</span> <span class="token constant">DIRECTION</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> y <span class="token operator">+</span> <span class="token constant">DIRECTION</span><span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
                     words<span class="token punctuation">,</span> pos <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token keyword">break</span><span class="token punctuation">;</span>
@@ -1458,7 +1459,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">362.5k</span>
+                        class="white-color">362.6k</span>
             
             
             
