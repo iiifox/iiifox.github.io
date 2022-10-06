@@ -782,14 +782,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-05
+                    2022-10-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    483
+                    493
                 </div>
                 
 
@@ -902,12 +902,12 @@
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> <span class="token function">inorderTraversal</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token keyword">while</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// precursor：当前结点的前驱结点</span>
+            <span class="token comment">// precursor：当前结点的前驱结点（有左孩子的话）</span>
             <span class="token class-name">TreeNode</span> precursor <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
             <span class="token comment">// 左子树非空，有前驱结点</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>precursor <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -915,13 +915,13 @@
                 <span class="token keyword">while</span> <span class="token punctuation">(</span>precursor<span class="token punctuation">.</span>right <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> precursor<span class="token punctuation">.</span>right <span class="token operator">!=</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     precursor <span class="token operator">=</span> precursor<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
-                <span class="token comment">// 第一次来到 precursor 结点，右指针指向当前结点</span>
+                <span class="token comment">// 第一次来到 root 结点，前驱结点右指针指向当前结点</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>precursor<span class="token punctuation">.</span>right <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     precursor<span class="token punctuation">.</span>right <span class="token operator">=</span> root<span class="token punctuation">;</span>
                     root <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
                     <span class="token keyword">continue</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                    <span class="token comment">// 第二次来到 precursor 节点，断开右指针对当前结点的指向</span>
+                    <span class="token comment">// 第二次来到 root 节点，断开前驱结点右指针的指向</span>
                     precursor<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
             <span class="token punctuation">}</span>

@@ -779,7 +779,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    621
+                    630
                 </div>
                 
 
@@ -907,7 +907,7 @@
         <span class="token keyword">long</span> pre <span class="token operator">=</span> <span class="token class-name">Long</span><span class="token punctuation">.</span><span class="token constant">MIN_VALUE</span><span class="token punctuation">;</span>
         
         <span class="token keyword">while</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// precursor：当前结点的前驱结点</span>
+            <span class="token comment">// precursor：当前结点的前驱结点（有左孩子的话）</span>
             <span class="token class-name">TreeNode</span> precursor <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
             <span class="token comment">// 左子树非空，有前驱结点</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>precursor <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -915,13 +915,13 @@
                 <span class="token keyword">while</span> <span class="token punctuation">(</span>precursor<span class="token punctuation">.</span>right <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> precursor<span class="token punctuation">.</span>right <span class="token operator">!=</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     precursor <span class="token operator">=</span> precursor<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
-                <span class="token comment">// 第一次来到 precursor 结点，右指针指向当前结点</span>
+                <span class="token comment">// 第一次来到 root 结点，前驱结点右指针指向当前结点</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>precursor<span class="token punctuation">.</span>right <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                     precursor<span class="token punctuation">.</span>right <span class="token operator">=</span> root<span class="token punctuation">;</span>
                     root <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
                     <span class="token keyword">continue</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                    <span class="token comment">// 第二次来到 precursor 节点，断开右指针对当前结点的指向</span>
+                    <span class="token comment">// 第二次来到 root 节点，断开前驱结点右指针的指向</span>
                     precursor<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
             <span class="token punctuation">}</span>
@@ -1224,12 +1224,12 @@
                         <span class="chip bg-color">二叉树</span>
                     </a>
                     
-                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">
-                        <span class="chip bg-color">深度优先搜索</span>
-                    </a>
-                    
                     <a href="/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">
                         <span class="chip bg-color">广度优先搜索</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">
+                        <span class="chip bg-color">深度优先搜索</span>
                     </a>
                     
                 </div>
