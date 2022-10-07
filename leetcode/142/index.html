@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 142 题：环形链表 II（中等）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
     <meta name="description" content="142. 环形链表 II题目描述给定一个链表的头节点 &amp;nbsp;head&amp;nbsp;，返回链表开始入环的第一个节点。如果链表无环，则返回&amp;nbsp;null。
-
-如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在">
+如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -765,14 +764,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-09
+                    2022-10-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    636
+                    635
                 </div>
                 
 
@@ -798,11 +797,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="142-环形链表-II"><a href="#142-环形链表-II" class="headerlink" title="142. 环形链表 II"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/linked-list-cycle-ii/">142. 环形链表 II</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个链表的头节点 &nbsp;<code>head</code>&nbsp;，返回链表开始入环的第一个节点。如果链表无环，则返回&nbsp;<code>null</code>。</p>
-
 <p>如果链表中有某个节点，可以通过连续跟踪 <code>next</code> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（<strong>索引从 0 开始</strong>）。如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。<strong>注意：<code>pos</code> 不作为参数进行传递</strong>，仅仅是为了标识链表的实际情况。</p>
-
 <p><strong>不允许修改 </strong>链表。</p>
-
 <pre><strong>示例 1：</strong>
 <img src="../../images/leetcode/142/circularlinkedlist.png">
 <strong>输入：</strong>head = [3,2,0,-4], pos = 1
@@ -823,16 +819,13 @@
 <strong>输出：</strong>返回 null
 <strong>解释：</strong>链表中没有环。
 </pre>
-
-<p><strong>提示：</strong>
-</p><ul>
-    <li>链表中节点的数目范围在范围 <code>[0, 10<sup>4</sup>]</code> 内</li>
-    <li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
-    <li><code>pos</code> 的值为 <code>-1</code> 或者链表中的一个有效索引</li>
-</ul><p></p>
-
+<p><strong>提示：</strong></p>
+<ul>
+<li>链表中节点的数目范围在范围 <code>[0, 10<sup>4</sup>]</code> 内</li>
+<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+<li><code>pos</code> 的值为 <code>-1</code> 或者链表中的一个有效索引</li>
+</ul>
 <p><strong>进阶：</strong>你是否可以使用 <code>O(1)</code> 空间解决此题？</p>
-
 <p><strong>链表结点定义</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * Definition for singly-linked list.
@@ -850,7 +843,7 @@
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">detectCycle</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token class-name">ListNode</span> slow <span class="token operator">=</span> head<span class="token punctuation">;</span>
         <span class="token class-name">ListNode</span> fast <span class="token operator">=</span> head<span class="token punctuation">;</span>
@@ -1373,7 +1366,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">364.2k</span>
+                        class="white-color">364.1k</span>
             
             
             

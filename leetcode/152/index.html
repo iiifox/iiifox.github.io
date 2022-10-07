@@ -5,12 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 152 题：乘积最大子数组（中等）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="「力扣」第 152 题：乘积最大子数组
-链接
-「力扣」第 53 题：最大子数组和
-「力扣」第 238 题：除自身以外数组的乘积
-
-题目描述给你一个整数数组 nums&amp;nbsp;，请你找出数组中乘积最大的非空连续子数组（该子数组中至少包含一个">
+    <meta name="description" content="152. 乘积最大子数组题目描述给你一个整数数组 nums&amp;nbsp;，请你找出数组中乘积最大的非空连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。
+测试用例的答案是一个&amp;nbsp;32-位 整数。
+子数组 是数组的连">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -764,14 +761,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-10-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    460
+                    424
                 </div>
                 
 
@@ -796,45 +793,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-152-题：乘积最大子数组"><a href="#「力扣」第-152-题：乘积最大子数组" class="headerlink" title="「力扣」第 152 题：乘积最大子数组"></a>「力扣」第 152 题：乘积最大子数组</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-product-subarray/">链接</a></li>
-<li><a href="https://iiifox.github.io/leetcode/53/">「力扣」第 53 题：最大子数组和</a></li>
-<li><a href="https://iiifox.github.io/leetcode/238/">「力扣」第 238 题：除自身以外数组的乘积</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个整数数组 <code>nums</code>&nbsp;，请你找出数组中乘积最大的非空连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
-
+                <h1 id="152-乘积最大子数组"><a href="#152-乘积最大子数组" class="headerlink" title="152. 乘积最大子数组"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-product-subarray/">152. 乘积最大子数组</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数数组 <code>nums</code>&nbsp;，请你找出数组中乘积最大的非空连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
 <p>测试用例的答案是一个&nbsp;<strong>32-位</strong> 整数。</p>
-
 <p><strong>子数组</strong> 是数组的连续子序列。</p>
-
-<p>&nbsp;</p>
-
 <pre><strong>示例 1:</strong>
 <strong>输入:</strong> nums = [2,3,-2,4]
 <strong>输出:</strong> <span>6</span>
 <strong>解释:</strong>&nbsp;子数组 [2,3] 有最大乘积 6。
 </pre>
-
-
 <pre><strong>示例 2:</strong>
 <strong>输入:</strong> nums = [-2,0,-1]
 <strong>输出:</strong> 0
 <strong>解释:</strong>&nbsp;结果不能为 2, 因为 [-2,-1] 不是子数组。</pre>
-
-<p>&nbsp;</p>
-
-<p><strong>提示:</strong>
-</p><ul> 
- <li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li> 
- <li><code>-10 &lt;= nums[i] &lt;= 10</code></li> 
- <li><code>nums</code> 的任何前缀或后缀的乘积都 <strong>保证</strong>&nbsp;是一个 <strong>32-位</strong> 整数</li> 
-</ul><p></p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h3><p><code>maxDp[i]</code> 表示以 <code>nums[i]</code> 结尾的乘积最大子数组的乘积，</p>
+<p><strong>提示:</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li>
+<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
+<li><code>nums</code> 的任何前缀或后缀的乘积都 <strong>保证</strong>&nbsp;是一个 <strong>32-位</strong> 整数</li>
+</ul>
+<h2 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h2><p><code>maxDp[i]</code> 表示以 <code>nums[i]</code> 结尾的乘积最大子数组的乘积，</p>
 <p><code>minDp[i]</code> 表示以 <code>nums[i]</code> 结尾的乘积最小子数组的乘积，</p>
 <p><strong>动态规划转移方程：</strong></p>
 <ul>
@@ -1349,7 +1326,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">364.2k</span>
+                        class="white-color">364.1k</span>
             
             
             
