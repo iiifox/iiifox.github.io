@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「力扣」第 198 题：打家劫舍（合集）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
+    <meta name="keywords" content="「力扣」第 198、337 题：打家劫舍（合集）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
     <meta name="description" content="198. 打家劫舍题目描述你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
 给定一个代表每个房屋存放金额">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@
 
     
 
-    <title>「力扣」第 198 题：打家劫舍（合集） | iiifox</title>
+    <title>「力扣」第 198、337 题：打家劫舍（合集） | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -607,12 +607,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「力扣」第 198 题：打家劫舍（合集）</h1>
+                    <h1 class="description center-align post-title">「力扣」第 198、337 题：打家劫舍（合集）</h1>
                 </div>
             </div>
         </div>
@@ -732,6 +732,14 @@
                                 <span class="chip bg-color">动态规划</span>
                             </a>
                         
+                            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                                <span class="chip bg-color">二叉树</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">
+                                <span class="chip bg-color">深度优先搜索</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -760,14 +768,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-28
+                    2022-10-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.5k
                 </div>
                 
 
@@ -864,7 +872,14 @@
 <li><code>1 &lt;= nums.length &lt;= 100</code></li>
 <li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
-<h2 id="参考代码：动态规划-1"><a href="#参考代码：动态规划-1" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h2><blockquote>
+<h2 id="参考代码：动态规划-1"><a href="#参考代码：动态规划-1" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h2><p><strong>简化一下这个问题：</strong>一棵二叉树，树上的每个点都有对应的权值，每个点有两种状态（选中和不选中），问在不能同时选中有父子关系的点的情况下，能选中的点的最大权值和是多少。</p>
+<p>我们可以用 <code>f(o)</code> 表示选择 <code>o</code> 节点的情况下，<code>o</code> 节点的子树上被选择的节点的最大权值和；<code>g(o)</code> 表示不选择 <code>o</code> 节点的情况下，<code>o</code> 节点的子树上被选择的节点的最大权值和；<code>l</code> 和 <code>r</code> 代表 <code>o</code> 的左右孩子。</p>
+<p><strong>动态规划转移方程：</strong></p>
+<ul>
+<li><code>f(o) = o.val + g(l) + g(r)</code></li>
+<li><code>g(o) = max(f(l), g(l)) + max(f(r), g(r))</code></li>
+</ul>
+<blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
@@ -1014,6 +1029,14 @@
                             
                                 <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
                                     <span class="chip bg-color">动态规划</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                                    <span class="chip bg-color">二叉树</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">
+                                    <span class="chip bg-color">深度优先搜索</span>
                                 </a>
                             
                         </div>
@@ -1425,7 +1448,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">364.1k</span>
+                        class="white-color">363.6k</span>
             
             
             
