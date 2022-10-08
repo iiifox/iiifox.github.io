@@ -1031,15 +1031,15 @@
 <p>除此以外，你从下标&nbsp;<code>i</code> 跳到下标 <code>j</code>&nbsp;需要满足：<code>arr[i] &gt; arr[j]</code>&nbsp;且 <code>arr[i] &gt; arr[k]</code>&nbsp;，其中下标&nbsp;<code>k</code>&nbsp;是所有 <code>i</code>&nbsp;到 <code>j</code>&nbsp;之间的数字（更正式的，<code>min(i, j) &lt; k &lt; max(i, j)</code>）。</p>
 <p>你可以选择数组的任意下标开始跳跃。请你返回你 <strong>最多</strong>&nbsp;可以访问多少个下标。</p>
 <p>请注意，任何时刻你都不能跳到数组的外面。</p>
-<pre><strong>示例 1：</strong>
+<pre style="white-space:pre-wrap"><strong>示例 1：</strong>
 <img alt="" src="../../images/leetcode/55/meta-chart.jpeg" style="height: 419px; width: 633px;">
 <strong>输入：</strong>arr = [6,4,14,6,8,13,9,7,10,6,12], d = 2
 <strong>输出：</strong>4
 <strong>解释：</strong>你可以从下标 10 出发，然后如上图依次经过 10 --&gt; 8 --&gt; 6 --&gt; 7 。
-注意，如果你从下标 6 开始，你只能跳到下标 7 处。你不能跳到下标 5 处因为 13 &gt; 9 。
-你也不能跳到下标 4 处，因为下标 5 在下标 4 和 6 之间且 13 &gt; 9 。
+注意，如果你从下标 6 开始，你只能跳到下标 7 处。你不能跳到下标 5 处因为 13 &gt; 9 。你也不能跳到下标 4 处，因为下标 5 在下标 4 和 6 之间且 13 &gt; 9 。
 类似的，你不能从下标 3 处跳到下标 2 或者下标 1 处。
 </pre>
+
 
 <pre><strong>示例 2：</strong>
 <strong>输入：</strong>arr = [3,3,3,3,3], d = 3
