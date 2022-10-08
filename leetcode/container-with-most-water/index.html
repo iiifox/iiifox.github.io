@@ -766,7 +766,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    570
+                    758
                 </div>
                 
 
@@ -795,12 +795,12 @@
 <p>找出其中的两条线，使得它们与&nbsp;<code>x</code>&nbsp;轴共同构成的容器可以容纳最多的水。</p>
 <p>返回容器可以储存的最大水量。</p>
 <p><strong>说明：</strong>你不能倾斜容器。</p>
-<pre><strong>示例 1：</strong>
+<pre style="white-space:pre-wrap"><strong>示例 1：</strong>
 <img alt="" src="../../images/leetcode/11/question_11.jpg">
 <strong>输入：</strong>[1,8,6,2,5,4,8,3,7]
 <strong>输出：</strong>49 
-<strong>解释：</strong>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。
-    在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为&nbsp;49。</pre>
+<strong>解释：</strong>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为&nbsp;49。</pre>
+
 
 <pre><strong>示例 2：</strong>
 <strong>输入：</strong>height = [1,1]
@@ -812,7 +812,9 @@
 <li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
 <li><code>0 &lt;= height[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
-<h2 id="参考代码：左右指针"><a href="#参考代码：左右指针" class="headerlink" title="参考代码：左右指针"></a>参考代码：左右指针</h2><blockquote>
+<h2 id="参考代码：左右指针"><a href="#参考代码：左右指针" class="headerlink" title="参考代码：左右指针"></a>参考代码：左右指针</h2><p>容器的储水量可以看做一个长方形的面积，长为左右两柱子的距离，高为两柱子中最低柱子的高度。显然，我们可以枚举两根柱子来求出最大值，考虑到题目数据量是 [0,100000] ，枚举可能会超时，因此我们这里不给出枚举代码。</p>
+<p>注意到我们的目标是求“长方形面积最大值”，我们可以改变枚举策略，长方形的长从最大开始枚举（即局部最大），怎么得到整体最大呢？显然下一次枚举时“长”会减小，要使面积更大，我们需要“宽”更大，因此每一次移动左右两根柱子中最短的那根。</p>
+<blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
@@ -1342,7 +1344,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">364k</span>
+                        class="white-color">364.2k</span>
             
             
             
