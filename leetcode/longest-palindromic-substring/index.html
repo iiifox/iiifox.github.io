@@ -777,7 +777,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.5k
                 </div>
                 
 
@@ -818,7 +818,42 @@
 <li><code>1 &lt;= s.length &lt;= 1000</code></li>
 <li><code>s</code> 仅由数字和英文字母组成</li>
 </ul>
-<h2 id="参考代码：Manacher-算法"><a href="#参考代码：Manacher-算法" class="headerlink" title="参考代码：Manacher 算法"></a>参考代码：Manacher 算法</h2><p>求最长回文字符串可以采用中心扩散的思想，即求位置 i 为中心的最长回文字符串（由位置 i 处向两端不断扩散，直至不满足回文字符串要求为止）。这里有一个问题，其回文字符串的长度可能是奇数也可能是偶数，偶数回文字符串的中心位置索引不存在。</p>
+<h2 id="参考代码：暴力枚举"><a href="#参考代码：暴力枚举" class="headerlink" title="参考代码：暴力枚举"></a>参考代码：暴力枚举</h2><p>我们要求最长回文子串，一个想当然的想法就是从最长子串开始枚举，依次判断是否是回文子串，如果是回文串，那么可以直接返回。当然，这个算法是 $O(n^3)$ 级别的，该题的数据范围是 [1,1000] ，不进行一些有话的话在 LeetCode 上必然是无法通过，因此编写代码上我们将字符串转成字符数组（减少不必要的字符串对象创建，创建对象是很耗时的）。</p>
+<blockquote>
+<p>时间复杂度：$O(n^3)$</p>
+<p>空间复杂度：$O(n)$</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">longestPalindrome</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 转成字符数组（否则暴力通不过）</span>
+        <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sArr <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 从最长 s.length() 开始暴力枚举</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> len <span class="token operator">=</span> sArr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> len <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span> len<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 暴力枚举所有长为 len 的子串 [start,end]</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> end <span class="token operator">=</span> len <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> end <span class="token operator">&lt;</span> sArr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> end<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">int</span> start <span class="token operator">=</span> end <span class="token operator">-</span> len <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isPalindrome</span><span class="token punctuation">(</span>sArr<span class="token punctuation">,</span> start<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sArr<span class="token punctuation">,</span> <span class="token keyword">int</span> start<span class="token punctuation">,</span> <span class="token keyword">int</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>start <span class="token operator">&lt;</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>sArr<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">!=</span> sArr<span class="token punctuation">[</span>end<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            start<span class="token operator">++</span><span class="token punctuation">;</span>
+            end<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>显然，暴力算法是可以在面试时稍微提一下，然后顺便提出优化思路：“动态规划”和“中心扩散”，这两个算法都是 $O(n^2)$ 级别的，但本文并不给出这两种优化的代码，有兴趣的读者可以直接看 <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/">官方题解</a> ，本文将给出的另一种解法是回文子串问题通用的“最优解”模板算法：Manacher（马拉车）算法。</p>
+<h2 id="Manacher-算法"><a href="#Manacher-算法" class="headerlink" title="Manacher 算法"></a>Manacher 算法</h2><p>求最长回文字符串可以采用中心扩散的思想，即求位置 i 为中心的最长回文字符串（由位置 i 处向两端不断扩散，直至不满足回文字符串要求为止）。这里有一个问题，其回文字符串的长度可能是奇数也可能是偶数，偶数回文字符串的中心位置索引不存在。</p>
 <p>为此我们可以通过一个特别地操作将最大回文字符串长度为奇偶数的情况统一起来：我们向字符串的头尾以及每两个字符中间添加一个特殊字符 <code>#</code> ，比如字符串 <code>aaba</code> 处理后会变成 <code>#a#a#b#a#</code> 。这样，其回文字符串的长度都将是奇数。</p>
 <ul>
 <li><strong>注意：</strong>这里的特殊字符不需要是没有出现过的字母。因为上述处理后，通过中心扩散，其特殊字符的比较对象不会是原字符串中的字符。</li>
@@ -1361,7 +1396,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">363.7k</span>
+                        class="white-color">364k</span>
             
             
             
