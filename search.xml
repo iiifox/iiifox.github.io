@@ -539,7 +539,7 @@
     
     
     <entry>
-      <title>「力扣」第 399 题：除法求值（中等</title>
+      <title>「力扣」第 399 题：除法求值（中等）</title>
       <link href="/leetcode/399/"/>
       <url>/leetcode/399/</url>
       
@@ -1227,11 +1227,11 @@
       
         <tags>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 二叉树 </tag>
             
             <tag> 深度优先搜索 </tag>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -1682,9 +1682,9 @@
             
             <tag> 二叉树 </tag>
             
-            <tag> 广度优先搜索 </tag>
-            
             <tag> 深度优先搜索 </tag>
+            
+            <tag> 广度优先搜索 </tag>
             
         </tags>
       
