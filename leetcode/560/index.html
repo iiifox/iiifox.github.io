@@ -5,13 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 560 题：和为 K 的子数组（中等）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="「力扣」第 560 题：和为 K 的子数组
-链接
-「力扣」第 1 题：两数之和
-
-题目描述给你一个整数数组 nums 和一个整数&amp;nbsp;k ，请你统计并返回该数组中和为&amp;nbsp;k&amp;nbsp;的连续子数组的个数&amp;nbsp;。
-
-&amp;nb">
+    <meta name="description" content="560. 和为 K 的子数组题目描述给你一个整数数组 nums 和一个整数&amp;nbsp;k ，请你统计并返回该数组中和为&amp;nbsp;k&amp;nbsp;的连续子数组的个数&amp;nbsp;。
+示例 1：
+输入：nums = [1,1,1], k = 2
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -765,14 +762,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-10-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    231
+                    211
                 </div>
                 
 
@@ -797,14 +794,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-560-题：和为-K-的子数组"><a href="#「力扣」第-560-题：和为-K-的子数组" class="headerlink" title="「力扣」第 560 题：和为 K 的子数组"></a>「力扣」第 560 题：和为 K 的子数组</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/subarray-sum-equals-k/">链接</a></li>
-<li><a href="https://iiifox.github.io/leetcode/1/">「力扣」第 1 题：两数之和</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个整数数组 <code>nums</code> 和一个整数&nbsp;<code>k</code> ，请你统计并返回该数组中和为&nbsp;<code>k</code><strong>&nbsp;</strong>的连续子数组的个数&nbsp;。</p>
-
-<p>&nbsp;</p>
-
+                <h1 id="560-和为-K-的子数组"><a href="#560-和为-K-的子数组" class="headerlink" title="560. 和为 K 的子数组"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/subarray-sum-equals-k/">560. 和为 K 的子数组</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数数组 <code>nums</code> 和一个整数&nbsp;<code>k</code> ，请你统计并返回该数组中和为&nbsp;<code>k</code><strong>&nbsp;</strong>的连续子数组的个数&nbsp;。</p>
 <pre><strong>示例 1：</strong>
 <strong>输入：</strong>nums = [1,1,1], k = 2
 <strong>输出：</strong>2
@@ -814,39 +804,31 @@
 <strong>输入：</strong>nums = [1,2,3], k = 3
 <strong>输出：</strong>2
 </pre>
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong>
-</p><ul> 
- <li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li> 
- <li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li> 
- <li><code>-10<sup>7</sup> &lt;= k &lt;= 10<sup>7</sup></code></li> 
-</ul><p></p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：前缀和"><a href="#参考代码：前缀和" class="headerlink" title="参考代码：前缀和"></a>参考代码：前缀和</h3><blockquote>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li>
+<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
+<li><code>-10<sup>7</sup> &lt;= k &lt;= 10<sup>7</sup></code></li>
+</ul>
+<h2 id="参考代码：前缀和"><a href="#参考代码：前缀和" class="headerlink" title="参考代码：前缀和"></a>参考代码：前缀和</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">subarraySum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">// 以前缀和为键，出现次数为对应的值</span>
-        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> freq <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        freq<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> prefixSum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             prefixSum <span class="token operator">+=</span> num<span class="token punctuation">;</span>
             <span class="token comment">// 以当前数结尾的和为 k 的连续子数组个数</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>prefixSum <span class="token operator">-</span> k<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                res <span class="token operator">+=</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>prefixSum <span class="token operator">-</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>freq<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>prefixSum <span class="token operator">-</span> k<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                res <span class="token operator">+=</span> freq<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>prefixSum <span class="token operator">-</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
-            map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>prefixSum<span class="token punctuation">,</span> map<span class="token punctuation">.</span><span class="token function">getOrDefault</span><span class="token punctuation">(</span>prefixSum<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            freq<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>prefixSum<span class="token punctuation">,</span> freq<span class="token punctuation">.</span><span class="token function">getOrDefault</span><span class="token punctuation">(</span>prefixSum<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
