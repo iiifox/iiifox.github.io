@@ -822,7 +822,7 @@
 </ul>
 <p><strong>进阶：</strong>如果你已经实现复杂度为 <code>O(n)</code> 的解法，尝试使用更为精妙的 <strong>分治法</strong> 求解。</p>
 <h2 id="参考代码：动态规划（推荐）"><a href="#参考代码：动态规划（推荐）" class="headerlink" title="参考代码：动态规划（推荐）"></a>参考代码：动态规划（推荐）</h2><p><code>dp[i]</code> 表示以 <code>nums[i]</code> 结尾的「连续子数组的最大和」<strong><font color="blue">（连续子数组的最后一个位置是 i ）</font></strong></p>
-<p><strong>动态规划转移方程：</strong> $dp[i] = \max{dp[i−1]+nums[i], nums[i]}$</p>
+<p><strong>动态规划转移方程：</strong> <code>dp[i] = max{dp[i−1]+nums[i], nums[i]}</code></p>
 <p>考虑到 <code>dp[i]</code> 只和 <code>dp[i-1]</code> 相关，于是我们可以只用一个变量 <code>pre</code> 来维护对于当前 <code>dp[i]</code> 的 <code>dp[i-1]</code> 的值是多少，从而让空间复杂度降低到 $O(1)$ ，这有点类似「滚动数组」的思想。</p>
 <blockquote>
 <p>时间复杂度：$O(n)$</p>
