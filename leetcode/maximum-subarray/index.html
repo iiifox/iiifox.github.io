@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「力扣」第 53 题：最大子数组和（简单）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
+    <meta name="keywords" content="「力扣」第 53 题：最大子数组和（中等）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
     <meta name="description" content="53. 最大子数组和题目描述给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 子数组 是数组中的一个连续部分。
 示例 1：
@@ -22,7 +22,7 @@
 
     
 
-    <title>「力扣」第 53 题：最大子数组和（简单） | iiifox</title>
+    <title>「力扣」第 53 题：最大子数组和（中等） | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -609,12 +609,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「力扣」第 53 题：最大子数组和（简单）</h1>
+                    <h1 class="description center-align post-title">「力扣」第 53 题：最大子数组和（中等）</h1>
                 </div>
             </div>
         </div>
@@ -766,7 +766,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-08
+                    2022-10-13
                 </div>
                 
 
@@ -821,11 +821,8 @@
 <li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 <p><strong>进阶：</strong>如果你已经实现复杂度为 <code>O(n)</code> 的解法，尝试使用更为精妙的 <strong>分治法</strong> 求解。</p>
-<h2 id="参考代码：动态规划（推荐）"><a href="#参考代码：动态规划（推荐）" class="headerlink" title="参考代码：动态规划（推荐）"></a>参考代码：动态规划（推荐）</h2><p><code>dp[i]</code> 表示以 <code>nums[i]</code> 结尾的「连续子数组的最大和」<strong><font color="blue">（连续子数组的最后一个位置是 <code>i</code> ）</font></strong></p>
-<p><strong>动态规划转移方程：</strong></p>
-<ul>
-<li><code>dp[i] = max{dp[i−1]+nums[i], nums[i]}</code></li>
-</ul>
+<h2 id="参考代码：动态规划（推荐）"><a href="#参考代码：动态规划（推荐）" class="headerlink" title="参考代码：动态规划（推荐）"></a>参考代码：动态规划（推荐）</h2><p><code>dp[i]</code> 表示以 <code>nums[i]</code> 结尾的「连续子数组的最大和」<strong><font color="blue">（连续子数组的最后一个位置是 i ）</font></strong></p>
+<p><strong>动态规划转移方程：</strong> $dp[i] = \max{dp[i−1]+nums[i], nums[i]}$</p>
 <p>考虑到 <code>dp[i]</code> 只和 <code>dp[i-1]</code> 相关，于是我们可以只用一个变量 <code>pre</code> 来维护对于当前 <code>dp[i]</code> 的 <code>dp[i-1]</code> 的值是多少，从而让空间复杂度降低到 $O(1)$ ，这有点类似「滚动数组」的思想。</p>
 <blockquote>
 <p>时间复杂度：$O(n)$</p>
