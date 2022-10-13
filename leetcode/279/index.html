@@ -5,12 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 279 题：完全平方数（中等）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="「力扣」第 279 题：完全平方数
-链接
-
-题目描述给你一个整数 n ，返回和为 n 的完全平方数的最少数量 。
-
-完全平方数 是一个整数，其值等于另一个整数的平方；换句话说，其值等于一个整数自乘的积。例如，1、4、9 和 16 都是完全平">
+    <meta name="description" content="279. 完全平方数题目描述给你一个整数 n ，返回和为 n 的完全平方数的最少数量 。
+完全平方数 是一个整数，其值等于另一个整数的平方；换句话说，其值等于一个整数自乘的积。例如，1、4、9 和 16 都是完全平方数，而 3 和 11 不">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -764,14 +760,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-10-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    322
+                    311
                 </div>
                 
 
@@ -796,15 +792,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-279-题：完全平方数"><a href="#「力扣」第-279-题：完全平方数" class="headerlink" title="「力扣」第 279 题：完全平方数"></a>「力扣」第 279 题：完全平方数</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/perfect-squares/">链接</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个整数 <code>n</code> ，返回和为 <code>n</code> 的完全平方数的最少数量 。</p>
-
+                <h1 id="279-完全平方数"><a href="#279-完全平方数" class="headerlink" title="279. 完全平方数"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/perfect-squares/">279. 完全平方数</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数 <code>n</code> ，返回和为 <code>n</code> 的完全平方数的最少数量 。</p>
 <p><strong>完全平方数</strong> 是一个整数，其值等于另一个整数的平方；换句话说，其值等于一个整数自乘的积。例如，<code>1</code>、<code>4</code>、<code>9</code> 和 <code>16</code> 都是完全平方数，而 <code>3</code> 和 <code>11</code> 不是。</p>
-
-<p>&nbsp;</p>
-
 <pre><strong>示例&nbsp;1：</strong>
 <strong>输入：</strong>n = <span>12</span>
 <strong>输出：</strong>3 
@@ -816,20 +805,11 @@
 <strong>输出：</strong>2
 <strong>解释：</strong><span>13 = 4 + 9</span>
 </pre>
-
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong>
-</p><ul> 
- <li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li> 
-</ul><p></p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：四平方和定理"><a href="#参考代码：四平方和定理" class="headerlink" title="参考代码：四平方和定理"></a>参考代码：四平方和定理</h3><ul>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
+</ul>
+<h2 id="参考代码：四平方和定理"><a href="#参考代码：四平方和定理" class="headerlink" title="参考代码：四平方和定理"></a>参考代码：四平方和定理</h2><ul>
 <li>任意一个正整数都可以被表示为至多四个正整数的平方和。</li>
 </ul>
 <ul>
@@ -839,7 +819,7 @@
 <p>时间复杂度：$O(\sqrt{n})$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">numSquares</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isPerfectSquare</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
