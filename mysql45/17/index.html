@@ -5,9 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="17 | 如何正确地显示随机消息？, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="17 | 如何正确地显示随机消息？2018-12-21 林晓斌
-
-我在上一篇文章，为你讲解完 order by 语句的几种执行模式后，就想到了之前一个做英语学习 App 的朋友碰到过的一个性能问题。今天这篇文章，我就从这个性能问题说起，和你">
+    <meta name="description" content="17 | 如何正确地显示随机消息？我在上一篇文章，为你讲解完 order by 语句的几种执行模式后，就想到了之前一个做英语学习 App 的朋友碰到过的一个性能问题。今天这篇文章，我就从这个性能问题说起，和你说说 MySQL 中的另外一种排">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -608,7 +606,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/../../images/mysql45/17/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -757,7 +755,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-28
+                    2022-10-14
                 </div>
                 
 
@@ -789,9 +787,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="17-如何正确地显示随机消息？"><a href="#17-如何正确地显示随机消息？" class="headerlink" title="17 | 如何正确地显示随机消息？"></a>17 | 如何正确地显示随机消息？</h1><p><font>2018-12-21 林晓斌</font></p>
-<p><img src="../../images/mysql45/17/17.jpg"></p>
-<p>我在上一篇文章，为你讲解完 order by 语句的几种执行模式后，就想到了之前一个做英语学习 App 的朋友碰到过的一个性能问题。今天这篇文章，我就从这个性能问题说起，和你说说 MySQL 中的另外一种排序需求，希望能够加深你对 MySQL 排序逻辑的理解。</p>
+                <h1 id="17-如何正确地显示随机消息？"><a href="#17-如何正确地显示随机消息？" class="headerlink" title="17 | 如何正确地显示随机消息？"></a>17 | 如何正确地显示随机消息？</h1><p>我在上一篇文章，为你讲解完 order by 语句的几种执行模式后，就想到了之前一个做英语学习 App 的朋友碰到过的一个性能问题。今天这篇文章，我就从这个性能问题说起，和你说说 MySQL 中的另外一种排序需求，希望能够加深你对 MySQL 排序逻辑的理解。</p>
 <p>这个英语学习 App 首页有一个随机显示单词的功能，也就是根据每个用户的级别有一个单词表，然后这个用户每次访问首页的时候，都会随机滚动显示三个单词。他们发现随着单词表变大，选单词这个逻辑变得越来越慢，甚至影响到了首页的打开速度。</p>
 <p>现在，如果让你来设计这个 SQL 语句，你会怎么写呢？</p>
 <p>为了便于理解，我对这个例子进行了简化：去掉每个级别的用户都有一个对应的单词表这个逻辑，直接就是从一个单词表中随机选出三个单词。这个表的建表语句和初始数据的命令如下：</p>
@@ -1234,8 +1230,7 @@ select word from words order by rand<span class="token operator">(</span><span c
                 <a href="/mysql45/18/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="18 | 为什么这些SQL语句逻辑相同，性能却差异巨大？">
+                        <img src="/../../images/mysql45/18/18.jpg" class="responsive-img" alt="18 | 为什么这些SQL语句逻辑相同，性能却差异巨大？">
                         
                         <span class="card-title">18 | 为什么这些SQL语句逻辑相同，性能却差异巨大？</span>
                     </div>
@@ -1275,8 +1270,7 @@ select word from words order by rand<span class="token operator">(</span><span c
                 <a href="/mysql45/16/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="16 | “order by”是怎么工作的？">
+                        <img src="/../../images/mysql45/16/16.jpg" class="responsive-img" alt="16 | “order by”是怎么工作的？">
                         
                         <span class="card-title">16 | “order by”是怎么工作的？</span>
                     </div>
@@ -1442,7 +1436,7 @@ select word from words order by rand<span class="token operator">(</span><span c
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">395.2k</span>
+                        class="white-color">402.4k</span>
             
             
             
