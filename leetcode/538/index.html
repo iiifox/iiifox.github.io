@@ -5,10 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 538 题：把二叉搜索树转换为累加树（中等）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="「力扣」第 538 题：把二叉搜索树转换为累加树
-链接
-
-题目描述给出二叉 搜索 树的根节点，该树的节点值各不相同，请你将其转换为累加树（Greater Sum Tree），使每个节点 node&amp;nbsp;的新值等于原树中大于或等于&amp;nbs">
+    <meta name="description" content="538. 把二叉搜索树转换为累加树题目描述给出二叉 搜索 树的根节点，该树的节点值各不相同，请你将其转换为累加树（Greater Sum Tree），使每个节点 node&amp;nbsp;的新值等于原树中大于或等于&amp;nbsp;node.val&amp;n">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -766,14 +763,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-10-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    409
+                    414
                 </div>
                 
 
@@ -798,30 +795,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-538-题：把二叉搜索树转换为累加树"><a href="#「力扣」第-538-题：把二叉搜索树转换为累加树" class="headerlink" title="「力扣」第 538 题：把二叉搜索树转换为累加树"></a>「力扣」第 538 题：把二叉搜索树转换为累加树</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/convert-bst-to-greater-tree/">链接</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给出二叉<strong> 搜索 </strong>树的根节点，该树的节点值各不相同，请你将其转换为累加树（Greater Sum Tree），使每个节点 <code>node</code>&nbsp;的新值等于原树中大于或等于&nbsp;<code>node.val</code>&nbsp;的值之和。</p>
-
+                <h1 id="538-把二叉搜索树转换为累加树"><a href="#538-把二叉搜索树转换为累加树" class="headerlink" title="538. 把二叉搜索树转换为累加树"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/convert-bst-to-greater-tree/">538. 把二叉搜索树转换为累加树</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给出二叉<strong> 搜索 </strong>树的根节点，该树的节点值各不相同，请你将其转换为累加树（Greater Sum Tree），使每个节点 <code>node</code>&nbsp;的新值等于原树中大于或等于&nbsp;<code>node.val</code>&nbsp;的值之和。</p>
 <p>提醒一下，二叉搜索树满足下列约束条件：</p>
-
-<ul> 
- <li>节点的左子树仅包含键<strong> 小于 </strong>节点键的节点。</li> 
- <li>节点的右子树仅包含键<strong> 大于</strong> 节点键的节点。</li> 
- <li>左右子树也必须是二叉搜索树。</li> 
+<ul>
+<li>节点的左子树仅包含键<strong> 小于 </strong>节点键的节点。</li>
+<li>节点的右子树仅包含键<strong> 大于</strong> 节点键的节点。</li>
+<li>左右子树也必须是二叉搜索树。</li>
 </ul>
-
 <p><strong>注意：</strong>本题和 1038:&nbsp;<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-search-tree-to-greater-sum-tree/">https://leetcode-cn.com/problems/binary-search-tree-to-greater-sum-tree/</a> 相同</p>
-
-<p>&nbsp;</p>
-
-<p><strong>示例 1：</strong></p>
-
-<p><strong><img alt="" src="../../images/leetcode/538/tree.png" style="height: 364px; width: 534px;"></strong></p>
-
-<pre><strong>输入：</strong>[4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
+<pre><strong>示例 1：</strong>
+<img alt="" src="../../images/leetcode/538/tree.png" style="height: 364px; width: 534px;">
+<strong>输入：</strong>[4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
 <strong>输出：</strong>[30,36,21,36,35,26,15,null,null,null,33,null,null,null,8]
 </pre>
+
 
 <pre><strong>示例 2：</strong>
 <strong>输入：</strong>root = [0,null,1]
@@ -837,19 +824,13 @@
 <strong>输入：</strong>root = [3,2,4,1]
 <strong>输出：</strong>[7,9,4,10]
 </pre>
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong>
-</p><ul> 
- <li>树中的节点数介于 <code>0</code>&nbsp;和 <code>10<sup>4</sup></code><sup>&nbsp;</sup>之间。</li> 
- <li>每个节点的值介于 <code>-10<sup>4</sup></code>&nbsp;和&nbsp;<code>10<sup>4</sup></code>&nbsp;之间。</li> 
- <li>树中的所有值 <strong>互不相同</strong> 。</li> 
- <li>给定的树为二叉搜索树。</li> 
-</ul><p></p>
-
-<p>&nbsp;</p>
-
+<p><strong>提示：</strong></p>
+<ul>
+<li>树中的节点数介于 <code>0</code>&nbsp;和 <code>10<sup>4</sup></code><sup>&nbsp;</sup>之间。</li>
+<li>每个节点的值介于 <code>-10<sup>4</sup></code>&nbsp;和&nbsp;<code>10<sup>4</sup></code>&nbsp;之间。</li>
+<li>树中的所有值 <strong>互不相同</strong> 。</li>
+<li>给定的树为二叉搜索树。</li>
+</ul>
 <p><strong>二叉树结点定义</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * Definition for a binary tree node.
@@ -867,16 +848,14 @@
  * }
  */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：深度优先搜索"><a href="#参考代码：深度优先搜索" class="headerlink" title="参考代码：深度优先搜索"></a>参考代码：深度优先搜索</h3><blockquote>
+<h2 id="参考代码：深度优先搜索"><a href="#参考代码：深度优先搜索" class="headerlink" title="参考代码：深度优先搜索"></a>参考代码：深度优先搜索</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 已遍历（逆中序 右-&gt;中-&gt;左 ）的结点值之和
+     */</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
     <span class="token keyword">public</span> <span class="token class-name">TreeNode</span> <span class="token function">convertBST</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -888,7 +867,7 @@
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> root<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1137,7 +1116,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/leetcode/543/">
+                <a href="/leetcode/diameter-of-binary-tree/">
                     <div class="card-image">
                         
                         
@@ -1375,7 +1354,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">395.1k</span>
+                        class="white-color">395.2k</span>
             
             
             
