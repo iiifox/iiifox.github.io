@@ -624,7 +624,9 @@
 
 
 <script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
 
@@ -645,11 +647,11 @@
                 
                 
                 
-                <a href="/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" title="Java并发编程实战: 4">
+                <a href="/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" title="Java并发编程实战: 7">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F9EBEA;">Java并发编程实战
-                        <span class="tag-length">4</span>
+                        <span class="tag-length">7</span>
                     </span>
                 </a>
                 
@@ -663,10 +665,19 @@
                 </a>
                 
                 
+                <a href="/categories/LeetCode-%E7%83%AD%E9%A2%98-HOT-100/" title="LeetCode 热题 HOT 100: 98">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">LeetCode 热题 HOT 100
+                        <span class="tag-length">98</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/Redis%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%AE%9E%E6%88%98/" title="Redis核心技术与实战: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">Redis核心技术与实战
+                            style="background-color: #E8F8F5;">Redis核心技术与实战
                         <span class="tag-length">3</span>
                     </span>
                 </a>
@@ -675,7 +686,7 @@
                 <a href="/categories/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/" title="算法模板: 5">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">算法模板
+                            style="background-color: #FEF9E7;">算法模板
                         <span class="tag-length">5</span>
                     </span>
                 </a>
@@ -684,17 +695,8 @@
                 <a href="/categories/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/" title="MySQL实战45讲: 48">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #FEF9E7;">MySQL实战45讲
+                            style="background-color: #F8F9F9;">MySQL实战45讲
                         <span class="tag-length">48</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/LeetCode-%E7%83%AD%E9%A2%98-HOT-100/" title="LeetCode 热题 HOT 100: 98">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F8F9F9;">LeetCode 热题 HOT 100
-                        <span class="tag-length">98</span>
                     </span>
                 </a>
                 
@@ -709,6 +711,117 @@
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/juc/5/">
+                        <div class="card-image tag-image">
+                            
+                            <img src="/../../images/juc/5/5.jfif" class="responsive-img" alt="05 | 一不小心就死锁了，怎么办？">
+                            
+                            <span class="card-title">05 | 一不小心就死锁了，怎么办？</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                05 | 一不小心就死锁了，怎么办？在上一篇文章中，我们用 Account.class 作为互斥锁，来解决银行业务里面的转账问题，虽然这个方案不存在并发问题，但是所有账户的转账操作都是串行的，例如账户 A 转账户 B、账户 C 转账户 D 
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" class="post-category">
+                                    Java并发编程实战
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/juc/4/">
+                        <div class="card-image tag-image">
+                            
+                            <img src="/../../images/juc/4/4.jfif" class="responsive-img" alt="04 | 互斥锁（下）：如何用一把锁保护多个资源？">
+                            
+                            <span class="card-title">04 | 互斥锁（下）：如何用一把锁保护多个资源？</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                04 | 互斥锁（下）：如何用一把锁保护多个资源？在上一篇文章中，我们提到受保护资源和锁之间合理的关联关系应该是 N:1 的关系，也就是说可以用一把锁来保护多个资源，但是不能用多把锁来保护一个资源，并且结合文中示例，我们也重点强调了“不能用
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-07
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" class="post-category">
+                                    Java并发编程实战
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/juc/3/">
+                        <div class="card-image tag-image">
+                            
+                            <img src="/../../images/juc/3/3.jfif" class="responsive-img" alt="03 | 互斥锁（上）：解决原子性问题">
+                            
+                            <span class="card-title">03 | 互斥锁（上）：解决原子性问题</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                03 | 互斥锁（上）：解决原子性问题在第一篇文章中我们提到，一个或者多个操作在 CPU 执行的过程中不被中断的特性，称为“原子性”。理解这个特性有助于你分析并发编程 Bug 出现的原因，例如利用它可以分析出 long 型变量在 32 位机
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" class="post-category">
+                                    Java并发编程实战
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -882,7 +995,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">402.4k</span>
+                        class="white-color">412.2k</span>
             
             
             

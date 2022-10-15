@@ -624,7 +624,9 @@
 
 
 <script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
 
@@ -645,11 +647,11 @@
                 
                 
                 
-                <a href="/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" title="Java并发编程实战: 4">
+                <a href="/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" title="Java并发编程实战: 7">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #F9EBEA;">Java并发编程实战
-                        <span class="tag-length">4</span>
+                        <span class="tag-length">7</span>
                     </span>
                 </a>
                 
@@ -663,10 +665,19 @@
                 </a>
                 
                 
+                <a href="/categories/LeetCode-%E7%83%AD%E9%A2%98-HOT-100/" title="LeetCode 热题 HOT 100: 98">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">LeetCode 热题 HOT 100
+                        <span class="tag-length">98</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/Redis%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%AE%9E%E6%88%98/" title="Redis核心技术与实战: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">Redis核心技术与实战
+                            style="background-color: #E8F8F5;">Redis核心技术与实战
                         <span class="tag-length">3</span>
                     </span>
                 </a>
@@ -675,7 +686,7 @@
                 <a href="/categories/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/" title="算法模板: 5">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">算法模板
+                            style="background-color: #FEF9E7;">算法模板
                         <span class="tag-length">5</span>
                     </span>
                 </a>
@@ -684,17 +695,8 @@
                 <a href="/categories/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/" title="MySQL实战45讲: 48">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            style="background-color: #FEF9E7;">MySQL实战45讲
+                            style="background-color: #F8F9F9;">MySQL实战45讲
                         <span class="tag-length">48</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/LeetCode-%E7%83%AD%E9%A2%98-HOT-100/" title="LeetCode 热题 HOT 100: 98">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F8F9F9;">LeetCode 热题 HOT 100
-                        <span class="tag-length">98</span>
                     </span>
                 </a>
                 
@@ -1059,7 +1061,7 @@ MySQL 的行锁是在引擎层由各个引擎自己实现的。但并不是所�
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">402.4k</span>
+                        class="white-color">412.2k</span>
             
             
             

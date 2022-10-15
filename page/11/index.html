@@ -625,7 +625,9 @@
 
 
 <script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
 
@@ -1087,24 +1089,24 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/juc/2/">
+                    <a href="/juc/5/">
                         <div class="card-image">
                             
-                            <img src="/../../images/juc/2/2.jfif" class="responsive-img" alt="02 | Java内存模型：看Java如何解决可见性和有序性问题">
+                            <img src="/../../images/juc/5/5.jfif" class="responsive-img" alt="05 | 一不小心就死锁了，怎么办？">
                             
-                            <span class="card-title">02 | Java内存模型：看Java如何解决可见性和有序性问题</span>
+                            <span class="card-title">05 | 一不小心就死锁了，怎么办？</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                02 | Java内存模型：看Java如何解决可见性和有序性问题上一期我们讲到在并发场景中，因可见性、原子性、有序性导致的问题常常会违背我们的直觉，从而成为并发编程的 Bug 之源。这三者在编程领域属于共性问题，所有的编程语言都会遇到，Ja
+                                05 | 一不小心就死锁了，怎么办？在上一篇文章中，我们用 Account.class 作为互斥锁，来解决银行业务里面的转账问题，虽然这个方案不存在并发问题，但是所有账户的转账操作都是串行的，例如账户 A 转账户 B、账户 C 转账户 D 
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-09
                             </span>
                             <span class="publish-author">
                                 
@@ -1173,7 +1175,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">402.4k</span>
+                        class="white-color">412.2k</span>
             
             
             

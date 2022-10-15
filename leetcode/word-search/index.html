@@ -764,14 +764,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-14
+                    2022-10-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    1.8k
                 </div>
                 
 
@@ -798,23 +798,24 @@
             <div id="articleContent">
                 <h1 id="79-单词搜索"><a href="#79-单词搜索" class="headerlink" title="79. 单词搜索"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-search/">79. 单词搜索</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个&nbsp;<code>m x n</code> 二维字符网格&nbsp;<code>board</code> 和一个字符串单词&nbsp;<code>word</code> 。如果&nbsp;<code>word</code> 存在于网格中，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 <p>单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。</p>
-<pre><strong>示例 1：</strong>
+<pre style="white-space:pre-wrap"><strong>示例 1：</strong>
 <img alt="" src="../../images/leetcode/79/word1.jpg" style="width: 322px; height: 242px;"> 
 <strong>输入：</strong>board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
 <strong>输出：</strong>true
 </pre>
 
-<pre><strong>示例 2：</strong>
+<pre style="white-space:pre-wrap"><strong>示例 2：</strong>
 <img alt="" src="../../images/leetcode/79/word2.jpg" style="width: 322px; height: 242px;"> 
 <strong>输入：</strong>board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
 <strong>输出：</strong>true
 </pre>
 
-<pre><strong>示例 3：</strong>
+<pre style="white-space:pre-wrap"><strong>示例 3：</strong>
 <img alt="" src="../../images/leetcode/79/word3.jpg" style="width: 322px; height: 242px;"> 
 <strong>输入：</strong>board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
 <strong>输出：</strong>false
 </pre>
+
 <p><strong>提示：</strong></p>
 <ul>
 <li><code>m == board.length</code></li>
@@ -830,8 +831,7 @@
 <p>直接返回确实可以得到正确的结果，这里没有直接返回是为了保证不修改 <code>board</code> 数组（用此代替了 visited 数组的标记功能），但为了实现这一功能，我们新带来的问题是什么？效率问题！可以看到，为了方便编码，方向的选取我们的使用的是一维数组，而这不能够提前终止（如果直接将方向写死，可以直接四个方向的结果进行短路或运算，这能减少不必要的判断，即得到一个 true 就没必要看后面的了）。也许你会说，这也可以呀，直接去掉 for，写死就行，但那又降低了可读性且容易出错，如果这样，为什么不直接写死？因此我们采取的是，遇到一个 true，提前 break，这很简单，但是你要想清楚，为什么能够这样呢？因为 <strong>遇到 true 了，说明这个方向后面所有的位置都能够匹配上</strong>，这也是递归最大的好处。</p>
 <p><strong><font color="red">回溯与深度优先搜索有什么区别？</font></strong></p>
 <p>这个问题的答案我在网上查了许久仍未得到一个清晰的答案。大部分人比较认同的一个观点是：<strong>回溯=深度优先搜索+剪枝函数</strong>。在笔者所给出的代码中也将根据主流观点对函数名进行命名。</p>
-<p>需要说明一点的是，回溯算法不仅仅适用于显示的树结构与图结构，对于隐式树结构也适用。<strong>什么是隐式树结构呢？</strong>若解空间是有限的，则可将解空间映射成树结构，例如前面的<a href="../46">排列问题</a>和<a href="../39">组合问题</a>等，其实都是将解空间映射成多叉树，然后在树上进行剪枝求解。说到这里，其实你应该明白了，原来大部分问题都可以映射成树结构进行求解，但你要注意，这个时间复杂度可不低，如果不选用高效的剪枝，其时间复杂度最少也将是指数级别的，排列问题甚至达到了阶乘级别的时间复杂度，因此只有当你看到题目数据量很小，并且你能够想出比较高效合理的剪枝再去写出回溯的代码。</p>
-<p><strong>拿下面的代码往力扣上一跑，你可能会吓一跳，前面的代码试剑石至少都是击败 90%+，为什么这个代码这么慢呢？别急，不是逻辑或优化的问题，而是由于方向向量使用了全局变量，实例变量和全局变量会比局部变量更耗时一些，为了编码的方便，后续所有的“图”的问题我们也都使用全局常量来定义方向。</strong></p>
+<p>需要说明一点的是，回溯算法不仅仅适用于显式的树结构与图结构，对于隐式树结构也适用。<strong>什么是隐式树结构呢？</strong>若解空间是有限的，则可将解空间映射成树结构，例如前面的<a href="../combination-sum">组合问题</a>和<a href="../permutations">排列问题</a>等，其实都是将解空间映射成多叉树，然后在树上进行剪枝求解。说到这里，其实你应该明白了，原来大部分问题都可以映射成树结构进行求解，但你要注意，这个时间复杂度可不低，如果不选用高效的剪枝，其时间复杂度最少也将是指数级别的，排列问题甚至达到了阶乘级别的时间复杂度，因此只有当你看到题目数据量很小，并且你能够想出比较高效合理的剪枝再去写出回溯的代码。</p>
 <blockquote>
 <p>时间复杂度：$mn \times 3^L$&nbsp;&nbsp;&nbsp;&nbsp;<code>L 为字符串 word 的长度</code></p>
 <p>空间复杂度：$O(mn)$</p>
@@ -851,7 +851,7 @@
         <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-    <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">backtrack</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> board<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">,</span> 
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">backtrack</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> board<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">,</span>
                               <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> words<span class="token punctuation">,</span> <span class="token keyword">int</span> pos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">// 如果超出区域。或者与应该匹配的 words 位置字符不一致</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isArea</span><span class="token punctuation">(</span>board<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token operator">||</span> board<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">!=</span> words<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -868,7 +868,7 @@
         <span class="token comment">// 尝试选择下一个方向</span>
         <span class="token keyword">boolean</span> res <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            res <span class="token operator">=</span> res <span class="token operator">||</span> <span class="token function">backtrack</span><span class="token punctuation">(</span>board<span class="token punctuation">,</span> x <span class="token operator">+</span> <span class="token constant">DIRECTION</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> y <span class="token operator">+</span> <span class="token constant">DIRECTION</span><span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            res <span class="token operator">=</span> <span class="token function">backtrack</span><span class="token punctuation">(</span>board<span class="token punctuation">,</span> x <span class="token operator">+</span> <span class="token constant">DIRECTION</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> y <span class="token operator">+</span> <span class="token constant">DIRECTION</span><span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
                     words<span class="token punctuation">,</span> pos <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token keyword">break</span><span class="token punctuation">;</span>
@@ -888,13 +888,11 @@
 
 <h1 id="212-单词搜索-II"><a href="#212-单词搜索-II" class="headerlink" title="212. 单词搜索 II"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-search-ii/">212. 单词搜索 II</a></h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个&nbsp;<code>m x n</code> 二维字符网格&nbsp;<code>board</code><strong>&nbsp;</strong>和一个单词（字符串）列表 <code>words</code>，&nbsp;<em>返回所有二维网格上的单词</em>&nbsp;。</p>
 <p>单词必须按照字母顺序，通过 <strong>相邻的单元格</strong> 内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母在一个单词中不允许被重复使用。 </p>
-<pre><strong>示例 1：</strong>
+<pre style="white-space:pre-wrap"><strong>示例 1：</strong>
 <img alt="" src="../../images/leetcode/79/search1.jpg">
-<strong>输入：</strong>board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]], 
-&nbsp;    words = ["oath","pea","eat","rain"]
+<strong>输入：</strong>board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]], words = ["oath","pea","eat","rain"]
 <strong>输出：</strong>["eat","oath"]
 </pre>
-
 
 <pre><strong>示例 2：</strong>
 <img alt="" src="../../images/leetcode/79/search2.jpg"> 
@@ -1459,7 +1457,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">402.4k</span>
+                        class="white-color">412.2k</span>
             
             
             
