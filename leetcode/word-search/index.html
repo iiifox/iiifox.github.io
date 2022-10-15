@@ -767,7 +767,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.6k
                 </div>
                 
 
@@ -824,7 +824,7 @@
 <h2 id="参考代码：回溯"><a href="#参考代码：回溯" class="headerlink" title="参考代码：回溯"></a>参考代码：回溯</h2><p><strong><font color="red">为什么没有使用 visited 数组来做访问标记？</font></strong></p>
 <p>节省空间。</p>
 <p><strong><font color="red">在 dfs 方法中为什么要定义一个 boolean 变量，不是有一个方向可行就能直接返回 true 吗？</font></strong></p>
-<p>直接返回确实可以得到正确的结果，这里没有直接返回是为了保证不修改 <code>board</code> 数组（用此代替了 visited 数组的标记功能），但为了实现这一功能，我们新带来的问题是什么？效率问题！可以看到，为了方便编码，方向的选取我们的使用的是一维数组，而这不能够提前终止（如果直接将方向写死，可以直接四个方向的结果进行短路或运算，这能减少不必要的判断，即得到一个 true 就没必要看后面的了）。也许你会说，这也可以呀，直接去掉 for，写死就行，但那又降低了可读性且容易出错，如果这样，为什么不直接写死？因此我们采取的是，遇到一个 true，提前 break，这很简单，但是你要想清楚，为什么能够这样呢？因为 <strong>遇到 true 了，说明这个方向后面所有的位置都能够匹配上</strong>，这也是递归最大的好处。</p>
+<p>直接返回确实可以得到正确的结果，这里没有直接返回是为了保证不修改 <code>board</code> 数组（用此代替了 visited 数组的标记功能）。</p>
 <p><strong><font color="red">回溯与深度优先搜索有什么区别？</font></strong></p>
 <p>这个问题的答案我在网上查了许久仍未得到一个清晰的答案。大部分人比较认同的一个观点是：<strong>回溯=深度优先搜索+剪枝函数</strong>。在笔者所给出的代码中也将根据主流观点对函数名进行命名。</p>
 <p>需要说明一点的是，回溯算法不仅仅适用于显式的树结构与图结构，对于隐式树结构也适用。<strong>什么是隐式树结构呢？</strong>若解空间是有限的，则可将解空间映射成树结构，例如前面的<a href="../combination-sum">组合问题</a>和<a href="../permutations">排列问题</a>等，其实都是将解空间映射成多叉树，然后在树上进行剪枝求解。说到这里，其实你应该明白了，原来大部分问题都可以映射成树结构进行求解，但你要注意，这个时间复杂度可不低，如果不选用高效的剪枝，其时间复杂度最少也将是指数级别的，排列问题甚至达到了阶乘级别的时间复杂度，因此只有当你看到题目数据量很小，并且你能够想出比较高效合理的剪枝再去写出回溯的代码。</p>
@@ -858,7 +858,7 @@
             <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token comment">// 暂存状态</span>
-        <span class="token keyword">char</span> temp <span class="token operator">=</span> board<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">char</span> ch <span class="token operator">=</span> board<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token comment">// 当前位置的字符标记为已经使用过</span>
         board<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'.'</span><span class="token punctuation">;</span>
         <span class="token comment">// 尝试选择下一个方向</span>
@@ -871,7 +871,7 @@
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
         <span class="token comment">// 回溯。状态重置</span>
-        board<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+        board<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> ch<span class="token punctuation">;</span>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
@@ -907,6 +907,7 @@
 <li><code>words</code> 中的所有字符串互不相同</li>
 </ul>
 <h2 id="参考代码：回溯-1"><a href="#参考代码：回溯-1" class="headerlink" title="参考代码：回溯"></a>参考代码：回溯</h2><blockquote>
+<p>采用了前缀树优化，不做复杂度分析。</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token constant">DIRECTION</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -1465,7 +1466,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">412.2k</span>
+                        class="white-color">412k</span>
             
             
             
