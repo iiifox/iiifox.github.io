@@ -761,14 +761,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-08
+                    2022-10-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    457
+                    462
                 </div>
                 
 
@@ -827,20 +827,20 @@
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxProduct</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> maxDp <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> minDp <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        
+
         <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token constant">MIN_VALUE</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">int</span> max <span class="token operator">=</span> maxDp<span class="token punctuation">;</span>
-            <span class="token keyword">int</span> min <span class="token operator">=</span> minDp<span class="token punctuation">;</span>
-            maxDp <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max <span class="token operator">*</span> num<span class="token punctuation">,</span> min <span class="token operator">*</span> num<span class="token punctuation">)</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            minDp <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>max <span class="token operator">*</span> num<span class="token punctuation">,</span> min <span class="token operator">*</span> num<span class="token punctuation">)</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> preMax <span class="token operator">=</span> maxDp<span class="token punctuation">;</span>
+            <span class="token keyword">int</span> preMin <span class="token operator">=</span> minDp<span class="token punctuation">;</span>
+            maxDp <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>preMax <span class="token operator">*</span> num<span class="token punctuation">,</span> preMin <span class="token operator">*</span> num<span class="token punctuation">)</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            minDp <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>preMax <span class="token operator">*</span> num<span class="token punctuation">,</span> preMin <span class="token operator">*</span> num<span class="token punctuation">)</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
             res <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> maxDp<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<h2 id="代码优化（复杂度同上）"><a href="#代码优化（复杂度同上）" class="headerlink" title="代码优化（复杂度同上）"></a>代码优化（复杂度同上）</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxProduct</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> maxDp <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> minDp <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -1345,7 +1345,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">436.9k</span>
+                        class="white-color">437.3k</span>
             
             
             

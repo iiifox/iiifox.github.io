@@ -766,7 +766,7 @@ LRUCache(int capacity) 以 正整数 作为容量&amp;nbsp;capacity">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-08
+                    2022-10-16
                 </div>
                 
 
@@ -873,25 +873,6 @@ lRUCache.get(4);    // 返回 4
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">LRUCache</span> <span class="token punctuation">{</span>
     <span class="token comment">/**
-     * 双向链表的结点类
-     */</span>
-    <span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">LRUCacheNode</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> key<span class="token punctuation">;</span>
-        <span class="token keyword">int</span> value<span class="token punctuation">;</span>
-        <span class="token class-name">LRUCacheNode</span> pre<span class="token punctuation">;</span>
-        <span class="token class-name">LRUCacheNode</span> next<span class="token punctuation">;</span>
-
-        <span class="token keyword">public</span> <span class="token class-name">LRUCacheNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">public</span> <span class="token class-name">LRUCacheNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>key <span class="token operator">=</span> key<span class="token punctuation">;</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> value<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-
-    <span class="token comment">/**
      * 双向链表的虚拟头结点
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">LRUCacheNode</span> dummyHead <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LRUCacheNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -971,7 +952,25 @@ lRUCache.get(4);    // 返回 4
         <span class="token function">removeNode</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+    <span class="token comment">/**
+     * 双向链表结点类
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">LRUCacheNode</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> key<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> value<span class="token punctuation">;</span>
+        <span class="token class-name">LRUCacheNode</span> pre<span class="token punctuation">;</span>
+        <span class="token class-name">LRUCacheNode</span> next<span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token class-name">LRUCacheNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token class-name">LRUCacheNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>key <span class="token operator">=</span> key<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> value<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1470,7 +1469,7 @@ lRUCache.get(4);    // 返回 4
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">436.9k</span>
+                        class="white-color">437.3k</span>
             
             
             
