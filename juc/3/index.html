@@ -755,7 +755,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-15
+                    2022-10-16
                 </div>
                 
 
@@ -787,7 +787,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="03-互斥锁（上）：解决原子性问题"><a href="#03-互斥锁（上）：解决原子性问题" class="headerlink" title="03 | 互斥锁（上）：解决原子性问题"></a>03 | 互斥锁（上）：解决原子性问题</h1><p>在<a href="../1">第一篇文章</a>中我们提到，一个或者多个操作在 CPU 执行的过程中不被中断的特性，称为“原子性”。理解这个特性有助于你分析并发编程 Bug 出现的原因，例如利用它可以分析出 long 型变量在 32 位机器上读写可能出现的诡异 Bug，明明已经把变量成功写入内存，重新读出来却不是自己写入的。</p>
+                <h1 id="03-互斥锁（上）：解决原子性问题"><a href="#03-互斥锁（上）：解决原子性问题" class="headerlink" title="03 | 互斥锁（上）：解决原子性问题"></a>03 | 互斥锁（上）：解决原子性问题</h1><p>在<a href="../1/#%E6%BA%90%E5%A4%B4%E4%B9%8B%E4%BA%8C%EF%BC%9A%E7%BA%BF%E7%A8%8B%E5%88%87%E6%8D%A2%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%8E%9F%E5%AD%90%E6%80%A7%E9%97%AE%E9%A2%98">第一篇文章</a>中我们提到，一个或者多个操作在 CPU 执行的过程中不被中断的特性，称为“原子性”。理解这个特性有助于你分析并发编程 Bug 出现的原因，例如利用它可以分析出 long 型变量在 32 位机器上读写可能出现的诡异 Bug，明明已经把变量成功写入内存，重新读出来却不是自己写入的。</p>
 <p><strong>那原子性问题到底该如何解决呢？</strong></p>
 <p>你已经知道，原子性问题的源头是<strong>线程切换</strong>，如果能够禁用线程切换那不就能解决这个问题了吗？而操作系统做线程切换是依赖 CPU 中断的，所以禁止 CPU 发生中断就能够禁止线程切换。</p>
 <p>在早期单核 CPU 时代，这个方案的确是可行的，而且也有很多应用案例，但是并不适合多核场景。这里我们以 32 位 CPU 上执行 long 型变量的写操作为例来说明这个问题，long 型变量是 64 位，在 32 位 CPU 上执行写操作会被拆分成两次写操作（写高 32 位和写低 32 位，如下图所示）。</p>
@@ -858,7 +858,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>我们先来看看 addOne() 方法，首先可以肯定，被 synchronized 修饰后，无论是单核 CPU 还是多核 CPU，只有一个线程能够执行 addOne() 方法，所以一定能保证原子操作，那是否有可见性问题呢？要回答这问题，就要重温一下<a href="../2">上一篇文章</a>中提到的<strong>管程中锁的规则</strong>。</p>
+<p>我们先来看看 addOne() 方法，首先可以肯定，被 synchronized 修饰后，无论是单核 CPU 还是多核 CPU，只有一个线程能够执行 addOne() 方法，所以一定能保证原子操作，那是否有可见性问题呢？要回答这问题，就要重温一下<a href="../2/#4-%E7%AE%A1%E7%A8%8B%E4%B8%AD%E9%94%81%E7%9A%84%E8%A7%84%E5%88%99">上一篇文章</a>中提到的<strong>管程中锁的规则</strong>。</p>
 <blockquote>
 <p>管程中锁的规则：对一个锁的解锁 Happens-Before 于后续对这个锁的加锁。</p>
 </blockquote>
@@ -1348,13 +1348,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1373,7 +1366,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">412k</span>
+                        class="white-color">436.9k</span>
             
             
             

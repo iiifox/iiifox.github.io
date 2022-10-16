@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「力扣」第 438 题：找到字符串中所有字母异位词（中等）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="438. 找到字符串中所有字母异位词题目描述给定两个字符串&amp;nbsp;s&amp;nbsp;和 p，找到&amp;nbsp;s&amp;nbsp;中所有&amp;nbsp;p&amp;nbsp;的&amp;nbsp;异位词&amp;nbsp;的子串，返回这些子串的起始索引。不考虑答案输出的顺序。">
+    <meta name="keywords" content="12 | 如何用面向对象思想写好并发程序？, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
+    <meta name="description" content="12 | 如何用面向对象思想写好并发程序？在工作中，我发现很多同学在设计之初都是直接按照单线程的思路来写程序的，而忽略了本应该重视的并发问题；等上线后的某天，突然发现诡异的 Bug，再历经千辛万苦终于定位到问题所在，却发现对于如何解决已经没">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>「力扣」第 438 题：找到字符串中所有字母异位词（中等） | iiifox</title>
+    <title>12 | 如何用面向对象思想写好并发程序？ | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -606,12 +606,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/../../images/juc/12/12.jfif')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「力扣」第 438 题：找到字符串中所有字母异位词（中等）</h1>
+                    <h1 class="description center-align post-title">12 | 如何用面向对象思想写好并发程序？</h1>
                 </div>
             </div>
         </div>
@@ -725,13 +725,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                                <span class="chip bg-color">滑动窗口</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -739,8 +735,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/LeetCode-%E7%83%AD%E9%A2%98-HOT-100/" class="post-category">
-                                LeetCode 热题 HOT 100
+                            <a href="/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" class="post-category">
+                                Java并发编程实战
                             </a>
                         
                     </div>
@@ -752,21 +748,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-18
+                    2019-03-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-10
+                    2022-10-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    598
+                    3k
                 </div>
                 
 
@@ -791,94 +787,93 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="438-找到字符串中所有字母异位词"><a href="#438-找到字符串中所有字母异位词" class="headerlink" title="438. 找到字符串中所有字母异位词"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-all-anagrams-in-a-string/">438. 找到字符串中所有字母异位词</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个字符串&nbsp;<code>s</code>&nbsp;和 <code>p</code>，找到&nbsp;<code>s</code><strong>&nbsp;</strong>中所有&nbsp;<code>p</code><strong>&nbsp;</strong>的&nbsp;<strong>异位词&nbsp;</strong>的子串，返回这些子串的起始索引。不考虑答案输出的顺序。</p>
+                <h1 id="12-如何用面向对象思想写好并发程序？"><a href="#12-如何用面向对象思想写好并发程序？" class="headerlink" title="12 | 如何用面向对象思想写好并发程序？"></a>12 | 如何用面向对象思想写好并发程序？</h1><p>在工作中，我发现很多同学在设计之初都是直接按照单线程的思路来写程序的，而忽略了本应该重视的并发问题；等上线后的某天，突然发现诡异的 Bug，再历经千辛万苦终于定位到问题所在，却发现对于如何解决已经没有了思路。</p>
+<p>关于这个问题，我觉得咱们今天很有必要好好聊聊“如何用面向对象思想写好并发程序”这个话题。</p>
+<p>面向对象思想与并发编程有关系吗？本来是没关系的，它们分属两个不同的领域，但是在 Java 语言里，这两个领域被无情地融合在一起了，好在融合的效果还是不错的：<strong>在 Java 语言里，面向对象思想能够让并发编程变得更简单</strong>。</p>
+<p>那如何才能用面向对象思想写好并发程序呢？结合我自己的工作经验来看，我觉得你可以从封装共享变量、识别共享变量间的约束条件和制定并发访问策略这三个方面下手。</p>
+<h2 id="一、封装共享变量"><a href="#一、封装共享变量" class="headerlink" title="一、封装共享变量"></a>一、封装共享变量</h2><p>并发程序，我们关注的一个核心问题，不过是解决多线程同时访问共享变量的问题。在<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/article/84344">《03 | 互斥锁（上）：解决原子性问题》</a>中，我们类比过球场门票的管理，现实世界里门票管理的一个核心问题是：所有观众只能通过规定的入口进入，否则检票就形同虚设。在编程世界这个问题也很重要，编程领域里面对于共享变量的访问路径就类似于球场的入口，必须严格控制。好在有了面向对象思想，对共享变量的访问路径可以轻松把控。</p>
+<p>面向对象思想里面有一个很重要的特性是<strong>封装</strong>，封装的通俗解释就是<strong>将属性和实现细节封装在对象内部</strong>，外界对象<strong>只能通过</strong>目标对象提供的<strong>公共方法来间接访问</strong>这些内部属性，这和门票管理模型匹配度相当的高，球场里的座位就是对象属性，球场入口就是对象的公共方法。我们把共享变量作为对象的属性，那对于共享变量的访问路径就是对象的公共方法，所有入口都要安排检票程序就相当于我们前面提到的并发访问策略。</p>
+<p>利用面向对象思想写并发程序的思路，其实就这么简单：<strong>将共享变量作为对象属性封装在内部，对所有公共方法制定并发访问策略</strong>。就拿很多统计程序都要用到计数器来说，下面的计数器程序共享变量只有一个，就是 value，我们把它作为 Counter 类的属性，并且将两个公共方法 get() 和 addOne() 声明为同步方法，这样 Counter 类就成为一个线程安全的类了。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Counter</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">long</span> value<span class="token punctuation">;</span>
 
-<p><strong>异位词 </strong>指由相同字母重排列形成的字符串（包括相同的字符串）。</p>
-
-<pre><strong>示例&nbsp;1:</strong>
-<strong>输入: </strong>s = "cbaebabacd", p = "abc"
-<strong>输出: </strong>[0,6]
-<strong>解释:</strong>
-起始索引等于 0 的子串是 "cba", 它是 "abc" 的异位词。
-起始索引等于 6 的子串是 "bac", 它是 "abc" 的异位词。
-</pre>
-
-<pre><strong>&nbsp;示例 2:</strong>
-<strong>输入: </strong>s = "abab", p = "ab"
-<strong>输出: </strong>[0,1,2]
-<strong>解释:</strong>
-起始索引等于 0 的子串是 "ab", 它是 "ab" 的异位词。
-起始索引等于 1 的子串是 "ba", 它是 "ab" 的异位词。
-起始索引等于 2 的子串是 "ab", 它是 "ab" 的异位词。
-</pre>
-
-<p><strong>提示:</strong>
-</p><ul> 
- <li><code>1 &lt;= s.length, p.length &lt;= 3 * 10<sup>4</sup></code></li> 
- <li><code>s</code>&nbsp;和&nbsp;<code>p</code>&nbsp;仅包含小写字母</li> 
-</ul><p></p>
-
-<h2 id="参考代码：滑动窗口"><a href="#参考代码：滑动窗口" class="headerlink" title="参考代码：滑动窗口"></a>参考代码：滑动窗口</h2><blockquote>
-<p>时间复杂度：$O(m+n+26)$</p>
-<p>空间复杂度：$O(m+n+26)$</p>
-</blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> <span class="token function">findAnagrams</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">String</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// 特判。（不是必须的）</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> p<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> res<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token comment">// s 和 p 仅包含小写字母</span>
-        <span class="token comment">// 窗口数组，统计当前窗口内 p 中存在的字符出现的次数</span>
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> window <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token comment">// 统计字符串 p 中每个字符出现的次数</span>
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> pattern <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> p<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            pattern<span class="token punctuation">[</span>c <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token comment">// 统计字符串 p 中不同字符数。differ 记录窗口内未完全匹配的字符数</span>
-        <span class="token keyword">int</span> differ <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> pattern<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>pattern<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                differ<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chars <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> right <span class="token operator">&lt;</span> chars<span class="token punctuation">.</span>length<span class="token punctuation">;</span> right<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">char</span> rightChar <span class="token operator">=</span> chars<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token comment">// 该字符在 p 中是存在的</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>pattern<span class="token punctuation">[</span>rightChar <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                window<span class="token punctuation">[</span>rightChar <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
-                <span class="token comment">// 窗口内该字符出现的次数等于 p 中该字符的次数了</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">[</span>rightChar <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span> <span class="token operator">==</span> pattern<span class="token punctuation">[</span>rightChar <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    differ<span class="token operator">--</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-            <span class="token comment">// 当前窗口内已经涵盖 p 所有字符，此时左指针可以考虑右移了</span>
-            <span class="token keyword">while</span> <span class="token punctuation">(</span>differ <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">==</span> p<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    res<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-                <span class="token comment">// 考虑左边界向右边走</span>
-                <span class="token keyword">char</span> leftChar <span class="token operator">=</span> chars<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                <span class="token comment">// 即将出窗口的字符在 p 中是存在的</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>pattern<span class="token punctuation">[</span>leftChar <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    window<span class="token punctuation">[</span>leftChar <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span>
-                    <span class="token comment">// 窗口内 leftChar 字符数已经少于 p 中的 leftChar 字符数了</span>
-                    <span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">[</span>leftChar <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> pattern<span class="token punctuation">[</span>leftChar <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        differ<span class="token operator">++</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span>
-                left<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token keyword">synchronized</span> <span class="token keyword">long</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> value<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+    <span class="token keyword">synchronized</span> <span class="token keyword">long</span> <span class="token function">addOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">++</span>value<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当然，实际工作中，很多的场景都不会像计数器这么简单，经常要面临的情况往往是有很多的共享变量，例如，信用卡账户有卡号、姓名、身份证、信用额度、已出账单、未出账单等很多共享变量。这么多的共享变量，如果每一个都考虑它的并发安全问题，那我们就累死了。但其实仔细观察，你会发现，很多共享变量的值是不会变的，例如信用卡账户的卡号、姓名、身份证。<strong>对于这些不会发生变化的共享变量，建议你用 final 关键字来修饰</strong>。这样既能避免并发问题，也能很明了地表明你的设计意图，让后面接手你程序的兄弟知道，你已经考虑过这些共享变量的并发安全问题了。</p>
+<h2 id="二、识别共享变量间的约束条件"><a href="#二、识别共享变量间的约束条件" class="headerlink" title="二、识别共享变量间的约束条件"></a>二、识别共享变量间的约束条件</h2><p>识别共享变量间的约束条件非常重要。因为<strong>这些约束条件，决定了并发访问策略</strong>。例如，库存管理里面有个合理库存的概念，库存量不能太高，也不能太低，它有一个上限和一个下限。关于这些约束条件，我们可以用下面的程序来模拟一下。在类 SafeWM 中，声明了两个成员变量 upper 和 lower，分别代表库存上限和库存下限，这两个变量用了 AtomicLong 这个原子类，原子类是线程安全的，所以这两个成员变量的 set 方法就不需要同步了。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SafeWM</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 库存上限</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">AtomicLong</span> upper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicLong</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 库存下限</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">AtomicLong</span> lower <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicLong</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 设置库存上限</span>
+    <span class="token keyword">void</span> <span class="token function">setUpper</span><span class="token punctuation">(</span><span class="token keyword">long</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        upper<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 设置库存下限</span>
+    <span class="token keyword">void</span> <span class="token function">setLower</span><span class="token punctuation">(</span><span class="token keyword">long</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        lower<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 省略其他业务代码</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>虽说上面的代码是没有问题的，但是忽视了一个约束条件，就是<strong>库存下限要小于库存上限</strong>，这个约束条件能够直接加到上面的 set 方法上吗？我们先直接加一下看看效果（如下面代码所示）。我们在 setUpper() 和 setLower() 中增加了参数校验，这乍看上去好像是对的，但其实存在并发问题，问题在于存在竞态条件。这里我顺便插一句，其实当你看到代码里出现 if 语句的时候，就应该立刻意识到可能存在竞态条件。</p>
+<p>我们假设库存的下限和上限分别是 (2,10)，线程 A 调用 setUpper(5) 将上限设置为 5，线程 B 调用 setLower(7) 将下限设置为 7，如果线程 A 和线程 B 完全同时执行，你会发现线程 A 能够通过参数校验，因为这个时候，下限还没有被线程 B 设置，还是 2，而 5&gt;2；线程 B 也能够通过参数校验，因为这个时候，上限还没有被线程 A 设置，还是 10，而 7&lt;10。当线程 A 和线程 B 都通过参数校验后，就把库存的下限和上限设置成 (7, 5) 了，显然此时的结果是不符合<strong>库存下限要小于库存上限</strong>这个约束条件的。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SafeWM</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 库存上限</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">AtomicLong</span> upper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicLong</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 库存下限</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">AtomicLong</span> lower <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicLong</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 设置库存上限</span>
+    <span class="token keyword">void</span> <span class="token function">setUpper</span><span class="token punctuation">(</span><span class="token keyword">long</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 检查参数合法性</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>v <span class="token operator">&lt;</span> lower<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        upper<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 设置库存下限</span>
+    <span class="token keyword">void</span> <span class="token function">setLower</span><span class="token punctuation">(</span><span class="token keyword">long</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 检查参数合法性</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>v <span class="token operator">&gt;</span> upper<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        lower<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 省略其他业务代码</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在没有识别出<strong>库存下限要小于库存上限</strong>这个约束条件之前，我们制定的并发访问策略是利用原子类，但是这个策略，完全不能保证<strong>库存下限要小于库存上限</strong>这个约束条件。所以说，在设计阶段，我们<strong>一定要识别出所有共享变量之间的约束条件，如果约束条件识别不足，很可能导致制定的并发访问策略南辕北辙</strong>。</p>
+<p>共享变量之间的约束条件，反映在代码里，基本上都会有 if 语句，所以，一定要特别注意竞态条件。</p>
+<h2 id="三、制定并发访问策略"><a href="#三、制定并发访问策略" class="headerlink" title="三、制定并发访问策略"></a>三、制定并发访问策略</h2><p>制定并发访问策略，是一个非常复杂的事情。应该说整个专栏都是在尝试搞定它。不过从方案上来看，无外乎就是以下“三件事”。</p>
+<ol>
+<li>避免共享：避免共享的技术主要是利于线程本地存储以及为每个任务分配独立的线程。</li>
+<li>不变模式：这个在 Java 领域应用的很少，但在其他领域却有着广泛的应用，例如 Actor 模式、CSP 模式以及函数式编程的基础都是不变模式。</li>
+<li>管程及其他同步工具：Java 领域万能的解决方案是管程，但是对于很多特定场景，使用 Java 并发包提供的读写锁、并发容器等同步工具会更好。</li>
+</ol>
+<p>接下来在咱们专栏的第二模块我会仔细讲解 Java 并发工具类以及他们的应用场景，在第三模块我还会讲解并发编程的设计模式，这些都是和制定并发访问策略有关的。</p>
+<p>除了这些方案之外，还有一些宏观的原则需要你了解。这些宏观原则，有助于你写出“健壮”的并发程序。这些原则主要有以下三条。</p>
+<ol>
+<li>优先使用成熟的工具类：Java SDK 并发包里提供了丰富的工具类，基本上能满足你日常的需要，建议你熟悉它们，用好它们，而不是自己再“发明轮子”，毕竟并发工具类不是随随便便就能发明成功的。</li>
+<li>迫不得已时才使用低级的同步原语：低级的同步原语主要指的是 synchronized、Lock、Semaphore 等，这些虽然感觉简单，但实际上并没那么简单，一定要小心使用。</li>
+<li>避免过早优化：安全第一，并发程序首先要保证安全，出现性能瓶颈后再优化。在设计期和开发期，很多人经常会情不自禁地预估性能的瓶颈，并对此实施优化，但残酷的现实却是：性能瓶颈不是你想预估就能预估的。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>利用面向对象思想编写并发程序，一个关键点就是利用面向对象里的封装特性，由于篇幅原因，这里我只做了简单介绍，详细的你可以借助相关资料定向学习。而对共享变量进行封装，要避免“逸出”，所谓“逸出”简单讲就是共享变量逃逸到对象的外面，比如在<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/article/84017">《02 | Java 内存模型：看 Java 如何解决可见性和有序性问题》</a>那一篇我们已经讲过构造函数里的 this“逸出”。这些都是必须要避免的。</p>
+<p>这是我们专栏并发理论基础的最后一部分内容，这一部分内容主要是让你对并发编程有一个全面的认识，让你了解并发编程里的各种概念，以及它们之间的关系，当然终极目标是让你知道遇到并发问题该怎么思考。这部分的内容还是有点烧脑的，但专栏后面几个模块的内容都是具体的实践部分，相对来说就容易多了。我们一起坚持吧！</p>
+<h2 id="课后思考"><a href="#课后思考" class="headerlink" title="课后思考"></a>课后思考</h2><p>本期示例代码中，类 SafeWM 不满足库存下限要小于库存上限这个约束条件，那你来试试修改一下，让它能够在并发条件下满足库存下限要小于库存上限这个约束条件。</p>
+<p>欢迎在留言区与我分享你的想法，也欢迎你在留言区记录你的思考过程。感谢阅读，如果你觉得这篇文章对你有帮助的话，也欢迎把它分享给更多的朋友。</p>
+<h2 id="延伸阅读"><a href="#延伸阅读" class="headerlink" title="延伸阅读"></a>延伸阅读</h2><p>关于这部分的内容，如果你觉得还不“过瘾”，这里我再给你推荐一本书吧——<a href="time://mall?url=https%3A%2F%2Fh5.youzan.com%2Fv2%2Fgoods%2F2758xqdzr6uuw">《Java 并发编程实战》</a>，这本书的第三章《对象的共享》、第四章《对象的组合》全面地介绍了如何构建线程安全的对象，你可以拿来深入地学习。</p>
 
                 
             </div>
@@ -905,7 +900,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://iiifox.github.io/leetcode/438/">https://iiifox.github.io/leetcode/438/</a>
+                    <a href="https://iiifox.github.io/juc/12/">https://iiifox.github.io/juc/12/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -942,11 +937,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                                    <span class="chip bg-color">滑动窗口</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -1122,13 +1113,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/leetcode/448/">
+                <a href="/juc/13/">
                     <div class="card-image">
                         
+                        <img src="/../../images/juc/13/13.jfif" class="responsive-img" alt="13 | 理论基础模块热点问题答疑">
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="「力扣」第 448 题：找到所有数组中消失的数字（简单）">
-                        
-                        <span class="card-title">「力扣」第 448 题：找到所有数组中消失的数字（简单）</span>
+                        <span class="card-title">13 | 理论基础模块热点问题答疑</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1139,27 +1129,19 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-18
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-03-28
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/LeetCode-%E7%83%AD%E9%A2%98-HOT-100/" class="post-category">
-                                    LeetCode 热题 HOT 100
+                            <a href="/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" class="post-category">
+                                    Java并发编程实战
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                        <span class="chip bg-color">哈希表</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1171,13 +1153,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/leetcode/path-sum/">
+                <a href="/juc/11/">
                     <div class="card-image">
                         
+                        <img src="/../../images/juc/11/11.jfif" class="responsive-img" alt="11 | Java线程（下）：为什么局部变量是线程安全的？">
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="「力扣」第 437 题：路径总和 III（合集）">
-                        
-                        <span class="card-title">「力扣」第 437 题：路径总和 III（合集）</span>
+                        <span class="card-title">11 | Java线程（下）：为什么局部变量是线程安全的？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1188,39 +1169,19 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/LeetCode-%E7%83%AD%E9%A2%98-HOT-100/" class="post-category">
-                                    LeetCode 热题 HOT 100
+                            <a href="/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" class="post-category">
+                                    Java并发编程实战
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                        <span class="chip bg-color">二叉树</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/">
-                        <span class="chip bg-color">未完成</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%9B%9E%E6%BA%AF/">
-                        <span class="chip bg-color">回溯</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">
-                        <span class="chip bg-color">前缀和</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1343,13 +1304,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1368,7 +1322,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">412k</span>
+                        class="white-color">436.9k</span>
             
             
             

@@ -6,14 +6,12 @@
     <meta charset="utf-8">
     <meta name="keywords" content="「力扣」第 461 题：汉明距离（简单）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
     <meta name="description" content="461. 汉明距离题目描述两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。
-
 给你两个整数 x 和 y，计算并返回它们之间的汉明距离。
-
 示例 1：
 输入：x = 1, y = 4
 输出：2
 解释：
-1   (0 0">
+1   (0 0 0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -767,14 +765,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-08
+                    2022-10-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    181
+                    179
                 </div>
                 
 
@@ -800,9 +798,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="461-汉明距离"><a href="#461-汉明距离" class="headerlink" title="461. 汉明距离"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/hamming-distance/">461. 汉明距离</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>两个整数之间的 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB">汉明距离</a> 指的是这两个数字对应二进制位不同的位置的数目。</p>
-
 <p>给你两个整数 <code>x</code> 和 <code>y</code>，计算并返回它们之间的汉明距离。</p>
-
 <pre><strong>示例 1：</strong>
 <strong>输入：</strong>x = 1, y = 4
 <strong>输出：</strong>2
@@ -817,17 +813,15 @@
 <strong>输入：</strong>x = 3, y = 1
 <strong>输出：</strong>1
 </pre>
-
-<p><strong>提示：</strong>
-</p><ul>
-    <li><code>0 &lt;=&nbsp;x, y &lt;= 2<sup>31</sup> - 1</code></li>
-</ul><p></p>
-
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= x, y &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
 <h2 id="参考代码：位运算"><a href="#参考代码：位运算" class="headerlink" title="参考代码：位运算"></a>参考代码：位运算</h2><blockquote>
 <p>时间复杂度：$O(n)$</p>
 <p>空间复杂度：$O(1)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hammingDistance</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> z <span class="token operator">=</span> x <span class="token operator">^</span> y<span class="token punctuation">;</span> z <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">;</span> z <span class="token operator">&gt;&gt;=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1080,7 +1074,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/leetcode/494/">
+                <a href="/leetcode/target-sum/">
                     <div class="card-image">
                         
                         
@@ -1118,6 +1112,10 @@
                         <span class="chip bg-color">动态规划</span>
                     </a>
                     
+                    <a href="/tags/01%E8%83%8C%E5%8C%85/">
+                        <span class="chip bg-color">01背包</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1129,7 +1127,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/leetcode/448/">
+                <a href="/leetcode/find-all-numbers-disappeared-in-an-array/">
                     <div class="card-image">
                         
                         
@@ -1163,8 +1161,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                        <span class="chip bg-color">哈希表</span>
+                    <a href="/tags/%E5%8E%9F%E5%9C%B0%E5%93%88%E5%B8%8C/">
+                        <span class="chip bg-color">原地哈希</span>
                     </a>
                     
                 </div>
@@ -1314,7 +1312,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">412k</span>
+                        class="white-color">436.9k</span>
             
             
             
