@@ -4,16 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「力扣」第 416 题：分割等和子集（中等）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
-    <meta name="description" content="「力扣」第 416 题：分割等和子集
-链接
-「力扣」第 494 题：目标和
-
-题目描述给你一个 只包含正整数 的 非空 数组&amp;nbsp;nums 。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。
-
-&amp;nbsp;
-
-示例">
+    <meta name="keywords" content="「力扣」第 399 题：除法求值（中等）, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
+    <meta name="description" content="399. 除法求值题目描述给你一个变量对数组 equations 和一个实数值数组 values 作为已知条件，其中 equations[i] = [Ai, Bi] 和 values[i] 共同表示等式 Ai / Bi = values[i">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -27,7 +19,7 @@
 
     
 
-    <title>「力扣」第 416 题：分割等和子集（中等） | iiifox</title>
+    <title>「力扣」第 399 题：除法求值（中等） | iiifox</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -162,6 +154,15 @@
           <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
           
           <span>ZLibrary</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://oi-wiki.org/">
+          
+          <i class="fas fa-graduation-cap" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>OI WiKi</span>
         </a>
       </li>
       
@@ -412,6 +413,16 @@
               
                 <li>
 
+                  <a target="_blank" rel="noopener" href="https://oi-wiki.org/ " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-graduation-cap" style="position: absolute;left:50px" ></i>
+			      
+		          <span>OI WiKi</span>
+                  </a>
+                </li>
+              
+                <li>
+
                   <a target="_blank" rel="noopener" href="https://visualgo.net/zh " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-eye" style="position: absolute;left:50px" ></i>
@@ -614,12 +625,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「力扣」第 416 题：分割等和子集（中等）</h1>
+                    <h1 class="description center-align post-title">「力扣」第 399 题：除法求值（中等）</h1>
                 </div>
             </div>
         </div>
@@ -735,8 +746,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                                <span class="chip bg-color">动态规划</span>
+                            <a href="/tags/%E5%B8%A6%E6%9D%83%E5%B9%B6%E6%9F%A5%E9%9B%86/">
+                                <span class="chip bg-color">带权并查集</span>
                             </a>
                         
                     </div>
@@ -760,21 +771,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-16
+                    2022-08-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-20
+                    2022-10-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    891
+                    1.1k
                 </div>
                 
 
@@ -799,132 +810,145 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="「力扣」第-416-题：分割等和子集"><a href="#「力扣」第-416-题：分割等和子集" class="headerlink" title="「力扣」第 416 题：分割等和子集"></a>「力扣」第 416 题：分割等和子集</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/partition-equal-subset-sum/">链接</a></li>
-<li><a href="https://iiifox.github.io/leetcode/4/">「力扣」第 494 题：目标和</a></li>
-</ul>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个 <strong>只包含正整数 </strong>的 <strong>非空 </strong>数组&nbsp;<code>nums</code> 。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。</p>
-
-<p>&nbsp;</p>
-
-<pre><strong>示例 1：</strong>
-<strong>输入：</strong>nums = [1,5,11,5]
-<strong>输出：</strong>true
-<strong>解释：</strong>数组可以分割成 [1, 5, 5] 和 [11] 。
+                <h1 id="399-除法求值"><a href="#399-除法求值" class="headerlink" title="399. 除法求值"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/evaluate-division/">399. 除法求值</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个变量对数组 <code>equations</code> 和一个实数值数组 <code>values</code> 作为已知条件，其中 <code>equations[i] = [A<sub>i</sub>, B<sub>i</sub>]</code> 和 <code>values[i]</code> 共同表示等式 <code>A<sub>i</sub> / B<sub>i</sub> = values[i]</code> 。每个 <code>A<sub>i</sub></code> 或 <code>B<sub>i</sub></code> 是一个表示单个变量的字符串。</p>
+<p>另有一些以数组 <code>queries</code> 表示的问题，其中 <code>queries[j] = [C<sub>j</sub>, D<sub>j</sub>]</code> 表示第 <code>j</code> 个问题，请你根据已知条件找出 <code>C<sub>j</sub> / D<sub>j</sub> = ?</code> 的结果作为答案。</p>
+<p>返回 <strong>所有问题的答案</strong> 。如果存在某个无法确定的答案，则用 <code>-1.0</code> 替代这个答案。如果问题中出现了给定的已知条件中没有出现的字符串，也需要用 <code>-1.0</code> 替代这个答案。</p>
+<p><strong>注意：</strong>输入总是有效的。你可以假设除法运算中不会出现除数为 0 的情况，且不存在任何矛盾的结果。</p>
+<pre style="white-space:pre-wrap"><strong>示例 1：</strong>
+<strong>输入：</strong>equations = [["a","b"],["b","c"]], values = [2.0,3.0], queries = [["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]]
+<strong>输出：</strong>[6.00000,0.50000,-1.00000,1.00000,-1.00000]
+<strong>解释：</strong>
+条件：a / b = 2.0, b / c = 3.0
+问题：a / c = ?, b / a = ?, a / e = ?, a / a = ?, x / x = ?
+结果：[6.0, 0.5, -1.0, 1.0, -1.0 ]
 </pre>
 
-<pre><strong>示例 2：</strong>
-<strong>输入：</strong>nums = [1,2,3,5]
-<strong>输出：</strong>false
-<strong>解释：</strong>数组不能分割成两个元素和相等的子集。
+<pre style="white-space:pre-wrap"><strong>示例 2：</strong>
+<strong>输入：</strong>equations = [["a","b"],["b","c"],["bc","cd"]], values = [1.5,2.5,5.0],queries = [["a","c"],["c","b"],["bc","cd"],["cd","bc"]]
+<strong>输出：</strong>[3.75000,0.40000,5.00000,0.20000]
 </pre>
 
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong>
-</p><ul> 
- <li><code>1 &lt;= nums.length &lt;= 200</code></li> 
- <li><code>1 &lt;= nums[i] &lt;= 100</code></li> 
-</ul><p></p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h3 id="参考代码：动态规划"><a href="#参考代码：动态规划" class="headerlink" title="参考代码：动态规划"></a>参考代码：动态规划</h3><p><strong><font color="red">方法一：未优化空间</font></strong></p>
-<p><code>dp[i][j]</code> 表示从数组的 <code>[0,i]</code> 下标范围内选取若干个正整数（可以是 0 个），是否存在一种选取方案使得被选取的正整数的和等于 <code>j</code> 。</p>
-<p><strong>状态转义方程：</strong></p>
+<pre style="white-space:pre-wrap"><strong>示例 3：</strong>
+<strong>输入：</strong>equations = [["a","b"]], values = [0.5], queries = [["a","b"],["b","a"],["a","c"],["x","y"]]
+<strong>输出：</strong>[0.50000,2.00000,-1.00000,-1.00000]
+</pre>
+<p><strong>提示：</strong></p>
 <ul>
-<li><code>dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]]</code></li>
+<li><code>1 &lt;= equations.length &lt;= 20</code></li>
+<li><code>equations[i].length == 2</code></li>
+<li><code>1 &lt;= A<sub>i</sub>.length, B<sub>i</sub>.length &lt;= 5</code></li>
+<li><code>values.length == equations.length</code></li>
+<li><code>0.0 &lt; values[i] &lt;= 20.0</code></li>
+<li><code>1 &lt;= queries.length &lt;= 20</code></li>
+<li><code>queries[i].length == 2</code></li>
+<li><code>1 &lt;= C<sub>j</sub>.length, D<sub>j</sub>.length &lt;= 5</code></li>
+<li><code>A<sub>i</sub>, B<sub>i</sub>, C<sub>j</sub>, D<sub>j</sub></code> 由小写英文字母与数字组成</li>
+</ul>
+<h2 id="参考代码：带权并查集"><a href="#参考代码：带权并查集" class="headerlink" title="参考代码：带权并查集"></a>参考代码：带权并查集</h2><ul>
+<li>构建并查集 $O(N \log A)$ ，这里 N 为输入方程 equations 的长度，每一次执行合并操作的时间复杂度是 $O(\log A)$，这里 A 是 equations 里不同字符的个数；</li>
+<li>查询并查集 $O(Q \log A)$，这里 Q 为查询数组 queries 的长度，每一次查询时执行「路径压缩」的时间复杂度是 $O(\log A)$。</li>
 </ul>
 <blockquote>
-<p>时间复杂度：$O(n \times target)$</p>
-<p>空间复杂度：$O(n \times target)$</p>
+<p>时间复杂度：$O((N+Q)\log A)$</p>
+<p>空间复杂度：$O(A)$</p>
 </blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">canPartition</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token comment">// 1 &lt;= nums[i] &lt;= 100</span>
-        <span class="token keyword">int</span> maxNum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            sum <span class="token operator">+=</span> num<span class="token punctuation">;</span>
-            maxNum <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>maxNum<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">int</span> target <span class="token operator">=</span> sum <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token comment">// 如果和为奇数。或者最大数大于总和的一半。</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>sum <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">||</span> <span class="token punctuation">(</span>maxNum <span class="token operator">&gt;</span> target<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token comment">// dp[i][j] 表示从数组的 [0,i] 下标范围内选取若干个正整数（可以是 0 个），</span>
-        <span class="token comment">// 是否存在一种选取方案使得被选取的正整数的和等于 j 。</span>
-        <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span>nums<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">[</span>target <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token comment">// 当 i == 0 时，只有一个正整数 nums[0] 可以被选取</span>
-        dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token comment">// 如果不选取任何正整数，则被选取的正整数等于 0。</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> dp<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> dp<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token comment">// 对于当前的数字 nums[i]，可以不选取也可以选取</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">&gt;=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">||</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">double</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">calcEquation</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> equations<span class="token punctuation">,</span>
+                                 <span class="token keyword">double</span><span class="token punctuation">[</span><span class="token punctuation">]</span> values<span class="token punctuation">,</span>
+                                 <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> queries<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 已知条件中的变量名个数</span>
+        <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token comment">// 通过哈希表将已知条件中的变量名映射成数字 [0,count)（方便建立并查集）</span>
+        <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> equation <span class="token operator">:</span> equations<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>equation<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>equation<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> count<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>equation<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>equation<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> count<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> dp<span class="token punctuation">[</span>nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>target<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>&nbsp;</p>
-
-<p><strong><font color="red">方法二：优化空间</font></strong></p>
-<p>上述代码的空间复杂度是 <code>O(n×target)</code> 。但是可以发现在计算 <code>dp</code> 的过程中，每一行的 <code>dp</code> 值都只与上一行的 <code>dp</code> 值有关，因此只需要一个一维数组即可将空间复杂度降到 <code>O(target)</code> 。</p>
-<p><strong>此时的转移方程为：</strong> </p>
-<ul>
-<li><code>dp[j] = dp[j] || dp[j-nums[i]]</code></li>
-</ul>
-<p><strong>需要注意的是</strong> 第二层的循环我们需要从大到小计算，因为如果我们从小到大更新 <code>dp</code> 值，那么在计算 <code>dp[j]</code> 值的时候，<code>dp[j−nums[i]]</code> 已经是被更新过的状态，不再是上一行的 <code>dp</code> 值。</p>
-<p>即实际上使用的是 <code>dp[i][j-num[i]]</code> 而非 <code>dp[i-1][j-num[i]]</code> （因为从小到大计算的话，每一行的 <code>j - nums[i]</code> 会先于 <code>j</code> 更新）。</p>
-<blockquote>
-<p>时间复杂度：$O(n \times target)$</p>
-<p>空间复杂度：$O(target)$</p>
-</blockquote>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">canPartition</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token comment">// 1 &lt;= nums[i] &lt;= 100</span>
-        <span class="token keyword">int</span> maxNum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            sum <span class="token operator">+=</span> num<span class="token punctuation">;</span>
-            maxNum <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>maxNum<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 建立并查集，并将变量对当中的分子并入分母所在集合（代表元是分母）</span>
+        <span class="token class-name">UnionFind</span> unionFind <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UnionFind</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> equations<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> x <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>equations<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> y <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>equations<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            unionFind<span class="token punctuation">.</span><span class="token function">union</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> values<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
 
-        <span class="token keyword">int</span> target <span class="token operator">=</span> sum <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token comment">// 如果和为奇数。或者最大数大于总和的一半。</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>sum <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">||</span> <span class="token punctuation">(</span>maxNum <span class="token operator">&gt;</span> target<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token comment">// dp[i] 表示是否存在一种选取方案使得被选取的正整数的和等于 i</span>
-        <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span>target <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// 当前数不大于目标值 j ，才会考虑添加。</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> target<span class="token punctuation">;</span> j <span class="token operator">&gt;=</span> num<span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token comment">// 对于当前的数字 nums[i]，可以不选取也可以选取</span>
-                dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">||</span> dp<span class="token punctuation">[</span>j <span class="token operator">-</span> num<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment">// 存放结果集的数组</span>
+        <span class="token keyword">double</span><span class="token punctuation">[</span><span class="token punctuation">]</span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">double</span><span class="token punctuation">[</span>queries<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> res<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> query <span class="token operator">=</span> queries<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Integer</span> a <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>query<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Integer</span> b <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>query<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 分子与分母都是已知变量</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> b <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> unionFind<span class="token punctuation">.</span><span class="token function">isConnected</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> dp<span class="token punctuation">[</span>target<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+    <span class="token comment">/**
+     * 带权并查集
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">UnionFind</span> <span class="token punctuation">{</span>
+        <span class="token comment">/**
+         * parent[i] 表示 i 所在集合的代表元，也即顶级父类
+         */</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> parent<span class="token punctuation">;</span>
+        <span class="token comment">/**
+         * 权值表。weight[i] = (变量 i) / (变量 parent[i])
+         */</span>
+        <span class="token keyword">private</span> <span class="token keyword">double</span><span class="token punctuation">[</span><span class="token punctuation">]</span> weight<span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token class-name">UnionFind</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>parent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                parent<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>weight <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">double</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>weight<span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">/**
+         * 查找 x 所在集合的代表元（顶级父类）
+         */</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>parent<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">!=</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">int</span> origin <span class="token operator">=</span> parent<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                parent<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 修改相对应的权值表</span>
+                weight<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">*=</span> weight<span class="token punctuation">[</span>origin<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> parent<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">/**
+         * x 所在集合并入 y 所在的集合（合并过程路径压缩）
+         */</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">union</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">,</span> <span class="token keyword">double</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 分子 x 所在集合的代表元</span>
+            <span class="token keyword">int</span> rootX <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 将分子所在集合并入分母所在集合（代表元用原分母所在集合代表元）</span>
+            parent<span class="token punctuation">[</span>rootX<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 修改相对应的权值表。 weight[x] * weight[rootX] = value * weight[y]</span>
+            weight<span class="token punctuation">[</span>rootX<span class="token punctuation">]</span> <span class="token operator">=</span> value <span class="token operator">*</span> weight<span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">/</span> weight<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">/**
+         * 判断 x 与 y 是否位于同一个集合之中。如果是则返回 变量x/变量y，否则返回 -1
+         */</span>
+        <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">isConnected</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token function">find</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token function">find</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">(</span>weight<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">/</span> weight<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1.0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -952,7 +976,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://iiifox.github.io/leetcode/416/">https://iiifox.github.io/leetcode/416/</a>
+                    <a href="https://iiifox.github.io/leetcode/evaluate-division/">https://iiifox.github.io/leetcode/evaluate-division/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -990,8 +1014,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                                    <span class="chip bg-color">动态规划</span>
+                                <a href="/tags/%E5%B8%A6%E6%9D%83%E5%B9%B6%E6%9F%A5%E9%9B%86/">
+                                    <span class="chip bg-color">带权并查集</span>
                                 </a>
                             
                         </div>
@@ -1169,13 +1193,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/leetcode/path-sum/">
+                <a href="/leetcode/queue-reconstruction-by-height/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="「力扣」第 437 题：路径总和 III（合集）">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="「力扣」第 406 题：根据身高重建队列（中等）">
                         
-                        <span class="card-title">「力扣」第 437 题：路径总和 III（合集）</span>
+                        <span class="card-title">「力扣」第 406 题：根据身高重建队列（中等）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1186,7 +1210,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-15
                         </span>
                         <span class="publish-author">
                             
@@ -1203,20 +1227,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                        <span class="chip bg-color">二叉树</span>
+                    <a href="/tags/%E8%B4%AA%E5%BF%83/">
+                        <span class="chip bg-color">贪心</span>
                     </a>
                     
-                    <a href="/tags/%E5%9B%9E%E6%BA%AF/">
-                        <span class="chip bg-color">回溯</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">
-                        <span class="chip bg-color">前缀和</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/">
-                        <span class="chip bg-color">未完成</span>
+                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">排序</span>
                     </a>
                     
                 </div>
@@ -1230,13 +1246,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/leetcode/406/">
+                <a href="/leetcode/decode-string/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="「力扣」第 406 题：根据身高重建队列（中等）">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="「力扣」第 394 题：字符串解码（中等）">
                         
-                        <span class="card-title">「力扣」第 406 题：根据身高重建队列（中等）</span>
+                        <span class="card-title">「力扣」第 394 题：字符串解码（中等）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1247,7 +1263,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-13
                             </span>
                         <span class="publish-author">
                             
@@ -1264,8 +1280,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">排序</span>
+                    <a href="/tags/%E6%A0%88/">
+                        <span class="chip bg-color">栈</span>
                     </a>
                     
                 </div>
@@ -1415,7 +1431,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">442.3k</span>
+                        class="white-color">441.8k</span>
             
             
             
