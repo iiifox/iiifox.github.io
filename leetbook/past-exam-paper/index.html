@@ -1,0 +1,2309 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="大厂真题演练 - 后端岗, 田章,力扣,LeetCode,LeetCode 热题 HOT 100">
+    <meta name="description" content="本题集是由力扣收集整理的各大厂后端岗位面试中的计算机基础考核类真题（八股文类）。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    
+
+    <title>大厂真题演练 - 后端岗 | iiifox</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">iiifox</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-wrench" style="zoom: 0.6;"></i>
+      
+      <span>工具箱</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://pdai.tech/">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>pdai</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tools/books">
+          
+          <i class="fas fa-file-pdf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>电子书</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.lanzou.com/u">
+          
+          <i class="fas fa-cloud" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>蓝奏云</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://1lib.domains/">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>ZLibrary</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://oi-wiki.org/">
+          
+          <i class="fas fa-graduation-cap" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>OI WiKi</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://visualgo.net/zh">
+          
+          <i class="fas fa-eye" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>VisuAlgo</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://mail.stu.hutb.edu.cn/">
+          
+          <i class="fas fa-envelope" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>教育邮箱</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://javaguide.cn/">
+          
+          <i class="fas fa-coffee" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>JavaGuide</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/">
+          
+          <i class="fas fa-font-awesome" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Font Awesome</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>官方文档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">
+          
+          <i class="fab fa-git" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>GitPro</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/">
+          
+          <i class="fas fa-database" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>MySQL8</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/index.html">
+          
+          <i class="fas fa-coffee" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Java8</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://mybatis.org/mybatis-3/zh/index.html">
+          
+          <span>MyBatis3</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://baomidou.com/">
+          
+          <span>MyBatis-Plus</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/">
+          
+          <i class="fas fa-leaf" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SpringBoot</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://spring.io/projects/spring-cloud">
+          
+          <i class="fas fa-cloud" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>SpringCloud</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">iiifox</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-wrench"></i>
+			
+			工具箱
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://pdai.tech/ " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>pdai</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tools/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-file-pdf" style="position: absolute;left:50px" ></i>
+			      
+		          <span>电子书</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://www.lanzou.com/u " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-cloud" style="position: absolute;left:50px" ></i>
+			      
+		          <span>蓝奏云</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://1lib.domains/ " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>ZLibrary</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://oi-wiki.org/ " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-graduation-cap" style="position: absolute;left:50px" ></i>
+			      
+		          <span>OI WiKi</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://visualgo.net/zh " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-eye" style="position: absolute;left:50px" ></i>
+			      
+		          <span>VisuAlgo</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://mail.stu.hutb.edu.cn/ " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-envelope" style="position: absolute;left:50px" ></i>
+			      
+		          <span>教育邮箱</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://javaguide.cn/ " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-coffee" style="position: absolute;left:50px" ></i>
+			      
+		          <span>JavaGuide</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/ " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-font-awesome" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Font Awesome</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			官方文档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2 " style="margin-left:75px">
+				  
+				   <i class="fa fab fa-git" style="position: absolute;left:50px" ></i>
+			      
+		          <span>GitPro</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/ " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-database" style="position: absolute;left:50px" ></i>
+			      
+		          <span>MySQL8</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/index.html " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-coffee" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Java8</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://mybatis.org/mybatis-3/zh/index.html " style="margin-left:75px">
+				  
+		          <span>MyBatis3</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://baomidou.com/ " style="margin-left:75px">
+				  
+		          <span>MyBatis-Plus</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/ " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-leaf" style="position: absolute;left:50px" ></i>
+			      
+		          <span>SpringBoot</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://spring.io/projects/spring-cloud " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-cloud" style="position: absolute;left:50px" ></i>
+			      
+		          <span>SpringCloud</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/iiifox/iiifox.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/iiifox/iiifox.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">大厂真题演练 - 后端岗</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/LeetBook%E5%85%AB%E8%82%A1%E6%96%87/" class="post-category">
+                                LeetBook八股文
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-10-19
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-10-19
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    25.8k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>此文质量较低，且有部分错误，已修改部分。。。</p>
+</blockquote>
+<h1 id="C-后端岗位面试真题"><a href="#C-后端岗位面试真题" class="headerlink" title="C++ 后端岗位面试真题"></a>C++ 后端岗位面试真题</h1><p>本章汇总了针对【C++】后端岗的大厂面试考核真题及考核方向。</p>
+<h2 id="题组-I"><a href="#题组-I" class="headerlink" title="题组 I"></a>题组 I</h2><ol>
+<li>请简述智能指针原理</li>
+</ol>
+<p>👉查看答案👈<br>智能指针是一种资源管理类，通过对原始指针进行封装，在资源管理对象进行析构时对指针指向的内存进行释放；通常使用引用计数方式进行管理</p>
+<ol start="2">
+<li>引用和指针有什么区别？</li>
+</ol>
+<p>👉查看答案👈<br>本质：引用是别名，指针是地址<br>具体的：<br>• 指针可以在运行时改变其所指向的值，引用一旦和某个对象绑定就不再改变<br>• 从内存上看，指针会分配内存区域，而引用不会，它仅仅是一个别名<br>• 在参数传递时，引⽤用会做类型检查，而指针不会<br>• 引用不能为空，指针可以为空</p>
+<ol start="3">
+<li>const 和 define 有什么区别？</li>
+</ol>
+<p>👉查看答案👈<br>本质：define只是字符串替换，const参与编译运行<br>具体的：<br>• define不会做类型检查，const拥有类型，会执行相应的类型检查<br>• define仅仅是宏替换，不占⽤用内存，⽽而const会占用内存<br>• const内存效率更高，编译器通常将const变量保存在符号表中，而不会分配存储空间，这使得它成 为一个编译期间的常量，没有存储和读取的操作</p>
+<ol start="4">
+<li>define 和 inline 有什么区别？</li>
+</ol>
+<p>👉查看答案👈<br>本质：define只是字符串替换，inline由编译器控制<br>具体的：<br>• define只是简单的宏替换，通常会产生二义性；而inline会真正地编译到代码中<br>• inline函数是否展开由编译器决定，有时候当函数太大时，编译器可能选择不展开相应的函数</p>
+<ol start="5">
+<li>malloc 和 new 有什么区别？</li>
+</ol>
+<p>👉查看答案👈</p>
+<ol>
+<li>malloc与free是C++/C语言的标准库函数，new/delete是C++的运算符。它们都可用于申请动态内存和释放内存。</li>
+<li>对于非内部数据类型的对象而言，光用maloc/free无法满足动态对象的要求。对象在创建的同时要自动执行构造函数，对象在消亡之前要自动执行析构函数。由于malloc/free是库函数而不是运算符，不在编译器控制权限之内，不能够把执行构造函数和析构函数的任务强加于malloc/free。</li>
+<li>因此C++语言需要一个能完成动态内存分配和初始化工作的运算符new，以一个能完成清理与释放内存工作的运算符delete。注意new/delete不是库函数。</li>
+<li>C++程序经常要调用C函数，而C程序只能用malloc/free管理动态内存。</li>
+<li>new可以认为是malloc加构造函数的执行。new出来的指针是直接带类型信息的。而malloc返回的都是void指针。</li>
+</ol>
+<ol start="6">
+<li>C++ 中 static 关键字作用有哪些？</li>
+</ol>
+<p>👉查看答案👈</p>
+<ol>
+<li>隐藏：当同时编译多个文件时，所有未加static前缀的全局变量和函数都具有全局可见性。<br>static可以用作函数和变量的前缀，对于函数来讲，static的作用仅限于隐藏.</li>
+<li>static的第二个作用是保持变量内容的持久：存储在静态数据区的变量会在程序刚开始运行时就完成初始化，也是唯一的一次初始化。<br>共有两种变量存储在静态存储区：全局变量和static变量，只不过和全局变量比起来，static可以控制变量的可见范围， 说到底static还是用来隐藏的。虽然这种用法不常见</li>
+<li>static的第三个作用是默认初始化为0（static变量）</li>
+<li>C++中的作用<br>1）不能将静态成员函数定义为虚函数。<br>2）静态数据成员是静态存储的，所以必须对它进行初始化。 （程序员手动初始化，否则编译时一般不会报错，但是在Link时会报错误）<br>3）静态数据成员在&lt;定义或说明&gt;时前面加关键字static。</li>
+</ol>
+<ol start="7">
+<li>C++ 中 const 关键字作用有哪些？</li>
+</ol>
+<p>👉查看答案👈</p>
+<ul>
+<li>修饰变量</li>
+<li>修饰成员函数，表示该成员函数不会修改成员变量</li>
+</ul>
+<ol start="8">
+<li>C++ 中成员函数能够同时用 static 和 const 进行修饰？</li>
+</ol>
+<p>👉查看答案👈<br>否，因为static表示该函数为静态成员函数，为类所有；而const是用于修饰成员函数的，两者相矛盾</p>
+<ol start="9">
+<li>C++ 中包含哪几种强制类型转换？他们有什么区别和联系？</li>
+</ol>
+<p>👉查看答案👈</p>
+<ul>
+<li>reinterpret_cast: 转换一个指针为其它类型的指针。它也允许从一个指针转换为整数类型,反之亦 然. 这个操作符能够在非相关的类型之间转换. 操作结果只是简单的从一个指针到别的指针的值的 二进制拷贝. 在类型之间指向的内容不做任何类型的检查和转换?<br>class A{};<br>class B{};<br>A* a = new A;<br>B* b = reinterpret_cast(a);<br>• static_cast: 允许执行任意的隐式转换和相反转换动作（即使它是不允许隐式的）,例如：应用到类 的指针上, 意思是说它允许子类类型的指针转换为父类类型的指针(这是一个有效的隐式转换), 同 时, 也能够执行相反动作: 转换父类为它的子类 class Base {};<br>class Derive:public Base{};<br>Base* a = new Base;<br>Derive <em>b = static_cast(a);</em></li>
+</ul>
+<p><em>• dynamic_cast: 只用于对象的指针和引用. 当用于多态类型时，它允许任意的隐式类型转换以及相 反过程. 不过，与static_cast不同，在后一种情况里（注：即隐式转换的相反过程）,dynamic_cast 会检查操作是否有效. 也就是说, 它会检查转换是否会返回一个被请求的有效的完整对象。检测在 运行时进行. 如果被转换的指针不是一个被请求的有效完整的对象指针，返回值为NULL. 对于引用 类型，会抛出bad_cast异常</em><br><em>• const_cast: 这个转换类型操纵传递对象的const属性，或者是设置或者是移除,例如：</em><br><em>class C{};</em><br><em>const C</em> a = new C;<br>C *b = const_cast(a);</p>
+<ol start="10">
+<li>简述 C++ 虚函数作用及底层实现原理</li>
+</ol>
+<p>👉查看答案👈<br>要点是要答出虚函数表和虚函数表指针的作用。C++中虚函数使用虚函数表和 虚函数表指针实现，虚函数表是一个类的虚函数的地址表，用于索引类本身以及父类的虚函数的地 址，假如子类的虚函数重写了父类的虚函数，则对应在虚函数表中会把对应的虚函数替换为子类的 虚函数的地址；虚函数表指针存在于每个对象中（通常出于效率考虑，会放在对象的开始地址处）， 它指向对象所在类的虚函数表的地址；在多继承环境下，会存在多个虚函数表指针，分别指向对应 不同基类的虚函数表。</p>
+<ol start="11">
+<li>一个对象访问普通成员函数和虚函数哪个更快？</li>
+</ol>
+<p>👉查看答案👈<br>访问普通成员函数更快，因为普通成员函数的地址在编译阶段就已确定，因此在访问时直接调 用对应地址的函数，而虚函数在调用时，需要首先在虚函数表中寻找虚函数所在地址，因此相比普 通成员函数速度要慢一些</p>
+<h2 id="题组-II"><a href="#题组-II" class="headerlink" title="题组 II"></a>题组 II</h2><ol>
+<li>在什么情况下，析构函数需要是虚函数？</li>
+</ol>
+<p>👉查看答案👈<br>若存在类继承关系并且析构函数中需要析构某些资源时，析构函数需要是虚函数，否则当使用父类指针指向子类对象，在delete时只会调用父类的析构函数，而不能调用子类的析构函数，造成内存泄露等问题</p>
+<ol start="2">
+<li>基类的析构函数不是虚函数，会带来什么问题？</li>
+</ol>
+<p>👉查看答案👈<br>派生类的析构函数用不上，会造成资源的泄漏。</p>
+<ol start="3">
+<li>内联函数、构造函数、静态成员函数可以是虚函数吗？</li>
+</ol>
+<p>👉查看答案👈<br>都不可以。内联函数需要在编译阶段展开，而虚函数是运行时动态绑定的，编译时无法展开； 构造函数在进行调用时还不存在父类和子类的概念，父类只会调用父类的构造函数，子类调用子类 的，因此不存在动态绑定的概念；静态成员函数是以类为单位的函数，与具体对象无关，虚函数是 与对象动态绑定的，因此是两个不冲突的概念；</p>
+<ol start="4">
+<li>构造函数中可以调用虚函数吗？</li>
+</ol>
+<p>👉查看答案👈<br>可以，但是没有动态绑定的效果，父类构造函数中调用的仍然是父类版本的函数，子类中调用的仍然是子类版本的函数</p>
+<ol start="5">
+<li>简述 C++ 中虚继承的作用及底层实现原理？</li>
+</ol>
+<p>👉查看答案👈<br>虚继承用于解决多继承条件下的菱形继承问题，底层实现原理与编译器相关，一般通过虚基类 指针实现，即各对象中只保存一份父类的对象，多继承时通过虚基类指针引用该公共对象，从而避 免菱形继承中的二义性问题。</p>
+<ol start="6">
+<li>new、delete、malloc、free 之间的关系？</li>
+</ol>
+<p>👉查看答案👈<br>malloc 和 free 都是 C/C++ 语言的标准库函数，new/delete 是 C++ 的运算符。<br>new 调用构造函数，delete 会调用对象的析构函数，而 free 只会释放内存。<br>它们都可用于申请动态内存和释放内存。但对于非内部数据类型的对象而言，光用 malloc/free 无法满足动态对象的要求。对象在创建的同时要自动执行构造函数，对象在消亡之前要自动执行析构函数。由于 malloc/free 是库函数而不是运算符，不在编译器控制权限之内，不能够把执行构造函数和析构函数的任务强加给 malloc/free。因此C++语言需要一个能完成动态内存分配和初始化工作的运算符new，以及一个能完成清理与释放内存工作的运算符 delete。注意：new/delete 不是库函数。</p>
+<ol start="7">
+<li>delete 和delete [] 的区别</li>
+</ol>
+<p>👉查看答案👈<br>delete 只会调用一次析构函数，而 delete[] 会调用每一个成员函数的析构函数。</p>
+<ol start="8">
+<li>子类析构时要调用父类的析构函数吗？</li>
+</ol>
+<p>👉查看答案👈<br>析构函数调用的次序是先派生类的析构后基类的析构，也就是说在基类的的析构调用的时候,派生类的信息已经全部销毁了。定义一个对象时先调用基类的构造函数、然后调用派生类的构造函数；析构的时候恰好相反：先调用派生类的析构函数、然后调用基类的析构函数。</p>
+<ol start="9">
+<li>什么是“引用”？申明和使用“引用”要注意哪些问题？</li>
+</ol>
+<p>👉查看答案👈<br>引用就是某个目标变量的“别名”，对应用的操作与变量直接操作效果完全相同。声明一个引用的时候，切记要对其进行初始化。引用声明完毕后，相当于目标变量名有两个名称，即该目标原名称和引用名，不能再把该引用名作为其他变量名的别名。声明一个引用，不是新定义了一个变量，它只表示该引用名是目标变量名的一个别名，它本身不是一种数据类型，因为该引用本身不占存储单元，系统也不给引用分配存储单元。不能建立数组的引用。</p>
+<ol start="10">
+<li>结构与联合有何区别？</li>
+</ol>
+<p>👉查看答案👈<br>(1). 结构和联合都是由多个不同的数据类型成员组成, 但在任何同一时刻, 联合中只存放了一个被选中的成员（所有成员共用一块地址空间）, 而结构的所有成员都存在（不同成员的存放地址不同）。<br>(2). 对于联合的不同成员赋值, 将会对其它成员重写, 原来成员的值就不存在了, 而对于结构的不同成员赋值是互不影响的。</p>
+<ol start="11">
+<li>重载（overload）和重写（override，有的书也叫做“覆盖”）的区别？</li>
+</ol>
+<p>👉查看答案👈<br>从定义上来说：<br>重载：是指允许存在多个同名函数，而这些函数的参数表不同（或许参数个数不同，或许参数类型不同，或许两者都不同）。<br>重写：是指子类重新定义父类虚函数的方法。<br>从实现原理上来说：<br>重载：编译器根据函数不同的参数表，对同名函数的名称做修饰，然后这些同名函数就成了不同的函数（至少对于编译器来说是这样的）。如，有两个同名函数：function func(p:integer):integer;和function func(p:string):integer;。那么编译器做过修饰后的函数名称可能是这样的：int_func、str_func。对于这两个函数的调用，在编译器间就已经确定了，是静态的。也就是说，它们的地址在编译期就绑定了（早绑定）。<br>重写：当子类重新定义了父类的虚函数后，父类指针根据赋给它的不同的子类指针，动态的调用属于子类的该函数，这样的函数调用在编译期间是无法确定的（调用的子类的虚函数的地址无法给出）。因此，这样的函数地址是在运行期绑定的（晚绑定）。</p>
+<h2 id="题组-Ⅲ"><a href="#题组-Ⅲ" class="headerlink" title="题组 Ⅲ"></a>题组 Ⅲ</h2><ol>
+<li>C++ 是不是类型安全的？</li>
+</ol>
+<p>👉查看答案👈<br>不是。两个不同类型的指针之间可以强制转换（用reinterpret cast)。C#是类型安全的。</p>
+<ol start="2">
+<li>main 函数执行之前，还会执行什么代码？</li>
+</ol>
+<p>👉查看答案👈<br>全局对象的构造函数会在main函数之前执行。</p>
+<ol start="3">
+<li>描述内存分配方式以及它们的区别？</li>
+</ol>
+<p>👉查看答案👈<br>1）从静态存储区域分配。内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在。例如全局变量，static 变量。<br>2）在栈上创建。在执行函数时，函数内局部变量的存储单元都可以在栈上创建，函数执行结束时这些存储单元自动被释放。栈内存分配运算内置于处理器的指令集。<br>3）从堆上分配，亦称动态内存分配。程序在运行的时候用malloc 或new 申请任意多少的内存，程序员自己负责在何时用free 或delete 释放内存。动态内存的生存期由程序员决定，使用非常灵活，但问题也最多。</p>
+<ol start="4">
+<li>分别写出 bool, int, float, 指针类型的变量 a 与“零”的比较语句。</li>
+</ol>
+<p>👉查看答案👈</p>
+<ol>
+<li>bool : if(!a) or if(a)</li>
+<li>int : if(a == 0)</li>
+<li>float : const EXPRESSION EXP = 0.000001</li>
+<li>if (a &lt; EXP &amp;&amp; a &gt;-EXP)</li>
+<li>pointer : if(a != NULL) or if(a == NULL)</li>
+</ol>
+<ol start="5">
+<li>请说出 const 与 #define 相比，有何优点？</li>
+</ol>
+<p>👉查看答案👈<br>const作用：定义常量、修饰函数参数、修饰函数返回值三个作用。被const修饰的东西都受到强制保护，可以预防意外的变动，能提高程序的健壮性。<br>1）const 常量有数据类型，而宏常量没有数据类型。编译器可以对前者进行类型安全检查。而对后者只进行字符替换，没有类型安全检查，并且在字符替换可能会产生意料不到的错误。<br>2）有些集成化的调试工具可以对const 常量进行调试，但是不能对宏常量进行调试。</p>
+<ol start="6">
+<li>引用与指针有什么区别？</li>
+</ol>
+<p>👉查看答案👈<br>引用必须被初始化，指针不必。<br>引用初始化以后不能被改变，指针可以改变所指的对象。<br>不存在指向空值的引用，但是存在指向空值的指针。</p>
+<ol start="7">
+<li>全局变量和局部变量有什么区别？是怎么实现的？操作系统和编译器是怎么知道的？</li>
+</ol>
+<p>👉查看答案👈<br>生命周期不同：<br>全局变量随主程序创建和创建，随主程序销毁而销毁；局部变量在局部函数内部，甚至局部循环体等内部存在，退出就不存在；<br>使用方式不同：<br>通过声明后全局变量程序的各个部分都可以用到；局部变量只能在局部使用；分配在栈区。<br>内存分配位置不同：<br>全局变量分配在全局数据段并且在程序开始运行的时候被加载。局部变量则分配在堆栈里面 。</p>
+<ol start="8">
+<li>类对象的大小受哪些因素影响？</li>
+</ol>
+<p>👉查看答案👈<br>类的非静态成员变量大小，静态成员不占据类的空间，成员函数也不占据类的空间大小；<br>内存对齐另外分配的空间大小，类内的数据也是需要进行内存对齐操作的；<br>虚函数的话，会在类对象插入vptr指针，加上指针大小；<br>当该该类是某类的派生类，那么派生类继承的基类部分的数据成员也会存在在派生类中的空间中，也会对派生类进行扩展。</p>
+<ol start="9">
+<li>C++ 堆和栈的区别？</li>
+</ol>
+<p>👉查看答案👈<br>1)堆存放动态分配的对象——即那些在程序运行时动态分配的对象，比如 new 出来的对象，其生存期由程序控制；<br>2)栈用来保存定义在函数内的非static对象，如局部变量，仅在其定义的程序块运行时才存在；<br>3)静态内存用来保存static对象，类static数据成员以及定义在任何函数外部的变量，static对象在使用之前分配，程序结束时销毁；<br>4)栈和静态内存的对象由编译器自动创建和销毁。</p>
+<ol start="10">
+<li>堆和自由存储区的区别？</li>
+</ol>
+<p>👉查看答案👈<br>总的来说，堆是C语言和操作系统的术语，是操作系统维护的一块动态分配内存；自由存储是C++中通过new与delete动态分配和释放对象的抽象概念。他们并不是完全一样。<br>从技术上来说，堆（heap）是C语言和操作系统的术语。堆是操作系统所维护的一块特殊内存，它提供了动态分配的功能，当运行程序调用malloc()时就会从中分配，稍后调用free可把内存交还。而自由存储是C++中通过new和delete动态分配和释放对象的抽象概念，通过new来申请的内存区域可称为自由存储区。基本上，所有的C++编译器默认使用堆来实现自由存储，也即是缺省的全局运算符new和delete也许会按照malloc和free的方式来被实现，这时藉由new运算符分配的对象，说它在堆上也对，说它在自由存储区上也正确。</p>
+<ol start="11">
+<li>什么是内存泄漏？面对内存泄漏和指针越界，你有哪些方法？你通常采用哪些方法来避免和减少这类错误？</li>
+</ol>
+<p>👉查看答案👈<br>用动态存储分配函数动态开辟的空间，在使用完毕后未释放，结果导致一直占据该内存单元即为内存泄露。<br>1). 使用的时候要记得指针的长度.<br>2). malloc的时候得确定在那里free.<br>3). 对指针赋值的时候应该注意被赋值指针需要不需要释放.<br>4). 动态分配内存的指针最好不要再次赋值.<br>5). 在C++中应该优先考虑使用智能指针.</p>
+<h2 id="题组-Ⅳ"><a href="#题组-Ⅳ" class="headerlink" title="题组 Ⅳ"></a>题组 Ⅳ</h2><ol>
+<li>C++ 中的指针参数传递和引用参数传递</li>
+</ol>
+<p>👉查看答案👈<br>指针参数传递本质上是值传递，它所传递的是一个地址值。值传递过程中，被调函数的形式参数作为被调函数的局部变量处理，会在栈中开辟内存空间以存放由主调函数传递进来的实参值，从而形成了实参的一个副本（替身）。值传递的特点是，被调函数对形式参数的任何操作都是作为局部变量进行的，不会影响主调函数的实参变量的值（形参指针变了，实参指针不会变）。<br>引用参数传递过程中，被调函数的形式参数也作为局部变量在栈中开辟了内存空间，但是这时存放的是由主调函数放进来的实参变量的地址。被调函数对形参（本体）的任何操作都被处理成间接寻址，即通过栈中存放的地址访问主调函数中的实参变量（根据别名找到主调函数中的本体）。因此，被调函数对形参的任何操作都会影响主调函数中的实参变量。<br>引用传递和指针传递是不同的，虽然他们都是在被调函数栈空间上的一个局部变量，但是任何对于引用参数的处理都会通过一个间接寻址的方式操作到主调函数中的相关变量。而对于指针传递的参数，如果改变被调函数中的指针地址，它将应用不到主调函数的相关变量。如果想通过指针参数传递来改变主调函数中的相关变量（地址），那就得使用指向指针的指针或者指针引用。<br>从编译的角度来讲，程序在编译时分别将指针和引用添加到符号表上，符号表中记录的是变量名及变量所对应地址。指针变量在符号表上对应的地址值为指针变量的地址值，而引用在符号表上对应的地址值为引用对象的地址值（与实参名字不同，地址相同）。符号表生成之后就不会再改，因此指针可以改变其指向的对象（指针变量中的值可以改），而引用对象则不能修改。</p>
+<ol start="2">
+<li>形参与实参的区别？</li>
+</ol>
+<p>👉查看答案👈<br>形参变量只有在被调用时才分配内存单元，在调用结束时， 即刻释放所分配的内存单元。因此，形参只有在函数内部有效。 函数调用结束返回主调函数后则不能再使用该形参变量。<br>实参可以是常量、变量、表达式、函数等， 无论实参是何种类型的量，在进行函数调用时，它们都必须具有确定的值， 以便把这些值传送给形参。 因此应预先用赋值，输入等办法使实参获得确定值，会产生一个临时变量。<br>实参和形参在数量上，类型上，顺序上应严格一致， 否则会发生“类型不匹配”的错误。<br>函数调用中发生的数据传送是单向的。 即只能把实参的值传送给形参，而不能把形参的值反向地传送给实参。 因此在函数调用过程中，形参的值发生改变，而实参中的值不会变化。<br>当形参和实参不是指针类型时，在该函数运行时，形参和实参是不同的变量，他们在内存中位于不同的位置，形参将实参的内容复制一份，在该函数运行结束的时候形参被释放，而实参内容不会改变。<br>值传递：有一个形参向函数所属的栈拷贝数据的过程，如果值传递的对象是类对象 或是大的结构体对象，将耗费一定的时间和空间。（传值）<br>指针传递：同样有一个形参向函数所属的栈拷贝数据的过程，但拷贝的数据是一个固定为4字节的地址。（传值，传递的是地址值）<br>引用传递：同样有上述的数据拷贝过程，但其是针对地址的，相当于为该数据所在的地址起了一个别名。（传地址）<br>效率上讲，指针传递和引用传递比值传递效率高。一般主张使用引用传递，代码逻辑上更加紧凑、清晰。</p>
+<ol start="3">
+<li>int fun() 和 int fun(void) 的区别?</li>
+</ol>
+<p>👉查看答案👈<br>这里考察的是c 中的默认类型机制。<br>在c中，int fun() 会解读为返回值为int(即使前面没有int，也是如此，但是在c++中如果没有返回类型将报错)，输入类型和个数没有限制， 而int fun(void)则限制输入类型为一个void。 在c++下，这两种情况都会解读为返回int类型，输入void类型。</p>
+<ol start="4">
+<li>C语言 struct 和 C++ struct 区别</li>
+</ol>
+<p>👉查看答案👈<br>C语言中：struct是用户自定义数据类型（UDT）；<br>C++中struct是抽象数据类型（ADT），支持成员函数的定义，（C++中的struct能继承，能实现多态）。<br>C中struct是没有权限的设置的，且struct中只能是一些变量的集合体，可以封装数据却不可以隐藏数据，而且成员不可以是函数。<br>C++中，struct的成员默认访问说明符为public（为了与C兼容），class中的默认访问限定符为private，struct增加了访问权限，且可以和类一样有成员函数。<br>struct作为类的一种特例是用来自定义数据结构的。一个结构标记声明后，在C中必须在结构标记前加上struct，才能做结构类型名</p>
+<ol start="5">
+<li>const 有什么用途？</li>
+</ol>
+<p>👉查看答案👈<br>1).定义只读变量，或者常量（只读变量和常量的区别参考下面一条）;<br>2).修饰函数的参数和函数的返回值;<br>3).修饰函数的定义体，这里的函数为类的成员函数，被const修饰的成员函数代表不能修改成员变量的值</p>
+<ol start="6">
+<li>什么是类的继承？</li>
+</ol>
+<p>👉查看答案👈<br>类与类之间的关系<br>has-A包含关系，用以描述一个类由多个部件类构成，实现has-A关系用类的成员属性表示，即一个类的成员属性是另一个已经定义好的类；<br>use-A，一个类使用另一个类，通过类之间的成员函数相互联系，定义友元或者通过传递参数的方式来实现；<br>is-A，继承关系，关系具有传递性；</p>
+<ol start="7">
+<li>STL 迭代器如何实现</li>
+</ol>
+<p>👉查看答案👈<br>迭代器是一种抽象的设计理念，通过迭代器可以在不了解容器内部原理的情况下遍历容器，除此之外，STL中迭代器一个最重要的作用就是作为容器与STL算法的粘合剂。<br>迭代器的作用就是提供一个遍历容器内部所有元素的接口，因此迭代器内部必须保存一个与容器相关联的指针，然后重载各种运算操作来遍历，其中最重要的是*运算符与-&gt;运算符，以及++、–等可能需要重载的运算符重载。这和C++中的智能指针很像，智能指针也是将一个指针封装，然后通过引用计数或是其他方法完成自动释放内存的功能。<br>最常用的迭代器的相应型别有五种：value type、difference type、pointer、reference、iterator catagoly;</p>
+<ol start="8">
+<li>STL 中 list 与 queue 之间的区别？</li>
+</ol>
+<p>👉查看答案👈<br>list不再能够像vector一样以普通指针作为迭代器，因为其节点不保证在存储空间中连续存在；<br>list插入操作和结合才做都不会造成原有的list迭代器失效;<br>list不仅是一个双向链表，而且还是一个环状双向链表，所以它只需要一个指针；<br>list不像vector那样有可能在空间不足时做重新配置、数据移动的操作，所以插入前的所有迭代器在插入操作之后都仍然有效；<br>deque是一种双向开口的连续线性空间，所谓双向开口，意思是可以在头尾两端分别做元素的插入和删除操作；可以在头尾两端分别做元素的插入和删除操作；<br>deque和vector最大的差异，一在于deque允许常数时间内对起头端进行元素的插入或移除操作，二在于deque没有所谓容量概念，因为它是动态地以分段连续空间组合而成，随时可以增加一段新的空间并链接起来，deque没有所谓的空间保留功能。</p>
+<ol start="9">
+<li>野指针是什么？如何检测内存泄漏？</li>
+</ol>
+<p>👉查看答案👈<br>野指针：指向内存被释放的内存或者没有访问权限的内存的指针。<br>“野指针”的成因主要有3种：<br>指针变量没有被初始化。任何指针变量刚被创建时不会自动成为NULL指针，它的缺省值是随机的，它会乱指一气。所以，指针变量在创建的同时应当被初始化，要么将指针设置为NULL，要么让它指向合法的内存。例如<br>char *p = NULL;<br>char *str = new char(100);<br>指针p被free或者delete之后，没有置为NULL；<br>指针操作超越了变量的作用范围。</p>
+<ol start="10">
+<li>如何避免野指针？</li>
+</ol>
+<p>👉查看答案👈<br>对指针进行初始化<br>①将指针初始化为NULL。<br>char * p = NULL;<br>②用malloc分配内存<br>char * p = (char * )malloc(sizeof(char));<br>③用已有合法的可访问的内存地址对指针初始化<br>char num[ 30] = {0};<br>char *p = num;<br>指针用完后释放内存，将指针赋NULL。<br>delete(p);<br>p = NULL;</p>
+<h1 id="Python-后端岗位面试真题"><a href="#Python-后端岗位面试真题" class="headerlink" title="Python 后端岗位面试真题"></a>Python 后端岗位面试真题</h1><p>本章汇总了针对【Python】后端岗的大厂面试考核真题及考核方向。</p>
+<h2 id="题组-I-1"><a href="#题组-I-1" class="headerlink" title="题组 I"></a>题组 I</h2><ol>
+<li>*args, **kwargs 是什么意思?</li>
+</ol>
+<p>👉查看答案👈<br>args: 可变位置参数。 *kwargs: 可变关键字参数。</p>
+<ol start="2">
+<li>谈一谈 Python 中的装饰器</li>
+</ol>
+<p>👉查看答案👈<br>Python中的装饰器其实也是一种函数， 它可以在不修改原函数代码情况下扩展原函数功能。装饰器函数与普通函数不同之处就在于装饰器函数返回了一个函数对象，装饰器利用了闭包的原理来实现。主要用于日志插入，权限管理等等。</p>
+<ol start="3">
+<li>Python 的垃圾回收机制以及内存管理</li>
+</ol>
+<p>👉查看答案👈<br>垃圾回收机制： Python的垃圾回收机制以引用计数为主， 标记清除、分代回收为辅。<br>引用计数指：Python在内部维护了针对每一个对象的引用计数， 当一个对象创建或者被引用时，其引用计数将加1，当一个对象被销毁或作用域失效时， 其引用计数将减1。只有对象的引用计数为0时，这个对象将会被回收。<br>引用计数的优点：简单、具有实时性。<br>缺点：对象循环引用时将永远不会被销毁。对于对象循环引用的状况Python使用标记清除来解决，Python在内部实现了一个循环检测器， 不停的检测对象是否存在循环引用，如果两个对象互相循环引用并且不包含其他第三者对象时， 其将会被收回。在Python参考手册中有写道： 当一个对象无法获取时， 那么这个对象有可能被当成垃圾销毁了。Python将所有对象分成了三代， 对象存活时间越长就越晚被回收， 反之则越早被回收。<br>内存管理： Python使用了内存池机制来管理内存，其内存以金字塔的形式对内存功能进行划分，-1、-2层主要用于对操作系统进行操作， 0层中是C的malloc,、free等等内存分配和释放函数。1、2层是一个内存池， 当对象小于265K时将直接由这片内存池进行分配内存，否则将调用第0层中的C函数来分配内存，当小于265K的对象被销毁时， 其内存也不会被销毁， 只是返回给了内存池以便二次利用。2层是对Python对象进行操作。</p>
+<ol start="4">
+<li>Python 多线程是什么？</li>
+</ol>
+<p>👉查看答案👈<br>Python中多线程由于有GIL的影响， 导致在任意时间内只有一个线程在运行，所以Python的多线程在处理计算密集型任务上效果反而不如单线程， 只有在处理IO密集型任务上多线程才能发挥实力，在等待IO过程中Python C源码会释放GIL， 最终会导致线程在等待IO过程中会被暂停去执行其他的线程。python中GIL主要是由于历史原因导致Cpython虚拟机中的GIL难以移除，同时GIL的存在保证了多线程之间数据完整性以及状态同步。</p>
+<ol start="5">
+<li>说明 os、sys 模块不同，并列举常用的模块方法</li>
+</ol>
+<p>👉查看答案👈<br>os: 提供了对使用操作系统函数的高度封装<br>sys: 提供由解释器访问或者维护的变量以及与解释器交互的一些函数<br>os模块只负责程序与操作系统交互， 提供了访问操作系统底层的接口封装。 sys模块负责程序与解释器交互， 提供了一系列的函数用于操控Python运行的环境设置。<br>os模块常用方法： os.getcwd() # 获取当前运行路径 os.remove() # 删除指定的文件 os.walk() # 生成指定目录下的文件夹以及文件 os.makedirs() # 生成多成目录 os.mkdir() # 生成目录 os.rmdir() # 删除指定目录 os.removedir() # 删除多层目录 os.listdir() # 列出指定目录下所有的文件夹以及文件 os.path.join() # 将分离的各部分组合成一个路径名 os.path.getsize() # 获取指定文件大小 os.path.exists() # 查看指定目录或者文件是否存在 os.path.isabs() # 查看指定目录是否为绝对路径 … sys模块常用方法： sys.argv# 命令行参数列表 sys.exit() # 退出程序并返回指定的整数 sys.maxunicode # 最大的Unicode值 sys.modules # 系统导入的模块名称 sys.path # python搜索模块时的路径 sys.stdout # 标准输出 sys.stdin # 标准输入 sys.stderr # 错误输出 …</p>
+<ol start="6">
+<li>什么是 lambda 表达式？它有什么好处？</li>
+</ol>
+<p>👉查看答案👈<br>lambda也是函数的一种， 在处理一些简单的操作时可以使用该表达式， 其好处是不用为一些实现简单功能的函数命名，毕竟编程只有两个难点： 缓存失效， 命名。</p>
+<ol start="7">
+<li>Python 里面如何拷贝一个对象？</li>
+</ol>
+<p>👉查看答案👈<br>Python中拷贝分为深拷贝、浅拷贝。浅拷贝只拷贝父级对象， 不会拷贝对象内部的子对象，使用copy模块中的copy。深拷贝则会完全拷贝父对象以及子对象， 使用copy模块中的deepcopy。</p>
+<ol start="8">
+<li><strong>new</strong> 和 <strong>init</strong> 的区别。</li>
+</ol>
+<p>👉查看答案👈<br>__new__负责构建一个类对象并将其返回，__init__则负责初始化一些变量，不返回任何对象。在实例化一个类时， __new__方法将会先被运行， 其次才运行__init__方法。</p>
+<ol start="9">
+<li>Python 中协程？</li>
+</ol>
+<p>👉查看答案👈<br>Python中协程最初使用yield来实现， 当程序运行到yield语句时就会将控制权交出来去执行其他的函数， 在Python3之前只能通过原生yield、greenlet以及Gevent第三方库来实现协程， 在Python3 之后引入了yield from， yield from 用于重构生成器。在Python3.5之后引用了async和await， 其作为yield from， yield的完美替身来实现协程。</p>
+<ol start="10">
+<li>Python 的异常机制?</li>
+</ol>
+<p>👉查看答案👈<br>Python中异常也是一个对象， 所有的异常的基类都是Exception。捕获异常使用try…except….语法，如果要try与except之间的代码出现了错误并且我们将其异常类型捕获了那么代码将会跳转代except中去执行。还可以使用raise 去手动的触发一个错误，也可以使用assert来触发异常， 只不过assert经常用来在测试中， 并且assert对程序的性能有着极大影响，只有内置的__debug__为True时assert才会执行。</p>
+<ol start="11">
+<li>Python 旧式类（经典类）和新式类的区别？</li>
+</ol>
+<p>👉查看答案👈<br>经典类与新式类的区别是：继承搜索的顺序发生了改变，经典类多继承搜索顺序是深度优先， 按照从左至右的查找，并且将每一个父类的基类都查找一遍。新式类则是， 先从左至右的查找， 然后再向每一个父类的基类进行查找。（都是从左至右的顺序查找， 经典类查找一个父类时同时向上查找，新式类则是先查找所有的父类然后再向上查找）</p>
+<h2 id="题组-II-1"><a href="#题组-II-1" class="headerlink" title="题组 II"></a>题组 II</h2><ol>
+<li>classmethod, staticmethod, property 是什么？有什么作用？</li>
+</ol>
+<p>👉查看答案👈<br>lassmethod，staticmethod，property都是装饰器， 他们都作用在类的方法上。<br>classmethod：使得被装饰的方法成为一个类方法既不需要实例化类就可以直接调用的方法，第一个参数为cls。<br>staticmethod： 使得被装饰的方法成为一个静态函数既与普通的函数无区别。 property: 将一个方法变成一个属性来使用。</p>
+<ol start="2">
+<li>Python 中的绑定方法和未绑定方法是什么？</li>
+</ol>
+<p>👉查看答案👈<br>绑定方法：绑定了实例化的方法既第一个参数是self<br>未绑定方法：没有绑定实例化的方法既类方法、静态方法</p>
+<ol start="3">
+<li>Python 上下文管理器是什么？</li>
+</ol>
+<p>👉查看答案👈<br>Python中上下文管理器使用with来调用主要用于数据库连接，文件操作， 网络操作。 其作用是： 如果在进行一些打开资源操作时出现了异常，上下文管理器将会自动的执行一些资源清理操作。在进入上下文管理器时， Python会先调用对象的__enter__方法， 该方法返回一个对象用于进行一些操作，如果在进行一些操作时发生了异常Python则调用__exit__该对象接受三个参数第一个参数异常类，第二个参数异常提示字符串， 第三个参数traceback对象。</p>
+<ol start="4">
+<li>functools 的 wraps 是做什么的？</li>
+</ol>
+<p>👉查看答案👈<br>wraps是一个装饰器功能是： 由于被装饰的函数传入到装饰器中时已经不是原函数了， 而是一个新的函数， 并且丢失一些原函数的属性， 为了不影响函数的使用， 可以使用wraps来抵消这种副作用。</p>
+<ol start="5">
+<li>请说一说 ORM 实现原理</li>
+</ol>
+<p>👉查看答案👈<br>ORM使用了Python的属性描述符协议实现，通过另外一个类来描述类变量的属性类型， 再给这个属性进行赋值时（对应数据库中的字段名称）会调用__set__方法，访问属性则会调用__get__方法删除则调用__delete__方法。</p>
+<ol start="6">
+<li>请说一说迭代器和生成器区别？</li>
+</ol>
+<p>👉查看答案👈<br>生成器时一种特殊的迭代器， 生成器自动实现了迭代器协议， 不需要手动的实现__iter__以及next方法，生成器在迭代的过程中可以改变当前的迭代值， 而普通的迭代器改变当前值时往往会发生错。迭代器必须实现__iter__以及next方法。</p>
+<ol start="7">
+<li>描述一下 type() 的作用</li>
+</ol>
+<p>👉查看答案👈<br>当type只传入一个参数时将返回该参数的类型，如果传入了三个参数则返回一个类对象，同时Python中的所有类的基类都是type</p>
+<ol start="8">
+<li>Python 中列表与元组的异同？</li>
+</ol>
+<p>👉查看答案👈<br>相同： 列表和元组都是容器并且是可迭代对象，二者可以包含任意类型的对象。<br>不同：列表是可变的， 元组是不可变。</p>
+<ol start="9">
+<li>Python 中的列表是如何实现的？</li>
+</ol>
+<p>👉查看答案👈<br>Python中的列表使用了分离式技术实现的动态顺序表。</p>
+<ol start="10">
+<li>Python 中列表的索引查询的时间复杂度是多少？</li>
+</ol>
+<p>👉查看答案👈<br>O(1)</p>
+<h2 id="题组-Ⅲ-1"><a href="#题组-Ⅲ-1" class="headerlink" title="题组 Ⅲ"></a>题组 Ⅲ</h2><ol>
+<li>Python 字典的实现原理？</li>
+</ol>
+<p>👉查看答案👈<br>Python的字典使用了哈希表来储存key、value,当添加一个数据时首先会把key通过哈希函数转换成一个数字， 然后将该数字对存放value的数组长度取余并将取余结果当做数组的下标， 将value存放在该取余结果为下标的数组中。数据查询时将key转换为对应的数组下标，并定位到数组的位置获取value。</p>
+<ol start="2">
+<li>什么是 pickling 和 unpickling？</li>
+</ol>
+<p>👉查看答案👈<br>Pickle模块读入任何Python对象，将它们转换成字符串，然后使用dump函数将其转储到一个文件中——这个过程叫做pickling，反之从存储的字符串文件中提取原始Python对象的过程，叫做unpickling。</p>
+<ol start="3">
+<li>有哪些工具可以帮助 debug 或做静态分析？</li>
+</ol>
+<p>👉查看答案👈<br>Pickle模块读入任何Python对象，将它们转换成字符串，然后使用dump函数将其转储到一个文件中——这个过程叫做pickling，反之从存储的字符串文件中提取原始Python对象的过程，叫做unpickling。</p>
+<ol start="4">
+<li>Python 中的作用域？</li>
+</ol>
+<p>👉查看答案👈<br>在Python中，一个对象的作用于总是由代码被赋值的地方所决定的。当遇见一个变量时Python会按照： 本地作用域→ 当前作用域被嵌入的本地作用域→ 全局/模块作用域→ 内置作用域顺序搜索。</p>
+<ol start="5">
+<li>Python 的参数传递是值传递还是引用传递？</li>
+</ol>
+<p>👉查看答案👈<br>可变对象使用引用传递， 不可变对象使用值传递</p>
+<ol start="6">
+<li>写一个函数，输入一个字符串，返回倒序排列的结果</li>
+</ol>
+<p>👉查看答案👈<br>def reverse(text):<br>      return text[::-1]</p>
+<ol start="7">
+<li>Python 中 is 和 == 的区别</li>
+</ol>
+<p>👉查看答案👈<br>is比较的是对象在内存的地址， ==比较的对象中的值</p>
+<ol start="8">
+<li>什么是 Python 的闭包？</li>
+</ol>
+<p>👉查看答案👈<br>内层函数引用了其外部作用域的变量，然后返回内层函数的情况，称为闭包，创建一个闭包必须满足以下几点:</p>
+<ol>
+<li>必须有一个内嵌函数</li>
+<li>内嵌函数必须引用外部函数中的变量，外层空间中被引用的变量叫做层函数的环境变量</li>
+<li>外部函数的返回值必须是内嵌函数</li>
+<li>环境变量和内层非全局函数一起构成了闭包</li>
+</ol>
+<ol start="9">
+<li>Python 的自省?</li>
+</ol>
+<p>👉查看答案👈<br>type()，dir()，getattr()，hasattr()，isinstance()</p>
+<ol start="10">
+<li>Python 并发的解决方案。</li>
+</ol>
+<p>👉查看答案👈<br>Twisted是一个事件驱动型的网络引擎，不同于单线程和多线程模式，这种模式不需要过多去关心线程锁的问题，当遇到高并发问题时候，采用twisted会很好解决数据共享的问题。<br>Tornado既是一个web server，也是web framework。就是说这个web框架有自己内置的web server，在写web时候可以用到它的高性能网络库，甚至有公司拿这个来做游戏的服务器，可以用它处理高并发问题。 Gevent是基于协程的Python网络库，基于libev的快速事件循环，基于greenlet的轻量级执行单元，API的概念和Python标准库一致。<br>sanic基于uvloop和httptools实现高并发异步网络框架。</p>
+<h1 id="Java-后端岗位面试真题"><a href="#Java-后端岗位面试真题" class="headerlink" title="Java 后端岗位面试真题"></a>Java 后端岗位面试真题</h1><p>本章汇总了针对【Java】后端岗的大厂面试考核真题及考核方向。</p>
+<h2 id="题组-I-2"><a href="#题组-I-2" class="headerlink" title="题组 I"></a>题组 I</h2><h3 id="1-SpingBoot-也有定时任务？是什么注解？（百度）"><a href="#1-SpingBoot-也有定时任务？是什么注解？（百度）" class="headerlink" title="1. SpingBoot 也有定时任务？是什么注解？（百度）"></a>1. SpingBoot 也有定时任务？是什么注解？（百度）</h3><p>在 SpringBoot 中使用定时任务主要有两种不同的方式，一个就是使用 Spring 中的 @Scheduled 注解，另一个则是使用第三方框架 Quartz。</p>
+<ul>
+<li>使用 Spring 中的 @Scheduled 的方式主要通过 @Scheduled 注解来实现。</li>
+<li>使用 Quartz ，则按照 Quartz 的方式，定义 Job 和 Trigger 即可。</li>
+</ul>
+<h3 id="2-什么情况线程会进入-WAITING-状态？（百度）"><a href="#2-什么情况线程会进入-WAITING-状态？（百度）" class="headerlink" title="2. 什么情况线程会进入 WAITING 状态？（百度）"></a>2. 什么情况线程会进入 WAITING 状态？（百度）</h3><p>一个线程在等待另一个线程执行一个（唤醒）动作时，该线程进入 Waiting 状态。进入这个状态后不能自动唤醒，必须等待另一个线程调用 notify 方法或者 notifyAll 方法时才能够被唤醒。</p>
+<ul>
+<li>调用 Object 对象的<code>wait</code>方法，但没有指定超时值。</li>
+<li>调用 Thread 对象的<code>join</code>方法，但没有指定超时值。</li>
+<li>调用 LockSupport 对象的<code>park</code>方法。</li>
+</ul>
+<h3 id="3-简述多进程开发中-join-和-daemon-的区别？"><a href="#3-简述多进程开发中-join-和-daemon-的区别？" class="headerlink" title="3. 简述多进程开发中 join 和 daemon 的区别？"></a>3. 简述多进程开发中 join 和 daemon 的区别？</h3><ul>
+<li><strong>join：</strong>当子线程调用 join 时，主线程会被阻塞，当子线程结束后，主线程才能继续执行。 </li>
+<li><strong>daemon：</strong>当子进程被设置为守护进程时，主进程结束，不管子进程是否执行完毕，都会随着主进程的结束而结束。</li>
+</ul>
+<h3 id="4-异步和同步、阻塞和非阻塞之间的区别？（百度）"><a href="#4-异步和同步、阻塞和非阻塞之间的区别？（百度）" class="headerlink" title="4. 异步和同步、阻塞和非阻塞之间的区别？（百度）"></a>4. 异步和同步、阻塞和非阻塞之间的区别？（百度）</h3><p><strong>同步：</strong>当一个 request 发送出去以后，会得到一个 response，这整个过程就是一个同步调用的过程。哪怕 response 为空，或者 response 的返回特别快，但是针对这一次请求而言就是一个同步的调用。</p>
+<p><strong>异步：</strong>当一个 request 发送出去以后，没有得到想要的 response，而是通过后面的 callbacks 状态或者通知的方式获得结果。可以这么理解，对于异步请求分两步：</p>
+<ol>
+<li>调用方发送 request 没有返回对应的 response （可能是一个空的 response）;</li>
+<li>服务提供方将 response 处理完成以后通过 callback 的方式通知调用方。</li>
+</ol>
+<p>对于 1. 而言是同步操作（调用方请求服务方），对于 2. 而言也是同步操作（服务方回调调用方）。从请求的目的（调用方发送一个 request，希望获得对应的 response）来看，这 两个步骤拆分开来没有任何意义，需要结合起来看，而这整个过程就是一次异步请求。异步请求有一个最典型的特点：<strong>需要 callback 状态或者通知的方式来告知调用方结果</strong>。</p>
+<p><strong>阻塞：</strong>阻塞调用是指调用方发出 request 的线程因为某种原因（如：等待系统资源）被服务方挂起，当服务方得到 response 后就唤醒挂起线程，并将 response 返回给调用方。</p>
+<p><strong>非阻塞：</strong>非阻塞调用是指调用方发出 request 的线程在没有等到结果时不会被挂起，并且直到得到 response 后才返回。 阻塞和非阻塞最大的区别就是看调用方线程是否会被挂起。</p>
+<h3 id="5-为什么要分内核态和用户态-（百度）"><a href="#5-为什么要分内核态和用户态-（百度）" class="headerlink" title="5. 为什么要分内核态和用户态?（百度）"></a>5. 为什么要分内核态和用户态?（百度）</h3><p>假设没有这种内核态和用户态之分，程序随随便便就能访问硬件资源，比如说分配内存，程序能随意的读写所有的内存空间，如果程序员一不小心将不适当的内容写到了不该写的地方，就很可能导致系统崩溃。用户程序是不可信的，不管程序员是有意的还是无意的，都很容易将系统干到崩溃。</p>
+<p>正因为如此，Intel 就发明了 ring0-ring3 这些访问控制级别来保护硬件资源，ring0 就是我们所说的内核级别，要想使用硬件资源就必须获取相应的权限（设置 PSW 寄存器，这个操作只能由操作系统设置）。操作系统对内核级别的指令进行封装，统一管理硬件资源，然后向用户程序提供系统服务，用户程序进行系统调用后，操作系统执行一系列的检查验证，确保这次调用是安全的，再进行相应的资源访问操作。<strong>内核态能有效保护硬件资源的安全。</strong></p>
+<h3 id="6-Java常用集合及特点？（华为）"><a href="#6-Java常用集合及特点？（华为）" class="headerlink" title="6. Java常用集合及特点？（华为）"></a>6. Java常用集合及特点？（华为）</h3><p>List： ArrayList、LinkedList、Vector、Stack</p>
+<p>Set： LinkedSet、HashSet、TreeSet</p>
+<p>Queue-&gt;Deque-&gt;LinkedList</p>
+<p>Map： HashMap、LinkedHashMap、TreeMap </p>
+<p>Dictionary-&gt;HashTable-&gt;Properties。</p>
+<p><strong>Vector：</strong>底层数据结构是数组，查询快，增删慢，线程安全，效率低，默认长度为10，超过会100%延长，变成20，浪费空间。</p>
+<p><strong>ArrayList：</strong>基于数组，便于按index访问，超过数组需要扩容，扩容成本较高。</p>
+<p><strong>LinkedList：</strong>使用链表实现，无需扩容。</p>
+<p><strong>HashSet：</strong>底层数据结构是哈希表（无序，唯一），通过<code>hashcode()</code>和<code>equals()</code>保证元素唯一。<strong>LinkedHashSet：</strong>底层数据结构是链表和哈希表（FIFO插入有序，唯一），由链表保证元素有序，由哈希表保证元素唯一。</p>
+<p><strong>TreeSet：</strong>底层数据结构是红黑树（唯一，有序），通过自然排序和比较器排序保证元素有序，根据比较返回值是否是0来保证元素唯一性。</p>
+<p><strong>TreeMap</strong> 是有序的。</p>
+<p><strong>HashMap：</strong>空间换时间，哈希冲突不大的情况下查找数据性能很高。</p>
+<p><strong>LinkedHashMap</strong> 基本特点：继承自HashMap，对Entry集合添加了一个双向链表。</p>
+<h3 id="7-介绍-Spring-MVC-的工作流程？（华为）"><a href="#7-介绍-Spring-MVC-的工作流程？（华为）" class="headerlink" title="7. 介绍 Spring MVC 的工作流程？（华为）"></a>7. 介绍 Spring MVC 的工作流程？（华为）</h3><ul>
+<li>用户向服务端发送一次请求，这个请求会先到前端控制器 DispatcherServlet。</li>
+<li>DispatcherServlet 接收到请求后会调用 HandlerMapping 处理器映射器。由此得知，该请求该由哪个 Controller 来处理（并未调用 Controller，只是得知）</li>
+<li>DispatcherServlet 调用 HandlerAdapter 处理器适配器，告诉处理器适配器应该要去执行哪个 Controller</li>
+<li>HandlerAdapter 处理器适配器去执行 Controller 并得到 ModelAndView (数据和视图，并层层返回给 DispatcherServlet</li>
+<li>DispatcherServlet 将 ModelAndView 交给 ViewReslover 视图解析器解析，然后返回真正的视图。</li>
+<li>DispatcherServlet 将模型数据填充到视图中 DispatcherServlet 将结果响应给用户。</li>
+</ul>
+<h3 id="8-Redis-的特点是什么？（华为）"><a href="#8-Redis-的特点是什么？（华为）" class="headerlink" title="8. Redis 的特点是什么？（华为）"></a>8. Redis 的特点是什么？（华为）</h3><p>Redis 本质上是一个 Key-Value 类型的内存数据库，很像 Memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘上进行保存。 因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过10万次读写操作，是已知性能最快的 Key-Value DB。Redis 的出色之处不仅仅是性能，Redis 最大的魅力是支持保存多种数据结构，此外单个 value 的最大限制是 1GB，不像 Memcached 只能保存 1MB 的数据，因此 Redis 可以用来实现很多有用的功能。比方说用他的 List 来做 FIFO 双向链表，实现一个轻量级的高性能消息队列服务，用他的 Set 可以做高性能的 tag 系统等等。另外 Redis 也可以对存入的 Key-Value 设置 expire 时间，因此也可以被当作一个功能加强版的 Memcached 来用。Redis 的主要缺点是数据库容量受到物理内存的限制，不能用作海量数据的高性能读写，因此 Redis 适合的场景主要局限在较小数据量的高性能操作和运算上。</p>
+<h3 id="9-Redis-雪崩和击穿了解吗？（华为）"><a href="#9-Redis-雪崩和击穿了解吗？（华为）" class="headerlink" title="9. Redis 雪崩和击穿了解吗？（华为）"></a>9. Redis 雪崩和击穿了解吗？（华为）</h3><p><strong>缓存击穿问题：</strong>某个 KEY 失效的时候，正好有大量并发请求访问这个 KEY。</p>
+<ul>
+<li><strong>分析：</strong>跟穿透其实很像，属于比较偶然的。</li>
+<li><strong>解决办法：</strong>KEY 的更新操作添加全局互斥锁。完全以缓存为准，使用延迟异步加载的策略（异步线程负责维护缓存的数据，定期或根据条件触发更新），这样就不会触发更新。</li>
+</ul>
+<p><strong>缓存雪崩问题：</strong>当某一时刻发生大规模的缓存失效的情况，导致大量的请求无法获取数据，从而将流量压力传导到数据库上，导致数据库压力过大甚至宕机。</p>
+<ul>
+<li><strong>原因：</strong>一般而言，缓存雪崩有 2 种可能性<ul>
+<li>大量的数据同一个时间失效：比如业务关系强相关的数据要求同时失效</li>
+<li>Redis 宕机分析：一般来说，由于更新策略、或者数据热点、缓存服务宕机等原因，可能会导致缓存数据同一个时间点大规模不可用，或者都更新。所以，需要我们的更新策略要在时间上合适，数据要均匀分享，缓存服务器要多台高可用。</li>
+</ul>
+</li>
+<li><strong>解决办法：</strong>更新策略在时间上做到比较平均。如果数据需要同一时间失效，可以给这批数据加上一些随机值，使得这批数据不要在同一个时间过期，降低数据库的压力。使用的热数据尽量分散到不同的机器上。多台机器做主从复制或者多副本，实现高可用。做好主从的部署，当主节点挂掉后，能快速的使用从结点顶上。实现熔断限流机制，对系统进行负载能力控制。对于非核心功能的业务，拒绝其请求，只允许核心功能业务访问数据库获取数据。服务降价：提供默认返回值，或简单的提示信息。</li>
+</ul>
+<h3 id="10-什么是面向对象，谈谈你的理解？（华为）"><a href="#10-什么是面向对象，谈谈你的理解？（华为）" class="headerlink" title="10. 什么是面向对象，谈谈你的理解？（华为）"></a>10. 什么是面向对象，谈谈你的理解？（华为）</h3><p>世间万物都可以看成一个对象。每个物体包括动态的行为和静态的属性，这些就构成了一个对象。</p>
+<h3 id="11-访问数据库除了-JDBC-还有什么？（华为）"><a href="#11-访问数据库除了-JDBC-还有什么？（华为）" class="headerlink" title="11. 访问数据库除了 JDBC 还有什么？（华为）"></a>11. 访问数据库除了 JDBC 还有什么？（华为）</h3><ul>
+<li>自己封装JDBC的工具类</li>
+<li>Commons-Dbutils+dbcp【QueryRunner】</li>
+<li>SpringJDBC [JdbcTemplate]JPA【配置文件、domain实体类+注解、EntityManager]</li>
+<li>SpringDataJpa</li>
+<li>Hibernate</li>
+<li>框架Mybatis</li>
+</ul>
+<h2 id="题组-II-2"><a href="#题组-II-2" class="headerlink" title="题组 II"></a>题组 II</h2><h3 id="1-GC-root-有哪些？（华为）"><a href="#1-GC-root-有哪些？（华为）" class="headerlink" title="1. GC root 有哪些？（华为）"></a>1. GC root 有哪些？（华为）</h3><ul>
+<li>Thread-存活的线程。</li>
+<li>Java虚拟机栈中的引用的对象。</li>
+<li>方法区中的类静态属性引用的对象。（一般指被static修饰的对象，加载类的时候就加载到内存中。）</li>
+<li>方法区中的常量引用的对象。</li>
+<li>本地方法栈中的JNI（native方法）引用的对象。</li>
+<li>Monitor Used-用于同步监控的对象。</li>
+</ul>
+<h3 id="2-传统-I-O-跟-NIO-的区别？（华为）"><a href="#2-传统-I-O-跟-NIO-的区别？（华为）" class="headerlink" title="2. 传统 I/O 跟 NIO 的区别？（华为）"></a>2. 传统 I/O 跟 NIO 的区别？（华为）</h3><p>所有 I/O 都被视为单个的字节的移动，通过一个称为 Stream 的对象一次移动一个字节。 流 I/O 用于与外部世界接触。它也在内部使用，用于将对象转换为字节，然后再转换回对象。传统流 IO 的好处是使用简单，将底层的机制都抽象成流，但缺点就是性能不足。而且 IO 的各种流是阻塞的。这意味着，当一个线程调用<code>read()</code>或<code>write()</code>时，该线程被阻塞，直到有一些数据被读取，或数据完全写入。该线程在此期间不能再干任何事情了。原来的 I/O 库（在java.io.*中）与 NIO 最重要的区别是数据打包和传输的方式。原来的 I/O 以流的方式处理数据，而 NIO 以块的方式处理数据。NIO 性能的优势就来源于缓冲的机制（buffer 机制），不管是读或者写都需要以块的形式写入到缓冲区中。NIO 实际上让我们对 IO 的操作更接近于操作系统的实际过程。NIO 作为非阻塞式的 IO，它的优点就在于</p>
+<ol>
+<li>它由一个专门的线程去处理所有的 IO 事件，并负责分发；</li>
+<li>事件驱动，只有事件到了才会触发，而不是同步的监听这个事件；</li>
+<li>线程之间通过<code>wait</code>，<code>notify</code>等方式通讯。保证每次上下文切换都是有意义的。减少无谓 的线程切换。</li>
+</ol>
+<p>当我们在执行持续性的操作（如上传下载）时，IO 的方式是要优于 NIO 的。分清情况， 合理选用。NIO 相对于 IO 流的优势：<strong>非阻塞 buffer 机制流替代块</strong>。</p>
+<h3 id="3-KAFKA-是什么？主要应用场景有哪些？（腾讯）"><a href="#3-KAFKA-是什么？主要应用场景有哪些？（腾讯）" class="headerlink" title="3. KAFKA 是什么？主要应用场景有哪些？（腾讯）"></a>3. KAFKA 是什么？主要应用场景有哪些？（腾讯）</h3><p>Kafka 是一个分布式流式处理平台。这到底是什么意思呢？</p>
+<p><strong>流平台具有三个关键功能：</strong></p>
+<ul>
+<li><strong>消息队列：</strong>发布和订阅消息流，这个功能类似于消息队列，这也是 Kafka 也被归类为消息队列的原因。</li>
+<li><strong>容错的持久方式存储记录消息流：</strong>Kafka 会把消息持久化到磁盘，有效避免了消息丢失的风险。</li>
+<li><strong>流式处理平台：</strong>在消息发布的时候进行处理，Kafka 提供了一个完整的流式处理类库。</li>
+</ul>
+<p><strong>Kafka主要有两大应用场景：</strong></p>
+<ul>
+<li><strong>消息队列：</strong>建立实时流数据管道，以可靠地在系统或应用程序之间获取数据。</li>
+<li><strong>数据处理：</strong>构建实时的流数据处理程序来转换或处理数据流。</li>
+</ul>
+<h3 id="4-MYSQL-索引分类？（腾讯）"><a href="#4-MYSQL-索引分类？（腾讯）" class="headerlink" title="4. MYSQL 索引分类？（腾讯）"></a>4. MYSQL 索引分类？（腾讯）</h3><p><strong>单列索引</strong></p>
+<ul>
+<li><strong>普通索引：</strong>MySQL 中基本索引类型，没有什么限制，允许在定义索引的列中插入重复值和空值，纯粹为了查询数据更快一点。</li>
+<li><strong>唯一索引：</strong>索引列中的值必须是唯一的，但是允许为空值。</li>
+<li><strong>主键索引：</strong>是一种特殊的唯一索引，不允许有空值。</li>
+</ul>
+<p><strong>组合索引：</strong>多个字段组合上创建的索引，只有在查询条件中使用了这些字段的左边字段时，索引才会被使用，使用组合索引时遵循最左前缀原则。</p>
+<p><strong>全文索引：</strong>只有在 MyISAM 引擎上才能使用，只能在 <code>CHAR,VARCHAR,TEXT</code> 类型字段上使用全文索引。全文索引就是在一堆文字中，通过其中的某个关键字等，就能找到该字段所属的记录行，比如有”你是个靓仔，靓女…”通过靓仔，可能就可以找到该条记录。</p>
+<p><strong>空间索引：</strong>空间索引是对空间数据类型的字段建立的索引，MySQL 中的空间数据类型有四种， <code>GEOMETRY、POINT、LINESTRING、POLYGON</code>。在创建空间索引时，使用 SPATIAL 关键字。要求，引擎为 MyISAM，创建空间索引的列，必须将其声明为 NOT NULL。</p>
+<h3 id="5-了解线程-amp-进程的区别吗？（腾讯）"><a href="#5-了解线程-amp-进程的区别吗？（腾讯）" class="headerlink" title="5. 了解线程 &amp; 进程的区别吗？（腾讯）"></a>5. 了解线程 &amp; 进程的区别吗？（腾讯）</h3><p>操作系统中可以拥有多个进程，一个进程里可以拥有多个线程，线程在进程内执行。</p>
+<p><strong>进程和线程的区别</strong></p>
+<ul>
+<li>容易创建新线程。创建新进程需要重复父进程</li>
+<li>线程可以控制同一进程的其他线程。进程无法控制兄弟进程，只能控制其子进程</li>
+<li>进程拥有自己的内存空间。线程使用进程的内存空间，且要和该进程的其他线程共享这个空间；而不是在进程中给每个线程单独划分一点空间。</li>
+<li>（同一进程中的）线程在共享内存空间中运行，而进程在不同的内存空间中运行</li>
+<li>线程可以使用<code>wait()</code>，<code>notify()</code>，<code>notifyAll()</code>等方法直接与其他线程（同一进程）通信；而进程需要使用“进程间通信”（IPC）来与操作系统中的其他进程通信。</li>
+</ul>
+<h3 id="6-常见分布式锁的几种实现方式？（腾讯）"><a href="#6-常见分布式锁的几种实现方式？（腾讯）" class="headerlink" title="6. 常见分布式锁的几种实现方式？（腾讯）"></a>6. 常见分布式锁的几种实现方式？（腾讯）</h3><ul>
+<li><p>基于数据库实现分布式锁</p>
+</li>
+<li><p>基于缓存实现分布式锁</p>
+</li>
+<li><p>基于 Zookeeper 实现分布式锁</p>
+</li>
+</ul>
+<h3 id="7-信号量与信号的区别-（腾讯）"><a href="#7-信号量与信号的区别-（腾讯）" class="headerlink" title="7. 信号量与信号的区别?（腾讯）"></a>7. 信号量与信号的区别?（腾讯）</h3><ul>
+<li><strong>信号(signal)：</strong>是一种处理异步事件的方式。信号是比较复杂的通信方式，用于通知接受进程有某种事件发生，除了用于进程外，还可以发送信号给进程本身。</li>
+<li><strong>信号量(Semaphore)：</strong>进程间通信处理同步互斥的机制。是在多线程环境下使用的一种设施，它负责协调各个线程，以保证它们能够正确、合理的使用公共资源。 </li>
+</ul>
+<p>简单地说，信号就是一种异步通信，通知进程某种事件的发生；信号量是进程/线程同步与互斥的一种机制，保证进程/线程间之间的有序执行或对公共资源的有序访问。</p>
+<h3 id="8-场景题：1-亿个数据取出最大前-100-个有什么方法？（腾讯）"><a href="#8-场景题：1-亿个数据取出最大前-100-个有什么方法？（腾讯）" class="headerlink" title="8. 场景题：1 亿个数据取出最大前 100 个有什么方法？（腾讯）"></a>8. 场景题：1 亿个数据取出最大前 100 个有什么方法？（腾讯）</h3><p>最容易想到的方法是将数据全部排序，然后在排序后的集合中进行查找，最快的排序算法的时间复杂度一般为$O(n \log n)$，如快速排序。</p>
+<ul>
+<li><strong>局部淘汰法</strong>，该方法与排序方法类似，用一个容器保存前 100 个数，然后将剩余的所有数字一一与容器内的最小数字相比，如果所有后续的元素都比容器内的 100 个数还小，那么容器内这 100 个数就是最大 100 个数。如果某一后续元素比容器内最小数字大，则删掉容器内最小元素，并将该元素插入容器，最后遍历完这 1 亿个数，得到的结果容器中保存的数即为最终结果了。此时的时间复杂度为$O(n+mN)$，其中 m 为容器的大小，即 100。</li>
+<li><strong>分治法</strong>，将1亿个数据分成100份，每份100万个数据，找到每份数据中最大的 10000个，最后在剩下的10010000个数据里面找出最大的10000个。如果100 万数据选择足够理想，那么可以过滤掉1亿数据里面99%的数据。100万个数据里面 查找最大的10000个数据的方法如下：用快速排序的方法，将数据分为2堆，如果大 的那堆个数N大于10000个，继续对大堆快速排序一次分成2堆，如果大的那堆个 数N大于10000个，继续对大堆快速排序一次分成2堆，如果大堆个数N小于 10000个，就在小的那堆里面快速排序一次，找第10000-n大的数字；递归以上过程， 就可以找到第1w大的数。参考上面的找出第1w大数字，就可以类似的方法找到前 10000大数字了。此种方法需要每次的内存空间为10A64=4MB, —共需要101次这 样的比较。</li>
+<li><strong>Hash法</strong>，如果这 1 亿个数里面有很多重复的数，先通过 Hash 法，把这 1 亿个数字去重复，这样如果重复率很高的话，会减少很大的内存用量，从而缩小运算空间，然后通过分治法或最小堆法查找最大的 10000 个数。</li>
+<li>采用 <strong>最小堆法</strong>，首先读入前 100 个数来创建大小为 100 的最小堆，建堆的时间复杂度为$O(m \log m)$（m为数组的大小即为100），然后遍历后续的数字，并于堆顶（最小）数字进行比较。如果比最小的数小，则继续读取后续数字；如果比堆顶数字大， 则替换堆顶元素并重新调整堆为最小堆。整个过程直至 1 亿个数全部遍历完为止。然后按照中序遍历的方式输出当前堆中的所有 100 个数字。该算法的时间复杂度为$O(n \log m)$，空间复杂度是 100（常数）。</li>
+</ul>
+<h3 id="9-乐观锁和悲观锁的理解及如何实现，有哪些实现方式？（腾讯）"><a href="#9-乐观锁和悲观锁的理解及如何实现，有哪些实现方式？（腾讯）" class="headerlink" title="9. 乐观锁和悲观锁的理解及如何实现，有哪些实现方式？（腾讯）"></a>9. 乐观锁和悲观锁的理解及如何实现，有哪些实现方式？（腾讯）</h3><p><strong>悲观锁：</strong>总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。再比如 Java 里面的同步原语 synchronized 关键字的实现也是悲观锁。</p>
+<p><strong>乐观锁：</strong>顾名思义，就是很乐观，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号等机制。乐观锁适用于多读的应用类型，这样可以提高吞吐量，像数据库提供的类似于 write_condition 机制， 其实都是提供的乐观锁。在 Java 中 java.util.concurrent.atomic 包下面的原子变量类就是使用了乐观锁的一种实现方式 CAS 实现的。</p>
+<h3 id="10-谈谈你对-SQL-注入式攻击的理解？（腾讯）"><a href="#10-谈谈你对-SQL-注入式攻击的理解？（腾讯）" class="headerlink" title="10. 谈谈你对 SQL 注入式攻击的理解？（腾讯）"></a>10. 谈谈你对 SQL 注入式攻击的理解？（腾讯）</h3><p>所谓 SQL 注入式攻击，就是攻击者把 SQL 命令插入到 Web 表单的输入域或页面请求的查询字符串，欺骗服务器执行恶意的 SQL 命令。</p>
+<p><strong>如何防范SQL注入式攻击？</strong></p>
+<p>在利用表单输入的内容构造 SQL 命令之前，把所有输入内容过滤一番就可以了。过滤输入内容可以按多种方式进行。</p>
+<ul>
+<li>对于动态构造 SQL 查询的场合<ul>
+<li>替换单引号，即把所有单独出现的单引号改成两个单引号，防止攻击者修改 SQL 命令的含义。</li>
+<li>删除用户输入内容中的所有连字符</li>
+<li>对于用来执行查询的数据库帐户，限制其权限。用不同的用户帐户执行查询、插入、更新、 删除操作。</li>
+</ul>
+</li>
+<li>用存储过程来执行所有的查询。</li>
+<li>限制表单或查询字符串输入的长度。</li>
+<li>检查用户输入的合法性。</li>
+<li>将用户登录名称、密码等数据加密保存。</li>
+<li>检查提取数据的查询所返回的记录数量。</li>
+</ul>
+<h3 id="11-CI-服务有什么用途？（腾讯）"><a href="#11-CI-服务有什么用途？（腾讯）" class="headerlink" title="11. CI 服务有什么用途？（腾讯）"></a>11. CI 服务有什么用途？（腾讯）</h3><p>CI （Continuous Integration）– 持续集成服务 – 主要用于整合团队开发中不同开发者提交到开发仓库中的项目代码变化，并即时整合编译，检查整合编译错误的服务。它需要一天中多次整合编译代码的能力，若出现整合错误， 可以优异地准确定位提交错误源。</p>
+<h2 id="题组-Ⅲ-2"><a href="#题组-Ⅲ-2" class="headerlink" title="题组 Ⅲ"></a>题组 Ⅲ</h2><h3 id="1-计算机插上电源操作系统做了什么？（阿里）"><a href="#1-计算机插上电源操作系统做了什么？（阿里）" class="headerlink" title="1. 计算机插上电源操作系统做了什么？（阿里）"></a>1. 计算机插上电源操作系统做了什么？（阿里）</h3><ul>
+<li>加电 – – – – 打开电源开关，给主板和内部风扇供电。</li>
+<li>启动引导程序 – – – – CPU 开始执行存储在 ROMBIOS 中的指令。</li>
+<li>开机自检 – – – – 计算机对系统的主要部件进行诊断测试。</li>
+<li>加载操作系统 – – – – 计算机将操作系统文件从磁盘读到内存中。</li>
+<li>检查配置文件，定制操作系统的运行环境 – – – – 读取配置文件，根据用户的设置对操作系统进行定制。</li>
+<li>准备读取命令和数据 – – – – 计算机等待用户输入命令和数据。</li>
+</ul>
+<h3 id="2-一个对象的两个方法加-synchronized，一个线程进去-sleep，另一个线程可以进入到另一个方法吗？（阿里）"><a href="#2-一个对象的两个方法加-synchronized，一个线程进去-sleep，另一个线程可以进入到另一个方法吗？（阿里）" class="headerlink" title="2. 一个对象的两个方法加 synchronized，一个线程进去 sleep，另一个线程可以进入到另一个方法吗？（阿里）"></a>2. 一个对象的两个方法加 synchronized，一个线程进去 sleep，另一个线程可以进入到另一个方法吗？（阿里）</h3><p>不能</p>
+<h3 id="3-线程池参数有哪些？（阿里）"><a href="#3-线程池参数有哪些？（阿里）" class="headerlink" title="3. 线程池参数有哪些？（阿里）"></a>3. 线程池参数有哪些？（阿里）</h3><ul>
+<li>corePoolSize 核心线程大小。</li>
+<li>maximumPoolSize 线程池最大线程数量。</li>
+<li>keepAliveTime 空闲线程存活时间。</li>
+<li>unit 空间线程存活时间单位。</li>
+<li>workQueue 工作队列。</li>
+<li>threadFactory 线程工厂。</li>
+<li>handler 拒绝策略。</li>
+</ul>
+<h3 id="4-线程池拒绝策略有哪些？（阿里）"><a href="#4-线程池拒绝策略有哪些？（阿里）" class="headerlink" title="4. 线程池拒绝策略有哪些？（阿里）"></a>4. 线程池拒绝策略有哪些？（阿里）</h3><ul>
+<li>ThreadPoolExecutor.AbortPolicy：丢弃任务并抛出 RejectedExecutionException 异常（默认拒绝策略）。</li>
+<li>ThreadPoolExecutor.DiscardPolicy：丢弃任务，但是不抛出异常。</li>
+<li>ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新提交被拒绝的任务。</li>
+<li>ThreadPoolExecutor.CallerRunsPolicy：由调用线程（提交任务的线程）处理该任务。</li>
+</ul>
+<h3 id="5-hreadPoolExecutor-线程池，corePoolSize-5，maximumPoolSize-10，queueCapacity-10，有-20-个耗时任务交给这个线程池执行，线程池会如何执行这-20-个任务？（阿里）"><a href="#5-hreadPoolExecutor-线程池，corePoolSize-5，maximumPoolSize-10，queueCapacity-10，有-20-个耗时任务交给这个线程池执行，线程池会如何执行这-20-个任务？（阿里）" class="headerlink" title="5. hreadPoolExecutor 线程池，corePoolSize=5，maximumPoolSize=10，queueCapacity=10，有 20 个耗时任务交给这个线程池执行，线程池会如何执行这 20 个任务？（阿里）"></a>5. hreadPoolExecutor 线程池，corePoolSize=5，maximumPoolSize=10，queueCapacity=10，有 20 个耗时任务交给这个线程池执行，线程池会如何执行这 20 个任务？（阿里）</h3><ul>
+<li>如果当前线程数 &lt; corePoolSize，如果是则创建新的线程执行该任务。</li>
+<li>如果当前线程数 &gt;= corePoolSize，则将任务存入 BlockingQueue。</li>
+<li>如果阻塞队列已满，且当前线程数 &lt; maximumPoolSize，则新建线程执行该任务。</li>
+<li>如果阻塞队列已满，且当前线程数 &gt;= maximumPoolSize，则抛出异常。</li>
+</ul>
+<h3 id="6-Java8-新特性有哪些了解-（阿里）"><a href="#6-Java8-新特性有哪些了解-（阿里）" class="headerlink" title="6. Java8 新特性有哪些了解?（阿里）"></a>6. Java8 新特性有哪些了解?（阿里）</h3><ul>
+<li>接口的默认方法。</li>
+<li>Lambda 表达式。</li>
+<li>函数式接口。</li>
+<li>方法和构造函数引用。</li>
+<li>Lamda 表达式作用域。</li>
+<li>内置函数式接口。</li>
+<li>Optional。</li>
+<li>Streams(流)。</li>
+<li>ParallelStreams(并行流)。</li>
+<li>Maps。</li>
+<li>DateAPI(日期相关 API)。</li>
+<li>Annotations(注解)。</li>
+</ul>
+<h3 id="7-栈会溢出吗？什么时候溢出？方法区会溢出吗？（阿里）"><a href="#7-栈会溢出吗？什么时候溢出？方法区会溢出吗？（阿里）" class="headerlink" title="7. 栈会溢出吗？什么时候溢出？方法区会溢出吗？（阿里）"></a>7. 栈会溢出吗？什么时候溢出？方法区会溢出吗？（阿里）</h3><p>栈是线程私有的，它的生命周期与线程相同，每个方法在执行的时候都会创建一个栈帧，用来存储局部变量表，操作数栈，动态链接，方法出口等信息。局部变量表又包含基本数据类型，对象引用类型。如果线程请求的栈深度大于虚拟机所允许的最大深度，将抛出 StackOverflowError 异常，方法递归调用产生这种结果。如果Java虚拟机栈可以动态扩展，并且扩展的动作已经尝试过，但是无法申请到足够的内存去完成扩展，或者在新建立线程的时候没有足够的内存去创建对应的虚拟机栈，那么Java虚拟机将抛出一个 OutOfMemory 异常。(线程启动过多)。方法区会发生溢出。<br>HotSpot jdk1.7 之前字符串常量池是方法区的一部分，方法区叫做“永久代”，在 1.7 之前无限的创建对象就会造成内存溢出，提示信息：PermGenspace 而是用 jdk1.7 之后，开始逐步去永久代，就不会产生内存溢出。<br>方法区用于存放 Class 的相关信息，如类名、访问修饰符、常量池、字段描述、方法描述等，如果动态生成大量的 Class 文件，也会产生内存溢出。常见的场景还有：大量 JSP 或动态产生 JSP 文件的应用（JSP 第一次运行时需要编译为 java 类）、基于 OSGi 的应用（即使是同一个类文件，被不同的类加载器加载也会视为不同的类）</p>
+<h3 id="8-哪些情况下的对象会被垃圾回收机制处理掉？（京东）"><a href="#8-哪些情况下的对象会被垃圾回收机制处理掉？（京东）" class="headerlink" title="8. 哪些情况下的对象会被垃圾回收机制处理掉？（京东）"></a>8. 哪些情况下的对象会被垃圾回收机制处理掉？（京东）</h3><p>利用可达性分析算法，虚拟机会将一些对象定义为 GCRoots，从 GCRoots 出发沿着引用链向下寻找，如果某个对象不能通过 GCRoots 寻找到，虚拟机就认为该对象可以被回收掉。</p>
+<ul>
+<li>哪些对象可以被看做是 GCRoots 呢？<br>1）虚拟机栈（栈帧中的本地变量表）中引用的对象；<br>2）方法区中的类静态属性引用的对象，常量引用的对象；<br>3）本地方法栈中 JNI(Native 方法）引用的对象；</li>
+<li>对象不可达，一定会被垃圾收集器回收么？<br>即使不可达，对象也不一定会被垃圾收集器回收，1）先判断对象是否有必要执行 finalize() 方法，对象必须重写 finalize() 方法且没有被运行过。2）若有必要执行，会把对象放到一个队列中，JVM 会开一个线程去回收它们，这是对象最后一次可以逃逸清理的机会。</li>
+</ul>
+<h3 id="9-静态代理和动态代理的区别，什么场景使用？（京东）"><a href="#9-静态代理和动态代理的区别，什么场景使用？（京东）" class="headerlink" title="9. 静态代理和动态代理的区别，什么场景使用？（京东）"></a>9. 静态代理和动态代理的区别，什么场景使用？（京东）</h3><p>代理是一种常用的设计模式。</p>
+<p><strong>目的是：</strong>为其他对象提供一个代理以控制对某个对象的访问，将两个类的关系解耦。代理类和委托类都要实现相同的接口，因为代理真正调用的是委托类的方法。</p>
+<p><strong>区别：</strong></p>
+<ul>
+<li>静态代理：由程序员创建或是由特定工具生成，在代码编译时就确定了被代理的类是哪一个是静态代理。静态代理通常只代理一个类；</li>
+<li>动态代理：在代码运行期间，运用反射机制动态创建生成。动态代理代理的是一个接口下的多个实现类；<br>实现步骤：<br>a.实现 InvocationHandler 接口创建自己的调用处理器；<br>b.给 Proxy 类提供 ClassLoader 和代理接口类型数组创建动态代理类；<br>c.利用反射机制得到动态代理类的构造函数；<br>d.利用动态代理类的构造函数创建动态代理类对象；<br>使用场景：Retrofit 中直接调用接口的方法；Spring 的 AOP 机制；</li>
+</ul>
+<h3 id="10-谈谈你对解析与分派的认识。（京东）"><a href="#10-谈谈你对解析与分派的认识。（京东）" class="headerlink" title="10. 谈谈你对解析与分派的认识。（京东）"></a>10. 谈谈你对解析与分派的认识。（京东）</h3><p>解析指方法在运行前，即编译期间就可知的，有一个确定的版本，运行期间也不会改变。解析是静态的，在类加载的解析阶段就可将符号引用转变成直接引用。<br>分派可分为静态分派和动态分派，重载属于静态分派，覆盖属于动态分派。静态分派是指在重载时通过参数的静态类型而非实际类型作为判断依据，在编译阶段，编译器可根据参数的静态类型决定使用哪一个重载版本。动态分派则需要根据实际类型来调用相应的方法。</p>
+<h3 id="11-如何将一个-Java-对象序列化到文件里？（京东）"><a href="#11-如何将一个-Java-对象序列化到文件里？（京东）" class="headerlink" title="11. 如何将一个 Java 对象序列化到文件里？（京东）"></a>11. 如何将一个 Java 对象序列化到文件里？（京东）</h3><h2 id="题组-Ⅳ-1"><a href="#题组-Ⅳ-1" class="headerlink" title="题组 Ⅳ"></a>题组 Ⅳ</h2><h3 id="1-说一下泛型原理，并举例说明。（京东）"><a href="#1-说一下泛型原理，并举例说明。（京东）" class="headerlink" title="1. 说一下泛型原理，并举例说明。（京东）"></a>1. 说一下泛型原理，并举例说明。（京东）</h3><p>泛型就是将类型变成参数传入，使得可以使用的类型多样化，从而实现解耦。Java 泛型是在 Java1.5 以后出现的，为保持对以前版本的兼容，使用了擦除的方法实现泛型。擦除是指在一定程度无视类型参数 T，直接从 T 所在的类开始向上 T 的父类去擦除，如调用泛型方法，传入类型参数 T 进入方法内部，若没在声明时做类似 <code>public TmethodName(TextendsFather t) {}</code>， Java 就进行了向上类型的擦除，直接把参数 t 当做 Object 类来处理，而不是传进去的 T。即在有泛型的任何类和方法内部，它都无法知道自己的泛型参数，擦除和转型都是在边界上发生，即传进去的参在进入类或方法时被擦除掉，但传出来的时候又被转成了我们设置的 T。在泛型类或方法内，任何涉及到具体类型（即擦除后的类型的子类）操作都不能进行，如 newT()，或者 T.play()（play 为某子类的方法而不是擦除后的类的方法）。</p>
+<h3 id="2-讲下-Kafka、RabbitMQ、RocketMQ-之间的区别是什么？（京东）"><a href="#2-讲下-Kafka、RabbitMQ、RocketMQ-之间的区别是什么？（京东）" class="headerlink" title="2. 讲下 Kafka、RabbitMQ、RocketMQ 之间的区别是什么？（京东）"></a>2. 讲下 Kafka、RabbitMQ、RocketMQ 之间的区别是什么？（京东）</h3><p><strong>性能：</strong>消息中间件的性能主要衡量吞吐量，Kafka 的吞吐量比 RabbitMQ 要高出 1~2 个数量级，RabbitMQ 的单机 QPS 在万级别，Kafka 的单机 QPS 能够达到百万级别。RocketMQ 单机写入 TPS 单实例约 7 万条/秒，单机部署 3 个Broker，可以跑到最高 12 万条/秒，消息大小 10 个字节，Kafka 如果开启幂等、事务等功能，性能也会有所降低。<br><strong>数据可靠性：</strong>Kafka 与 RabbitMQ 都具备多副本机制，数据可靠性较高。RocketMQ 支持异步实时刷盘，同步刷盘，同步 Replication，异步 Replication。服务可用性 Kafka 采用集群部署，分区与多副本的设计，使得单节点宕机对服务无影响，且支持消息容量的线性提升。RabbitMQ 支持集群部署，集群节点数量有多种规格。RocketMQ 是分布式架构，可用性高。<br><strong>功能：</strong>Kafka 与 RabbitMQ 都是比较主流的两款消息中间件，具备消息传递的基本功能，但在一些特殊的功能方面存在差异，RocketMQ 在阿里集团内部有大量的应用在使用。</p>
+<h3 id="3-介绍下-MySQL-聚簇索引与非聚簇索引的区别（InnoDB-与-Myisam-引擎）？（京东）"><a href="#3-介绍下-MySQL-聚簇索引与非聚簇索引的区别（InnoDB-与-Myisam-引擎）？（京东）" class="headerlink" title="3. 介绍下 MySQL 聚簇索引与非聚簇索引的区别（InnoDB 与 Myisam 引擎）？（京东）"></a>3. 介绍下 MySQL 聚簇索引与非聚簇索引的区别（InnoDB 与 Myisam 引擎）？（京东）</h3><p>聚集索引是指数据库表行中数据的物理顺序与键值的逻辑（索引）顺序相同。一个表只能有一个聚簇索引，因为一个表的物理顺序只有一种情况，所以，对应的聚簇索引只能有一个。聚簇索引的叶子节点就是数据节点，既存储索引值，又在叶子节点存储行数据。</p>
+<p><strong>Innodb 创建表后生成的文件有：</strong></p>
+<ul>
+<li>frm:创建表的语句;</li>
+<li>idb:表里面的数据+索引文件非聚集索引（MyISAM引擎的底层实现）的逻辑顺序与磁盘上行的物理存储顺序不同。非聚簇索引的叶子节点仍然是索引节点，只不过有指向对应数据块的指针。索引命中后，需要回表查询。</li>
+</ul>
+<p><strong>Myisam 创建表后生成的文件有：</strong></p>
+<ul>
+<li>frm:创建表的语句 MYD:表里面的数据文件（myisam data）</li>
+<li>MYI:表里面的索引文件（myisam index）</li>
+<li>innodb 的次索引指向对主键的引用(聚簇索引)</li>
+<li>myisam 的次索引和主索引都指向物理行(非聚簇索引)</li>
+</ul>
+<h3 id="4-SpringAOP-底层原理（美团）"><a href="#4-SpringAOP-底层原理（美团）" class="headerlink" title="4. SpringAOP 底层原理（美团）"></a>4. SpringAOP 底层原理（美团）</h3><p>aop 底层是采用动态代理机制实现的：接口+实现类</p>
+<ul>
+<li>如果要代理的对象，实现了某个接口，那么 SpringAOP 会使用 JDKProxy ，去创建代理对象。</li>
+<li>没有实现接口的对象，就无法使用JDKProxy去进行代理了，这时候 SpringAOP 会使用 Cglib 生成一个被代理对象的子类来作为代理</li>
+</ul>
+<h3 id="5-HashMap-的扩容机制是怎样的？（美团）"><a href="#5-HashMap-的扩容机制是怎样的？（美团）" class="headerlink" title="5. HashMap 的扩容机制是怎样的？（美团）"></a>5. HashMap 的扩容机制是怎样的？（美团）</h3><p>一般情况下，当元素数量超过阈值时便会触发扩容。每次扩容的容量都是之前容量的 2 倍。HashMap 的容量是有上限的，必须小于 1&lt;&lt;30，即 1073741824。如果容量超出了这个数，则不再增长，且阈值会被设置为 Integer.MAX_VALUE。</p>
+<p><strong>JDK7 中的扩容机制：</strong></p>
+<ul>
+<li>空参数的构造函数：以默认容量、默认负载因子、默认阈值初始化数组。内部数组是空数组。</li>
+<li>有参构造函数：根据参数确定容量、负载因子、阈值等。</li>
+<li>第一次 put 时会初始化数组，其容量变为不小于指定容量的2的幂数，然后根据负载因子确定阈值。</li>
+<li>如果不是第一次扩容，则新容量=旧容量x2，新阈值=新容量x负载因子。</li>
+</ul>
+<p><strong>JDK 8的扩容机制：</strong></p>
+<ul>
+<li>空参数的构造函数：实例化的 HashMap 默认内部数组是 null，即没有实例化。第一次调用 put 方法时，则会开始第一次初始化扩容，长度为 16。</li>
+<li>有参构造函数：用于指定容量。会根据指定的正整数找到不小于指定容量的 2 的幂数，将这个数设置赋值给阈值（threshold）。第一次调用 put 方法时，会将阈值赋值给容量，然后让阈值=容量x负载因子。</li>
+<li>如果不是第一次扩容，则容量变为原来的 2 倍，阈值也变为原来的 2 倍。（容量和阈值都变为原来的 2 倍时，负载因子还是不变）。<br>此外还有几个细节需要注意：</li>
+<li>首次 put 时，先会触发扩容（算是初始化），然后存入数据，然后判断是否需要扩容；</li>
+<li>不是首次 put，则不再初始化，直接存入数据，然后判断是否需要扩容；</li>
+</ul>
+<h3 id="6-ConcurrentHashMap-的存储结构是怎样的？（美团）"><a href="#6-ConcurrentHashMap-的存储结构是怎样的？（美团）" class="headerlink" title="6. ConcurrentHashMap 的存储结构是怎样的？（美团）"></a>6. ConcurrentHashMap 的存储结构是怎样的？（美团）</h3><p>Java7 中 ConcurrnetHashMap 使用的分段锁，也就是每一个 Segment 上同时只有一个线程可以操作，每一个 Segment 都是一个类似 HashMap 数组的结构，它可以扩容，它的冲突会转化为链表。但是 Segment 的个数一但初始化就不能改变，默认 Segment 的个数是 16 个。</p>
+<p>Java8 中的 ConcurrnetHashMap 使用的 Synchronized 锁加 CAS 的机制。结构也由 Java7 中的 Segment 数组+ HashEntry 数组+链表进化成了 Node 数组+链表/红黑树，Node 是类似于一个 HashEntry 的结构。它的冲突再达到一定大小时会转化成红黑树，在冲突小于一定数量时又退回链表</p>
+<h3 id="7-线程池大小如何设置？（美团）"><a href="#7-线程池大小如何设置？（美团）" class="headerlink" title="7. 线程池大小如何设置？（美团）"></a>7. 线程池大小如何设置？（美团）</h3><p><strong>CPU 密集型任务 (N+1)：</strong>这种任务消耗的主要是 CPU 资源，可以将线程数设置为 N（CPU核心数）+1，比 CPU 核心数多出来的一个线程是为了防止线程偶发的缺页中断，或者其它原因导致的任务暂停而带来的影响。一旦任务暂停，CPU 就会处于空闲状态，而在这种情况下多出来的一个线程就可以充分利用 CPU 的空闲时间。</p>
+<p><strong>I/O 密集型任务 (2N)：</strong>这种任务应用起来，系统会用大部分的时间来处理 I/O 交互，而线程在处理 I/O 的时间段内不会占用 CPU 来处理，这时就可以将 CPU 交出给其它线程使用。因此在 I/O 密集型任务的应用中，我们可以多配置一些线程，具体的计算方法是 2N</p>
+<h3 id="8-G1-收集器有哪些特点？（美团）"><a href="#8-G1-收集器有哪些特点？（美团）" class="headerlink" title="8. G1 收集器有哪些特点？（美团）"></a>8. G1 收集器有哪些特点？（美团）</h3><ul>
+<li>G1 的全称是 Garbage-First，意为垃圾优先，哪一块的垃圾最多就优先清理它。</li>
+<li>G1 GC 最主要的设计目标是：将 STW 停顿的时间和分布，变成可预期且可配置的。被视为 JDK1.7 中 HotSpot 虚拟机的一个重要进化特征。它具备一下特点：</li>
+<li>并行与并发：G1 能充分利用 CPU、多核环境下的硬件优势，使用多个 CPU（CPU 或者 CPU 核心）来缩短 Stop-The-World 停顿时间。部分其他收集器原本需要停顿 Java 线程执行的 GC 动作，G1 收集器仍然可以通过并发的方式让 java 程序继续执行。</li>
+<li>分代收集：虽然 G1 可以不需要其他收集器配合就能独立管理整个 GC 堆，但是还是保留了分代的概念。</li>
+<li>空间整合：与 CMS 的“标记-清理”算法不同，G1 从整体来看是基于“标记-整理”算法实现的收集器；从局部上来看是基于“标记-复制”算法实现的。</li>
+<li>可预测的停顿：这是 G1 相对于 CMS 的另一个大优势，降低停顿时间是 G1 和 CMS 共同的关注点，但 G1 除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为 M 毫秒的时间片段内。<br>G1 收集器在后台维护了一个优先列表，每次根据允许的收集时间，优先选择回收价值最大的 Region（这也就是它的名字 Garbage-First 的由来）</li>
+</ul>
+<h3 id="9-有哪些手段来排查-OOM-的问题？（美团）"><a href="#9-有哪些手段来排查-OOM-的问题？（美团）" class="headerlink" title="9. 有哪些手段来排查 OOM 的问题？（美团）"></a>9. 有哪些手段来排查 OOM 的问题？（美团）</h3><ul>
+<li>增加两个参数 -XX:+HeapDumpOnOutOfMemoryError-XX:HeapDumpPath=/tmp/heapdump.hprof，当 OOM 发生时自动 dump 堆内存信息到指定目录。</li>
+<li>同时 jstat 查看监控 JVM 的内存和 GC 情况，先观察问题大概出在什么区域。</li>
+<li>使用 MAT 工具载入到 dump 文件，分析大对象的占用情况，比如 HashMap 做缓存未清理，时间长了就会内存溢出，可以把改为弱引用</li>
+</ul>
+<h3 id="10-B-树的叶子节点链表是单向还是双向？（美团）"><a href="#10-B-树的叶子节点链表是单向还是双向？（美团）" class="headerlink" title="10. B+ 树的叶子节点链表是单向还是双向？（美团）"></a>10. B+ 树的叶子节点链表是单向还是双向？（美团）</h3><p>双向链表</p>
+<h3 id="11-MVCC-是什么？它的底层原理是什么？（美团）"><a href="#11-MVCC-是什么？它的底层原理是什么？（美团）" class="headerlink" title="11. MVCC 是什么？它的底层原理是什么？（美团）"></a>11. MVCC 是什么？它的底层原理是什么？（美团）</h3><p>MVCC，多版本并发控制,它是通过读取历史版本的数据，来降低并发事务冲突，从而提高并发性能的一种机制。事务版本号、表的隐藏列、undolog 和 readview。</p>
+<h1 id="Go-后端岗位面试真题"><a href="#Go-后端岗位面试真题" class="headerlink" title="Go 后端岗位面试真题"></a>Go 后端岗位面试真题</h1><p>本章汇总了针对【Go】后端岗的大厂面试考核真题及考核方向。</p>
+<h2 id="题组-I-3"><a href="#题组-I-3" class="headerlink" title="题组 I"></a>题组 I</h2><ol>
+<li>与其他语言相比，使用 Go 有什么好处？</li>
+</ol>
+<p>👉查看答案👈<br>· 与其他作为学术实验开始的语言不同， Go 代码的设计是务实的。每个功能 和语法决策都旨在让程序员的生活更轻松。<br>· Golang 针对并发进行了优化，并且在规模上运行良好。 · 由于单一的标准代码格式， Golang 通常被认为比其他语言更具可读性。<br>· 自动垃圾收集明显比 Java 或 Python 更有效，因为它与程序同时执行。</p>
+<ol start="2">
+<li>Go 程序中的包是什么？</li>
+</ol>
+<p>👉查看答案👈<br>包 (pkg) 是 Go 工作区中包含 Go 源文件或其他包的目录。源文件中的每个函 数、变量和类型都存储在链接包中。每个 Go 源文件都属于一个包。</p>
+<ol start="3">
+<li>什么是 Goroutine？ 你如何停止它？</li>
+</ol>
+<p>👉查看答案👈<br>一个 Goroutine 是一个函数或方法执行同时旁边其他任何够程采用了特殊的 Goroutine 线程。 Goroutine 线程比标准线程更轻量级，大多数 Golang 程序 同时使用数千个 Goroutine。 要创建 Goroutine，请 go 在函数声明之前添加关键字。 您可以通过向 Goroutine 发送一个信号通道来停止它。 Goroutines 只能在被 告知检查时响应信号，因此您需要在逻辑位置（例如 for 循环顶部）包含检查。</p>
+<ol start="4">
+<li>Go 两个接口之间可以存在什么关系？</li>
+</ol>
+<p>👉查看答案👈<br>如果两个接口有相同的方法列表，那么他们就是等价的，可以相互赋值。如果 接口 A 的方法列表是接口 B 的方法列表的自己，那么接口 B 可以赋值给接口 A。接口查询是否成功，要在运行期才能够确定。</p>
+<ol start="5">
+<li>Go 语言当中 Channel 缓冲有什么特点？</li>
+</ol>
+<p>👉查看答案👈<br>无缓冲的 channel 是同步的，而有缓冲的 channel 是非同步的。</p>
+<ol start="6">
+<li>Go Convey 是什么？ 一般用来做什么？</li>
+</ol>
+<p>👉查看答案👈<br>· go convey 是一个支持 Golang 的单元测试框架<br>· go convey 能够自动监控文件修改并启动测试，并可以将测试结果实时输出 到 Web 界面<br>· go convey 提供了丰富的断言简化测试用例的编写</p>
+<ol start="7">
+<li>Go 语言当中 new 的作用是什么？</li>
+</ol>
+<p>👉查看答案👈<br>new 创建一个该类型的实例，并且返回指向该实例的指针。 new 函数是内建函数，函数定义：<br>· 使用 new 函数来分配空间<br>· 传递给 new 函数的是一个类型，而不是一个值<br>· 返回值是指向这个新分配的地址的指针</p>
+<ol start="8">
+<li>Go 语言是如何实现切片扩容的？</li>
+</ol>
+<p>👉查看答案👈<br>func main() {<br>  arr := make([]int, 0)<br>   { fmt.Println(“len 为”, len(arr), “cap 为”, cap(arr)) arr = append(arr, i) }<br>}</p>
+<ol start="9">
+<li>Golang Slice 的扩容机制，有什么注意点？</li>
+</ol>
+<p>👉查看答案👈<br>Go 中切片扩容的策略是这样的：<br>· 首先判断，如果新申请容量大于 2 倍的旧容量，最终容量就是新申请的容 量 · 否则判断，如果旧切片的长度小于 1024，则最终容量就是旧容量的两倍 · 否则判断，如果旧切片长度大于等于 1024，则最终容量从旧容量开始循环 增加原来的 1/4, 直到最终容量大于等于新申请的容量 · 如果最终容量计算值溢出，则最终容量就是新申请容量<br>· 否则判断，如果旧切片的长度小于 1024，则最终容量就是旧容量的两倍<br>· 否则判断，如果旧切片长度大于等于 1024，则最终容量从旧容量开始循环 增加原来的 1/4, 直到最终容量大于等于新申请的容量<br>· 如果最终容量计算值溢出，则最终容量就是新申请容量</p>
+<ol start="10">
+<li>Golang Map 底层实现</li>
+</ol>
+<p>👉查看答案👈<br>Golang 中 map 的底层实现是一个散列表，因此实现map 的过程实际上就是实现 散表的过程。在这个散列表中，主要出现的结构体有两个，一个叫 hmap(a header for a go map)，一个叫 bmap(a bucket for a Go map，通常叫其 bucket)。</p>
+<ol start="11">
+<li>介绍一下 Channel</li>
+</ol>
+<p>👉查看答案👈<br>Go 语言中，不要通过共享内存来通信，而要通过通信来实现内存共享。 Go 的 CSP(Communicating Sequential Process)并发模型，中文可以叫做通信顺序进 程，是通过 goroutine 和 channel 来实现的。 channel 收发遵循先进先出 FIFO 的原则。分为有缓冲区和无缓冲区，channel 中包括 buffer、sendx 和 recvx 收发的位置(ring buffer 记录实现)、sendq、 recv。当 channel 因为缓冲区不足而阻塞了队列，则使用双向链表存储。</p>
+<h2 id="题组-II-3"><a href="#题组-II-3" class="headerlink" title="题组 II"></a>题组 II</h2><ol>
+<li>Mutex 允许自旋的条件？</li>
+</ol>
+<p>👉查看答案👈<br>· 锁已被占用，并且锁不处于饥饿模式。<br>· 积累的自旋次数小于最大自旋次数<br>（active_spin=4）。<br>· CPU 核数大于 1。<br>· 有空闲的 P。<br>· 当前 Goroutine 所挂载的 P 下，本地待运行队列为空。</p>
+<ol start="2">
+<li>Cond 是什么？</li>
+</ol>
+<p>👉查看答案👈<br>Cond 实现了一种条件变量，可以使用在多个 Reader 等待共享资源ready 的场 景（如果只有一读一写，一个锁或者 channel 就搞定了） 每个 Cond 都会关联一个 Lock（*sync.Mutex or *sync.RWMutex），当修改条 件或者调用 Wait 方法时，必须加锁，保护 condition。</p>
+<ol start="3">
+<li>Broadcast 和 Signal 区别？</li>
+</ol>
+<p>👉查看答案👈<br>由于 Wait()第一次恢复时， C.L 并没有加锁，所以当 Wait 返回时，调用者通常 并不能假设条件为真。如下代码： 。 取而代之的是, 调用者应该在循环中调用 Wait。（简单来说，只要想使用 condition，就必须加锁。）<br>· Once 可以用来执行且仅仅执行一次动作，常常用于单例对象的初始化场 景。<br>· Once 常常用来初始化单例资源，或者并发访问只需初始化一次的共享资 源，或者在测试的时候初始化一次测试资源。<br>· sync.Once 只暴露了一个方法 Do，你可以多次调用 Do 方法，但是只有第 一次调用 Do 方法时 f 参数才会执行，这里的 f 是一个无参数无返回值 的函数。 假设包含 3 个参数内存位置(V)、预期原值(A)和新值(B)。V 表示要更新变量的 值， E 表示预期值， N 表示新值。仅当 V 值等于 E 值时，才会将 V 的值设为 N， 如果 V 值和 E 值不同，则说明已经有其他线程在做更新，则当前线程什么都不 做，最后 CAS 返回当前 V 的真实值。 CAS 操作时抱着乐观的态度进行的，它总 是认为自己可以成功完成操作。基于这样的原理， CAS 操作即使没有锁，也可 以发现其他线程对于当前线程的干扰。 赖于 CPU 的核心数量，而是交给 Golang 的运行时统一调度。</p>
+<ol start="4">
+<li>GMP 调度流程？</li>
+</ol>
+<p>👉查看答案👈<br>off，并寻找新的 idle 的 M，若没有 idle 的 M 就会新建一个 M（流程 5.1） · 当 G 因 channel 或者 network I/O 阻塞时，不会阻塞 M，M 会寻找其他 runnable 的 G；当阻塞的 G 恢复后会重新进入 runnable 进入 P 队列等待执 行（流程 5.3）</p>
+<ol start="5">
+<li>协作式的抢占式调度</li>
+</ol>
+<p>👉查看答案👈<br>在 1.14 版本之前，程序只能依靠 Goroutine 主动让出 CPU 资源才能触发调 度。这种方式存在问题有： · 某些 Goroutine 可以长时间占用线程，造成其它 Goroutine 的饥饿 · 垃圾回收需要暂停整个程序（Stop-the-world，STW），最长可能需要几分 钟的时间，导致整个程序无法工作。</p>
+<ol start="6">
+<li>Sysmon 有什么作用？</li>
+</ol>
+<p>👉查看答案👈<br>Sysmon 也叫监控线程，变动的周期性检查，好处 · 释放闲置超过 5 分钟的 span 物理内存； · 如果超过 2 分钟没有垃圾回收，强制执行； · 将长时间未处理的 netpoll 添加到全局队列； · 向长时间运行的 G 任务发出抢占调度（超过 10ms 的 g，会进行 retake）； · 收回因 syscall 长时间阻塞的 P</p>
+<ol start="7">
+<li>GC 触发时机</li>
+</ol>
+<p>👉查看答案👈<br>主动触发：调用 runtime.GC 被动触发： 使用系统监控，该触发条件由 runtime.forcegcperiod 变量控制，默认为 2 分 钟。当超过两分钟没有产生任何 GC 时，强制触发 GC。 使用步调（Pacing）算法，其核心思想是控制内存增长的比例。如 Go 的 GC 是一种比例 GC, 下一次 GC 结束时的堆大小和上一次 GC 存活堆大小成比例.</p>
+<ol start="8">
+<li>什么是 REST / RESTful 以及它的用途是什么？</li>
+</ol>
+<p>👉查看答案👈<br>Representational State Transfer（REST）/ RESTful Web 服务是一种帮助计 算机系统通过 Internet 进行通信的架构风格。这使得微服务更容易理解和实 现。 微服务可以使用或不使用 RESTful API 实现，但使用 RESTful API 构建松散 耦合的微服务总是更容易。</p>
+<ol start="9">
+<li>Docker 是什么？</li>
+</ol>
+<p>👉查看答案👈<br>Docker 是一个容器化平台，它包装你所有开发环境依赖成一个整体，像一个容 器。保证项目开发，如开发、测试、发布等各生产环节都可以无缝工作在不同 的平台<br>Docker 容器：将一个软件包装在一个完整的文件系统中，该文件系统包含运行所需的一切：代码，运行时，系统工具，系统库等。可以安装在服务器上的任 何东西。 这保证软件总是运行在相同的运行环境，无需考虑基础环境配置的改变。</p>
+<ol start="10">
+<li>DevOps 有哪些优势？</li>
+</ol>
+<p>👉查看答案👈<br>技术优势: 持续的软件交付能力 修复问题变得简单 更快得解决问题 商业优势: 更快交付的特性 更稳定的操作系统环境 更多时间可用于创造价值 (而不是修复 / 维护)</p>
+<ol start="11">
+<li>CI 服务有什么用途？</li>
+</ol>
+<p>👉查看答案👈<br>CI （Continuous Integration）– 持续集成服务 – 主要用于整合团队开发 中不同开发者提交到开发仓库中的项目代码变化，并即时整合编译，检查整合 编译错误的服务。它需要一天中多次整合编译代码的能力，若出现整合错误， 可以优异地准确定位提交错误源。</p>
+<h2 id="题组-Ⅲ-3"><a href="#题组-Ⅲ-3" class="headerlink" title="题组 Ⅲ"></a>题组 Ⅲ</h2><ol>
+<li>Docker 群（Swarm）是什么？</li>
+</ol>
+<p>👉查看答案👈<br>Docker Swarm – Docker 群 – 是原生的 Docker 集群服务工具。它将一群 Docker 主机集成为单一一个虚拟 Docker 主机。利用一个 Docker 守护进程， 通过标准的 Docker API 和任何完善的通讯工具， Docker Swarm 提供透明地将 Docker 主机扩散到多台主机上的服务。</p>
+<ol start="2">
+<li>请解释一下 docerfile 配置文件中的 ONBUILD 指令的用途和含义</li>
+</ol>
+<p>👉查看答案👈<br>配置文件中的 ONBUILD 指令为创建的 Docker image （映像）加入在将来执行 的指令（译注：在当前配置文件生成的映像中并不执行）， 用于在以这个创建 的映像为基础的创建的子映像（image） 中执行或定制。 举例， 以基映像创 建自己的映像时，可定制创建特有的用户化的配置环境。 （ 译注： 由于原文较短，关于这个问题容易迷惑。 译者认为，总体来说关键 理解 – 以基础映像创建自有的映像过程中，基础映像中所有的创建层或指令<br>译注： 1 图中文字： 数据保存在容器中，当容器停止运行时，运行状态数据丢失！ 2 图中文字： 数据保存在主机卷（Host Volume）中，当主机停机时，运行状 态数据将无法访问 3 图中文字： 数据保存在网络文件系统卷中，数据访问不依赖容器的运行与主 机的运行 若您使用： docker run -v hostFolder:/containerfolder 命令运行您的容 器， 容器运行中任何对 /containerfolder 目录下数据的改变， 将永久保存 在主机的 hostfolder 目录下。 使用网络文件系统（nfs）与此类似。 那样您 就可以运行您的容器在任何主机上且其运行状态数据被保存在网络文件系统 上。</p>
+<ol start="3">
+<li>容器化技术在底层的运行原理？</li>
+</ol>
+<p>👉查看答案👈<br>2006 年前后， 人们，包括一些谷歌的雇员， 在 Linux 内核级别上实现了一 种新的名为 命名空间（namespace） 的技术（实际上这种概念在 FreeBSD 系 统上由来已久）。我们知道，操作系统的一个功能就是进程共享公共资源， 诸 如，网络和硬盘空间等。 但是，如果一些公共资源被包装在一个命名空间中， 只允许属于这个命名空间中的进程访问又如何呢？ 也就是说，可以分配一大块 硬盘空间给命名空间 X 供其使用，但是，命名空间 Y 中的进程无法看到或访 问这部分资源。 同样地， 命名空间 Y 中分配的资源，命名空间 X 中的进程 也无法访问。当然， X 中的进程无法与 Y 中的进程进行交互。这提供了某种 对公共资源的虚拟化和隔离的技术。 这就是 Docker 技术的底层工作原理： 每个容器运行在它自己的命名空间中， 但是，确实与其它运行中的容器共用相同的系统内核。 隔离的产生是由于系统 内核清楚地知道命名空间及其中的进程，且这些进程调用系统 API 时，内核保 证进程只能访问属于其命名空间中的资源。</p>
+<ol start="4">
+<li>说说容器化技术与虚拟化技术的优缺点</li>
+</ol>
+<p>👉查看答案👈<br>仅有下面的一些对比：<br>不能像虚拟机那样在容器上运行与主机完全不同的操作系统。 然而， 可以在 容器上运行不同的 Linux 发布版，由于容器共享系统内核的缘故。容器的隔离 性没有虚拟机那么健壮。事实上， 在早期容器化技术实现上，存在某种方法使 客户容器可接管整个主机系统。 也可看到，载入新容器并运行，并不会像虚拟机那样装载一个新的操作系统进 来。 所有的容器共享同一系统内核， 这也就是容器被认为非常轻量化的原因。 同样的原因，不像虚拟机， 你不须为容器预分配大量的内存空间， 因为它不 是运行新的整个的操作系统。 这使得在一个操作系统主机上，可以同时运行成 百上千个容器应用， 在运行完整操作系统的虚拟机上，进行这么多的并行沙箱 实验是不可能的。</p>
+<ol start="5">
+<li>一个字符串类型的值能存储最大容量是多少？</li>
+</ol>
+<p>👉查看答案👈<br>答： 512M</p>
+<ol start="6">
+<li>Jedis 与 Redisson 对比有什么优缺点？</li>
+</ol>
+<p>👉查看答案👈<br>Jedis 是 Redis 的 Java 实现的客户端，其 API 提供了比较全面的 Redis 命 令的支持； Redisson 实现了分布式和可扩展的 Java 数据结构，和 Jedis 相 比，功能较为简单，不支持字符串操作，不支持排序、事务、管道、 分区等 Redis 特性。 Redisson 的宗旨是促进使用者对 Redis 的关注分离，从而让使用者能够将精 力更集中地放在处理业务逻辑上。</p>
+<ol start="7">
+<li>Redis 集群会有写操作丢失吗？ 为什么？</li>
+</ol>
+<p>👉查看答案👈<br>Redis 并不能保证数据的强一致性，这意味这在实际中集群在特定的条件 下可 能会丢失写操作。</p>
+<ol start="8">
+<li>怎么理解 Redis 事务？</li>
+</ol>
+<p>👉查看答案👈<br>（1）事务是一个单独的隔离操作：事务中的所有命令都会序列化、按顺序地执 行。事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。<br>（2）事务是一个原子操作：事务中的命令要么全部被执行，要么全部都不执 行。</p>
+<ol start="9">
+<li>char 和 varchar 的区别？</li>
+</ol>
+<p>👉查看答案👈<br>· char 和 varchar 类型在存储和检索方面有所不同<br>· char 列长度固定为创建表时声明的长度，长度值范围是 1 到 255<br>· 当 char 值被存储时， 它们被用空格填充到特定长度，检索 char 值时需删 除尾随空格。</p>
+<ol start="10">
+<li>MyISAM 存储引擎的特点？</li>
+</ol>
+<p>👉查看答案👈<br>在 5.1 版本之前， MyISAM 是 MySQL 的默认存储引擎， MylSAM 并发性比较差，使用的场景比较少主要特点是:<br>· 不支持事务操作， ACID 的特性也就不存在了，这一设计是为了性能和效率 考虑的<br>· 不支持外键操作，如果强行增加外键， MySQL 不会报错，只不过外键不起作 用。<br>· MyISAM 默认的锁粒度是表级锁，所以并发性能比较差，加锁比较快，锁冲 突比较少，不太容易发生死锁的情况。<br>· MyISAM 会在磁盘上存储三个文件，文件名和表名相同，扩展名分别是 frm(存储表定义)、MYD(MYData，存储数据)、MYI(MyIndex，存储索引)。 这里需要特别注意的是 MyISAM 只缓存 索引文件，并不缓存数据文件。<br>· MyISAM 支持的索引类型有全局索引(Full-Text)、B-Tree 索引、 R-Tree 索 引 Full-Text 索引:它的出现是为了解决针对文本的模糊查询效率较低的 问题。 B-Tree 索引:所有的索引节点都按照平衡树的数据结构来存储，所有的 索引数据节点都在叶节点<br>R-Tree 索引:它的存储方式和 B-Tree 索引有一些区别，主要设计用于 存储空间和多维数据的字段做索引目前的 MySQL 版本仅支持 geometry 类型的字段作索引，相对于 BTREE,RTREE 的优势在于范围查找。<br>· 数据库所在主机如果宕机， MyISAM 的数据文件容易损坏，而且难以恢复。<br>· 增删改查性能方面:SELECT 性能较高，适用于查询较多的情况</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">田章</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://iiifox.github.io/leetbook/past-exam-paper/">https://iiifox.github.io/leetbook/past-exam-paper/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">田章</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/leetbook/past-exam-paper/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="大厂真题演练 - 后端岗">
+                        
+                        <span class="card-title">大厂真题演练 - 后端岗</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本题集是由力扣收集整理的各大厂后端岗位面试中的计算机基础考核类真题（八股文类）。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/LeetBook%E5%85%AB%E8%82%A1%E6%96%87/" class="post-category">
+                                    LeetBook八股文
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/algo/binary-tree-traversal/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="二叉树的四种遍历">
+                        
+                        <span class="card-title">二叉树的四种遍历</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/" class="post-category">
+                                    算法模板
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4, h5, h6'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022</span>
+            
+            <a href="/about" target="_blank">田章</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">468.1k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2022";
+                        var startMonth = "7";
+                        var startDate = "11";
+                        var startHour = "17";
+                        var startMinute = "20";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/iiifox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:tianzhang.chn@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3111628591" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3111628591" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
+    
+
+    
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
