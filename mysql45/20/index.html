@@ -5,10 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="20 | 幻读是什么，幻读有什么问题？, iiifox">
-    <meta name="description" content="20 | 幻读是什么，幻读有什么问题？2018-12-28 林晓斌
-
-在上一篇文章最后，我给你留了一个关于加锁规则的问题。今天，我们就从这个问题说起吧。
-为了便于说明问题，这一篇文章，我们就先使用一个小一点儿的表。建表和初始化语句如下（为了">
+    <meta name="description" content="20 | 幻读是什么，幻读有什么问题？在上一篇文章最后，我给你留了一个关于加锁规则的问题。今天，我们就从这个问题说起吧。
+为了便于说明问题，这一篇文章，我们就先使用一个小一点儿的表。建表和初始化语句如下（为了便于本期的例子说明，我把上篇文章">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -584,7 +582,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/../../images/mysql45/20/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -703,9 +701,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AE%9E%E8%B7%B5%E7%AF%87/">
+                                <span class="chip bg-color">实践篇</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -733,7 +735,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-18
+                    2022-10-23
                 </div>
                 
 
@@ -765,9 +767,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="20-幻读是什么，幻读有什么问题？"><a href="#20-幻读是什么，幻读有什么问题？" class="headerlink" title="20 | 幻读是什么，幻读有什么问题？"></a>20 | 幻读是什么，幻读有什么问题？</h1><p><font color="gray">2018-12-28 林晓斌</font></p>
-<p><img src="../../images/mysql45/20/20.jpg"></p>
-<p>在上一篇文章最后，我给你留了一个关于加锁规则的问题。今天，我们就从这个问题说起吧。</p>
+                <h1 id="20-幻读是什么，幻读有什么问题？"><a href="#20-幻读是什么，幻读有什么问题？" class="headerlink" title="20 | 幻读是什么，幻读有什么问题？"></a>20 | 幻读是什么，幻读有什么问题？</h1><p>在上一篇文章最后，我给你留了一个关于加锁规则的问题。今天，我们就从这个问题说起吧。</p>
 <p>为了便于说明问题，这一篇文章，我们就先使用一个小一点儿的表。建表和初始化语句如下（为了便于本期的例子说明，我把上篇文章中用到的表结构做了点儿修改）：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>t<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
   <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
@@ -940,7 +940,6 @@
 <p>你可以把你的碰到的场景和分析写在留言区里，我会在下一篇文章选取有趣的评论跟大家一起分享和分析。感谢你的收听，也欢迎你把这篇文章分享给更多的朋友一起阅读。</p>
 <h1 id="上期问题时间"><a href="#上期问题时间" class="headerlink" title="上期问题时间"></a>上期问题时间</h1><p>我们在本文的开头回答了上期问题。有同学的回答中还说明了读提交隔离级别下，在语句执行完成后，是只有行锁的。而且语句执行完成后，InnoDB 就会把不满足条件的行行锁去掉。</p>
 <p>当然了，c=5 这一行的行锁，还是会等到 commit 的时候才释放的。</p>
-<p><img src="../../images/mysql45/%E4%B8%81%E5%A5%87.jpg"></p>
 
                 
             </div>
@@ -1004,7 +1003,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E5%AE%9E%E8%B7%B5%E7%AF%87/">
+                                    <span class="chip bg-color">实践篇</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1183,8 +1186,7 @@
                 <a href="/mysql45/21/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="21 | 为什么我只改一行的语句，锁这么多？">
+                        <img src="/../../images/mysql45/20/20.jpg" class="responsive-img" alt="21 | 为什么我只改一行的语句，锁这么多？">
                         
                         <span class="card-title">21 | 为什么我只改一行的语句，锁这么多？</span>
                     </div>
@@ -1210,6 +1212,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AE%9E%E8%B7%B5%E7%AF%87/">
+                        <span class="chip bg-color">实践篇</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1250,6 +1260,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AE%9E%E8%B7%B5%E7%AF%87/">
+                        <span class="chip bg-color">实践篇</span>
+                    </a>
+                    
                 </div>
                 
             </div>

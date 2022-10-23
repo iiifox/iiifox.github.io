@@ -5,9 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="21 | 为什么我只改一行的语句，锁这么多？, iiifox">
-    <meta name="description" content="21 | 为什么我只改一行的语句，锁这么多？2018-12-31 林晓斌
-
-在上一篇文章中，我和你介绍了间隙锁和 next-key lock 的概念，但是并没有说明加锁规则。间隙锁的概念理解起来确实有点儿难，尤其在配合上行锁以后，很容易在判">
+    <meta name="description" content="21 | 为什么我只改一行的语句，锁这么多？在上一篇文章中，我和你介绍了间隙锁和 next-key lock 的概念，但是并没有说明加锁规则。间隙锁的概念理解起来确实有点儿难，尤其在配合上行锁以后，很容易在判断是否会出现锁等待的问题上犯错。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -583,7 +581,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/../../images/mysql45/20/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -702,9 +700,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AE%9E%E8%B7%B5%E7%AF%87/">
+                                <span class="chip bg-color">实践篇</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -732,14 +734,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-18
+                    2022-10-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.6k
+                    4.5k
                 </div>
                 
 
@@ -764,9 +766,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="21-为什么我只改一行的语句，锁这么多？"><a href="#21-为什么我只改一行的语句，锁这么多？" class="headerlink" title="21 | 为什么我只改一行的语句，锁这么多？"></a>21 | 为什么我只改一行的语句，锁这么多？</h1><p><font color="gray">2018-12-31 林晓斌</font></p>
-<p><img src="../../images/mysql45/21/21.jpg"></p>
-<p>在上一篇文章中，我和你介绍了间隙锁和 next-key lock 的概念，但是并没有说明加锁规则。间隙锁的概念理解起来确实有点儿难，尤其在配合上行锁以后，很容易在判断是否会出现锁等待的问题上犯错。</p>
+                <h1 id="21-为什么我只改一行的语句，锁这么多？"><a href="#21-为什么我只改一行的语句，锁这么多？" class="headerlink" title="21 | 为什么我只改一行的语句，锁这么多？"></a>21 | 为什么我只改一行的语句，锁这么多？</h1><p>在上一篇文章中，我和你介绍了间隙锁和 next-key lock 的概念，但是并没有说明加锁规则。间隙锁的概念理解起来确实有点儿难，尤其在配合上行锁以后，很容易在判断是否会出现锁等待的问题上犯错。</p>
 <p>所以今天，我们就先从这个加锁规则开始吧。</p>
 <p>首先说明一下，这些加锁规则我没在别的地方看到过有类似的总结，以前我自己判断的时候都是想着代码里面的实现来脑补的。这次为了总结成不看代码的同学也能理解的规则，是我又重新刷了代码临时总结出来的。所以，<strong>这个规则有以下两条前提说明：</strong></p>
 <ol>
@@ -915,7 +915,6 @@
 
 <p>以后，session B 的 update 和 session C 的 insert 都会被堵住。这是不是跟文章的结论矛盾？</p>
 <p>其实不是的，这个例子用的是反证假设，就是假设不堵住，会出现问题；然后，推导出 session A 需要锁整个表所有的行和所有间隙。</p>
-<p><img src="../../images/mysql45/%E4%B8%81%E5%A5%87.jpg"></p>
 
                 
             </div>
@@ -979,7 +978,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E5%AE%9E%E8%B7%B5%E7%AF%87/">
+                                    <span class="chip bg-color">实践篇</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1199,8 +1202,7 @@
                 <a href="/mysql45/20/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="20 | 幻读是什么，幻读有什么问题？">
+                        <img src="/../../images/mysql45/20/20.jpg" class="responsive-img" alt="20 | 幻读是什么，幻读有什么问题？">
                         
                         <span class="card-title">20 | 幻读是什么，幻读有什么问题？</span>
                     </div>
@@ -1226,6 +1228,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AE%9E%E8%B7%B5%E7%AF%87/">
+                        <span class="chip bg-color">实践篇</span>
+                    </a>
+                    
                 </div>
                 
             </div>
