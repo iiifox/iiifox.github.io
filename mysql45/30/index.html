@@ -899,7 +899,7 @@
 <p>说到这里，你可以联合起来再思考一下这两个现象之间的关联：</p>
 <ol>
 <li>session A 执行完 select 语句后，什么都没做，但它加锁的范围突然“变大”了；</li>
-<li>第 21 篇文章的课后思考题，当我们执行 select * from t where c&gt;=15 and c&lt;=20 order by c desc lock in share mode; 向左扫描到 c=10 的时候，要把 (5, 10] 锁起来。</li>
+<li>第 21 篇文章的课后思考题，当我们执行 <code>select * from t where c&gt;=15 and c&lt;=20 order by c desc lock in share mode;</code> 向左扫描到 c=10 的时候，要把 (5, 10] 锁起来。</li>
 </ol>
 <p>也就是说，所谓“间隙”，其实根本就是由“这个间隙右边的那个记录”定义的。</p>
 <h1 id="update-的例子"><a href="#update-的例子" class="headerlink" title="update 的例子"></a>update 的例子</h1><p>看过了 insert 和 delete 的加锁例子，我们再来看一个 update 语句的案例。在留言区中 @信信 同学做了这个试验：</p>
