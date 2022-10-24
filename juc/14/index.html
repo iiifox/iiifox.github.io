@@ -734,7 +734,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-22
+                    2022-10-24
                 </div>
                 
 
@@ -826,7 +826,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>所以说，后续线程 T2 能够看到 value 的正确结果。如果你觉得理解起来还有点困难，建议你重温一下前面我们讲过的<a href="../2">《02 | Java 内存模型：看 Java 如何解决可见性和有序性问题》</a>里面的相关内容。</p>
+<p>所以说，后续线程 T2 能够看到 value 的正确结果。如果你觉得理解起来还有点困难，建议你重温一下前面我们讲过的<a href="../2/#Happens-Before-%E8%A7%84%E5%88%99">《02 | Java 内存模型：看 Java 如何解决可见性和有序性问题》</a>里面的相关内容。</p>
 <h2 id="什么是可重入锁"><a href="#什么是可重入锁" class="headerlink" title="什么是可重入锁"></a>什么是可重入锁</h2><p>如果你细心观察，会发现我们创建的锁的具体类名是 ReentrantLock，这个翻译过来叫<strong>可重入锁</strong>，这个概念前面我们一直没有介绍过。<strong>所谓可重入锁，顾名思义，指的是线程可以重复获取同一把锁</strong>。例如下面代码中，当线程 T1 执行到 ① 处时，已经获取到了锁 rtl ，当在 ① 处调用 get() 方法时，会在 ② 再次对锁 rtl 执行加锁操作。此时，如果锁 rtl 是可重入的，那么线程 T1 可以再次加锁成功；如果锁 rtl 是不可重入的，那么线程 T1 此时会被阻塞。</p>
 <p>除了可重入锁，可能你还听说过可重入函数，可重入函数怎么理解呢？指的是线程可以重复调用？显然不是，所谓<strong>可重入函数，指的是多个线程可以同时调用该函数</strong>，每个线程都能得到正确结果；同时在一个线程内支持线程切换，无论被切换多少次，结果都是正确的。多线程可以同时执行，还支持线程切换，这意味着什么呢？线程安全啊。所以，可重入函数是线程安全的。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">X</span> <span class="token punctuation">{</span>
@@ -835,7 +835,7 @@
 
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">// 获取锁</span>
-        rtl<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         ②
+        rtl<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           ②
         <span class="token keyword">try</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span> value<span class="token punctuation">;</span>
         <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
@@ -1150,12 +1150,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/redis/0/">
+                <a href="/juc/15/">
                     <div class="card-image">
                         
-                        <img src="/../../images/redis/0/0.jpg" class="responsive-img" alt="开篇词 | 这样学Redis，才能技高一筹">
+                        <img src="/../../images/juc/15/15.jpg" class="responsive-img" alt="15 | Lock和Condition（下）：Dubbo如何用管程实现异步转同步？">
                         
-                        <span class="card-title">开篇词 | 这样学Redis，才能技高一筹</span>
+                        <span class="card-title">15 | Lock和Condition（下）：Dubbo如何用管程实现异步转同步？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1166,14 +1166,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-03
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-04-02
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Redis%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%AE%9E%E6%88%98/" class="post-category">
-                                    Redis核心技术与实战
+                            <a href="/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" class="post-category">
+                                    Java并发编程实战
                                 </a>
                             
                             
@@ -1183,8 +1183,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%BC%80%E7%AF%87%E8%AF%8D/">
-                        <span class="chip bg-color">开篇词</span>
+                    <a href="/tags/%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB/">
+                        <span class="chip bg-color">第二部分：并发工具类</span>
                     </a>
                     
                 </div>
@@ -1375,7 +1375,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">470.6k</span>
+                        class="white-color">473.2k</span>
             
             
             
