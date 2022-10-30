@@ -735,7 +735,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-13
+                    2022-10-30
                 </div>
                 
 
@@ -915,7 +915,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
 <li>最多调用 <code>10<sup>4</sup></code> 次 <code>add</code> 和 <code>find</code></li>
 </ul>
 <h2 id="参考代码：双指针-二分查找优化"><a href="#参考代码：双指针-二分查找优化" class="headerlink" title="参考代码：双指针 + 二分查找优化"></a>参考代码：双指针 + 二分查找优化</h2><blockquote>
-<p>时间复杂度：<code>add:O(1) find:O(nlogn)</code></p>
+<p>时间复杂度：<font color="orange">add:O(1)&nbsp;&nbsp;&nbsp;&nbsp;find:O(nlogn)</font></p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">TwoSum</span> <span class="token punctuation">{</span>
@@ -953,7 +953,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><blockquote>
-<p>时间复杂度：<code>add:O(1) find:O(n)</code></p>
+<p>时间复杂度：<font color="orange">add:O(1)&nbsp;&nbsp;&nbsp;&nbsp;find:O(n)</font></p>
 <p>空间复杂度：$O(n)$</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">TwoSum</span> <span class="token punctuation">{</span>
@@ -1075,7 +1075,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
     <span class="token punctuation">}</span>
 
     <span class="token comment">/**
-     * 查找二叉搜索树 root 中节点 node 的中序后继节点。
+     * 查找二叉搜索树 root 中节点 p 的中序后继节点。
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">TreeNode</span> <span class="token function">inorderSuccessor</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">,</span> <span class="token class-name">TreeNode</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token class-name">TreeNode</span> successor <span class="token operator">=</span> p<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
@@ -1100,7 +1100,7 @@ twoSum.find(7);  // 没有两个整数加起来等于 7 ，返回 false</pre>
     <span class="token punctuation">}</span>
 
     <span class="token comment">/**
-     * 查找二叉搜索树 root 中节点 node 的中序前驱节点。
+     * 查找二叉搜索树 root 中节点 p 的中序前驱节点。
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">TreeNode</span> <span class="token function">inorderPrecursor</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">,</span> <span class="token class-name">TreeNode</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token class-name">TreeNode</span> precursor <span class="token operator">=</span> p<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
